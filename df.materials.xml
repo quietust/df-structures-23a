@@ -227,6 +227,7 @@
         <stl-string name='id'/>
         <code-helper name='describe'>$.id</code-helper>
         <df-flagarray name='flags' index-enum='matgloss_wood_flags'/>
+        <uint8_t name='tile'/>
         <stl-string name='name'/>
         <stl-string name='adj'/>
         <stl-vector name='prefstring'>
