@@ -406,7 +406,7 @@
             <int16_t ref-target='matgloss_stone'/>
         </static-array>
 
-        <static-array count='53'/>
+        <static-array count='53'>
             <static-array count='53' type-name='int16_t'/>
         </static-array>
 
