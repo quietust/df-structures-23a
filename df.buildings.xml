@@ -47,8 +47,8 @@
         <stl-vector name="permitted_workers">
             <int32_t ref-target='unit'/>
         </stl-vector>
-        <int32_t name="min_level"/>
-        <int32_t name="max_level" init-value='3000'/>
+        <int16_t name="min_level"/>
+        <int16_t name="max_level" init-value='3000'/>
     </struct-type>
 
     <struct-type type-name='building_drawBuffer'>

@@ -54,8 +54,8 @@
             <pointer type-name='caravan_state'/>
         </stl-vector>
         <int8_t/>
-        <compound type-name='coord_path' name='roadInfo1'/>
-        <compound type-name='coord_path' name='roadInfo2'/>
+        <compound type-name='coord_path' name='dwarfArrivalTiles'/>
+        <compound type-name='coord_path' name='roadInfo'/>
         <int16_t name='progress_population'/>
         <int16_t name='progress_trade'/>
         <int16_t name='progress_production'/>
