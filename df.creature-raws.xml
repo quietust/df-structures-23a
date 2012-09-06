@@ -283,7 +283,8 @@
         </static-array>
         <uint16_t name='homeotherm'/>
 
-        <int32_t/>
+        <uint16_t name='min_temp'/>
+        <uint16_t name='max_temp'/>
 
         <static-array type-name='int16_t' name='color' count='3'/>
         <static-array type-name='int16_t' name='population_number' count='2'/>
