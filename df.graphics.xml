@@ -1,8 +1,8 @@
 <data-definition>
     <struct-type type-name='graphic'>
-        <stl-string/>
-        <stl-string/>
-        <stl-string/>
+        <stl-vector/>
+        <stl-vector/>
+        <stl-vector/>
         <compound name='drawInfo'>
             <static-array name='drawarray' count='25'><static-array type-name='int8_t' count='80'/></static-array>
             <stl-vector type-name='pointer'/>
