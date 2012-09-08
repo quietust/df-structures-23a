@@ -465,7 +465,7 @@
             <item-attr name='caption' value='Extract Adamantine Strands'/>
             <item-attr name='type' value='Manufacture'/>
             <item-attr name='item' value='THREAD'/>
-            <item-attr name='skill' value='EXTRACT_STRAND'/>
+            <item-attr name='skill' value='EXTRACT_ADAMANTINE'/>
         </enum-item>
         <enum-item name='TanAHide'>
             <item-attr name='caption' value='Tan A Hide'/>

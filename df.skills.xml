@@ -96,7 +96,7 @@
             <item-attr name='can_assign_labor' value='false'/>
         </enum-item>
         <enum-item name='EXECUTIONER'>
-            <item-attr name='caption' value='hammerer'/>
+            <item-attr name='caption' value='Hammerer'/>
             <item-attr name='can_assign_labor' value='false'/>
         </enum-item>
         <enum-item name='SHERIFF'>
