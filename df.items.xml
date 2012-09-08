@@ -96,7 +96,7 @@
 
             -- 10
 
-            <vmethod/>
+            <vmethod name='clearLastTempUpdateTS'/>
             <vmethod ret-type='uint16_t' name='getSpecHeat'/>
             <vmethod ret-type='uint16_t' name='getIgnitePoint'/>
             <vmethod ret-type='uint16_t' name='getHeatdamPoint'/>
@@ -116,7 +116,7 @@
             <vmethod name='extinguish'/>
             <vmethod ret-type='int8_t' name='getGloveHandedness'/>
             <vmethod name='setGloveHandedness'> <int8_t/> </vmethod>
-            <vmethod name='setRandSubtype'> <pointer type-name='historical_entity'/> </vmethod>
+            <vmethod name='pickRandomSubtype'> <pointer type-name='historical_entity'/> </vmethod>
             <vmethod/>
 
             <vmethod ret-type='int16_t' name='getWear'/>
@@ -199,8 +199,8 @@
             <vmethod ret-type='bool' name='needTwoHandedWield'> <int32_t name='size'/> </vmethod>
             <vmethod name='splitStack'>
                 <ret-type><pointer type-name='item'/></ret-type>
-                <int32_t/>
-                <int32_t/>
+                <int32_t name='stack_size'/>
+                <bool name='preserve_containment'/>
             </vmethod>
             <vmethod ret-type='bool' name='isTameableVermin'/>
 
@@ -215,7 +215,10 @@
             -- 80
 
             <vmethod ret-type='bool' name='isAnimalProduct'/>
-            <vmethod/>
+            <vmethod name='getStorageInfo'>
+                <pointer type-name='int32_t' name='item_type'/>
+                <pointer type-name='int32_t'/>
+            </vmethod>
             <vmethod ret-type='bool' name='addWear'>
                 <int32_t name='delta'/> <bool name='simple'/> <bool name='lose_masterwork'/>
             </vmethod>
@@ -278,7 +281,7 @@
             <vmethod name='setQuality'> <int16_t name='quality'/> </vmethod>
             <vmethod ret-type='int16_t' name='getQuality'/>
             <vmethod ret-type='int16_t' name='getOverallQuality'/>
-            <vmethod ret-type='int32_t' name='getProjectileSize'/>
+            <vmethod ret-type='int32_t' name='getDamage'/>
             <vmethod ret-type='bool' name='isImprovable'>
                 <pointer type-name='job'/>
                 <int32_t/> <int32_t/>
@@ -288,12 +291,17 @@
             <vmethod ret-type='bool' name='isNotDyed'/>
             <vmethod ret-type='bool' name='isDyed'/>
             <vmethod ret-type='bool' name='canSewImage'/>
-            <vmethod/>
+            <vmethod ret-type='bool' name='canAddSewnImage'/>
 
             -- 120
 
             <vmethod ret-type='bool' name='isProcessableVialAtStill'/>
-            <vmethod/>
+            <vmethod ret-type='bool' name='isSimilarToItem'>
+                <enum base-type='int16_t' name='item_type' type-name='item_type'/>
+                <int16_t name='item_subtype'/>
+                <enum base-type='int16_t' name='material' type-name='material_type'/>
+                <int16_t name='matgloss'/>
+            </vmethod>
             <vmethod ret-type='int32_t' name='getBlockChance'/>
             <vmethod/>
             <vmethod ret-type='int16_t' name='getMakerRace'/>
@@ -307,7 +315,7 @@
 
             -- 130
 
-            <vmethod name='getCritBoost'/>
+            <vmethod ret-type='int32_t' name='getCritBoost'/>
             <vmethod name='coverWithContaminant' comment='also stops fire; used for rain'>
                 <enum base-type='int32_t' name='material' type-name='material_type'/>
             </vmethod>
@@ -345,7 +353,7 @@
 
             -- 150
 
-            <vmethod ret-type='bool' name='isAssignedToStockpile'/>
+            <vmethod ret-type='bool' name='isAssignedToAnyStockpile'/>
             <vmethod ret-type='bool' name='isAssignedToThisStockpile'> <int32_t/> </vmethod>
             <vmethod name='removeFromStockpile'/>
             <vmethod name='clearStockpileAssignment'/>
