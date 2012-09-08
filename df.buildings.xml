@@ -211,8 +211,8 @@
 
             <vmethod ret-type='bool' name='canUseSpouseRoom'/>
             <vmethod ret-type='bool' name='canMakeRoom' comment='false if already, or cannot be'/>
-            <vmethod ret-type='bool' name='isJustice'/>
             <vmethod name='setContainedItems'/>
+            <vmethod ret-type='bool' name='isJustice'/>
             <vmethod name='detachUnit'> <pointer type-name='unit'/> </vmethod>
 
 
@@ -223,9 +223,8 @@
                 <pointer comment='file_compressorst'/>
                 <int32_t name='loadversion'/>
             </vmethod>
-            <vmethod ret-type='bool' name='isImpassableAtCreation'
-                     comment='the true set looks like things where the unit should stand aside'/>
-            <vmethod name='categorize' comment='Add to world.buildings.other.*'> <bool/> </vmethod>
+            <vmethod ret-type='bool' name='isBuiltFromSide'/>
+            <vmethod name='categorize' comment='Add to world.buildings.other.*'> <bool name='on_map'/> </vmethod>
             <vmethod name='uncategorize' comment='Remove from world.buildings.other.*'/>
 
             <vmethod ret-type='int32_t' name='getBaseValue'/>
@@ -274,7 +273,7 @@
         <pointer name='design' type-name='building_design'/>
 
         <virtual-methods>
-            <vmethod ret-type='bool' comment='default true'/>
+            <vmethod ret-type='bool' name='isDestroyedByItemRemoval'/>
             <vmethod ret-type='bool' comment='default false'/>
             <vmethod ret-type='bool' comment='default false'/>
         </virtual-methods>
