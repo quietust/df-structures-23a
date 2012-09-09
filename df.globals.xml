@@ -35,8 +35,6 @@
         <enum-item name='ADVENTURE_MAIN'/>
         <enum-item name='VIEW_LEGENDS'/>
         <enum-item name='DWARF_RECLAIM'/>
-        <enum-item name='DWARF_ARENA'/>
-        <enum-item name='ADVENTURE_ARENA'/>
         <enum-item name='num'/>
         <enum-item name='NONE'/>
     </enum-type>
