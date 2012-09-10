@@ -63,7 +63,7 @@
         <enum-item name='DEMON_ENCASED'/>
         <enum-item name='DEMON_RELEASED'/>
         <enum-item name='RECLAIM_SITE'/>
-        <enum-item name='CONTACT_LIST'/>
+        <enum-item name='CONTACT_LOST'/>
         <enum-item name='HF_DESTROYED_SITE'/>
         <enum-item name='SITE_DIED'/>
         <enum-item name='SITE_ABANDONED'/>

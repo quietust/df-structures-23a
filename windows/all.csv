@@ -15910,7 +15910,7 @@
 "history_event_type","1","","","enum-item","DEMON_ENCASED","22",""
 "history_event_type","1","","","enum-item","DEMON_RELEASED","23",""
 "history_event_type","1","","","enum-item","RECLAIM_SITE","24",""
-"history_event_type","1","","","enum-item","CONTACT_LIST","25",""
+"history_event_type","1","","","enum-item","CONTACT_LOST","25",""
 "history_event_type","1","","","enum-item","HF_DESTROYED_SITE","26",""
 "history_event_type","1","","","enum-item","SITE_DIED","27",""
 "history_event_type","1","","","enum-item","SITE_ABANDONED","28",""
