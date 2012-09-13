@@ -116,7 +116,7 @@
             <vmethod name='extinguish'/>
             <vmethod ret-type='int8_t' name='getGloveHandedness'/>
             <vmethod name='setGloveHandedness'> <int8_t/> </vmethod>
-            <vmethod name='pickRandomSubtype'> <pointer type-name='historical_entity'/> </vmethod>
+            <vmethod name='pickRandomSubtype'> <int32_t name='entity_id'/> </vmethod>
             <vmethod/>
 
             <vmethod ret-type='int16_t' name='getWear'/>
@@ -179,7 +179,7 @@
             -- 60
 
             <vmethod ret-type='bool' name='moveToGround'>
-                <int16_t/> <int16_t/> <int16_t/>
+                <int32_t name='x'/> <int32_t name='y'/> <int32_t name='z'/>
             </vmethod>
             <vmethod ret-type='bool'/>
             <vmethod ret-type='bool' name='isAnimal' comment='stored in Animal stockpiles'/>
