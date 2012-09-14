@@ -672,10 +672,6 @@
         <int32_t/>
         <int32_t/>
     </class-type>
-
-    <class-type type-name='viewscreen_st' inherits-from='viewscreen'>
-    </class-type>
-
 </data-definition>
 
 <!--
