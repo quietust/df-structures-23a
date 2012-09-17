@@ -4,7 +4,7 @@
                   comment='Can the dwarf move or are they waiting for their movement timer'/>
         <flag-bit name='dead'
                   comment='Dead (might also be set for incoming/leaving critters that are alive)'/>
-        <flag-bit name='has_mood' comment='Currently in mood'/>
+        <flag-bit name='in_mood' comment='Currently in mood'/>
         <flag-bit name='had_mood' comment='Had a mood already'/>
 
         <flag-bit name='marauder' comment='wide class of invader/inside creature attackers'/>
@@ -21,7 +21,7 @@
         <flag-bit name='zombie'/>
         <flag-bit name='skeleton'/>
         <flag-bit name='can_swap' comment='Can swap tiles during movement (prevents multiple swaps)'/>
-        <flag-bit name='on_ground' comment='The creature is laying on the floor, can be conscious'/>
+        <flag-bit name='prone' comment='The creature is laying on the floor, can be conscious'/>
 
         <flag-bit name='projectile' comment='Launched into the air? Funny.'/>
         <flag-bit name='active_invader' comment='Active invader (for organized ones)'/>
@@ -29,7 +29,7 @@
         <flag-bit name='invader_origin' comment='Invader origin (could be inactive and fleeing)'/>
 
         <flag-bit name='coward' comment='Will flee if invasion turns around'/>
-        <flag-bit name='hidden_ambusher' comment='Active marauder/invader moving inward?'/>
+        <flag-bit name='hidden_undetectable' comment='Active marauder/invader moving inward?'/>
         <flag-bit name='invades' comment='Marauder resident/invader moving in all the way'/>
         <flag-bit name='check_flows' comment='Check against flows next time you get a chance'/>
 
@@ -48,7 +48,7 @@
         <flag-bit name='swimming'/>
         <flag-bit name='sparring'/>
         <flag-bit name='no_notify' comment='Do not notify about level gains (for embark etc)'/>
-        <flag-bit name='unused'/>
+        <flag-bit name='has_body_info_copy' comment='Has its own allocated copy of body_info, rather than a direct pointer to the creature raws'/>
 
         <flag-bit name='calculated_nerves'/>
         <flag-bit name='calculated_bodyparts'/>
