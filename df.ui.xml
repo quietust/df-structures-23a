@@ -290,7 +290,7 @@
         <enum-item name='MagmaAttack'/>
         <enum-item name='TooDeep'/>
         <enum-item name='Megabeast'/>
-        <enum-item name='Wildlife'/>
+        <enum-item name='CuriousBeasts'/>
     </enum-type>
 
 
