@@ -211,7 +211,7 @@
         </stl-vector>
         <compound name='job'>
             <int32_t name='account'/>
-            <int32_t/>
+            <int32_t name='satisfaction'/>
             <pointer type-name='unit' name='hunt_target'/>
             <pointer type-name='building' name='destroy_target'/>
             <compound name='last_attack_dir' type-name='coord2d'/>
@@ -235,6 +235,7 @@
             <int32_t/>
             <int32_t name='mood_timeout' comment='insanity upon reaching zero'/>
         </compound>
+
         <compound name='body'>
             <stl-vector name='wounds' type-name='int16_t'/>
             <stl-vector name='flags' type-name='int32_t' comment='1=burning'/>
@@ -365,135 +366,6 @@
         <int32_t name='enemy_status_slot'/>
         <int32_t name='last_temp_update'/>
 
-<!--
-
-        <compound name='unknown1'>
-            <uint32_t name='unk_9c'/>
-            <int16_t name='unk_a0'/>
-            <padding size='2'/>
-            <int16_t name='unk_a4a'/>
-            <int16_t name='unk_a4b'/>
-        </compound>
-
-        <compound name='unknown2'>
-            defined for visiting diplomats
-            <int8_t name='unk_ec'/>
-            <int32_t name='unk_f0' ref-target='historical_entity'/>
-            <int16_t name='unk_f4'/>
-            <padding size='2'/>
-        </compound>
-
-        <int32_t name='id'/>
-
-        <int16_t name='unk_100'/>
-
-        <int32_t name='population_id' ref-target='entity_population'/>
-        <int32_t name='invasion_id' ref-target='invasion_info'/>
-
-        <compound name='unknown3'>
-            <compound name='unk_path' type-name='coord_path'/>
-
-            <uint32_t name='unk_144'/>
-        </compound>
-
-        <compound name='unknown4'>
-            <compound name='population' type-name='world_population_ref'/>
-
-            <uint32_t name='animal_leave_countdown'
-                      comment='once 0, it heads for the edge and leaves'/>
-            <uint32_t name='unk_20c'/>
-        </compound>
-
-        <enum base-type='int16_t' name='mood' type-name='mood_type'/>
-        <int16_t name='unk_18e'/>
-
-        <compound name='job'>
-            <uint32_t name='unk_2d8'/>
-            <uint32_t name='unk_2dc'/>
-            <pointer type-name='unit' name='hunt_target'/>
-            <pointer type-name='building' name='destroy_target'/>
-            <int16_t name='unk_2e8'/> // fight related
-            <int16_t name='unk_2ea'/> // fight related
-            <uint16_t name='unk_2ec'/>
-            <uint16_t name='unk_2ee'/>
-            <uint16_t name='unk_2f0_cntr'/> // increments every tick
-            <uint16_t name='unk_2f8'/>
-            <uint32_t name='unk_2fc'/>
-            <uint32_t name='unk_300'/>
-            <uint32_t name='unk_304'/>
-        </compound>
-
-        <compound name='body'>
-            <uint32_t name='unk_398'/>
-
-            <static-array name='unk_39c' type-name='int32_t' count='10'/>
-
-            <uint16_t name='unk_3c8'/>
-
-            <stl-vector type-name='uint32_t' name='unk_4a8'/>
-            <stl-vector type-name='uint32_t' name='unk_4b8'/>
-            <uint32_t name='unk_4c8'/>
-        </compound>
-
-        <compound name='status'>
-            <uint32_t name='unk_5b4'/> // 0x3e8 (1000)
-            <uint32_t name='unk_5b8'/> // 0x3e8 (1000)
-
-            <stl-vector name='attacker_ids'>
-                <int32_t ref-target='unit'/>
-            </stl-vector>
-            <stl-vector name='attacker_unk' type-name='int16_t'/>
-
-            <uint8_t name='unk_5dc'/>
-
-            <stl-vector name='unk_6d0'/>
-            <stl-vector name='unk_6e0' type-name='int32_t'/> // item ids?
-
-            <stl-vector name='unk_700'/>
-
-            <uint16_t name='unk_714'/>
-
-            <stl-vector name='unk_718'/>
-            <stl-vector name='unk_728'/>
-
-            <stl-vector name='acquaintances'>
-                <pointer>
-                    <int32_t name='unit_id' ref-target='unit'/>
-                    <int32_t name='acquintance_level' comment='>= 30 -> long-term'/>
-                    <int32_t name='timer' comment='+1 per 10 frames; limit at 1 year'/>
-                    <int32_t name='is_friend'/>
-                </pointer>
-            </stl-vector>
-
-            <stl-vector name='unk_748'/>
-
-            <uint16_t name='unk_758'/>
-
-        </compound>
-
-        <stl-vector name='used_items'>
-            <comment>Contains worn clothes, armor, weapons, arrows fired by archers</comment>
-            <pointer>
-                <int32_t name="id" ref-target='item'/>
-                <int32_t name="unk_4"/>
-                <int32_t name="unk_8"/>
-                <int32_t name="unk_c"/>
-            </pointer>
-        </stl-vector>
-
-        <stl-vector name='adventurer_knows' comment='if not, no names'>
-            <int32_t ref-target='unit'/>
-        </stl-vector>
-
-        <stl-vector name='unk5'>
-            <pointer>
-                <int16_t name='unk1'/>
-                <int16_t name='unk2'/>
-            </pointer>
-        </stl-vector>
-
-        <stl-vector name='unk6'/>
--->
     </struct-type>
 
     <struct-type type-name='unit_inventory_item'>
