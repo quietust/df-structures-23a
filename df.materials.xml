@@ -252,8 +252,11 @@
     </struct-type>
 
     <struct-type type-name='contaminant'>
-        <int32_t name='state'/> 0/1 = solid/liquid?
-        <enum base-type='int32_t' name='material' type-name='material_type'/>
+        <int32_t name='type' comment='0 = creature extract, 1 = liquid'/>
+        <compound is-union='true'>
+            <int16_t name='creature_id' ref-target='creature_raw'/>
+            <enum base-type='int32_t' name='material' type-name='material_type'/>
+        </compound>
         <int32_t name='amount'/>
     </struct-type>
 </data-definition>
