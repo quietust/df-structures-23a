@@ -27,10 +27,12 @@
     </class-type>
 
     <struct-type type-name='interfacest'>
-        <stl-vector name='reports'>
-            <pointer type-name='report'/>
-        </stl-vector>
-        <int32_t name='report_timer'/>
+        <compound name='announcements'>
+            <stl-vector name='reports'>
+                <pointer type-name='report'/>
+            </stl-vector>
+            <int32_t name='report_timer'/>
+        </compound>
         <int8_t/>
         <int8_t/>
         <int8_t/>
@@ -58,21 +60,9 @@
         <int32_t name='supermovie_pos'/>
         <int32_t name='supermovie_delayrate'/>
         <int32_t name='supermovie_delaystep'/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
-
-<!--
-        <uint32_t name='flag'/>
-        <int32_t name='shutdown_interface_tickcount'/>
-        <int32_t name='shutdown_interface_for_ms'/>
-
         <stl-vector name='supermovie_sound'>
             <pointer type-name='stl-string'/>
         </stl-vector>
--->
-
         <static-array name='supermovie_sound_time' count='16' comment='SOUND_CHANNELNUM'>
             <static-array count='200' type-name='int32_t'/>
         </static-array>
