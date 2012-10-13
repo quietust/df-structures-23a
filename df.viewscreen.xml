@@ -33,12 +33,15 @@
             </stl-vector>
             <int32_t name='report_timer'/>
         </compound>
-        <int8_t/>
-        <int8_t/>
+        <int8_t name='current_key'/>
+        <int8_t name='current_shift'/>
         <int8_t/>
         <int8_t/>
 
-        <static-array count='512' type-name='stl-string'/>
+        <static-array count='256' name='keyNames'>
+            <stl-string name='normal'/>
+            <stl-string name='shift'/>
+        </static-array>
 
         <compound name='view' type-name='viewscreen'/>
 
