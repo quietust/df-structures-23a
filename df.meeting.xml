@@ -1,6 +1,6 @@
 <data-definition>
     <struct-type type-name='dipscript_info'>
-        <int32_t name='unk1' comment='uninit'/>
+        <int32_t name='id' comment='assigned during Save'/>
         <stl-string name='script_file' comment='data/dipscript/dwarf_liaison'/>
         <stl-vector name='script_steps' type-name='pointer'/>
         <stl-vector name='unknown' comment='null'/>
@@ -105,7 +105,7 @@
     </struct-type>
 
     <struct-type type-name='activity'>
-        <int32_t name='unk1' comment='uninitialized'/>
+        <int32_t name='id' comment='assigned during Save'/>
         <pointer name='person1' type-name='unit' comment='diplomat'/>
         <pointer name='person2' type-name='unit' comment='count'/>
         <pointer name='place' type-name='building'/>
@@ -116,7 +116,7 @@
     </struct-type>
 
     <struct-type type-name='pet_info'>
-        <int32_t name='unk0' comment='uninitialized'/>
+        <int32_t name='id' comment='assigned during Save'/>
         <int32_t name='unk1' comment='-1'/>
         <int32_t name='pet_id' ref-target='unit'/>
         <compound name='name' type-name='language_name'/>
@@ -131,7 +131,7 @@
         </stl-vector>
         <pointer name="location" type-name="building"/>
         <int32_t name="timer" comment='-1 per 10'/>
-        <int32_t name='id'/>
+        <int32_t name='id' comment='assigned during Save'/>
     </struct-type>
 </data-definition>
 

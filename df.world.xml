@@ -22,7 +22,7 @@
 
             <stl-vector name='drink_areas'>
                 <pointer>
-                    <int32_t/>
+                    <int32_t name='id' comment='assigned during Save'/>
                     <compound type-name='coord16' name='pos'/>
                     <int8_t/>
                     <int16_t/>
@@ -84,7 +84,7 @@
         </compound>
         <stl-vector name='effects'>
             <pointer>
-                <int32_t/>
+                <int32_t name='id' comment='assigned during Save'/>
                 <pointer type-name='job'/>
                 <int32_t name='type'/> 2 = falling into chasm
                 <int16_t name='foreground'/>

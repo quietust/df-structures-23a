@@ -11,7 +11,7 @@
               (fmt "(~A)" $it.creature_id))
         </code-helper>
 
-        <int32_t/>
+        <int32_t name='id' comment='assigned during Save'/>
         <int16_t name='race' ref-target='creature_raw'/>
         <compound name='pos' type-name='coord16'/>
         <bool name='visible'/>
