@@ -1,8 +1,29 @@
 <data-definition>
+    <struct-type type-name='tile_page' key-field='token'>
+        <stl-string name='token'/>
+        <stl-string name='filename'/>
+
+        <int16_t name='tile_dim_x'/>
+        <int16_t name='tile_dim_y'/>
+        <int16_t name='page_dim_x'/>
+        <int16_t name='page_dim_y'/>
+
+        <stl-vector name='texpos' type-name='int32_t'/>
+        <stl-vector name='datapos' type-name='int32_t'/>
+        <stl-vector name='texpos_gs' type-name='int32_t'/>
+        <stl-vector name='datapos_gs' type-name='int32_t'/>
+
+        <bool name='loaded'/>
+    </struct-type>
+
     <struct-type type-name='graphic'>
-        <stl-vector/>
-        <stl-vector/>
-        <stl-vector/>
+        <compound name='texture'>
+            <stl-vector name='page'>
+                <pointer type-name='tile_page'/>
+            </stl-vector>
+            <stl-vector name='texpos' type-name='int32_t'/>
+            <stl-vector name='datapos' type-name='int32_t'/>
+        </compound>
         <compound name='drawInfo'>
             <static-array name='drawarray' count='25'><static-array type-name='int8_t' count='80'/></static-array>
             <stl-vector type-name='pointer'/>
@@ -55,7 +76,105 @@
     </struct-type>
 
     <struct-type type-name='enabler'>
-        ...
+        <uint32_t name='hInstance'/>
+        <uint32_t name='className'/>
+        <compound name='windowInfo'>
+            <pointer/>
+            <uint32_t name='hWnd'/>
+            <uint32_t name='hDC'/>
+            <uint32_t name='HGLRC'/>
+            <pointer/>
+            <uint32_t name='lpWindowName'/>
+            <int32_t name='dim_x'/>
+            <int32_t name='dim_y'/>
+            <int32_t name='bpp'/>
+            <int32_t name='windowed'/>
+            <int32_t/>
+            <int32_t/>
+        </compound>
+        <static-array type-name='int32_t' count='256'/>
+        <int32_t/>
+        <compound name='MSG'>
+            <uint32_t name='hwnd'/>
+            <uint32_t name='message'/>
+            <uint32_t name='wParam'/>
+            <uint32_t name='lParam'/>
+            <uint32_t name='time'/>
+            <compound name='pt'>
+                <int32_t name='x'/>
+                <int32_t name='y'/>
+            </compound>
+        </compound>
+        <int32_t name='desired_windowed_width'/>
+        <int32_t name='desired_windowed_height'/>
+        <int32_t name='desired_fullscreen_width'/>
+        <int32_t name='desired_fullscreen_height'/>
+        <bitfield name='flag'>
+            <flag-bit name='render'/>
+            <flag-bit name='maxfps'/>
+        </bitfield>
+        <int8_t name='tracking_on'/>
+        <stl-string name='command_line'/>
+        <int8_t name='create_full_screen'/>
+        <int8_t name='inactive_mode'/>
+        <int64_t name='qfpr'/>
+        <int64_t name='main_qprate'/>
+        <int64_t name='qprate'/>
+        <int64_t name='qpc'/>
+        <int64_t name='qpc2'/>
+        <int32_t/>
+        <int32_t name='oldmouse_x'/>
+        <int32_t name='oldmouse_y'/>
+        <int32_t name='mouse_x'/>
+        <int32_t name='mouse_y'/>
+        <int8_t name='mouse_lbut'/>
+        <int8_t name='mouse_rbut'/>
+        <int8_t name='mouse_lbut_lift'/>
+        <int8_t name='mouse_rbut_lift'/>
+        <stl-vector name='file_info'/> of text_system_file_info
+        <static-array name='ccolor' count='16'>
+            <static-array count='3' type-name='s-float'/>
+        </static-array>
+        <int32_t name='window_x'/>
+        <int32_t name='window_y'/>
+        <stl-vector/> textures?
+        <int32_t/>
+        <int32_t/>?
+        <static-array count='100'>
+            <int32_t name='vKey'/>
+            <int8_t name='shift'/>
+            <int8_t name='capslock'/>
+        </static-array>
+        <int8_t/>
+        <stl-vector/>
+        <stl-vector/>
+        <stl-vector/>
+        <stl-vector/>
+        <stl-vector name='gridrect'/>
+        <int32_t name='next_gridrect_id'/>
+        <int32_t name='next_texture_id'/>
+        <int32_t name='next_texture_data_id'/>
+        <int32_t/>?
+        <int32_t/>?
+        <s-double name='locx'/>
+        <s-double name='locy'/>
+        <s-double name='locz'/>
+        <s-double name='center_x'/>
+        <s-double name='center_y'/>
+        <s-float name='color_r'/>
+        <s-float name='color_g'/>
+        <s-float name='color_b'/>
+        <s-float name='color_a'/>
+        <s-float name='clear_r'/>
+        <s-float name='clear_g'/>
+        <s-float name='clear_b'/>
+        <s-float name='clear_a'/>
+        <s-float name='fade_r'/>
+        <s-float name='fade_g'/>
+        <s-float name='fade_b'/>
+        <s-float name='fade_a'/>
+        <s-float name='fade_t'/>
+        <int8_t name='buffer_draw'/>
     </struct-type>
 </data-definition>
 
