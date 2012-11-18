@@ -15,7 +15,7 @@
     </enum-type>
 
     <struct-type type-name='init_display'>
-        <df-flagarray name='flag' index-enum='init_display_flags'/>
+        <df-flagarray name='flags' index-enum='init_display_flags'/>
 
         <static-array name='nickname' count='4' index-enum='game_type'>
             <enum type-name='init_nickname_mode'/>
@@ -28,8 +28,7 @@
         </enum>
 
         <int32_t/>
-        <int32_t name='fps_cap_1'/>
-        <int32_t name='fps_cap_2'/>
+        <static-array name='fps_cap' type-name='int32_t' count='2'/>
     </struct-type>
 
     <enum-type type-name='init_media_flags'>
@@ -71,52 +70,32 @@
         <enum-item name='ADVENTURER_TRAPS'/>
     </enum-type>
 
+    <struct-type type-name='init_adventurer'>
+        <df-flagarray name='flags' index-enum='init_adventurer_flags'/>
+        <int32_t name="population_cap"/>
+    </struct-type>
+
+    <struct-type type-name='init_dwarf'>
+        <int32_t name="population_cap"/>
+    </struct-type>
+
     <enum-type type-name='init_game_flags'>
         <enum-item name='TEMPERATURE'/>
         <enum-item name='WEATHER'/>
     </enum-type>
 
+    <struct-type type-name='init_game'>
+        <df-flagarray name='flags' index-enum='init_game_flags'/>
+    </struct-type>
+
     <struct-type type-name='init'>
         <compound name='display' type-name='init_display'/>
-        <compound name='adventurer'>
-            <df-flagarray name='flags' index-enum='init_adventurer_flags'/>
-            <int32_t name="display_length"/>
-            <int32_t name="population_cap"/>
-        </compound>
+        <compound name='adventurer' type-name='init_adventurer'/>
+        <compound name='dwarf' type-name='init_dwarf'/>
         <compound name='media' type-name='init_media'/>
         <compound name='input' type-name='init_input'/>
         <compound name='font' type-name='init_font'/>
-        <compound name='game'>
-            <df-flagarray name='flags' index-enum='init_game_flags'/>
-        </compound>
-    </struct-type>
-
-    -- texture_handler.h
-
-    <struct-type type-name='tile_page'>
-        <stl-string name='token'/>
-        <stl-string name='filename'/>
-
-        <int16_t name='tile_dim_x'/>
-        <int16_t name='tile_dim_y'/>
-        <int16_t name='page_dim_x'/>
-        <int16_t name='page_dim_y'/>
-
-        <stl-vector name='texpos' type-name='int32_t'/>
-        <stl-vector name='datapos' type-name='int32_t'/>
-        <stl-vector name='texpos_gs' type-name='int32_t'/>
-        <stl-vector name='datapos_gs' type-name='int32_t'/>
-
-        <bool name='loaded'/>
-    </struct-type>
-
-    <struct-type type-name='texture_handler'>
-        <stl-vector name='page'>
-            <pointer type-name='tile_page'/>
-        </stl-vector>
-
-        <stl-vector name='texpos' type-name='int32_t'/>
-        <stl-vector name='datapos' type-name='int32_t'/>
+        <compound name='game' type-name='init_game'/>
     </struct-type>
 </data-definition>
 
