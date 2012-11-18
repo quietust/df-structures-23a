@@ -156,11 +156,10 @@
         </stl-vector>
 
         <stl-vector name='flows'>
-            <pointer type-name='flow'/>
+            <pointer type-name='flow_info'/>
         </stl-vector>
 
-        <int32_t name='unk_28'/>
-        <int32_t name='unk_2c'/>
+        <compound name='flow_pool' type-name='flow_reuse_pool'/>
 
         <static-array name='color' count='16'>
             <static-array count='16'>
@@ -279,7 +278,7 @@
         <enum-item name='MaterialGas'/>
     </enum-type>
 
-    <struct-type type-name='flow'>
+    <struct-type type-name='flow_info'>
         <enum type-name='flow_type' base-type='int16_t' name='type'/>
         <enum base-type='int16_t' name='material' type-name='material_type'/>
         <int16_t name='matgloss' refers-to='(matgloss-target $$._parent.material $)'/>
@@ -291,6 +290,25 @@
         <static-array type-name='int8_t' count='10' name='blood_types'/>
         <int8_t/>
         <int8_t/>
+    </struct-type>
+
+    <struct-type type-name='flow_reuse_pool'>
+        <int32_t name='reuse_idx' init-value='-1'/>
+        <bitfield name='flags'>
+            <flag-bit name='active'/>
+        </bitfield>
+    </struct-type>
+
+    <struct-type type-name='effect_info'>
+        <int32_t name='id' comment='assigned during Save'/>
+        <pointer type-name='job'/>
+        <int16_t name='type' comment='2 = falling into chasm'/>
+        <int16_t name='foreground'/>
+        <int16_t name='background'/>
+        <int8_t name='bright'/>
+        <compound type-name='coord' name='pos'/>
+        <int32_t name='timer'/>
+        <int32_t/>
     </struct-type>
 </data-definition>
 
