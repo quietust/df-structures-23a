@@ -137,7 +137,7 @@
     </class-type>
 
     <class-type type-name='art_image_property_intransitive_verbst' inherits-from='art_image_property'>
-        <int32_t comment='subject' comment='refers to art_image_element'/>
+        <int32_t name='subject' comment='refers to art_image_element'/>
         <enum base-type='int16_t' name="verb" type-name='art_image_property_verb'/>
     </class-type>
 
