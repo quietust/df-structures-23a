@@ -4,7 +4,7 @@
                   comment='Can the dwarf move or are they waiting for their movement timer'/>
         <flag-bit name='dead'
                   comment='Dead (might also be set for incoming/leaving critters that are alive)'/>
-        <flag-bit name='in_mood' comment='Currently in mood'/>
+        <flag-bit name='has_mood' comment='Currently in mood'/>
         <flag-bit name='had_mood' comment='Had a mood already'/>
 
         <flag-bit name='marauder' comment='wide class of invader/inside creature attackers'/>
@@ -21,7 +21,7 @@
         <flag-bit name='zombie'/>
         <flag-bit name='skeleton'/>
         <flag-bit name='can_swap' comment='Can swap tiles during movement (prevents multiple swaps)'/>
-        <flag-bit name='prone' comment='The creature is laying on the floor, can be conscious'/>
+        <flag-bit name='on_ground' comment='The creature is laying on the floor, can be conscious'/>
 
         <flag-bit name='projectile' comment='Launched into the air? Funny.'/>
         <flag-bit name='active_invader' comment='Active invader (for organized ones)'/>
@@ -29,7 +29,7 @@
         <flag-bit name='invader_origin' comment='Invader origin (could be inactive and fleeing)'/>
 
         <flag-bit name='coward' comment='Will flee if invasion turns around'/>
-        <flag-bit name='hidden_undetectable' comment='Active marauder/invader moving inward?'/>
+        <flag-bit name='hidden_ambusher' comment='Active marauder/invader moving inward?'/>
         <flag-bit name='invades' comment='Marauder resident/invader moving in all the way'/>
         <flag-bit name='check_flows' comment='Check against flows next time you get a chance'/>
 
@@ -48,7 +48,7 @@
         <flag-bit name='swimming'/>
         <flag-bit name='sparring'/>
         <flag-bit name='no_notify' comment='Do not notify about level gains (for embark etc)'/>
-        <flag-bit name='has_body_info_copy' comment='Has its own allocated copy of body_info, rather than a direct pointer to the creature raws'/>
+        <flag-bit name='unused' comment='Has its own allocated copy of body_info, rather than a direct pointer to the creature raws'/>
 
         <flag-bit name='calculated_nerves'/>
         <flag-bit name='calculated_bodyparts'/>
@@ -103,6 +103,95 @@
         <enum-item name='Baby'/>
     </enum-type>
 
+    <enum-type type-name='skill_rating' base-type='int32_t'>
+        <enum-attr name='xp_threshold' type-name='uint32_t'/>
+        <enum-attr name='caption'/>
+
+        <enum-item name='Dabbling'>
+            <item-attr name='xp_threshold' value='500'/>
+            <item-attr name='caption' value='Dabbling'/>
+        </enum-item>
+        <enum-item name='Novice'>
+            <item-attr name='xp_threshold' value='600'/>
+            <item-attr name='caption' value='Novice'/>
+        </enum-item>
+        <enum-item name='Adequate'>
+            <item-attr name='xp_threshold' value='700'/>
+            <item-attr name='caption' value='Adequate'/>
+        </enum-item>
+        <enum-item name='Competent'>
+            <item-attr name='xp_threshold' value='800'/>
+            <item-attr name='caption' value='Competent'/>
+        </enum-item>
+        <enum-item name='Skilled'>
+            <item-attr name='xp_threshold' value='900'/>
+            <item-attr name='caption' value='Skilled'/>
+        </enum-item>
+        <enum-item name='Proficient'>
+            <item-attr name='xp_threshold' value='1000'/>
+            <item-attr name='caption' value='Proficient'/>
+        </enum-item>
+        <enum-item name='Talented'>
+            <item-attr name='xp_threshold' value='1100'/>
+            <item-attr name='caption' value='Talented'/>
+        </enum-item>
+        <enum-item name='Adept'>
+            <item-attr name='xp_threshold' value='1200'/>
+            <item-attr name='caption' value='Adept'/>
+        </enum-item>
+        <enum-item name='Expert'>
+            <item-attr name='xp_threshold' value='1300'/>
+            <item-attr name='caption' value='Expert'/>
+        </enum-item>
+        <enum-item name='Professional'>
+            <item-attr name='xp_threshold' value='1400'/>
+            <item-attr name='caption' value='Professional'/>
+        </enum-item>
+        <enum-item name='Accomplished'>
+            <item-attr name='xp_threshold' value='1500'/>
+            <item-attr name='caption' value='Accomplished'/>
+        </enum-item>
+        <enum-item name='Great'>
+            <item-attr name='xp_threshold' value='1600'/>
+            <item-attr name='caption' value='Great'/>
+        </enum-item>
+        <enum-item name='Master'>
+            <item-attr name='xp_threshold' value='1700'/>
+            <item-attr name='caption' value='Master'/>
+        </enum-item>
+        <enum-item name='HighMaster'>
+            <item-attr name='xp_threshold' value='1800'/>
+            <item-attr name='caption' value='High Master'/>
+        </enum-item>
+        <enum-item name='GrandMaster'>
+            <item-attr name='xp_threshold' value='1900'/>
+            <item-attr name='caption' value='Grand Master'/>
+        </enum-item>
+        <enum-item name='Legendary'>
+            <item-attr name='xp_threshold' value='2000'/>
+            <item-attr name='caption' value='Legendary'/>
+        </enum-item>
+        <enum-item name='Legendary1'>
+            <item-attr name='xp_threshold' value='2100'/>
+            <item-attr name='caption' value='Legendary+1'/>
+        </enum-item>
+        <enum-item name='Legendary2'>
+            <item-attr name='xp_threshold' value='2200'/>
+            <item-attr name='caption' value='Legendary+2'/>
+        </enum-item>
+        <enum-item name='Legendary3'>
+            <item-attr name='xp_threshold' value='2300'/>
+            <item-attr name='caption' value='Legendary+3'/>
+        </enum-item>
+        <enum-item name='Legendary4'>
+            <item-attr name='xp_threshold' value='2400'/>
+            <item-attr name='caption' value='Legendary+4'/>
+        </enum-item>
+        <enum-item name='Legendary5'>
+            <item-attr name='caption' value='Legendary+5'/>
+        </enum-item>
+    </enum-type>
+
     <struct-type type-name='unit' key-field='id' instance-vector='$global.world.units.all'>
         <compound type-name='language_name' name='name'/>
 
@@ -117,9 +206,9 @@
         <enum base-type='int32_t' name='profession' type-name='profession'/>
         <enum base-type='int32_t' name='profession2' type-name='profession'/>
         <int32_t name='race' ref-target='creature_raw'/>
-        <int32_t name='racegloss'/>
+        <int32_t name='race_matgloss' ref-target='matgloss_wood'/>
         <compound name='pos' type-name='coord'/>
-        <compound name='old_pos' type-name='coord'>
+        <compound name='idle_area' type-name='coord'>
             <comment>
                 E.g. for a dead miner, holds the place where he
                 was likely hanging around when he got the command
@@ -154,28 +243,33 @@
             <pointer type-name='general_ref'/>
         </stl-vector>
 
-        <compound name='squad'>
+        <compound name='military'>
             <compound type-name='language_name' name='name'/>
             <int8_t name='rations'/>
             <int8_t name='sleep_mode' comment='0=ground, 1=barracks, 2=room'/>
             <int32_t name='flags'/> 2=carry water, 4=stay close to station, 8=attack wild animals, 16=standing down
-            <int32_t name='patrol_duration'/>
+            <int32_t name='patrol_timer'/>
             <int32_t name='patrol_cooldown'/>
             <compound name='station_pos' type-name='coord16'/>
             <int32_t/>
         </compound>
 
-        <int16_t name='population_ref'/>
-        <int32_t name='animal_leave_countdown' comment='once 0, it heads for the edge and leaves'/>
-        <int32_t name='collapse_countdown' comment='once 0, it collapses and dies'/>
+        <compound name='animal'>
+            <int16_t name='population'/>
+            <int32_t name='leave_countdown'
+                      comment='once 0, it heads for the edge and leaves'/>
+            <int32_t name='vanish_countdown' comment='once 0, it collapses and dies'/>
+        </compound>
+
         <enum type-name='mood_type' name='mood_type'/>
+
         <int16_t name='mood_claimedWorkshop'/>
-        <int32_t name='pregnancy_timer'/>
-        <int32_t name='age_seconds'/>
-        <int32_t name='age_years'/>
-        <int32_t name='age_death'/>
-        <pointer type-name='unit'/>
         <compound name='relations'>
+            <int32_t name='pregnancy_timer'/>
+            <int32_t name='age_seconds'/>
+            <int32_t name='age_years'/>
+            <int32_t name='age_death'/>
+            <pointer type-name='unit' name='following'/>
             <int32_t name='pet_owner_id' ref-target='unit'/>
             <int32_t name='spouse_id' ref-target='unit'/>
             <int32_t name='mother_id' ref-target='unit'/>
@@ -254,7 +348,7 @@
         <compound name='counters'>
             <int32_t/>
             <int32_t/>
-            <int32_t name='move_timer'/>
+            <int32_t name='job_counter'/>
             <int32_t/>
             <enum base-type='int16_t' name='death_cause' type-name='death_type' comment='used when thrown as a projectile'/>
             <int16_t name='nausea'/>
@@ -264,8 +358,8 @@
             <int16_t/>
             <int16_t name='webbed'/>
             <int16_t name='paralysis'/>
-            <compound name='guts1_pos' type-name='coord16'/>
-            <compound name='guts2_pos' type-name='coord16'/>
+            <compound name='guts_trail1' type-name='coord16'/>
+            <compound name='guts_trail2' type-name='coord16'/>
             <int16_t name='soldier_mood_countdown'/>
             <enum name='soldier_mood' base-type='int16_t'>
                 <enum-item name='None' value='-1'/>
@@ -275,97 +369,109 @@
             </enum>
             <int32_t name='pain'/>
             <int32_t name='exhaustion'/>
-            <int32_t name='hunger'/>
-            <int32_t name='thirst'/>
-            <int32_t name='drowsiness'/>
-            <int32_t name='fullness'/>
+            <int32_t name='hunger_timer'/>
+            <int32_t name='thirst_timer'/>
+            <int32_t name='sleepiness_timer'/>
+            <int32_t name='stomach_content'/>
         </compound>
 
         <stl-vector name='contaminants'>
             <pointer type-name='unit_contaminant'/>
         </stl-vector>
-        <stl-vector name='misc_traits'>
-            <pointer type-name='unit_misc_trait'/>
-        </stl-vector>
-        <int32_t/>
-        <int32_t/>
-        <int8_t/>
-        <compound type-name='language_name' name='artifact_name'/>
-        <int32_t name='strength'/>
-        <int32_t name='agility'/>
-        <int32_t name='toughness'/>
-        <stl-vector name='skills'>
-            <pointer type-name='unit_skill'/>
-        </stl-vector>
-        <stl-vector name='preferences'>
-            <pointer type-name='unit_preference'/>
-        </stl-vector>
-        <stl-vector name='demands'>
-            <pointer type-name='unit_demand'/>
-        </stl-vector>
-        <static-array type-name='bool' name='labors' index-enum='unit_labor' count='91'/>
-        <int32_t name='total_exp'/> for attribute boosts
-        <stl-vector comment='wrestle_items'>
-            <pointer>
-            </pointer>
-        </stl-vector>
-        <stl-vector name='observed_traps'>
-            <int32_t ref-target='building'/>
-        </stl-vector>
-        <stl-vector name='recent_events'>
-            <pointer type-name='unit_thought'/>
-        </stl-vector>
-        <stl-vector name='recent_dreams'>
-            <pointer type-name='unit_thought'/>
-        </stl-vector>
-        <int32_t name='happiness'/>
-        <int16_t name='insanity_chance'/>
-        <stl-vector name='grievances'>
-            <pointer>
-                <int16_t name='type'/>
-                <int16_t name='guild'/>
-                <int32_t/>
-            </pointer>
-        </stl-vector>
-        <stl-vector>
-            <pointer>
-                <int16_t/>
-                <int16_t/>
-                <int16_t/>
-            </pointer>
-        </stl-vector>
-        <stl-vector name='friends' comment='possibly more'>
-            <pointer>
-                <int32_t name='unit_id' ref-target='unit'/>
-                <int32_t name='strength'/>
-                <int32_t name='age'/>
-                <int32_t name='flags'/> 0x01 == friend
-            </pointer>
-        </stl-vector>
-        <stl-vector>
-            <pointer>
-                <int32_t/>
-                <int32_t/>
-            </pointer>
-        </stl-vector>
-        <int16_t name='adv_sleep_timer' comment='and some other things'/>
-        <compound type-name='coord'/>
-        <compound type-name='coord_path'/>
-        <int32_t name='hist_figure_id' ref-target='historical_figure'/>
-        <int16_t name='stance_okay_1'/>
-        <int16_t name='stance_okay_2'/>
-        <int32_t name='breathing_okay'/>
-        <int16_t name='grasp_okay_1'/>
-        <int16_t name='grasp_okay_2'/>
-        <int16_t name='flier_okay_1'/>
-        <int16_t name='flier_okay_2'/>
-        <int32_t name='specialattack_cooldown'/>
-        <stl-vector name='temperatures'>
-            <pointer type-name='temperaturest'/>
-        </stl-vector>
-        <int32_t name='enemy_status_slot'/>
-        <int32_t name='last_temp_update'/>
+        <compound name='status'>
+            <stl-vector name='misc_traits'>
+                <pointer type-name='unit_misc_trait'/>
+            </stl-vector>
 
+            <int32_t/>
+            <int32_t/>
+            <int8_t/>
+
+            <compound type-name='language_name' name='artifact_name'/>
+            <int32_t name='strength'/>
+            <int32_t name='agility'/>
+            <int32_t name='toughness'/>
+            <stl-vector name='skills'>
+                <pointer type-name='unit_skill'/>
+            </stl-vector>
+            <stl-vector name='preferences'>
+                <pointer type-name='unit_preference'/>
+            </stl-vector>
+            <stl-vector name='demands'>
+                <pointer type-name='unit_demand'/>
+            </stl-vector>
+
+            <static-array type-name='bool' name='labors' index-enum='unit_labor' count='91'/>
+
+            <int32_t name='total_exp'/> for attribute boosts
+            <stl-vector comment='wrestle_items'>
+                <pointer>
+                </pointer>
+            </stl-vector>
+
+            <stl-vector name='observed_traps'>
+                <int32_t ref-target='building'/>
+            </stl-vector>
+
+            <stl-vector name='recent_events'>
+                <pointer type-name='unit_thought'/>
+            </stl-vector>
+            <stl-vector name='recent_dreams'>
+                <pointer type-name='unit_thought'/>
+            </stl-vector>
+
+            <int32_t name='happiness'/>
+            <int16_t name='insanity_chance'/>
+
+            <stl-vector name='grievances'>
+                <pointer>
+                    <int16_t name='type'/>
+                    <int16_t name='guild'/>
+                    <int32_t/>
+                </pointer>
+            </stl-vector>
+            <stl-vector>
+                <pointer>
+                    <int16_t/>
+                    <int16_t/>
+                    <int16_t/>
+                </pointer>
+            </stl-vector>
+            <stl-vector name='acquaintances'>
+                <pointer>
+                    <int32_t name='unit_id' ref-target='unit'/>
+                    <int32_t name='strength'/>
+                    <int32_t name='age'/>
+                    <int32_t name='flags'/> 0x01 == friend
+                </pointer>
+            </stl-vector>
+            <stl-vector>
+                <pointer>
+                    <int32_t/>
+                    <int32_t/>
+                </pointer>
+            </stl-vector>
+            <int16_t name='adv_sleep_timer' comment='and some other things'/>
+            <compound type-name='coord'/>
+            <compound type-name='coord_path'/>
+        </compound>
+
+        <int32_t name='hist_figure_id' ref-target='historical_figure'/>
+        <compound name='status2'>
+            <int16_t name='able_stand'/>
+            <int16_t name='able_stand_impair'/>
+            <int32_t name='able_breathe'/>
+            <int16_t name='able_grasp'/>
+            <int16_t name='able_grasp_impair'/>
+            <int16_t name='able_fly'/>
+            <int16_t name='able_fly_impair'/>
+            <int32_t name='specialattack_cooldown'/>
+            <stl-vector name='body_part_temperature'>
+                <pointer type-name='temperaturest'/>
+            </stl-vector>
+            <int32_t name='enemy_status_slot'/>
+            <int32_t name='last_temp_update'/>
+        </compound>
     </struct-type>
 
     <struct-type type-name='unit_inventory_item'>
@@ -375,12 +481,12 @@
 
         <enum base-type='int16_t' name='mode'>
             <enum-item name='Hauled'/>
-            <enum-item name='Wielded'/>
+            <enum-item name='Weapon' comment='also shield'/>
             <enum-item name='Worn'/>
             <enum-item/>
             <enum-item/>
             <enum-item/>
-            <enum-item name='InBodyPart'/>
+            <enum-item name='InBody'/>
             <enum-item/>
             <enum-item/>
             <enum-item/>
@@ -390,7 +496,7 @@
             <enum-item/>
             <enum-item name='Flask'/>
             <enum-item name='StuckIn'/>
-            <enum-item name='Unk16'/>
+            <enum-item name='Unk6'/>
             <enum-item name='Shouldered'/>
         </enum>
 
@@ -407,27 +513,29 @@
         <int16_t name="unk_16"/>
     </struct-type>
 
+    <enum-type base-type='int16_t' type-name='misc_trait_type'>
+        <enum-item name='RequestWaterCooldown'/> for thirsty patients
+        <enum-item name='RequestFoodCooldown'/> for hungry patients
+        <enum-item name='RequestRescueCooldown'/>
+        <enum-item name='GetDrinkCooldown'/>
+        <enum-item name='GetFoodCooldown'/>
+        <enum-item name='Migrant'/>
+        <enum-item name='RoomComplaint'/>
+        <enum-item name='ResidentCreature' comment='upon reaching zero, it gets a name'/>
+        <enum-item/>
+        <enum-item name='ClaimTrinketCooldown'/>
+        <enum-item name='ClaimClothingCooldown'/>
+        <enum-item name='WantsDrink' comment='ALCOHOLIC'/>
+        <enum-item name='LikesOutdoors' comment='MOUNTAIN'/>
+        <enum-item name='Hardened' comment='COMBATHARDNESS'/>
+        <enum-item name='TimeSinceBreak' comment='TIME_SINCE_BREAK'/>
+        <enum-item name='OnBreak' comment='ON_BREAK'/>
+        <enum-item name='PrepareToDie'/>
+        <enum-item name='CaveAdapt' comment='CAVE_ADAPT'/>
+    </enum-type>
+
     <struct-type type-name='unit_misc_trait'>
-        <enum base-type='int16_t' name='id'>
-            <enum-item name='RequestWaterCooldown'/> for thirsty patients
-            <enum-item name='RequestFoodCooldown'/> for hungry patients
-            <enum-item name='RequestRescueCooldown'/>
-            <enum-item name='GetDrinkCooldown'/>
-            <enum-item name='GetFoodCooldown'/>
-            <enum-item name='Migrant'/>
-            <enum-item name='RoomComplaint'/>
-            <enum-item name='ResidentCreature' comment='upon reaching zero, it gets a name'/>
-            <enum-item/>
-            <enum-item name='ClaimTrinketCooldown'/>
-            <enum-item name='ClaimClothingCooldown'/>
-            <enum-item name='WantsDrink' comment='ALCOHOLIC'/>
-            <enum-item name='LikesOutdoors' comment='MOUNTAIN'/>
-            <enum-item name='Hardened' comment='COMBATHARDNESS'/>
-            <enum-item name='TimeSinceBreak' comment='TIME_SINCE_BREAK'/>
-            <enum-item name='OnBreak' comment='ON_BREAK'/>
-            <enum-item name='PrepareToDie'/>
-            <enum-item name='CaveAdapt' comment='CAVE_ADAPT'/>
-        </enum>
+        <enum base-type='int16_t' type-name='misc_trait_type' name='id'/>
 
         <code-helper name='describe'>(fmt "id=~A value=~A" $.id $.value)</code-helper>
 
@@ -435,7 +543,7 @@
     </struct-type>
 
     <struct-type type-name='unit_thought'>
-        <int16_t name="type"/>
+        <enum base-type='int16_t' name='type' type-name='unit_thought_type'/>
         <int32_t name="age" comment='+1 per frame'/>
         <int16_t name="subtype" init-value='-1'/>
         <int32_t name="severity"/>
