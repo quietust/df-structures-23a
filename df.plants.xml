@@ -1,5 +1,5 @@
 <data-definition>
-    <enum-type type-name='plant_type' base-type='int32_t'>
+    <enum-type type-name='plant_flags' base-type='int32_t'>
         <enum-item name='tree_outdoor_wet'/>
         <enum-item name='tree_outdoor_dry'/>
         <enum-item name='tree_indoor_dry'/>
@@ -12,7 +12,7 @@
 
     <class-type type-name='plant' instance-vector='$global.world.plants.all' original-name='vegst'>
         <compound type-name='language_name' name='name'/>
-        <enum type-name='plant_type' name='type'/>
+        <enum type-name='plant_flags' name='flags'/>
         <compound is-union='true'>
             <int16_t name='plant_id' ref-target='matgloss_plant'/>
             <int16_t name='wood_id' ref-target='matgloss_wood'/>
