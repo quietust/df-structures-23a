@@ -13,7 +13,7 @@
             <item-attr name='caption' value='wood'/>
             <item-attr name='is_wood' value='true'/>
         </enum-item>
-        <enum-item name='STONE_GRAY>
+        <enum-item name='STONE_GRAY'>
             <item-attr name='caption' value='rock'/>
             <item-attr name='is_stone' value='true'/>
         </enum-item>
