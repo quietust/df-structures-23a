@@ -1,54 +1,176 @@
 <data-definition>
-    <enum-type type-name='material_type'>
-        <enum-item name='WOOD'/>
-        <enum-item name='STONE_GRAY'/>
-        <enum-item name='STONE_LIGHT'/>
-        <enum-item name='STONE_DARK'/>
-        <enum-item name='GOLD'/>
-        <enum-item name='IRON'/>
-        <enum-item name='SILVER'/>
-        <enum-item name='COPPER'/>
-        <enum-item name='GEM_ORNAMENTAL'/>
-        <enum-item name='GEM_SEMI'/>
-        <enum-item name='GEM_PRECIOUS'/>
-        <enum-item name='GEM_RARE'/>
-        <enum-item name='BONE'/>
-        <enum-item name='IVORY'/>
-        <enum-item name='JADE'/>
-        <enum-item name='HORN'/>
-        <enum-item name='AMBER'/>
-        <enum-item name='CORAL'/>
-        <enum-item name='PEARL'/>
-        <enum-item name='SHELL'/>
-        <enum-item name='LEATHER'/>
-        <enum-item name='ADAMANTINE'/>
-        <enum-item name='SILK'/>
-        <enum-item name='PLANT'/>
-        <enum-item name='GLASS_GREEN'/>
-        <enum-item name='GLASS_CLEAR'/>
-        <enum-item name='GLASS_CRYSTAL'/>
-        <enum-item name='SAND'/>
-        <enum-item name='WATER'/>
-        <enum-item name='ZINC'/>
-        <enum-item name='TIN'/>
-        <enum-item name='COAL'/>
-        <enum-item name='BRONZE'/>
-        <enum-item name='BRASS'/>
-        <enum-item name='STEEL'/>
-        <enum-item name='PIGIRON'/>
-        <enum-item name='PLATINUM'/>
-        <enum-item name='ELECTRUM'/>
-        <enum-item name='POTASH'/>
-        <enum-item name='ASH'/>
-        <enum-item name='PEARLASH'/>
-        <enum-item name='LYE'/>
-        <enum-item name='RENDERED_FAT'/>
-        <enum-item name='SOAP_ANIMAL'/>
-        <enum-item name='FAT'/>
-        <enum-item name='MUD'/>
-        <enum-item name='VOMIT'/>
-        <enum-item name='BLOOD'/>
-        <enum-item name='SLIME'/>
+    <enum-type type-name='material_type' base-type='int16_t'>
+        <enum-attr name='caption'/>
+        <enum-attr name='is_builtin' type-name='bool' comment='Has no matgloss (or is Coal)'/>
+        <enum-attr name='is_wood' type-name='bool' comment='Matgloss is wood'/>
+        <enum-attr name='is_stone' type-name='bool' comment='Matgloss is stone'/>
+        <enum-attr name='is_gem' type-name='bool' comment='Matgloss is gem'/>
+        <enum-attr name='is_plant' type-name='bool' comment='Matgloss is plant'/>
+        <enum-attr name='is_creature' type-name='bool' comment='Matgloss is creature'/>
+
+        <enum-item name='NONE' value='-1'/>
+        <enum-item name='WOOD'>
+            <item-attr name='caption' value='wood'/>
+            <item-attr name='is_wood' value='true'/>
+        </enum-item>
+        <enum-item name='STONE_GRAY>
+            <item-attr name='caption' value='rock'/>
+            <item-attr name='is_stone' value='true'/>
+        </enum-item>
+        <enum-item name='STONE_LIGHT'>
+            <item-attr name='caption' value='light stone'/>
+            <item-attr name='is_stone' value='true'/>
+        </enum-item>
+        <enum-item name='STONE_DARK'>
+            <item-attr name='caption' value='dark stone'/>
+            <item-attr name='is_stone' value='true'/>
+        </enum-item>
+        <enum-item name='GOLD'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='IRON'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='SILVER'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='COPPER'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='GEM_ORNAMENTAL'>
+            <item-attr name='is_gem' value='true'/>
+        </enum-item>
+        <enum-item name='GEM_SEMI'>
+            <item-attr name='is_gem' value='true'/>
+        </enum-item>
+        <enum-item name='GEM_PRECIOUS'>
+            <item-attr name='is_gem' value='true'/>
+        </enum-item>
+        <enum-item name='GEM_RARE'>
+            <item-attr name='is_gem' value='true'/>
+        </enum-item>
+        <enum-item name='BONE'>
+            <item-attr name='caption' value='bone'/>
+            <item-attr name='is_creature' value='true'/>
+        </enum-item>
+        <enum-item name='IVORY'>
+            <item-attr name='caption' value='ivory'/>
+            <item-attr name='is_creature' value='true'/>
+        </enum-item>
+        <enum-item name='JADE'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='HORN'>
+            <item-attr name='caption' value='horn'/>
+            <item-attr name='is_creature' value='true'/>
+        </enum-item>
+        <enum-item name='AMBER'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='CORAL'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='PEARL'>
+            <item-attr name='caption' value='pearl'/>
+            <item-attr name='is_creature' value='true'/>
+        </enum-item>
+        <enum-item name='SHELL'>
+            <item-attr name='caption' value='shell'/>
+            <item-attr name='is_creature' value='true'/>
+        </enum-item>
+        <enum-item name='LEATHER'>
+            <item-attr name='caption' value='leather'/>
+            <item-attr name='is_creature' value='true'/>
+        </enum-item>
+        <enum-item name='ADAMANTINE'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='SILK'>
+            <item-attr name='caption' value='silk'/>
+            <item-attr name='is_creature' value='true'/>
+        </enum-item>
+        <enum-item name='PLANT'>
+            <item-attr name='caption' value='plant'/>
+            <item-attr name='is_plant' value='true'/>
+        </enum-item>
+        <enum-item name='GLASS_GREEN'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='GLASS_CLEAR'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='GLASS_CRYSTAL'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='SAND'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='WATER'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='ZINC'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='TIN'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='COAL'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='BRONZE'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='BRASS'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='STEEL'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='PIGIRON'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='PLATINUM'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='ELECTRUM'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='POTASH'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='ASH'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='PEARLASH'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='LYE'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='RENDERED_FAT'>
+            <item-attr name='caption' value='tallow'/>
+            <item-attr name='is_creature' value='true'/>
+        </enum-item>
+        <enum-item name='SOAP_ANIMAL'>
+            <item-attr name='caption' value='tallow soap'/>
+            <item-attr name='is_creature' value='true'/>
+        </enum-item>
+        <enum-item name='FAT'>
+            <item-attr name='caption' value='fat'/>
+            <item-attr name='is_creature' value='true'/>
+        </enum-item>
+        <enum-item name='MUD'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='VOMIT'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='BLOOD'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
+        <enum-item name='SLIME'>
+            <item-attr name='is_builtin' value='true'/>
+        </enum-item>
     </enum-type>
 
     <enum-type type-name='matgloss_stone_flags'>
