@@ -13,11 +13,11 @@
         <int8_t name='option_key_pressed'/>
         
         <virtual-methods>
-            <vmethod name='logic'/>
+            <vmethod name='view'/>
             <vmethod name='help'/>
-            <vmethod ret-type='bool' name='movies_okay'/>
-            <vmethod ret-type='bool' name='is_option_screen'/>
-            <vmethod ret-type='bool' name='is_save_screen'/>
+            <vmethod ret-type='int8_t' name='movies_okay'/>
+            <vmethod ret-type='int8_t' name='is_option_screen'/>
+            <vmethod ret-type='int8_t' name='is_save_screen'/>
             <vmethod is-destructor='true'/>
         </virtual-methods>
     </class-type>
