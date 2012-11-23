@@ -189,7 +189,23 @@
             <pointer type-name='world_site'/>
         </stl-vector>
         <df-flagarray name='flags'/>
-        <static-array name='properties' type-name='int16_t' count='23' index-enum='region_property_type'/>
+        <int16_t name="elevation" comment='~40 ocean -> ~100 plains -> ~200 mointains'/>
+        <int16_t name="rainfall"/>
+        <int16_t name="vegetation"/>
+        <int16_t name="temperature"/>
+        <int16_t name="evilness"/>
+        <int16_t name="drainage"/>
+        <int16_t name="savagery"/>
+        <int16_t name="unk_30" comment='3'/>
+        <int16_t name="unk_32" comment='0'/>
+        <int16_t name="unk_34" comment='0'/>
+        <int16_t name="unk_36" comment='0'/>
+        <int16_t name="unk_38" comment='0'/>
+        <int16_t name="unk_3a" comment='0-5000'/>
+        <int16_t name="salinity"/>
+        <compound name='unk_3e' type-name='coord'/>
+        <compound name='unk_44' type-name='coord'/>
+        <compound name='unk_4a' type-name='coord'/>
         <int32_t name="region_id" ref-target='world_region'/>
     </struct-type>
 
