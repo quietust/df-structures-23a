@@ -521,7 +521,19 @@
             <item-attr name='caption' value='default for all tiles, nothing special about it'/>
         </enum-item>
         <enum-item name='WATERFALL'>
-            <item-attr name='caption' value='waterfall from nowhere, used by cave river'/>
+            <item-attr name='caption' value='waterfall source, bottom'/>
+        </enum-item>
+        <enum-item name='DRAIN_0'>
+            <item-attr name='caption' value='waterfall drain, top (white)'/>
+        </enum-item>
+        <enum-item name='DRAIN_1'>
+            <item-attr name='caption' value='waterfall drain, upper (light)'/>
+        </enum-item>
+        <enum-item name='DRAIN_2'>
+            <item-attr name='caption' value='waterfall drain, mid (gray)'/>
+        </enum-item>
+        <enum-item name='DRAIN_3'>
+            <item-attr name='caption' value='waterfall drain, lower (dark)'/>
         </enum-item>
         <enum-item name='SMOOTH'>
             <item-attr name='caption' value='smooth walls and floors, including constructions'/>
@@ -1135,13 +1147,29 @@
             <item-attr name='tile_color' value='6'/>
         </enum-item>
 
-        <enum-item name='Waterfall'>
-            <item-attr name='caption' value='waterfall'/>
+        <enum-item name='WaterfallDrain1'>
+            <item-attr name='caption' value='waterfall drain (1)'/>
             <item-attr name='shape' value='FLOOR'/>
             <item-attr name='material' value='RIVER'/>
-            <item-attr name='special' value='WATERFALL'/>
+            <item-attr name='special' value='DRAIN_1'/>
             <item-attr name='tile_chr' value='Waterfall'/>
             <item-attr name='tile_color' value='15'/>
+        </enum-item>
+        <enum-item name='WaterfallDrain2'>
+            <item-attr name='caption' value='waterfall drain (2)'/>
+            <item-attr name='shape' value='FLOOR'/>
+            <item-attr name='material' value='RIVER'/>
+            <item-attr name='special' value='DRAIN_2'/>
+            <item-attr name='tile_chr' value='Waterfall'/>
+            <item-attr name='tile_color' value='7'/>
+        </enum-item>
+        <enum-item name='WaterfallDrain3'>
+            <item-attr name='caption' value='waterfall drain (3)'/>
+            <item-attr name='shape' value='FLOOR'/>
+            <item-attr name='material' value='RIVER'/>
+            <item-attr name='special' value='DRAIN_3'/>
+            <item-attr name='tile_chr' value='Waterfall'/>
+            <item-attr name='tile_color' value='8'/>
         </enum-item>
 
         <enum-item name='StoneChannel'>
@@ -2173,6 +2201,22 @@
             <item-attr name='special' value='NORMAL'/>
             <item-attr name='tile_chr' value='River'/>
             <item-attr name='tile_color' value='1'/>
+        </enum-item>
+        <enum-item name='Waterfall'>
+            <item-attr name='caption' value='waterfall'/>
+            <item-attr name='shape' value='FLOOR'/>
+            <item-attr name='material' value='RIVER'/>
+            <item-attr name='special' value='WATERFALL'/>
+            <item-attr name='tile_chr' value='River'/>
+            <item-attr name='tile_color' value='15'/>
+        </enum-item>
+        <enum-item name='WaterfallDrain0'>
+            <item-attr name='caption' value='waterfall drain (0)'/>
+            <item-attr name='shape' value='FLOOR'/>
+            <item-attr name='material' value='RIVER'/>
+            <item-attr name='special' value='DRAIN_0'/>
+            <item-attr name='tile_chr' value='River'/>
+            <item-attr name='tile_color' value='7'/>
         </enum-item>
         <enum-item name='Mud'>
             <item-attr name='caption' value='mud'/>
