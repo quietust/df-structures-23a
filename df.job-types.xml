@@ -112,7 +112,7 @@
             <item-attr name='caption' value='Collect Sand'/>
             <item-attr name='type' value='Gathering'/>
             <item-attr name='labor' value='HAUL_ITEM'/>
-            <item-attr name='item' value='POWDER_MISC'/>
+            <item-attr name='item' value='SAND'/>
             <item-attr name='material' value='sand'/>
         </enum-item>
         <enum-item name='Fish'>
@@ -562,7 +562,7 @@
         <enum-item name='MillPlants'>
             <item-attr name='caption' value='Mill Plants'/>
             <item-attr name='type' value='Manufacture'/>
-            <item-attr name='item' value='POWDER_MISC'/>
+            <item-attr name='item' value='POWDER_ORGANIC'/>
             <item-attr name='skill' value='MILLING'/>
         </enum-item>
         <enum-item name='BaitTrap'>
@@ -904,7 +904,7 @@
         <enum-item name='RecoverWounded'>
             <item-attr name='caption' value='Recover Wounded'/>
             <item-attr name='type' value='Hauling'/>
-            <item-attr name='labor' value='RECOVER_WOUNDED'/>
+            <item-attr name='labor' value='HEALTHCARE'/>
         </enum-item>
         <enum-item name='DrainAquarium'>
             <item-attr name='caption' value='Drain Aquarium'/>
@@ -925,7 +925,7 @@
         <enum-item name='GiveWater'>
             <item-attr name='caption' value='Give Water'/>
             <item-attr name='type' value='LifeSupport'/>
-            <item-attr name='labor' value='FEED_WATER_CIVILIANS'/>
+            <item-attr name='labor' value='HEALTHCARE'/>
         </enum-item>
 
         -- 170
@@ -933,17 +933,17 @@
         <enum-item name='GiveFood'>
             <item-attr name='caption' value='Give Food'/>
             <item-attr name='type' value='LifeSupport'/>
-            <item-attr name='labor' value='FEED_WATER_CIVILIANS'/>
+            <item-attr name='labor' value='HEALTHCARE'/>
         </enum-item>
         <enum-item name='GiveWater2'>
             <item-attr name='caption' value='Give Water'/>
             <item-attr name='type' value='LifeSupport'/>
-            <item-attr name='labor' value='FEED_WATER_CIVILIANS'/>
+            <item-attr name='labor' value='HEALTHCARE'/>
         </enum-item>
         <enum-item name='GiveFood2'>
             <item-attr name='caption' value='Give Food'/>
             <item-attr name='type' value='LifeSupport'/>
-            <item-attr name='labor' value='FEED_WATER_CIVILIANS'/>
+            <item-attr name='labor' value='HEALTHCARE'/>
         </enum-item>
         <enum-item name='RecoverPet'>
             <item-attr name='caption' value='Recover Pet'/>

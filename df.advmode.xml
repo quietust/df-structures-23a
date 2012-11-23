@@ -52,8 +52,10 @@
 
         <int32_t/>
 
-        <compound name='searched_tiles' type-name='coord_path'/>
-        <stl-vector type-name='pointer'/>
+        <stl-vector type-name='int32_t' name='searched_x'/>
+        <stl-vector type-name='int32_t' name='searched_y'/>
+        <stl-vector type-name='int32_t' name='searched_z'/>
+        <stl-vector type-name='int32_t' name='searched_timeout'/>
 
         <int8_t/>
 
@@ -82,8 +84,8 @@
         <int32_t name='adventurer_id' ref-target='historical_figure'/>
         <int32_t/>
 
-        <compound name='target_pos' type-name='coord2d'/>
-        <compound name='giver_pos' type-name='coord2d'/>
+        <compound name='target_pos' type-name='coord2d32'/>
+        <compound name='giver_pos' type-name='coord2d32'/>
 
         <int32_t/>
         <int32_t/>

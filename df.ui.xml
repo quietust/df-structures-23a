@@ -54,8 +54,8 @@
             <pointer type-name='caravan_state'/>
         </stl-vector>
         <int8_t/>
-        <compound type-name='coord_path' name='dwarfArrivalTiles'/>
-        <compound type-name='coord_path' name='roadInfo'/>
+        <compound type-name='coord32_path' name='dwarfArrivalTiles'/>
+        <compound type-name='coord32_path' name='roadInfo'/>
         <int16_t name='progress_population'/>
         <int16_t name='progress_trade'/>
         <int16_t name='progress_production'/>
@@ -187,8 +187,10 @@
         <int16_t name='max_dig_depth'/>
         <int16_t name='min_dig_depth'/>
         <int16_t name='mood_timer'/>
-        <enum base-type='int16_t' name='sidebar_mode' type-name='ui_sidebar_mode'/>
-        <int16_t/>
+        <compound name='main'>
+            <enum base-type='int16_t' name='mode' type-name='ui_sidebar_mode'/>
+            <int16_t name='unk1'/>
+        </compound>
         <bool name='baron_needed'/>
         <bool name='count_needed'/>
         <bool name='duke_needed'/>

@@ -207,8 +207,8 @@
         <enum base-type='int32_t' name='profession2' type-name='profession'/>
         <int32_t name='race' ref-target='creature_raw'/>
         <int32_t name='race_matgloss' ref-target='matgloss_wood'/>
-        <compound name='pos' type-name='coord'/>
-        <compound name='idle_area' type-name='coord'>
+        <compound name='pos' type-name='coord32'/>
+        <compound name='idle_area' type-name='coord32'>
             <comment>
                 E.g. for a dead miner, holds the place where he
                 was likely hanging around when he got the command
@@ -219,8 +219,8 @@
         <int32_t/>
 
         <compound name='path'>
-            <compound name='dest' type-name='coord'/>
-            <compound name='path' type-name='coord_path'/>
+            <compound name='dest' type-name='coord32'/>
+            <compound name='path' type-name='coord32_path'/>
         </compound>
 
         <compound name='flags1' type-name='unit_flags1'/>
@@ -233,7 +233,7 @@
         <int32_t/>
         <int32_t name='civ_id' ref-target='historical_entity'/>
 
-        <compound name='patrol_route' type-name='coord_path'/>
+        <compound name='patrol_route' type-name='coord32_path'/>
         <int32_t/>
 
         <stl-vector name='specific_refs'>
@@ -250,7 +250,7 @@
             <int32_t name='flags'/> 2=carry water, 4=stay close to station, 8=attack wild animals, 16=standing down
             <int32_t name='patrol_timer'/>
             <int32_t name='patrol_cooldown'/>
-            <compound name='station_pos' type-name='coord16'/>
+            <compound name='station_pos' type-name='coord'/>
             <int32_t/>
         </compound>
 
@@ -261,7 +261,7 @@
             <int32_t name='vanish_countdown' comment='once 0, it collapses and dies'/>
         </compound>
 
-        <enum type-name='mood_type' name='mood_type'/>
+        <enum type-name='mood_type' name='mood'/>
 
         <int16_t name='mood_claimedWorkshop'/>
         <compound name='relations'>
@@ -308,7 +308,7 @@
             <int32_t name='satisfaction'/>
             <pointer type-name='unit' name='hunt_target'/>
             <pointer type-name='building' name='destroy_target'/>
-            <compound name='last_attack_dir' type-name='coord2d'/>
+            <compound name='last_attack_dir' type-name='coord2d32'/>
             <int32_t/>
             <int16_t name='siege_morale'/>
             <int16_t/>
@@ -358,8 +358,8 @@
             <int16_t/>
             <int16_t name='webbed'/>
             <int16_t name='paralysis'/>
-            <compound name='guts_trail1' type-name='coord16'/>
-            <compound name='guts_trail2' type-name='coord16'/>
+            <compound name='guts_trail1' type-name='coord'/>
+            <compound name='guts_trail2' type-name='coord'/>
             <int16_t name='soldier_mood_countdown'/>
             <enum name='soldier_mood' base-type='int16_t'>
                 <enum-item name='None' value='-1'/>
@@ -452,8 +452,8 @@
                 </pointer>
             </stl-vector>
             <int16_t name='adv_sleep_timer' comment='and some other things'/>
-            <compound type-name='coord'/>
-            <compound type-name='coord_path'/>
+            <compound type-name='coord32'/>
+            <compound type-name='coord32_path'/>
         </compound>
 
         <int32_t name='hist_figure_id' ref-target='historical_figure'/>

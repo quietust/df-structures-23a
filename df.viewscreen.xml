@@ -22,8 +22,63 @@
         </virtual-methods>
     </class-type>
 
+    <class-type type-name='layer_object' original-name='layer_objectst'>
+        <bool name='enabled'/>
+        <bool name='active'/>
+
+        <virtual-methods>
+            No destructor anywhere:
+            <vmethod ret-type='int32_t' name='getFirstVisible'/>
+            <vmethod ret-type='int32_t' name='getLastVisible'/>
+            <vmethod ret-type='int32_t' name='getX1'/>
+            <vmethod ret-type='int32_t' name='getY1'/>
+            <vmethod ret-type='int32_t' name='getX2'/>
+
+            <vmethod ret-type='int32_t' name='getY2'/>
+            <vmethod ret-type='int32_t' comment='list 1; button,base -1'/>
+            <vmethod ret-type='int32_t' name='getListCursor'/>
+            <vmethod name='setListCursor'> <int32_t/> </vmethod>
+            <vmethod name='feed'/>
+
+            <vmethod ret-type='bool' name='isSetMouseLRCur'/>
+            <vmethod ret-type='bool' name='isSetMouseLCur'/>
+            <vmethod ret-type='bool' name='isSetMouseRCur'/>
+            <vmethod ret-type='int32_t' name='getMouseLCur'/>
+            <vmethod ret-type='int32_t' name='getMouseRCur'/>
+
+            <vmethod ret-type='int32_t' name='getListLength'/>
+            <vmethod name='setListLength'> <int32_t/> </vmethod>
+        </virtual-methods>
+    </class-type>
+
+    <class-type type-name='layer_object_listst' inherits-from='layer_object'>
+        <int32_t name='cursor'/>
+        <int32_t name='num_entries'/>
+        <int32_t name='x1'/>
+        <int32_t name='y1'/>
+        <int32_t name='page_size'/>
+        <int32_t name='x2'/>
+        <int32_t name='y2'/>
+        <int32_t name='mouse_l_cur'/>
+        <int32_t name='mouse_r_cur'/>
+        <bool/>
+        <enum type-name='interface_key' name='mouse_l_key'/>
+        <enum type-name='interface_key' name='mouse_r_key'/>
+    </class-type>
+
+    <class-type type-name='layer_object_buttonst' inherits-from='layer_object'>
+        <int32_t name='x1'/>
+        <int32_t name='y1'/>
+        <int32_t name='x2'/>
+        <int32_t name='y2'/>
+        <int32_t name='mouse_l_cur'/>
+        <int32_t name='mouse_r_cur'/>
+    </class-type>
+
     <class-type type-name='viewscreen_layer' original-name='viewscreen_layerst' inherits-from='viewscreen'>
-        <stl-vector type-name='pointer' name='layer_objs'/>
+        <stl-vector name="layer_objects">
+            <pointer type-name='layer_object'/>
+        </stl-vector>
     </class-type>
 
     <struct-type type-name='interfacest'>
@@ -295,12 +350,19 @@
     </class-type>
 
     <class-type type-name='viewscreen_petst' inherits-from='viewscreen'>
-        <int32_t/>
-        <stl-vector name='pets' type-name='pointer' comment='unit OR item'/>
-        <stl-vector name='types' type-name='int8_t'/>
-        <stl-vector type-name='int32_t'/>
-        <stl-vector type-name='int8_t'/>
-        <stl-vector type-name='int8_t'/>
+        <int32_t name="cursor"/>
+        <stl-vector name="animal">
+            <compound is-union='true'>
+                <pointer name='unit' type-name='unit'/>
+                <pointer name='item' type-name='item'/>     item_verminst
+            </compound>
+        </stl-vector>
+        <stl-vector name="is_vermin" type-name='bool'/>
+        <stl-vector name="pet_info">
+            <pointer type-name='pet_info'/>
+        </stl-vector>
+        <stl-vector name="is_tame" type-name='bool'/>
+        <stl-vector name="is_adopting" type-name='bool'/>
     </class-type>
 
     <class-type type-name='viewscreen_pricest' inherits-from='viewscreen'>
@@ -337,11 +399,18 @@
     </class-type>
 
     <class-type type-name='viewscreen_unitjobsst' inherits-from='viewscreen'>
-        <int8_t/>
-        <int8_t/>
-        <int32_t/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
+        <enum base-type='int8_t' name="mode">
+            <enum-item name='Jobs'/>
+            <enum-item name='Units'/>
+        </enum>
+        <bool name="allow_zoom"/>
+        <int32_t name="cursor_pos"/>
+        <stl-vector name="jobs">
+            <pointer type-name='job'/>
+        </stl-vector>
+        <stl-vector name="units">
+            <pointer type-name="unit"/>
+        </stl-vector>
     </class-type>
 
     <class-type type-name='viewscreen_treasurelistst' inherits-from='viewscreen'>
@@ -388,17 +457,17 @@
     </class-type>
 
     <class-type type-name='viewscreen_buildinglistst' inherits-from='viewscreen'>
-        <int32_t/>
-        <int8_t/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
+        <int32_t name='cursor' refers-to='$$._parent.buildings[$]'/>
+        <bool name='alt_right_panel'/>
+        <stl-vector name='buildings' pointer-type='building'/>
+        <stl-vector name='buildings2' pointer-type='building'/>
+        <stl-vector name='room_value' type-name='int32_t' index-refers-to='$$._parent.buildings[$]'/>
+        <stl-vector name='room_value2' type-name='int32_t' index-refers-to='$$._parent.buildings2[$]'/>
         <int8_t/>
     </class-type>
 
     <class-type type-name='viewscreen_noblelistst' inherits-from='viewscreen'>
-        <int32_t/>
+        <int32_t name='cursor'/>
         <stl-vector name='nobles'>
             <pointer type-name='unit'/>
         </stl-vector>
@@ -410,22 +479,33 @@
     </class-type>
 
     <class-type type-name='viewscreen_storesst' inherits-from='viewscreen'>
-        <static-string size='80'/>
-        <int16_t/>
-        <int16_t/>
-        <int16_t/>
-        <int16_t/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <compound>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
+        <static-string name='title' size='80'/>
+        <int16_t name="category_cursor"/>
+        <int16_t name="item_cursor"/>
+        <int16_t name='in_right_list'/>
+        <int16_t name='in_group_mode'/>
+        <stl-vector name="category_total" type-name='int32_t' index-enum='item_type'/>
+        <stl-vector name="category_busy" type-name='int32_t' index-enum='item_type'/>
+        <stl-vector name="items">
+            <pointer type-name="item"/>
+        </stl-vector>
+        <compound name='group'>
+            <stl-vector name='item_type'>
+                <enum base-type='int16_t' type-name='item_type'/>
+            </stl-vector>
+            <stl-vector name="item_subtype">
+                <int16_t refers-to='(item-subtype-target $$._global.group_item_type[$$._key] $)'/>
+            </stl-vector>
+
+            <stl-vector name='material'>
+                <enum base-type='int16_t' type-name='material_type'/>
+            </stl-vector>
+            <stl-vector name='matgloss'>
+                <int16_t refers-to='(matgloss-target $$._parent._parent.material[$$._key] $)'/>
+            </stl-vector>
+            <stl-vector name="count" type-name='int32_t'/>
         </compound>
-        <int8_t/>
+        <bool name="can_zoom"/>
     </class-type>
 
     <class-type type-name='viewscreen_itemst' inherits-from='viewscreen'>
@@ -510,25 +590,52 @@
     </class-type>
 
     <class-type type-name='viewscreen_layer_stockpilest' inherits-from='viewscreen_layer'>
-        <pointer/>
-        <int32_t/>
-        <int32_t/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
+        <pointer name="settings" type-name='stockpile_settings'/>
+        <enum name="cur_group" type-name='stockpile_list' base-type='int32_t'/>
+        <enum name="cur_list" type-name='stockpile_list' base-type='int32_t'/>
+        <stl-vector name="group_ids">
+            <enum type-name='stockpile_list' base-type='int32_t'/>
+        </stl-vector>
+        <stl-vector name="group_bits">
+            <compound type-name='item_category'/>
+        </stl-vector>
+        <stl-vector name="list_ids">
+            <enum type-name='stockpile_list' base-type='int32_t'/>
+        </stl-vector>
+        <stl-vector name="item_names">
+            <pointer type-name='stl-string'/>
+        </stl-vector>
+        <stl-vector name="item_status">
+            <pointer type-name='bool'/>
+        </stl-vector>
     </class-type>
 
     <class-type type-name='viewscreen_layer_workshop_profilest' inherits-from='viewscreen_layer'>
-        <int32_t/>
-        <stl-vector type-name='pointer'/>
+        <pointer name="profile" type-name='workshop_profile'/>
+
+        <stl-vector name="workers">
+            <pointer type-name="unit"/>
+        </stl-vector>
     </class-type>
 
+    <struct-type type-name='assign_trade_status'>
+        <pointer name='item' type-name='item'/>
+        <enum base-type='int8_t' name="status">
+            <enum-item name='RemoveTrading' value='-2'/>
+            <enum-item name='RemovePending'/>
+            <enum-item name='None'/>
+            <enum-item name='AddPending'/>
+            <enum-item name='Pending'/>
+            <enum-item name='Trading'/>
+        </enum>
+    </struct-type>
+
     <class-type type-name='viewscreen_assigntradest' inherits-from='viewscreen'>
-        <int32_t/>
-        <stl-vector type-name='pointer'/>
-        <int32_t/>
+        <int32_t name='cursor'/>
+        <stl-vector name='info'>
+            <pointer type-name='assign_trade_status'/>
+        </stl-vector>
+        <pointer name='depot' type-name='building_tradedepotst'/>
     </class-type>
 
     <class-type type-name='viewscreen_tradelistst' inherits-from='viewscreen'>
@@ -555,19 +662,26 @@
     </class-type>
 
     <class-type type-name='viewscreen_tradegoodsst' inherits-from='viewscreen'>
-        <static-string size='200'/>
-        <stl-string/>
-        <stl-string/>
-        <int32_t/>
-        <int32_t/>
-        <pointer name='entity' type-name='historical_entity'/>
-        <int8_t/>
-        <int8_t/>
-        <static-array count='2'><stl-vector type-name='pointer'/></static-array>
-        <static-array count='2'><stl-vector type-name='pointer'/></static-array>
-        <static-array count='2' type-name='int32_t'/>
-        <int8_t/>
-        <int16_t/>
+        <static-string name='title' size='200'/>
+        <stl-string name="merchant_name"/>
+        <stl-string name="merchant_entity"/>
+        <pointer name="depot" type-name="building_tradedepotst"/>
+        <pointer name="caravan" type-name="caravan_state"/>
+        <pointer name="entity" type-name="historical_entity"/>
+        <bool name='is_unloading'/>
+        <bool name='has_traders'/>
+        <stl-vector name="trader_items">
+            <pointer type-name="item"/>
+        </stl-vector>
+        <stl-vector name="broker_items">
+            <pointer type-name="item"/>
+        </stl-vector>
+        <stl-vector name="trader_selected" type-name='bool'/>
+        <stl-vector name="broker_selected" type-name='bool'/>
+        <int32_t name="trader_cursor"/>
+        <int32_t name="broker_cursor"/>
+        <bool name="in_right_pane"/>
+        <int16_t name='trade_reply'/>
         <int8_t/>
     </class-type>
 
@@ -655,9 +769,9 @@
         <stl-vector type-name='pointer'/>
         <stl-vector type-name='pointer'/>
         <int32_t/>?
-        <compound name='region_indoor' type-name='coord2d16'/>
+        <compound name='region_indoor' type-name='coord2d'/>
         <int16_t/>
-        <compound name='region_outdoor' type-name='coord2d16'/>
+        <compound name='region_outdoor' type-name='coord2d'/>
         <int16_t/>
         <int32_t/>
         <int32_t/>

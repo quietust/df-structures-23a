@@ -1,6 +1,6 @@
 <data-definition>
     <struct-type type-name='world'>
-        <compound name='map_extras'>
+<!--    <compound name='map_extras'>-->
             <stl-vector name='gem_clusters'>
                 <pointer type-name='mineral_cluster'/>
             </stl-vector>
@@ -17,46 +17,46 @@
             </stl-vector>
 
             <stl-vector name='unk_40'>
-                <pointer type-name='coord16'/>
+                <pointer type-name='coord'/>
             </stl-vector>
 
             <stl-vector name='drink_areas'>
                 <pointer>
                     <int32_t name='id' comment='assigned during Save'/>
-                    <compound type-name='coord16' name='pos'/>
+                    <compound type-name='coord' name='pos'/>
                     <int8_t/>
                     <int16_t/>
                 </pointer>
             </stl-vector>
             <stl-vector name='caveriver_tiles'>
-                <pointer type-name='coord16'/>
+                <pointer type-name='coord'/>
             </stl-vector>
             <stl-vector name='chasm_tiles'>
-                <pointer type-name='coord16'/>
+                <pointer type-name='coord'/>
             </stl-vector>
             <stl-vector name='magmaflow_tiles'>
-                <pointer type-name='coord16'/>
+                <pointer type-name='coord'/>
             </stl-vector>
             <stl-vector name='waterfalls'>
                 <pointer>
                     <enum type-name='flow_type' base-type='int16_t' name='type'/>
-                    <compound type-name='coord16' name='pos'/>
+                    <compound type-name='coord' name='pos'/>
                 </pointer>
             </stl-vector>
             <stl-vector name='cavein_regions'>
                 <pointer>
-                    <compound type-name='coord16' name='pos'/>
+                    <compound type-name='coord' name='pos'/>
                     <int16_t name='timer'/>
                 </pointer>
             </stl-vector>
             <stl-vector name='campfires'>
                 <pointer>
-                    <compound type-name='coord' name='pos'/>
+                    <compound type-name='coord32' name='pos'/>
                     <int32_t name='timer'/>
                 </pointer>
             </stl-vector>
             <stl-vector name='contaminated_tiles'>
-                <pointer type-name='coord16'/>
+                <pointer type-name='coord'/>
             </stl-vector>
             <stl-vector name='web_clusters'>
                 <pointer>
@@ -64,8 +64,8 @@
                     <stl-vector type-name='int16_t'/>
                     <int16_t/>
                     <int16_t name='race' ref-target='creature_raw'/>
-                    <compound type-name='coord2d16' name='pos_min'/>
-                    <compound type-name='coord2d16' name='pos_max'/>
+                    <compound type-name='coord2d' name='pos_min'/>
+                    <compound type-name='coord2d' name='pos_max'/>
                     <stl-vector>
                         <pointer type-name='unit'/>
                     </stl-vector>
@@ -73,7 +73,7 @@
             </stl-vector>
             <stl-vector name='fires'>
                 <pointer>
-                    <compound type-name='coord16' name='pos'/>
+                    <compound type-name='coord' name='pos'/>
                     <int16_t comment='1000'/>
                     <uint16_t name='temperature_1'/>
                     <uint16_t comment='10000'/>
@@ -81,7 +81,7 @@
                     <uint16_t name='temperature_3'/>
                 </pointer>
             </stl-vector>
-        </compound>
+<!--    </compound>-->
         <stl-vector name='effects'>
             <pointer type-name='effect_info'/>
         </stl-vector>
@@ -371,7 +371,7 @@
             <enum base-type='int16_t' name='siegeengine_type' type-name='siegeengine_type'/>
             <enum base-type='int16_t' name='trap_type' type-name='trap_type'/>
         </compound>
-        <bool/>
+        <bool name='update_selected_building'/>
 
         <int16_t name='building_width'/>
         <int16_t name='building_height'/>
@@ -478,7 +478,7 @@
             <int32_t/>
             <int16_t/>
             <int16_t/>
-            <compound name='pos' type-name='coord2d16'/>
+            <compound name='pos' type-name='coord2d'/>
         </compound>
         <bool name="reindex_pathfinding" comment='forces map_block.passable to be recomputed'/>
         <int32_t name='frame_counter' comment='increases by 1 every time . is pressed'/>

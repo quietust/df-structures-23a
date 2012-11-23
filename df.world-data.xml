@@ -135,8 +135,8 @@
             <enum-item name='Ruin'/>
         </enum>
 
-        <compound name='region_indoor' type-name='coord2d16' comment='for subterranean wildlife'/>
-        <compound name='region_outdoor' type-name='coord2d16' comment='for outdoor wildlife'/>
+        <compound name='region_indoor' type-name='coord2d' comment='for subterranean wildlife'/>
+        <compound name='region_outdoor' type-name='coord2d' comment='for outdoor wildlife'/>
 
         <int32_t name="id"/>
 
@@ -162,7 +162,7 @@
         <int32_t name="id"/>
         <enum name='biome_type' type-name='region_biome_type' base-type='int32_t'/>
 
-        <compound name='region_coords' type-name='coord2d16_path'/>
+        <compound name='region_coords' type-name='coord2d_path'/>
 
         <int32_t name="unk_88"/>
         <int32_t name="unk_8c"/>
@@ -183,8 +183,18 @@
         <int8_t name="unk_132"/>
     </struct-type>
 
+    <struct-type type-name='region_map_entry'>
+        <pointer/>
+        <stl-vector name="sites">
+            <pointer type-name='world_site'/>
+        </stl-vector>
+        <df-flagarray name='flags'/>
+        <static-array name='properties' type-name='int16_t' count='23' index-enum='region_property_type'/>
+        <int32_t name="region_id" ref-target='world_region'/>
+    </struct-type>
+
     <struct-type type-name='world_data'>
-        <compound type-name='language_name' name='world_name'/>
+        <compound type-name='language_name' name='name'/>
 
         <static-array count='15' type-name='int8_t'/>
         <int32_t name='save_folder_number'/>
@@ -245,15 +255,7 @@
         </stl-vector>
 
         <pointer name="region_map" is-array='true'>
-            <pointer is-array='true'>
-                <pointer/>
-                <stl-vector name="sites">
-                    <pointer type-name='world_site'/>
-                </stl-vector>
-                <df-flagarray name='flags'/>
-                <static-array name='properties' type-name='int16_t' count='23' index-enum='region_property_type'/>
-                <int32_t name="region_id" ref-target='world_region'/>
-            </pointer>
+            <pointer is-array='true' type-name='region_map_entry'/>
         </pointer>
     </struct-type>
 </data-definition>

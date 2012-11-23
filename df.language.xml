@@ -85,7 +85,7 @@
         </static-array>
 
         <int32_t name='language' ref-target='language_translation'/>
-        <int16_t/>
+        <int16_t name='unknown'/>
 
         <bool name='has_name'/>
 

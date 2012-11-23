@@ -5,7 +5,7 @@
         <enum-item name='LOCKPICKER'/>
         <enum-item name='AMPHIBIOUS'/>
         <enum-item name='AQUATIC'/>
-        <enum-item name='MISCHEVIOUS'/>
+        <enum-item name='MISCHIEVIOUS'/>
         <enum-item name='PATTERNFLIER'/>
         <enum-item name='CURIOUSBEAST'/>
 
@@ -338,7 +338,7 @@
         <int32_t name='child'/>
         <int32_t name='add_version'/>
 
-        <static-array type-name='int8_t' name='flags' count='40'/>
+        <df-static-flagarray name='flags' index-enum='creature_raw_flags' count='40'/>
 
         <stl-vector name='prefstring'>
             <pointer type-name='stl-string'/>
@@ -364,7 +364,7 @@
         <stl-vector name='speech_3' type-name='int32_t'/>
     </struct-type>
 
-    <enum-type type-name='body_part_flags'>
+    <enum-type type-name='body_part_template_flags'>
         <enum-item name='HEAD'/>
         <enum-item name='UPPERBODY'/>
         <enum-item name='LOWERBODY'/>
@@ -409,7 +409,7 @@
         <stl-string name='name'/>
         <stl-string name='con'/>
         <enum type-name='body_part_template_contype' base-type='int16_t' name='contype'/>
-        <static-array type-name='int8_t' name='flags' count='6'/>
+        <df-static-flagarray name='flags' index-enum='body_part_template_flags' count='6'/>
     </struct-type>
 
     <struct-type type-name='body_template' instance-vector='$global.world.raws.body.templates'>
@@ -419,12 +419,44 @@
         </stl-vector>
     </struct-type>
 
+    <enum-type type-name='body_part_raw_flags'>
+        <enum-item name='HEAD'/>
+        <enum-item name='UPPERBODY'/>
+        <enum-item name='LOWERBODY'/>
+        <enum-item name='SIGHT'/>
+        <enum-item name='EMBEDDED'/>
+        <enum-item name='INTERNAL'/>
+        <enum-item name='CIRCULATION'/>
+        <enum-item/>
+
+        <enum-item name='LIMB'/>
+        <enum-item name='GRASP'/>
+        <enum-item name='STANCE'/>
+        <enum-item name='GUTS'/>
+        <enum-item name='BREATHE'/>
+        <enum-item name='SMALL'/>
+        <enum-item name='THROAT'/>
+        <enum-item name='JOINT'/>
+
+        <enum-item name='THOUGHT'/>
+        <enum-item name='NERVOUS'/>
+        <enum-item name='RIGHT'/>
+        <enum-item name='LEFT'/>
+        <enum-item name='HEAR'/>
+        <enum-item name='SMELL'/>
+        <enum-item name='FLIER'/>
+        <enum-item name='DIGIT'/>
+
+        <enum-item name='MOUTH'/>
+        <enum-item name='APERTURE'/>
+    </enum-type>
+
     <struct-type type-name='body_part_raw'>
         <stl-string name='token'/>
         <stl-string name='name'/>
         <code-helper name='describe'>$.name</code-helper>
         <int16_t name='con_part_id'/>
-        <static-array type-name='int8_t' name='flags' count='6'/>
+        <df-static-flagarray name='flags' index-enum='body_part_raw_flags' count='6'/>
     </struct-type>
 </data-definition>
 

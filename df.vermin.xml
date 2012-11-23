@@ -4,7 +4,7 @@
         <flag-bit name='is_colony' comment='A vermin colony.'/>
     </bitfield-type>
 
-    <struct-type type-name='vermin' instance-vector='$global.world.vermin.all'>
+    <struct-type type-name='vermin' instance-vector='$global.world.vermin'>
 
         <code-helper name='describe'>
             (awhen (find-creature $.race)
@@ -13,7 +13,7 @@
 
         <int32_t name='id' comment='assigned during Save'/>
         <int16_t name='race' ref-target='creature_raw'/>
-        <compound name='pos' type-name='coord16'/>
+        <compound name='pos' type-name='coord'/>
         <bool name='visible'/>
 
         <int16_t name='countdown' />

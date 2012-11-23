@@ -95,10 +95,11 @@
         <flag-bit name='hidden'/>
     </bitfield-type>
 
-    <struct-type type-name='engraving' instance-vector='$global.world.engravings'>
+    <struct-type type-name='engraving' instance-vector='$global.world.engravings' key-field='pos'>
         <int32_t name='artist' ref-target='historical_figure'/>
-        <int16_t/>
-        <compound name='pos' type-name='coord16'/>
+        <enum base-type='int16_t' name="skill_rating" type-name='skill_rating'
+              comment='at the moment of creation'/> GUESS
+        <compound name='pos' type-name='coord'/>
         <compound name='flags' type-name='engraving_flags'/>
         <int8_t name='tile'/>
         <int32_t name='art_id' ref-target='art_image_chunk'/>

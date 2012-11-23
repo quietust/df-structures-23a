@@ -10,7 +10,7 @@
 
         -- 0
 
-        <enum-item name='ANY_FREE'/>
+        <enum-item name='IN_PLAY'/>
         <enum-item name='STOCKPILE'>
             <item-attr name='building' value='Stockpile'/>
         </enum-item>
@@ -193,8 +193,7 @@
         </enum-item>
         <enum-item name='WORKSHOP_MILL'>
             <item-attr name='building' value='Workshop'/>
-            <item-attr name='workshop' value='Quern'/>
-            <item-attr name='workshop' value='Millstone'/>
+            <item-attr name='workshop' value='Mill'/>
         </enum-item>
         <enum-item name='WORKSHOP_KITCHEN'>
             <item-attr name='building' value='Workshop'/>

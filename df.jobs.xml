@@ -36,7 +36,7 @@
 
         <code-helper name='describe'>$.job_type</code-helper>
 
-        <compound name='pos' type-name='coord'/>
+        <compound name='pos' type-name='coord32'/>
 
         <int32_t name='completion_timer' comment='-1 per 10 frames'/>
         <uint16_t name='unk4a'/>

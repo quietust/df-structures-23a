@@ -7,11 +7,13 @@
         <enum-attr name='is_gem' type-name='bool' comment='Matgloss is gem'/>
         <enum-attr name='is_plant' type-name='bool' comment='Matgloss is plant'/>
         <enum-attr name='is_creature' type-name='bool' comment='Matgloss is creature'/>
+        <enum-attr name='weight_divisor' type-name='int8_t' default-value='1' comment=''/>
 
         <enum-item name='NONE' value='-1'/>
         <enum-item name='WOOD'>
             <item-attr name='caption' value='wood'/>
             <item-attr name='is_wood' value='true'/>
+            <item-attr name='weight_divisor' value='2'/>
         </enum-item>
         <enum-item name='STONE_GRAY'>
             <item-attr name='caption' value='rock'/>
@@ -52,10 +54,12 @@
         <enum-item name='BONE'>
             <item-attr name='caption' value='bone'/>
             <item-attr name='is_creature' value='true'/>
+            <item-attr name='weight_divisor' value='2'/>
         </enum-item>
         <enum-item name='IVORY'>
             <item-attr name='caption' value='ivory'/>
             <item-attr name='is_creature' value='true'/>
+            <item-attr name='weight_divisor' value='2'/>
         </enum-item>
         <enum-item name='JADE'>
             <item-attr name='is_builtin' value='true'/>
@@ -63,12 +67,14 @@
         <enum-item name='HORN'>
             <item-attr name='caption' value='horn'/>
             <item-attr name='is_creature' value='true'/>
+            <item-attr name='weight_divisor' value='2'/>
         </enum-item>
         <enum-item name='AMBER'>
             <item-attr name='is_builtin' value='true'/>
         </enum-item>
         <enum-item name='CORAL'>
             <item-attr name='is_builtin' value='true'/>
+            <item-attr name='weight_divisor' value='2'/>
         </enum-item>
         <enum-item name='PEARL'>
             <item-attr name='caption' value='pearl'/>
@@ -77,21 +83,26 @@
         <enum-item name='SHELL'>
             <item-attr name='caption' value='shell'/>
             <item-attr name='is_creature' value='true'/>
+            <item-attr name='weight_divisor' value='2'/>
         </enum-item>
         <enum-item name='LEATHER'>
             <item-attr name='caption' value='leather'/>
             <item-attr name='is_creature' value='true'/>
+            <item-attr name='weight_divisor' value='2'/>
         </enum-item>
         <enum-item name='ADAMANTINE'>
             <item-attr name='is_builtin' value='true'/>
+            <item-attr name='weight_divisor' value='8'/>
         </enum-item>
         <enum-item name='SILK'>
             <item-attr name='caption' value='silk'/>
             <item-attr name='is_creature' value='true'/>
+            <item-attr name='weight_divisor' value='8'/>
         </enum-item>
         <enum-item name='PLANT'>
             <item-attr name='caption' value='plant'/>
             <item-attr name='is_plant' value='true'/>
+            <item-attr name='weight_divisor' value='2'/>
         </enum-item>
         <enum-item name='GLASS_GREEN'>
             <item-attr name='is_builtin' value='true'/>
@@ -186,7 +197,7 @@
         <stl-string name='id'/>
         <code-helper name='describe'>$.id</code-helper>
 
-        <int32_t name='flags'/>
+        <df-static-flagarray name='flags' index-enum='matgloss_stone_flags' count='4'/>
         <stl-string name='name'/>
         <uint8_t name='tile'/>
         <static-array type-name='int16_t' name='color' count='3'/>
@@ -212,7 +223,7 @@
         <stl-string name='id'/>
         <code-helper name='describe'>$.id</code-helper>
 
-        <int32_t name='flags'/>
+        <df-static-flagarray name='flags' index-enum='matgloss_gem_flags' count='4'/>
         <static-array type-name='stl-string' name='name' count='2'/>
         <int16_t name='color'/>
         <int32_t name='value'/>
@@ -259,7 +270,7 @@
         <stl-string name='id'/>
         <code-helper name='describe'>$.id</code-helper>
 
-        <int32_t name='flags'/>
+        <df-static-flagarray name='flags' index-enum='matgloss_plant_flags' count='4'/>
         <stl-string name='name'/>
         <stl-string name='name_plural'/>
         <stl-string name='drink_name'/>

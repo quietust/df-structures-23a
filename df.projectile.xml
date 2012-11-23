@@ -25,15 +25,15 @@
         <int32_t name='id'/>
         <pointer name='firer' type-name='unit'/>
 
-        <compound name='origin_pos' type-name='coord'/>
-        <compound name='target_pos' type-name='coord'/>
-        <compound name='cur_pos' type-name='coord'/>
+        <compound name='origin_pos' type-name='coord32'/>
+        <compound name='target_pos' type-name='coord32'/>
+        <compound name='cur_pos' type-name='coord32'/>
         <int32_t name='time_flown'/>
         <int32_t name='momentum'/>
         <int32_t name='min_hit_distance'/>
         <int32_t/>
 
-        <compound name='prev_pos' type-name='coord'/>
+        <compound name='prev_pos' type-name='coord32'/>
 
         <compound name='flags' type-name='projectile_flags'/>
 

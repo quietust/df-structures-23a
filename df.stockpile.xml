@@ -147,6 +147,101 @@
             <bool name='foreign'/>
         </compound>
     </struct-type>
+
+    <enum-type type-name='stockpile_list' base-type='int32_t'>
+        <enum-attr name='is_category' type-name='bool'/>
+
+        <enum-item name='Animals'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='Food'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='FoodMeatFish'/>
+        <enum-item name='FoodUnpreparedFish'/>
+        <enum-item name='FoodPlants'/>
+        <enum-item name='FoodDrinkPlant'/>
+        <enum-item name='FoodDrinkAnimal'/>
+        <enum-item name='FoodCheesePlant'/>
+        <enum-item name='FoodCheeseAnimal'/>
+        <enum-item name='FoodSeeds'/>
+        <enum-item name='FoodLeaves'/>
+        <enum-item name='FoodMilledPlant'/>
+        <enum-item name='FoodBoneMeal'/>
+        <enum-item name='FoodFat'/>
+        <enum-item name='FoodExtractPlant'/>
+        <enum-item name='FoodExtractAnimal'/>
+        <enum-item name='FoodMiscLiquid'/>
+        <enum-item name='Furniture'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='FurnitureType'/>
+        <enum-item name='FurnitureMaterial'/>
+        <enum-item name='Graveyard'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='Refuse'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='Stone'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='Ore'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='Ammo'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='AmmoType'/>
+        <enum-item name='AmmoMaterial'/>
+        <enum-item name='Coins'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='BarsBlocks'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='BarsMaterial'/>
+        <enum-item name='BlocksMaterial'/>
+        <enum-item name='Gems'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='RoughMaterial'/>
+        <enum-item name='CutMaterial'/>
+        <enum-item name='Goods'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='GoodsType'/>
+        <enum-item name='GoodsMaterial'/>
+        <enum-item name='Leather'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='Cloth'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='ThreadSilk'/>
+        <enum-item name='ThreadPlant'/>
+        <enum-item name='ClothSilk'/>
+        <enum-item name='ClothPlant'/>
+        <enum-item name='Wood'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='Weapons'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='WeaponsType'/>
+        <enum-item name='WeaponsTrapcomp'/>
+        <enum-item name='WeaponsMaterial'/>
+        <enum-item name='Armor'>
+            <item-attr name='is_category' value='true'/>
+        </enum-item>
+        <enum-item name='ArmorBody'/>
+        <enum-item name='ArmorHead'/>
+        <enum-item name='ArmorFeet'/>
+        <enum-item name='ArmorHands'/>
+        <enum-item name='ArmorLegs'/>
+        <enum-item name='ArmorShield'/>
+        <enum-item name='ArmorMaterial'/>
+    </enum-type>
 </data-definition>
 
 <!--
