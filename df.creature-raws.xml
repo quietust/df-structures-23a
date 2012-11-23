@@ -240,6 +240,16 @@
         </stl-vector>
     </struct-type>
 
+    <enum-type type-name='creature_graphics_role'>
+        <enum-item name='DEFAULT'/>
+        <enum-item name='GUARD'/>
+        <enum-item name='ROYALGUARD'/>
+        <enum-item name='CASTLEGUARD'/>
+        <enum-item name='ZOMBIE'/>
+        <enum-item name='SKELETON'/>
+        <enum-item name='ADVENTURER'/>
+    </enum-type>
+
     <struct-type type-name='creature_raw' instance-vector='$global.world.raws.creatures'>
         <stl-string name='creature_id'/>
         <code-helper name='describe'>$.creature_id</code-helper>
@@ -346,18 +356,20 @@
 
         <compound name='body_info' type-name='body_info'/>
 
-        <static-array type-name='int32_t' count='7'/>
-        <static-array type-name='int32_t' count='7'/>
-        <static-array count='7'>
-            <static-array type-name='int32_t' count='88'/>
-        </static-array>
-        <static-array count='7'>
-            <static-array type-name='int32_t' count='88'/>
-        </static-array>
-        <static-array type-name='int8_t' count='7'/>
-        <static-array count='7'>
-            <static-array type-name='int8_t' count='88'/>
-        </static-array>
+        <compound name='graphics'>
+            <static-array name='texpos' type-name='int32_t' count='7' index-enum='creature_graphics_role'/>
+            <static-array name='texpos_gs' type-name='int32_t' count='7' index-enum='creature_graphics_role'/>
+            <static-array name='profession_texpos' count='7' index-enum='creature_graphics_role'>
+                <static-array type-name='int32_t' count='88' index-enum='profession'/>
+            </static-array>
+            <static-array name='profession_texpos_gs' count='7' index-enum='creature_graphics_role'>
+                <static-array type-name='int32_t' count='88' index-enum='profession'/>
+            </static-array>
+            <static-array name='add_color' type-name='bool' count='7' index-enum='creature_graphics_role'/>
+            <static-array name='profession_add_color' count='7' index-enum='creature_graphics_role'>
+                <static-array type-name='bool' count='88' index-enum='profession'/>
+            </static-array>
+        </compound>
 
         <stl-vector name='speech_1' type-name='int8_t'/>
         <stl-vector name='speech_2' type-name='int32_t'/>
