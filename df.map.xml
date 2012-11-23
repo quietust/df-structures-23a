@@ -114,9 +114,9 @@
         <flag-bit/>
         <flag-bit name='geolayer_index' count='4'/>
 
+        <flag-bit name='light'/>
         <flag-bit name='subterranean'/>
         <flag-bit name='outside'/>
-        <flag-bit name='light'/>
     </bitfield-type>
 
     <enum-type type-name='tile_building_occ' base-type='uint32_t'>
