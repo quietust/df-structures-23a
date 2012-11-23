@@ -52,12 +52,12 @@
         <int16_t name='screenb'/>
         <int8_t name='screenbright'/>
 
-        <static-array name='screentexpos' count='25'><static-array type-name='int32_t' count='80'/></static-array>
-        <static-array name='screentexpos_addcolor' count='25'><static-array type-name='int8_t' count='80'/></static-array>
-        <static-array name='screentexpos_grayscale' count='25'><static-array type-name='uint8_t' count='80'/></static-array>
-        <static-array name='screentexpos_cf' count='25'><static-array type-name='uint8_t' count='80'/></static-array>
-        <static-array name='screentexpos_cbr' count='25'><static-array type-name='uint8_t' count='80'/></static-array>
-        <static-array name='screen' count='25'><static-array count='80'>
+        <static-array name='screentexpos' count='80'><static-array type-name='int32_t' count='25'/></static-array>
+        <static-array name='screentexpos_addcolor' count='80'><static-array type-name='int8_t' count='25'/></static-array>
+        <static-array name='screentexpos_grayscale' count='80'><static-array type-name='uint8_t' count='25'/></static-array>
+        <static-array name='screentexpos_cf' count='80'><static-array type-name='uint8_t' count='25'/></static-array>
+        <static-array name='screentexpos_cbr' count='80'><static-array type-name='uint8_t' count='25'/></static-array>
+        <static-array name='screen' count='80'><static-array count='25'>
             <int8_t name='chr'/>
             <int8_t name='fore'/>
             <int8_t name='back'/>
