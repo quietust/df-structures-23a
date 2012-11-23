@@ -1214,6 +1214,14 @@
             <item-attr name='tile_chr' value='Ore'/>
 <!--            <item-attr name='tile_color' value='0'/>-->
         </enum-item>
+        <enum-item name='MalachiteWall'>
+            <item-attr name='caption' value='malachite vein'/>
+            <item-attr name='shape' value='WALL'/>
+            <item-attr name='material' value='ORE'/>
+            <item-attr name='special' value='COPPER'/>
+            <item-attr name='tile_chr' value='Ore'/>
+            <item-attr name='tile_color' value='2'/>
+        </enum-item>
         <enum-item name='HematiteWall'>
             <item-attr name='caption' value='hematite vein'/>
             <item-attr name='shape' value='WALL'/>
