@@ -21,12 +21,7 @@
             </stl-vector>
 
             <stl-vector name='drink_areas'>
-                <pointer>
-                    <int32_t name='id' comment='assigned during Save'/>
-                    <compound type-name='coord' name='pos'/>
-                    <int8_t/>
-                    <int16_t/>
-                </pointer>
+                <pointer type-name='drink_area'/>
             </stl-vector>
             <stl-vector name='caveriver_tiles'>
                 <pointer type-name='coord'/>

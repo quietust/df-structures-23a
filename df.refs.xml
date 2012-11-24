@@ -121,13 +121,13 @@
     <class-type type-name='general_ref_building_holderst' inherits-from='general_ref_building'/>
 
     <enum-type type-name='specific_ref_type'>
-        <enum-item name='BUILDING_GENERAL'/>
+        <enum-item name='BUILDING_GENERAL' comment='obsolete'/>
         <enum-item name='UNIT_INVENTORY'/>
         <enum-item name='JOB'/>
         <enum-item name='BUILDING_PARTY'/>
-        <enum-item name='UNIT_TRAINEE'/>
-        <enum-item name='UNIT_ITEMOWNER'/>
-        <enum-item name='UNIT_TRADEBRINGER'/>
+        <enum-item name='UNIT_TRAINEE' comment='obsolete'/>
+        <enum-item name='UNIT_ITEMOWNER' comment='obsolete'/>
+        <enum-item name='UNIT_TRADEBRINGER' comment='obsolete'/>
         <enum-item name='UNIT_CAGEE'/>
         <enum-item name='UNIT_BEATEE'/>
         <enum-item name='UNIT_FOODRECEIVER'/>
@@ -140,18 +140,18 @@
         <enum-item name='ENTITY_OFFERED'/>
         <enum-item name='ACTIVITY'/>
         <enum-item name='ITEM_GENERAL'/>
-        <enum-item name='CONTAINS_ITEM'/>
-        <enum-item name='CONTAINED_IN_ITEM'/>
+        <enum-item name='CONTAINS_ITEM' comment='obsolete'/>
+        <enum-item name='CONTAINED_IN_ITEM' comment='obsolete'/>
 
-        <enum-item name='CONTAINS_UNIT'/>
+        <enum-item name='CONTAINS_UNIT' comment='obsolete'/>
         <enum-item name='EFFECT'/>
         <enum-item name='DRINK_AREA'/>
-        <enum-item name='BUILDING_TRIGGER'/>
-        <enum-item name='BUILDING_TRIGGERTARGET'/>
-        <enum-item name='BUILDING_CHAIN'/>
-        <enum-item name='BUILDING_CAGED'/>
-        <enum-item name='BUILDING_CIVZONE_ASSIGNED'/>
-        <enum-item name='BUILDING_CHANNELED'/>
+        <enum-item name='BUILDING_TRIGGER' comment='obsolete'/>
+        <enum-item name='BUILDING_TRIGGERTARGET' comment='obsolete'/>
+        <enum-item name='BUILDING_CHAIN' comment='obsolete'/>
+        <enum-item name='BUILDING_CAGED' comment='obsolete'/>
+        <enum-item name='BUILDING_CIVZONE_ASSIGNED' comment='obsolete'/>
+        <enum-item name='BUILDING_CHANNELED' comment='obsolete'/>
         <enum-item name='PETINFO_PET'/>
 
         <enum-item name='PETINFO_OWNER'/>
@@ -178,7 +178,7 @@
 
         <enum-item name='ART_IMAGE'/>
         <enum-item name='CREATURE_DEF'/>
-        <enum-item name='PROJECTILE'/>
+        <enum-item name='PROJECTILE' comment='obsolete'/>
     </enum-type>
 
     <struct-type type-name='specific_ref'>
@@ -186,11 +186,18 @@
         <compound is-union='true'>
             <pointer name='object'/>
             <pointer name='unit' type-name='unit'/>
-            <pointer name='pet' type-name='pet_info'/>
-            <pointer name='screen' type-name='viewscreen'/>
-            <pointer name='vermin' type-name='vermin'/>
-            <pointer name='effect' type-name='effect_info'/>
             <pointer name='job' type-name='job'/>
+            <pointer name='party' type-name='party_info'/>
+            <pointer name='entity' type-name='historical_entity'/>
+            <pointer name='activity' type-name='activity_info'/>
+            <pointer name='item' type-name='item'/>
+            <pointer name='effect' type-name='effect_info'/>
+            <pointer name='drink_area' type-name='drink_area'/>
+            <pointer name='pet' type-name='pet_info'/>
+            <pointer name='vermin' type-name='vermin'/>
+            <pointer name='screen' type-name='viewscreen'/>
+            <pointer name='nemesis' type-name='nemesis_record'/>
+            <pointer name='artifact' type-name='artifact_record'/>
         </compound>
         <compound is-union='true' name='arg2'>
             <pointer name='wrestle'/>
@@ -234,7 +241,7 @@
 
     <struct-type type-name='histfig_hf_link'>
         <enum base-type='int16_t' type-name='histfig_hf_link_type' name='type'/>
-        <int32_t ref-target='historical_figure'/>
+        <int32_t name='histfig_id' ref-target='historical_figure'/>
     </struct-type>
 </data-definition>
 

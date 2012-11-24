@@ -325,6 +325,13 @@
         <int32_t name='timer'/>
         <int32_t/>
     </struct-type>
+
+    <struct-type type-name='drink_area'>
+        <int32_t name='id' comment='assigned during Save'/>
+        <compound type-name='coord' name='pos'/>
+        <int8_t/>
+        <int16_t/>
+    </struct-type>
 </data-definition>
 
 <!--

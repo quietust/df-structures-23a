@@ -742,7 +742,7 @@
             <item-attr name='tile_color' value='15'/>
         </enum-item>
         <enum-item name='WoodRampTop'>
-            <item-attr name='caption' value='stone ramp top'/>
+            <item-attr name='caption' value='wood ramp top'/>
             <item-attr name='shape' value='RAMP_TOP'/>
             <item-attr name='material' value='WOOD'/>
             <item-attr name='tile_chr' value='RampTop'/>
