@@ -75,16 +75,16 @@
 
     <class-type type-name='general_ref_mapsquare' inherits-from='general_ref'
                 original-name='general_ref_mapsquarest'>
-        <int8_t/>
-        <int16_t/>
-        <int16_t/>
-        <int16_t/>
+        <enum base-type='uint8_t' type-name='tile_chr' name='tile'/>
+        <int16_t name='color'/>
+        <enum base-type='int16_t' name='material' type-name='material_type'/>
+        <int16_t name='matgloss' refers-to='(matgloss-target $$._parent.material $)'/>
     </class-type>
 
     <class-type type-name='general_ref_entity_art_image' inherits-from='general_ref'
                 original-name='general_ref_entity_art_imagest'>
-        <int32_t/>
-        <int32_t/>
+        <int32_t name='entity' ref-target='historical_entity'/>
+        <int32_t comment='refers to vector in entity.resources'/>
     </class-type>
 
     <class-type type-name='general_ref_projectile' inherits-from='general_ref'

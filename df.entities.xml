@@ -287,7 +287,7 @@
             <int16_t/>
             <int16_t/>
 
-            <stl-vector type-name='int16_t'/>
+            <stl-vector type-name='int16_t' comment='general_ref_entity_art_image points here'/>
             <stl-vector type-name='int32_t'/>
             <stl-vector type-name='int16_t'/>
             <stl-vector>
