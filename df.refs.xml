@@ -70,7 +70,7 @@
 
     <class-type type-name='general_ref_coinbatch' inherits-from='general_ref'
                 original-name='general_ref_coinbatchst'>
-        <int32_t name='batch'/>
+        <int32_t name='batch' ref-target='coin_batch'/>
     </class-type>
 
     <class-type type-name='general_ref_mapsquare' inherits-from='general_ref'

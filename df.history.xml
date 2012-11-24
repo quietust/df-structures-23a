@@ -1,4 +1,13 @@
 <data-definition>
+    <struct-type type-name='coin_batch' instance-vector='$global.world.coin_batches'>
+        <int32_t name='year'/>
+        <enum base-type='int16_t' name='material' type-name='material_type'/>
+        <int32_t name='entity' ref-target='historical_entity'/>
+        <int32_t name='ruler' ref-target='historical_figure'/>
+        <compound name='image_front' type-name='art_image_ref'/>
+        <compound name='image_back' type-name='art_image_ref'/>
+    </struct-type>
+
     <struct-type type-name='historical_figure' instance-vector='$global.world.world_data.history.figures' key-field='id'>
         <enum base-type='int32_t' name='profession' type-name='profession'/>
 
