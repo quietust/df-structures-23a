@@ -554,9 +554,8 @@
 
         <code-helper name='describe'>$.id</code-helper>
 
-        <int32_t name="rating"/>
+        <int16_t name="rating"/>
         <uint32_t name="experience"/>
-        <int32_t name="unk_c"/>
     </struct-type>
 
     <struct-type type-name='unit_preference'>
