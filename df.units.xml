@@ -401,7 +401,7 @@
                 <pointer type-name='unit_demand'/>
             </stl-vector>
 
-            <static-array type-name='bool' name='labors' index-enum='unit_labor' count='91'/>
+            <static-array type-name='int8_t' name='labors' index-enum='unit_labor' count='91'/>
 
             <int32_t name='total_exp'/> for attribute boosts
             <stl-vector comment='wrestle_items'>
