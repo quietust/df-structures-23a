@@ -501,8 +501,8 @@
 "viewscreen_storesst" :STATUS :UNCHECKED
 "viewscreen_textviewerst" :STATUS :UNCHECKED
 "viewscreen_titlest" :STATUS :UNCHECKED
-"viewscreen_topicmeeting_takerequest_dwarfst" :STATUS :UNCHECKED
-"viewscreen_topicmeeting_takerequest_humanst" :STATUS :UNCHECKED
+"viewscreen_topicmeeting_takerequests_dwarfst" :STATUS :UNCHECKED
+"viewscreen_topicmeeting_takerequests_humanst" :STATUS :UNCHECKED
 "viewscreen_topicmeetingst" :STATUS :UNCHECKED
 "viewscreen_tradeagreementst" :STATUS :UNCHECKED
 "viewscreen_tradegoodsst" :STATUS :UNCHECKED
