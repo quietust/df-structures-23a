@@ -66,8 +66,8 @@
         <compound name='item_categories' type-name='item_category'/>
 
         <compound name='animals'>
-            <bool name='animals_empty_cages'/>
-            <bool name='animals_empty_traps'/>
+            <bool name='empty_cages'/>
+            <bool name='empty_traps'/>
             <stl-vector type-name='bool' name='enabled' index-refers-to='$global.world.raws.creatures[$]'/>
         </compound>
 
@@ -88,16 +88,22 @@
             <stl-vector type-name='bool' name='type' index-enum='item_type'/>
         </compound>
 
-        <stl-vector type-name='bool' name='stone' index-refers-to='$global.world.raws.matgloss_stone[$]'/>
+        <compound name='stone'>
+            <stl-vector type-name='bool' name='mats' index-refers-to='$global.world.raws.matgloss_stone[$]'/>
+        </compound>
 
-        <stl-vector type-name='bool' name='ore' index-enum='material_type'/>
+        <compound name='ore'>
+            <stl-vector type-name='bool' name='mats' index-enum='material_type'/>
+        </compound>
 
         <compound name='ammo'>
             <stl-vector type-name='bool' name='type' index-refers-to='$global.world.raws.itemdefs.ammo[$]'/>
             <stl-vector type-name='bool' name='mats' index-enum='material_type'/>
         </compound>
 
-        <stl-vector type-name='bool' name='coins' index-enum='material_type'/>
+        <compound name='coins'>
+            <stl-vector type-name='bool' name='mats' index-enum='material_type'/>
+        </compound>
 
         <compound name='bars_blocks'>
             <stl-vector type-name='bool' name='bars_mats' index-enum='material_type'/>
@@ -114,7 +120,9 @@
             <stl-vector type-name='bool' name='mats' index-enum='material_type'/>
         </compound>
 
-        <stl-vector type-name='bool' name='leather' index-refers-to='$global.world.raws.creatures[$]'/>
+        <compound name='leather'>
+            <stl-vector type-name='bool' name='mats' index-refers-to='$global.world.raws.creatures[$]'/>
+        </compound>
 
         <compound name='cloth'>
             <stl-vector type-name='bool' name='thread_silk' index-refers-to='$global.world.raws.creatures[$]'/>
@@ -125,7 +133,9 @@
             <bool name='cloth_adamantine'/>
         </compound>
 
-        <stl-vector type-name='bool' name='wood' index-refers-to='$global.world.raws.matgloss_wood[$]'/>
+        <compound name='wood'>
+            <stl-vector type-name='bool' name='mats' index-refers-to='$global.world.raws.matgloss_wood[$]'/>
+        </compound>
 
         <compound name='weapons'>
             <stl-vector type-name='bool' name='weapon_type' index-refers-to='$global.world.raws.itemdefs.weapons[$]'/>
