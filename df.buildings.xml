@@ -574,8 +574,8 @@
             <int32_t ref-target='item'/>
         </stl-vector>
         <int32_t/>
-        <s-double/>
-        <s-double/>
+        <d-float/>
+        <d-float/>
         <int32_t/>
         <int16_t/>
     </class-type>
