@@ -566,18 +566,22 @@
     </class-type>
 
     <class-type type-name='building_channelst' inherits-from='building_actual'>
-        <pointer type-name='building'/>
-        <stl-vector>
+        <pointer type-name='building' name='channel_parent'/>
+        <stl-vector name='channel_children'>
             <pointer type-name='building'/>
         </stl-vector>
         <stl-vector name='ponded_fish'>
             <int32_t ref-target='item'/>
         </stl-vector>
+        <bitfield name='pond_flags' base-type='uint32_t'>
+            <flag-bit name='kill_self'/>
+            <flag-bit name='is_pond'/>
+            <flag-bit name='needs_refill'/>
+        </bitfield>
+        <d-float name='pond_max'/>
+        <d-float name='pond_cur'/>
         <int32_t/>
-        <d-float/>
-        <d-float/>
-        <int32_t/>
-        <int16_t/>
+        <int16_t name='fill_timer'/>
     </class-type>
 
     <enum-type type-name='siegeengine_type' base-type='int16_t'>
