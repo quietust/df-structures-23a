@@ -677,7 +677,7 @@
             <item-attr name='shape' value='EMPTY'/>
             <item-attr name='material' value='AIR'/>
             <item-attr name='tile_chr' value='OpenSpace'/>
-<!--            <item-attr name='tile_color' value='0'/> -->
+            <item-attr name='tile_color' value='0'/>
         </enum-item>
 
         <enum-item name='Shrub'>
@@ -1240,7 +1240,7 @@
             <item-attr name='material' value='ORE'/>
             <item-attr name='special' value='ZINC'/>
             <item-attr name='tile_chr' value='Ore'/>
-<!--            <item-attr name='tile_color' value='0'/>-->
+            <item-attr name='tile_color' value='0'/>
         </enum-item>
         <enum-item name='MalachiteWall'>
             <item-attr name='caption' value='malachite vein'/>
