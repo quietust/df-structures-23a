@@ -1002,14 +1002,14 @@
             <item-attr name='caption' value='stone stair down'/>
             <item-attr name='shape' value='STAIR_DOWN'/>
             <item-attr name='material' value='STONE'/>
-            <item-attr name='tile_chr' value='StairU'/>
+            <item-attr name='tile_chr' value='StairD'/>
             <item-attr name='tile_color' value='7'/>
         </enum-item>
         <enum-item name='StoneStairUD'>
             <item-attr name='caption' value='stone stair up/down'/>
             <item-attr name='shape' value='STAIR_UPDOWN'/>
             <item-attr name='material' value='STONE'/>
-            <item-attr name='tile_chr' value='StairU'/>
+            <item-attr name='tile_chr' value='StairUD'/>
             <item-attr name='tile_color' value='7'/>
         </enum-item>
         <enum-item name='DarkStoneStairU'>
@@ -1023,14 +1023,14 @@
             <item-attr name='caption' value='dark stone stair down'/>
             <item-attr name='shape' value='STAIR_DOWN'/>
             <item-attr name='material' value='STONE_DARK'/>
-            <item-attr name='tile_chr' value='StairU'/>
+            <item-attr name='tile_chr' value='StairD'/>
             <item-attr name='tile_color' value='8'/>
         </enum-item>
         <enum-item name='DarkStoneStairUD'>
             <item-attr name='caption' value='dark stone stair up/down'/>
             <item-attr name='shape' value='STAIR_UPDOWN'/>
             <item-attr name='material' value='STONE_DARK'/>
-            <item-attr name='tile_chr' value='StairU'/>
+            <item-attr name='tile_chr' value='StairUD'/>
             <item-attr name='tile_color' value='8'/>
         </enum-item>
         <enum-item name='LightStoneStairU'>
@@ -1044,14 +1044,14 @@
             <item-attr name='caption' value='light stone stair down'/>
             <item-attr name='shape' value='STAIR_DOWN'/>
             <item-attr name='material' value='STONE_LIGHT'/>
-            <item-attr name='tile_chr' value='StairU'/>
+            <item-attr name='tile_chr' value='StairD'/>
             <item-attr name='tile_color' value='15'/>
         </enum-item>
         <enum-item name='LightStoneStairUD'>
             <item-attr name='caption' value='light stone stair up/down'/>
             <item-attr name='shape' value='STAIR_UPDOWN'/>
             <item-attr name='material' value='STONE_LIGHT'/>
-            <item-attr name='tile_chr' value='StairU'/>
+            <item-attr name='tile_chr' value='StairUD'/>
             <item-attr name='tile_color' value='15'/>
         </enum-item>
         <enum-item name='WoodStairU'>
@@ -1065,14 +1065,14 @@
             <item-attr name='caption' value='wood stair down'/>
             <item-attr name='shape' value='STAIR_DOWN'/>
             <item-attr name='material' value='WOOD'/>
-            <item-attr name='tile_chr' value='StairU'/>
+            <item-attr name='tile_chr' value='StairD'/>
             <item-attr name='tile_color' value='6'/>
         </enum-item>
         <enum-item name='WoodStairUD'>
             <item-attr name='caption' value='wood stair up/down'/>
             <item-attr name='shape' value='STAIR_UPDOWN'/>
             <item-attr name='material' value='WOOD'/>
-            <item-attr name='tile_chr' value='StairU'/>
+            <item-attr name='tile_chr' value='StairUD'/>
             <item-attr name='tile_color' value='6'/>
         </enum-item>
 
