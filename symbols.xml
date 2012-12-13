@@ -42,6 +42,8 @@
 
         <global-address name='cur_year' value='0xaa91e0'/>
         <global-address name='cur_year_tick' value='0xea0548'/>
+        <global-address name='cur_year_tick_advmode' value='0xe9d860'/>
+
         <global-address name='cur_season' value='0xea05a8'/>
         <global-address name='cur_season_tick' value='0xac6450'/>
 

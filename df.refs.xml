@@ -241,7 +241,7 @@
 
     <struct-type type-name='histfig_hf_link'>
         <enum base-type='int16_t' type-name='histfig_hf_link_type' name='type'/>
-        <int32_t name='histfig_id' ref-target='historical_figure'/>
+        <int32_t name='target_hf' ref-target='historical_figure'/>
     </struct-type>
 </data-definition>
 
