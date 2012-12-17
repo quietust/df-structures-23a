@@ -295,10 +295,10 @@
         <stl-vector name='entities'>
             <int32_t ref-target='historical_entity'/>
         </stl-vector>
-        <int16_t/>
-        <int16_t/>
-        <stl-vector type-name='pointer'/>
-        <int32_t/>
+        <int16_t name='cur_section'/>
+        <int16_t name='outer_cursor'/>
+        <stl-vector name='avail_sections' type-name='int16_t'/>
+        <int32_t name='inner_cursor'/>
     </class-type>
 
     <class-type type-name='viewscreen_titlest' inherits-from='viewscreen'>

@@ -18,7 +18,7 @@
         <int32_t name='age_death'/>
         <int32_t name='appeared_year'/>
         <int32_t name='born_year'/>
-        <int32_t/>
+        <int32_t name='died_year'/>
 
         <compound type-name='language_name' name='name'/>
 
@@ -408,18 +408,11 @@
     </class-type>
 
     <struct-type type-name='world_history'>
-        <stl-vector name='events'>
-            <pointer type-name='history_event'/>
-        </stl-vector>
-
-        <stl-vector name='figures'>
-            <pointer type-name='historical_figure'/>
-        </stl-vector>
-
-        <stl-vector name='unk1' type-name='int32_t'/>
-        <stl-vector name='unk2' type-name='int16_t'/>
-
-        <int32_t/>
+        <stl-vector name='events' pointer-type='history_event'/>
+        <stl-vector name='figures' pointer-type='historical_figure'/>
+        <stl-vector name='art_image_ids' type-name='int32_t' ref-target='art_image_chunk'/>
+        <stl-vector name='art_image_subids' type-name='int16_t' ref-target='art_image' aux-value='$$._parent.art_image_ids[$._key]'/>
+        <int32_t name='art_image_total'/>
     </struct-type>
 </data-definition>
 
