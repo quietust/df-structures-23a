@@ -66,26 +66,26 @@
         <enum-item name='Tree_OutdoorDry'/>
     </enum-type>
 
-    <enum-type type-name="site_structure_type" base-type='int16_t'>
-        <enum-item name='CraftShop'/>
-        <enum-item name='WeaponsmithsShop'/>
-        <enum-item name='ArmorsmithsShop'/>
-        <enum-item name='GeneralStore'/>
-        <enum-item name='FoodShop'/>
-        <enum-item name='MeadHall'/>
-        <enum-item name='Keep'/>
+    <enum-type type-name='abstract_building_type' base-type='int16_t'>
+        <enum-item name='STORE_CRAFT'/>
+        <enum-item name='STORE_WEAPON'/>
+        <enum-item name='STORE_ARMOR'/>
+        <enum-item name='STORE_CLOTHING'/>
+        <enum-item name='STORE_FOOD'/>
+        <enum-item name='MEAD_HALL'/>
+        <enum-item name='KEEP'/>
         <enum-item/>
         <enum-item/>
-        <enum-item name='Ruin1'/>
-        <enum-item name='Ruin2'/>
-        <enum-item name='Ruin3'/>
-        <enum-item name='Hovel'/>
-        <enum-item name='Apartment'/>
-        <enum-item name='ApartmentRoom'/>
+        <enum-item name='RUIN_1'/>
+        <enum-item name='RUIN_2'/>
+        <enum-item name='RUIN_3'/>
+        <enum-item name='HOME_SINGLE'/>
+        <enum-item name='HOME_APARTMENT'/>
+        <enum-item name='HOME_APARTMENT_ROOM'/>
     </enum-type>
 
-    <struct-type type-name='site_structure'>
-        <enum base-type='int16_t' name='type' type-name='site_structure_type'/>
+    <struct-type type-name='abstract_building'>
+        <enum base-type='int16_t' name='type' type-name='abstract_building_type'/>
         <int16_t/>
         <int32_t name='id'/>
     </struct-type>
@@ -149,10 +149,11 @@
         <int32_t/>
         <df-flagarray name='flags'/>
 
-        <stl-vector name='structures'>
-            <pointer type-name='site_structure'/>
+        <stl-vector name="buildings">
+            <pointer type-name='abstract_building'/>
         </stl-vector>
-        <int32_t name='next_structure_id'/>
+
+        <int32_t name="next_building_id"/>
     </struct-type>
 
     <struct-type type-name='world_region' key-field='id' instance-vector='$global.world.world_data.regions'>

@@ -1,3 +1,5 @@
+"abstract_building" :STATUS :VERIFIED
+"abstract_building_type" :STATUS :VERIFIED
 "activity" :STATUS :VERIFIED
 "adv_task" :STATUS :UNCHECKED
 "armor_flags" :STATUS :UNCHECKED
@@ -396,8 +398,6 @@
 "shoes_flags" :STATUS :UNCHECKED
 "shop_type" :STATUS :UNCHECKED
 "siegeengine_type" :STATUS :VERIFIED
-"site_structure" :STATUS :VERIFIED
-"site_structure_type" :STATUS :VERIFIED
 "site_type" :STATUS :UNCHECKED
 "specific_ref" :STATUS :VERIFIED
 "specific_ref_type" :STATUS :VERIFIED
