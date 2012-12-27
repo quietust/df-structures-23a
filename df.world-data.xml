@@ -74,11 +74,12 @@
         <enum-item name='STORE_FOOD'/>
         <enum-item name='MEAD_HALL'/>
         <enum-item name='KEEP'/>
-        <enum-item/>
-        <enum-item/>
-        <enum-item name='RUIN_1'/>
-        <enum-item name='RUIN_2'/>
-        <enum-item name='RUIN_3'/>
+        <enum-item name='UNK_7'/>
+        <enum-item name='UNK_8'/>
+        <enum-item name='RUIN_PILLARS'/>
+        <enum-item name='RUIN_PYRAMID'/>
+        <enum-item name='RUIN_TOWER'/>
+        <enum-item name='HOME_RANDOM'/>
         <enum-item name='HOME_SINGLE'/>
         <enum-item name='HOME_APARTMENT'/>
         <enum-item name='HOME_APARTMENT_ROOM'/>
@@ -86,7 +87,7 @@
 
     <struct-type type-name='abstract_building'>
         <enum base-type='int16_t' name='type' type-name='abstract_building_type'/>
-        <int16_t/>
+        <int16_t name='param' comment='height/depth for ruins, unknown for others'/>
         <int32_t name='id'/>
     </struct-type>
 

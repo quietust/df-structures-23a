@@ -707,7 +707,7 @@
             <int32_t ref-target='item'/>
         </stl-vector>
         <enum base-type='int32_t' name="type" type-name='civzone_type'/>
-        <int32_t/>
+        <int32_t name='abstract_building_id'/>
     </class-type>
 
     <class-type type-name='building_weaponst' inherits-from='building_actual'>
