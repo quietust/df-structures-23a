@@ -95,8 +95,6 @@
         <global-address name='unit_chunk_next_id' value='0xe9d85c'/>
         <global-address name='unit_next_id' value='0xe89c38'/>
 
-        <global-address name='malloc_sbh_threshold' value='0x7a3b04'/>
-
         code pointers
 
         <global-address name='func_render' value='0x57e420' comment='no parms'/>

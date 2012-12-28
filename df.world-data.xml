@@ -74,8 +74,8 @@
         <enum-item name='STORE_FOOD'/>
         <enum-item name='MEAD_HALL'/>
         <enum-item name='KEEP'/>
-        <enum-item name='UNK_7'/>
-        <enum-item name='UNK_8'/>
+        <enum-item name='CAVE_RIVER'/>
+        <enum-item name='CAVE_MAGMA'/>
         <enum-item name='RUIN_PILLARS'/>
         <enum-item name='RUIN_PYRAMID'/>
         <enum-item name='RUIN_TOWER'/>
