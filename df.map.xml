@@ -110,8 +110,8 @@
 
         <flag-bit name='fortification'/>
         <flag-bit name='hidden'/>
-        <flag-bit/>
-        <flag-bit/>
+        <flag-bit name='water_flood'/>
+        <flag-bit name='magma_flood'/>
         <flag-bit name='geolayer_index' count='4'/>
 
         <flag-bit name='light'/>
