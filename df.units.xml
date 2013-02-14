@@ -383,8 +383,8 @@
                 <pointer type-name='unit_misc_trait'/>
             </stl-vector>
 
-            <int32_t/>
-            <int32_t/>
+            <int32_t name='demand_timeout' init-value='1000'/>
+            <int32_t name='mandate_timeout' init-value='1000'/>
             <int8_t/>
 
             <compound type-name='language_name' name='artifact_name'/>
