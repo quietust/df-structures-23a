@@ -557,8 +557,8 @@
     </class-type>
 
     <class-type type-name='building_aqueductst' inherits-from='building_actual'>
-        <int32_t/>
-        <int16_t/>
+        <int32_t name='material_amount'/>
+        <int16_t name='dir_flags'/>
     </class-type>
 
     <class-type type-name='building_roadst' inherits-from='building_actual'>
