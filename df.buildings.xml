@@ -414,9 +414,9 @@
         <static-array name='plant_id' count='4'>
             <int16_t ref-target='matgloss_plant'/>
         </static-array>
-        <int32_t/>
+        <int32_t name='material_amount'/>
         <int32_t name='seasonal_fertilize'/>
-        <int8_t/>
+        <int8_t name='fertilize_season'/>
         <int32_t name='current_fertilization'/>
         <int32_t name='max_fertilization'/>
     </class-type>
@@ -580,7 +580,7 @@
         </bitfield>
         <d-float name='pond_max'/>
         <d-float name='pond_cur'/>
-        <int32_t/>
+        <int32_t name='material_amount'/>
         <int16_t name='fill_timer'/>
     </class-type>
 
