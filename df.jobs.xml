@@ -48,7 +48,7 @@
         <int16_t name='item_subtype'/>
 
         <compound name="item_category" type-name='item_category'/>
-        <stl-string/>
+        <stl-string name='ammo_class'/>
         <int16_t/>
 
         <stl-vector name='items'>
@@ -150,7 +150,7 @@
     <struct-type type-name='manager_order'>
         <enum name='job_type' base-type='int16_t' type-name='job_type'/>
         <int16_t name="item_subtype"/>
-        <stl-string/>
+        <stl-string name='ammo_class'/>
         <int16_t name='material' comment='or matgloss, depends on context'/>
         <int16_t name="amount_left"/>
         <int16_t name="amount_total"/>
@@ -158,7 +158,7 @@
 
     <struct-type type-name='manager_order_template'>
         <enum name='job_type' base-type='int16_t' type-name='job_type'/>
-        <stl-string/>
+        <stl-string name='ammo_class'/>
         <int16_t name="item_subtype"/>
         <int16_t name='material' comment='or matgloss, depends on context'/>
         <int8_t/>
