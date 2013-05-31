@@ -40,15 +40,33 @@
         <int8_t/>
         <int8_t/>
         <int8_t/>
-        <int32_t/>
-        <int32_t/>
+        <int32_t name='tick_counter' comment='goes up to XXX'/>
+        <int32_t name='frame_counter' comment='goes up to 10000 (ticks?)'/>
         <int16_t/>
         <int8_t/>
         <int8_t/>
         <int8_t/>
 
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
+        <stl-vector name='talk_targets' pointer-type='unit'/>
+        <stl-vector name='conversations'>
+            <pointer>
+                <stl-string name='conv_title'/>
+                <int32_t name='state'/> 0=started, 1=active, 2=finished
+                <stl-vector type-name='int16_t'/>
+                <int32_t name='other' ref-target='unit'/>
+                <int32_t name='self' ref-target='unit'/>
+                <int32_t name='target' ref-target='unit'/>
+                <stl-vector name='speech'>
+                    <pointer>
+                        <stl-vector name='text' pointer-type='stl-string'/>
+                        <int32_t name='speaker' ref-target='unit'/>
+                        <int16_t name='fg'/>
+                        <int16_t name='bg'/>
+                        <int16_t name='bright'/>
+                    </pointer>
+                </stl-vector>
+            </pointer>
+        </stl-vector>
 
         <int32_t/>
 
