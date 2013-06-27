@@ -234,26 +234,8 @@
             <static-array count='64' name='foreign_gloves' index-enum='material_type'><stl-vector type-name='int8_t' index-refers-to='$global.world.raws.itemdefs.gloves[$]'/></static-array>
             <static-array count='64' name='foreign_pants' index-enum='material_type'><stl-vector type-name='int8_t' index-refers-to='$global.world.raws.itemdefs.pants[$]'/></static-array>
             <static-array count='64' name='foreign_shields' index-enum='material_type'><stl-vector type-name='int8_t' index-refers-to='$global.world.raws.itemdefs.shields[$]'/></static-array>
-            <int32_t name='num_stockpiling_jobs'/>
-            <int32_t name='num_stone_jobs'/>
-            <int32_t name='num_wood_jobs'/>
-            <int32_t name='num_item_jobs'/>
-            <int32_t name='num_bin_jobs'/>
-            <int32_t name='num_burial_jobs'/>
-            <int32_t name='num_food_jobs'/>
-            <int32_t name='num_refuse_jobs'/>
-            <int32_t name='num_furniture_jobs'/>
-            <int32_t name='num_animal_jobs'/>
-            <int32_t name='num_total_haulers'/>
-            <int32_t name='num_stone_haulers'/>
-            <int32_t name='num_wood_haulers'/>
-            <int32_t name='num_item_haulers'/>
-            <int32_t name='num_bin_haulers'/>
-            <int32_t name='num_body_haulers'/>
-            <int32_t name='num_food_haulers'/>
-            <int32_t name='num_refuse_haulers'/>
-            <int32_t name='num_furniture_haulers'/>
-            <int32_t name='num_animal_haulers'/>
+            <static-array type-name='int32_t' name='num_jobs' count='10' index-enum='hauler_type'/>
+            <static-array type-name='int32_t' name='num_haulers' count='10' index-enum='hauler_type'/>
 
             <int8_t/>
             <int8_t name='prepared_meal'/>
