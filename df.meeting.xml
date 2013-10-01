@@ -144,6 +144,19 @@
             <flag-bit name='move_underway'/>
         </bitfield>
     </struct-type>
+
+    <struct-type type-name='schedule_info' key-field='id' instance-vector='$global.world.schedules.all'>
+        <int32_t name='id'/>
+        <stl-vector name='groups' pointer-type='schedule_slot'/>
+    </struct-type>
+
+    <struct-type type-name='schedule_slot'>
+        <int16_t/>
+        <int16_t/>
+        <int16_t/>
+        <int16_t/>
+        <int8_t/>
+    </struct-type>
 </data-definition>
 
 <!--
