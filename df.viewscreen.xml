@@ -682,8 +682,8 @@
     </class-type>
 
     <class-type type-name='viewscreen_meetingst' inherits-from='viewscreen'>
-        <int32_t/>
-        <int32_t/>
+        <pointer type-name='dipscript_popup' name='popup'/>
+        <pointer type-name='dipscript_popup_unit' name='popup_unit'/>
         <int32_t/>
     </class-type>
 
