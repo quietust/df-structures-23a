@@ -11,8 +11,8 @@
         <global-address name='gamemode' value='0x789c40'/>
         <global-address name='gametype' value='0x789c44'/>
 
-        <global-address name='ui_area_map_width' value='0x789c61'/>
         <global-address name='ui_menu_width' value='0x789c60'/>
+        <global-address name='ui_area_map_width' value='0x789c61'/>
 
         .bss compound - THAT IS, NOT SIMPLE INTEGER VARIABLES!
 
@@ -49,7 +49,6 @@
 
         <global-address name='current_weather' value='0xe9d858'/>
 
-        <global-address name='job_next_id' value='0xaa9268'/>
         <global-address name='pause_state' value='0xf1719e'/>
         <global-address name='process_dig' value='0xf17196'/>
         <global-address name='process_jobs' value='0xf17197'/>
@@ -79,6 +78,31 @@
         <global-address name='debug_nothought' value='0xf171b3'/>
         <global-address name='debug_noberserk' value='0xf171b4'/>
         <global-address name='debug_turbospeed' value='0xf171b6'/>
+
+        <global-address name='standing_orders_gather_minerals' value='0x00789c48'/>
+        <global-address name='standing_orders_gather_wood' value='0x00789c49'/>
+        <global-address name='standing_orders_gather_food' value='0x00789c4a'/>
+        <global-address name='standing_orders_gather_bodies' value='0x00789c4b'/>
+        <global-address name='standing_orders_gather_animals' value='0x00789c4d'/>
+        <global-address name='standing_orders_gather_furniture' value='0x00789c4e'/>
+        <global-address name='standing_orders_farmer_harvest' value='0x00789c4f'/>
+        <global-address name='standing_orders_job_cancel_announce' value='0x00789c63'/>
+        <global-address name='standing_orders_mix_food' value='0x00789c64'/>
+        <global-address name='standing_orders_gather_refuse' value='0x00789c4c'/>
+        <global-address name='standing_orders_gather_refuse_outside' value='0x00f171a1'/>
+        <global-address name='standing_orders_dump_corpses' value='0x00f171a2'/>
+        <global-address name='standing_orders_dump_skulls' value='0x00f171a3'/>
+        <global-address name='standing_orders_dump_skins' value='0x00f171a4'/>
+        <global-address name='standing_orders_dump_bones' value='0x00f171a5'/>
+        <global-address name='standing_orders_dump_shells' value='0x00f171a6'/>
+        <global-address name='standing_orders_dump_other' value='0x00f171a7'/>
+        <global-address name='standing_orders_auto_loom' value='0x00789c50'/>
+        <global-address name='standing_orders_auto_collect_webs' value='0x00789c51'/>
+        <global-address name='standing_orders_auto_slaughter' value='0x00789c52'/>
+        <global-address name='standing_orders_auto_butcher' value='0x00789c53'/>
+        <global-address name='standing_orders_auto_tan' value='0x00789c54'/>
+        <global-address name='standing_orders_use_dyed_cloth' value='0x00f171a0'/>
+        <global-address name='standing_orders_stay_indoors' value='0x00f1719f'/>
 
         <global-address name='art_image_chunk_next_id' value='0xaa91dc'/>
         <global-address name='artifact_next_id' value='0xaa91d8'/>
