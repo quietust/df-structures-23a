@@ -293,6 +293,7 @@
         </pointer>
 
         <int16_t/>
+        <int16_t/>
     </struct-type>
 </data-definition>
 
