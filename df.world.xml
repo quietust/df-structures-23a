@@ -377,7 +377,6 @@
         <int32_t/>
         <int32_t/>
         <compound type-name='world_data' name='world_data'/>
-        <int32_t/>
         <compound name='worldgen'>
             <int16_t name='state'/>
             <int32_t name='num_rejects'/>

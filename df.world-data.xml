@@ -291,6 +291,8 @@
         <pointer name="region_map" is-array='true'>
             <pointer is-array='true' type-name='region_map_entry'/>
         </pointer>
+
+        <int16_t/>
     </struct-type>
 </data-definition>
 
