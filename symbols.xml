@@ -79,6 +79,8 @@
         <global-address name='debug_noberserk' value='0xf171b4'/>
         <global-address name='debug_turbospeed' value='0xf171b6'/>
 
+        <global-address name='save_on_exit' value='0xF17198'/>
+
         <global-address name='standing_orders_gather_minerals' value='0x00789c48'/>
         <global-address name='standing_orders_gather_wood' value='0x00789c49'/>
         <global-address name='standing_orders_gather_food' value='0x00789c4a'/>
