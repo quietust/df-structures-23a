@@ -97,6 +97,33 @@
         <compound name="item_category" type-name='item_category'/>
     </class-type>
 
+    <class-type type-name='interface_button_building_permit_foreign_armorst'
+                inherits-from='interface_button_buildingst'>
+        <pointer type-name='bool' name='permit'/>
+    </class-type>
+
+    <class-type type-name='interface_button_building_permit_foreign_siegeammost'
+                inherits-from='interface_button_buildingst'>
+        <pointer type-name='bool' name='permit'/>
+    </class-type>
+
+    <class-type type-name='interface_button_building_permit_foreign_weaponst'
+                inherits-from='interface_button_buildingst'>
+        <pointer type-name='bool' name='permit'/>
+    </class-type>
+
+    <class-type type-name='interface_button_building_permit_itemst'
+                inherits-from='interface_button_buildingst'>
+        <enum base-type='int32_t' type-name='item_type'/>
+        <int32_t name='item_subtype' refers-to='(item-subtype-target $$._parent.item_type $)'/>
+        <pointer type-name='bool' name='permit'/>
+    </class-type>
+
+    <class-type type-name='interface_button_building_permit_trapcompst'
+                inherits-from='interface_button_buildingst'>
+        <pointer type-name='bool' name='permit'/>
+    </class-type>
+
     <class-type type-name='interface_button_constructionst'
                 inherits-from='interface_button'>
         <pointer name='unused_c'/>
