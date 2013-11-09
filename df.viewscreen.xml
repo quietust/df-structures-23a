@@ -268,17 +268,19 @@
     </class-type>
 
     <class-type type-name='viewscreen_export_regionst' inherits-from='viewscreen'>
-        <int8_t/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
+        <int8_t name='cur_step' comment='1 = saving world, 2 = offloading units, 3 = offloading art, 4 = sorting histfigs, 5 = saving world info, 6 = deleting active saves, 7 = cleanup'/>
+        <compound name='export_state'>
+            <stl-vector type-name='int32_t'/>
+            <stl-vector type-name='int16_t'/>
+            <stl-vector pointer-type='unit'/>
+            <pointer type-name='unit_chunk' name='cur_unit_chunk'/>
+            <int32_t name='unit_chunk_id'/>
+            <int32_t name='offload_count'/>
+        </compound>
     </class-type>
 
     <class-type type-name='viewscreen_new_regionst' inherits-from='viewscreen'>
-        <int8_t/>
+        <bool name='prompt_abort'/>
     </class-type>
 
     <class-type type-name='viewscreen_legendsst' inherits-from='viewscreen'>
@@ -305,7 +307,7 @@
 
     <class-type type-name='viewscreen_titlest' inherits-from='viewscreen'>
         <static-string name='str_histories' size='200'/>
-        <static-string size='200'/>
+        <static-string name='quit' size='200'/>
         <enum base-type='int16_t' name="sel_subpage">
             <enum-item name='None'/>
             <enum-item name='StartRegion'/>
@@ -331,18 +333,27 @@
     </class-type>
 
     <class-type type-name='viewscreen_announcelistst' inherits-from='viewscreen'>
-        <int32_t name='position'/>
+        <int32_t name='cursor'/>
     </class-type>
 
     <class-type type-name='viewscreen_kitchenprefst' inherits-from='viewscreen'>
-        <int32_t/>
-        <stl-vector name='item_types'/>
-        <stl-vector name='item_subtypes'/>
-        <stl-vector name='materials'/>
-        <stl-vector name='matglosses'/>
-        <stl-vector name='quantities'/>
-        <stl-vector name='cur_flags'/>
-        <stl-vector name='valid_flags'/>
+        <int32_t name='cursor'/>
+
+        <stl-vector name='item_type'>
+            <enum base-type='int16_t' type-name='item_type'/>
+        </stl-vector>
+        <stl-vector name="item_subtype">
+            <int16_t refers-to='(item-subtype-target $$._global.group_item_type[$$._key] $)'/>
+        </stl-vector>
+        <stl-vector name='material'>
+            <enum base-type='int16_t' type-name='material_type'/>
+        </stl-vector>
+        <stl-vector name='matgloss'>
+            <int16_t refers-to='(matgloss-target $$._parent._parent.material[$$._key] $)'/>
+        </stl-vector>
+        <stl-vector name='quantity' type-name='int32_t'/>
+        <stl-vector name='cur_flags' type-name='int8_t'/>
+        <stl-vector name='valid_flags' type-name='int8_t'/>
     </class-type>
 
     <class-type type-name='viewscreen_petst' inherits-from='viewscreen'>
@@ -362,16 +373,16 @@
     </class-type>
 
     <class-type type-name='viewscreen_pricest' inherits-from='viewscreen'>
-        <int16_t/>
-        <int32_t/>
+        <int16_t name='cursor'/>
+        <int32_t name='category_scroll'/>
     </class-type>
 
     <class-type type-name='viewscreen_justicest' inherits-from='viewscreen'>
         <int16_t name='jails_needed'/>
         <int16_t name='jails_present'/>
-        <int16_t/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
+        <int16_t name='cursor'/>
+        <stl-vector name='criminals' pointer-type='unit'/>
+        <stl-vector name='crimes' type-name='pointer'/>
         <int32_t/>
     </class-type>
 
@@ -390,7 +401,7 @@
         <stl-vector name='orders'>
             <pointer type-name='manager_order_template'/>
         </stl-vector>
-        <stl-vector type-name='int32_t'/>
+        <stl-vector name='page_indices' type-name='int32_t'/>
         <bool name='want_quantity'/>
     </class-type>
 
@@ -417,30 +428,30 @@
         <pointer name='entity' type-name='historical_entity'/>
         <stl-vector type-name='pointer'/>
         <int32_t/>?
+        <stl-vector name='nemeses' pointer-type='nemesis_record'/>
+        <int32_t/>
+        <stl-vector name='agreements' type-name='pointer' comment='for lumber, anyways'/>
         <stl-vector type-name='pointer'/>
         <int32_t/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <int32_t/>
-        <int16_t/>
+        <int16_t name='page'/>
     </class-type>
 
     <class-type type-name='viewscreen_civlistst' inherits-from='viewscreen'>
-        <int32_t/>
-        <stl-vector type-name='pointer'/>
+        <int32_t name='cursor'/>
+        <stl-vector name='civs' pointer-type='historical_entity'/>
     </class-type>
 
     <class-type type-name='viewscreen_squadst' inherits-from='viewscreen'>
-        <int32_t/>
+        <pointer type-name='unit' name='leader'/>
     </class-type>
 
     <class-type type-name='viewscreen_commandchainst' inherits-from='viewscreen'>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
-        <int8_t/>
+        <stl-vector pointer-type='unit' name='units'/>
+        <stl-vector type-name='int32_t' name='indent_level'/>
+        <int32_t name='cursor'/>
+        <int32_t name='column'/>
+        <int32_t name='promote_parent'/>
+        <bool name='weapons_mode'/>
         <int16_t name='royalguards_needed'/>
         <int16_t name='royalguards_present'/>
         <int16_t name='fortguards_needed'/>
@@ -449,7 +460,7 @@
 
     <class-type type-name='viewscreen_overallstatusst' inherits-from='viewscreen'>
         <int16_t name='cursor'/>
-        <int16_t/>
+        <int16_t name='cursor_max'/>
     </class-type>
 
     <class-type type-name='viewscreen_buildinglistst' inherits-from='viewscreen'>
@@ -471,7 +482,7 @@
     </class-type>
 
     <class-type type-name='viewscreen_noblest' inherits-from='viewscreen'>
-        <int32_t/>
+        <int32_t name='cur_offerings'/>
     </class-type>
 
     <class-type type-name='viewscreen_storesst' inherits-from='viewscreen'>
@@ -510,38 +521,38 @@
         <stl-vector name="entry_ref">
             <pointer type-name="general_ref"/>
         </stl-vector>
-        <stl-vector type-name='pointer'/>
+        <stl-vector type-name='int16_t'/>
         <int32_t name="cursor_pos"/>
     </class-type>
 
     <class-type type-name='viewscreen_buildingst' inherits-from='viewscreen'>
-        <int32_t/>
+        <pointer type-name='building' name='building'/>
     </class-type>
 
     <class-type type-name='viewscreen_jobst' inherits-from='viewscreen'>
-        <int32_t/>
+        <pointer type-name='job' name='job'/>
     </class-type>
 
     <class-type type-name='viewscreen_optionst' inherits-from='viewscreen'>
-        <int8_t/>
-        <int8_t/>
-        <int8_t/>
-        <int8_t/>
-        <int8_t/>
-        <int32_t/>
+        <int8_t name='quit_msg'/>
+        <int8_t name='retire_confirm'/>
+        <int8_t name='peasant_msg'/>
+        <int8_t name='quite_confirm'/>
+        <int8_t name='end_game' comment='triggered Too Deep ending, for some reason'/>
+        <int32_t name='cursor'/>
     </class-type>
 
     <class-type type-name='viewscreen_savegamest' inherits-from='viewscreen'>
-        <int8_t/>
-        <int8_t/>
-        <int8_t/>
-        <stl-string/>
+        <int8_t name='show_prompt'/>
+        <int8_t name='show_success'/>
+        <int8_t name='do_save'/>
+        <stl-string name='save_filename'/>
     </class-type>
 
     <class-type type-name='viewscreen_keybindingsst' inherits-from='viewscreen'>
-        <stl-vector type-name='int32_t'/>
-        <int32_t/>
-        <int8_t/>
+        <stl-vector type-name='interface_key' name='keys'/>
+        <int32_t name='cursor'/>
+        <bool name='in_modify'/>
     </class-type>
 
     <class-type type-name='viewscreen_unitst' inherits-from='viewscreen'>
@@ -550,38 +561,38 @@
 
     <class-type type-name='viewscreen_customize_unitst' inherits-from='viewscreen'>
         <pointer name="unit" type-name="unit"/>
-        <int8_t/>
-        <int8_t/>
-        <stl-string/>
+        <bool name='editing_name'/>
+        <bool name='editing_profession'/>
+        <stl-string name='original_str'/>
         <int8_t name='has_name'/>
     </class-type>
 
     <class-type type-name='viewscreen_movieplayerst' inherits-from='viewscreen'>
-        <int8_t/>
-        <int8_t/>
-        <int8_t/>
-        <int8_t/>
-        <int8_t/>
-        <int32_t/>
-        <int16_t/>
-        <int16_t/>
-        <int16_t/>
-        <int32_t/>
-        <int8_t/>
-        <stl-string/>
-        <stl-string/>
-        <int8_t/>
-        <int8_t/>
-        <int8_t/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
-        <stl-vector type-name='pointer'/>
+        <int8_t name='saving'/>
+        <int8_t name='loading'/>
+        <int8_t name='editing'/>
+        <int8_t name='text_mode'/>
+        <uint8_t name='editing_char'/>
+        <int32_t name='editing_copy_from'/>
+        <int16_t name='editing_screenf'/>
+        <int16_t name='editing_screenb'/>
+        <int16_t name='editing_screenbright'/>
+        <int32_t name='editing_selected_sound'/>
+        <int8_t name='editing_menu'/>
+        <stl-string name='savename'/>
+        <stl-string name='force_file'/>
+        <int8_t name='is_playing'/>
+        <int8_t name='is_forced_play'/>
+        <int8_t name='quit_if_no_play'/>
+        <int32_t name='maxmoviepos'/>
+        <int32_t name='end_frame_pos'/>
+        <int32_t name='selfile'/>
+        <stl-vector type-name='stl-string' name='filelist'/>
     </class-type>
 
     <class-type type-name='viewscreen_loadgamest' inherits-from='viewscreen'>
-        <int8_t/>
-        <int32_t/>
+        <int8_t name='do_load'/>
+        <int32_t name='cursor'/>
         <stl-vector type-name='pointer'/>
     </class-type>
 
@@ -727,9 +738,9 @@
     </class-type>
 
     <class-type type-name='viewscreen_textviewerst' inherits-from='viewscreen'>
+        <stl-string name='title'/>
         <stl-string/>
-        <stl-string/>
-        <stl-vector type-name='pointer'/>
+        <stl-vector type-name='stl-string'/>
         <stl-string/>
         <stl-string/>
         <int32_t/>
@@ -737,38 +748,38 @@
         <int32_t/>
         <int32_t/>
         <stl-string/>
-        <stl-string/>
-        <stl-vector type-name='pointer'/>
+        <stl-string name='class_name'/>
+        <stl-vector type-name='stl-string'/>
         <stl-vector type-name='pointer'/>
         <stl-string/>
     </class-type>
 
     <class-type type-name='viewscreen_setupdwarfgamest' inherits-from='viewscreen'>
-        <static-string size='200'/>
+        <static-string size='200' name='title'/>
         <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
+        <stl-vector type-name='int16_t'/>
         <stl-vector type-name='pointer'/>
         <int16_t name='mode'/>
+        <int16_t name='dwarf_cursor'/>
         <int16_t/>
-        <int16_t/>
-        <int16_t/>
-        <int16_t/>
-        <int16_t/>
-        <int16_t/>
+        <int16_t name='item_cursor'/>
+        <int16_t name='skill_cursor'/>
+        <int16_t name='animal_cursor'/>
+        <int16_t name='cursor_column'/>
         <int16_t/>
         <int32_t/>
-        <int8_t name='isInitialEmbark'/>
+        <bool name='show_play_now'/>
         <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
+        <stl-vector type-name='int32_t'/>
+        <stl-vector type-name='int32_t' name='animal_races'/>
+        <stl-vector type-name='int32_t' name='animal_counts'/>
+        <stl-vector pointer-type='unit' name='dwarves'/>
+        <stl-vector type-name='pointer' name='items'/>
         <int32_t/>?
         <compound name='region_indoor' type-name='coord2d'/>
         <int16_t/>
         <compound name='region_outdoor' type-name='coord2d'/>
-        <int16_t/>
+        <int16_t name='points_remaining'/>
         <int32_t/>
         <int32_t/>
         <int32_t/>
