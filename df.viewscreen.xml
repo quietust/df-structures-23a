@@ -695,12 +695,12 @@
     <class-type type-name='viewscreen_meetingst' inherits-from='viewscreen'>
         <pointer type-name='dipscript_popup' name='popup'/>
         <pointer type-name='dipscript_popup_unit' name='popup_unit'/>
-        <int32_t/>
+        <pointer type-name='unit' name='holder'/>
     </class-type>
 
     <class-type type-name='viewscreen_topicmeetingst' inherits-from='viewscreen'>
-        <int32_t/>
-        <int32_t/>
+        <pointer type-name='dipscript_popup'/>
+        <pointer type-name='meeting_diplomat_info'/>
     </class-type>
 
     <class-type type-name='viewscreen_topicmeeting_takerequests_dwarfst' inherits-from='viewscreen'>
@@ -713,43 +713,52 @@
     </class-type>
 
     <class-type type-name='viewscreen_topicmeeting_takerequests_humanst' inherits-from='viewscreen'>
-        <static-string size='200'/>
-        <pointer name='units'/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
+        <static-string size='200' name='title'/>
+        <pointer type-name='dipscript_popup'/>
+        <pointer type-name='meeting_diplomat_info'/>
+        <int32_t name='cursor_left'/>
+        <int32_t name='cursor_right'/>
     </class-type>
 
     <class-type type-name='viewscreen_tradeagreementst' inherits-from='viewscreen'>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
+        <pointer type-name='entity_sell_prices' name='requests'/>
+        <int32_t ref-target='historical_entity' name='civ_id'/>
+        <int32_t name='cursor_left'/>
+        <int32_t name='cursor_right'/>
         <static-string size='200'/>
-        <int32_t/>
+        <pointer type-name='historical_entity' name='civ'/>
     </class-type>
 
     <class-type type-name='viewscreen_requestagreementst' inherits-from='viewscreen'>
-        <int32_t/>
+        <pointer type-name='entity_buy_prices' name='requests'/>
         <int32_t/>
         <int32_t/>
         <static-string size='200'/>
-        <int32_t/>
+        <pointer type-name='historical_entity'/>
     </class-type>
 
     <class-type type-name='viewscreen_textviewerst' inherits-from='viewscreen'>
         <stl-string name='title'/>
         <stl-string/>
-        <stl-vector type-name='stl-string'/>
+        <stl-vector pointer-type='static-string' name='input_text'/>
+        <stl-string name='type'/>
         <stl-string/>
-        <stl-string/>
+        <pointer type-name='meeting_diplomat_info'/>
+        <pointer type-name='dipscript_popup'/>
         <int32_t/>
         <int32_t/>
-        <int32_t/>
-        <int32_t/>
-        <stl-string/>
         <stl-string name='class_name'/>
-        <stl-vector type-name='stl-string'/>
+        <stl-string name='dipscript_filename'/>
+        <stl-vector name='formatted_text'>
+            <pointer>
+                <pointer type-name='static-string' name='text'/>
+                <pointer type-name='static-string' name='format'/>
+                <int32_t/>
+                <int32_t/>
+                <int32_t/>
+                <int32_t/>
+            </pointer>
+        </stl-vector>
         <stl-vector type-name='pointer'/>
         <stl-string/>
     </class-type>

@@ -9,10 +9,10 @@
     </struct-type>
 
     <struct-type type-name='dipscript_popup_unit'>
-        <int32_t name='unk0'/>
-        <pointer type-name='unit' name='unit'/>
-        <int32_t name='unk8'/>
-        <int32_t name='unkC'/>
+        <int32_t name='activity_id'/>
+        <pointer type-name='unit' name='guest'/>
+        <pointer type-name='unit' name='holder'/>
+        <pointer type-name='building' name='location'/>
         <bitfield name='flags'>
             <flag-bit name='unk0'/>
             <flag-bit name='unk1'/>
@@ -23,7 +23,7 @@
     </struct-type>
 
     <struct-type type-name='dipscript_popup'>
-        <int32_t name='unk0'/>
+        <pointer name='meeting_holder' type-name='unit'/>
         <pointer name='unk4' type-name='dipscript_popup_unit'/>
         <bitfield name='flags'>
             <flag-bit name='unk0'/>
@@ -39,26 +39,8 @@
         <int32_t comment='-1'/>
         <stl-vector type-name='int32_t'/>
         <stl-vector type-name='int32_t'/>
-        <pointer>
-            <stl-vector type-name='int8_t'/>
-            <stl-vector type-name='int8_t'/>
-            <stl-vector type-name='int8_t'/>
-            <stl-vector type-name='int8_t'/>
-            <stl-vector type-name='int8_t'/>
-            <stl-vector type-name='int8_t'/>
-            <stl-vector type-name='int8_t'/>
-            <stl-vector type-name='int8_t'/>
-            <stl-vector type-name='int8_t'/>
-            <stl-vector type-name='int8_t'/>
-            <stl-vector type-name='int8_t'/>
-            <stl-vector type-name='int8_t'/>
-            <stl-vector type-name='int8_t'/>
-        </pointer>
-        <pointer>
-            <stl-vector type-name='int16_t'/>
-            <stl-vector type-name='int16_t'/>
-            <stl-vector type-name='int8_t'/>
-        </pointer>
+        <pointer type-name='entity_sell_requests' name='sell_requests'/>
+        <pointer type-name='entity_buy_requests' name='buy_requests'/>
         <pointer name='dipscript' type-name='dipscript_info'/>
         <int32_t/>
         <stl-vector type-name='pointer'/> active_script_vars

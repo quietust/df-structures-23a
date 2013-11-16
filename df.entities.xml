@@ -80,8 +80,58 @@
         <int32_t/>
         <int32_t/>
         <stl-vector type-name='pointer'/>
-        <pointer/>
-        <pointer/>
+        <pointer type-name='entity_sell_prices' name='sell_prices'/>
+        <pointer type-name='entity_buy_prices' name='buy_prices'/>
+    </struct-type>
+
+    <struct-type type-name='entity_buy_prices'>
+        <pointer type-name='entity_buy_requests' name='items'/>
+        <stl-vector type-name='int32_t' name='prices'/>
+    </struct-type>
+
+    <struct-type type-name='entity_buy_requests'>
+        <stl-vector name='item_type'>
+            <enum base-type='int16_t' type-name='item_type'/>
+        </stl-vector>
+        <stl-vector name="item_subtype">
+            <int16_t refers-to='(item-subtype-target $$._global.item_type[$$._key] $)'/>
+        </stl-vector>
+        <stl-vector type-name='int8_t' name='priority'/>
+    </struct-type>
+
+    <struct-type type-name='entity_sell_prices'>
+        <pointer type-name='entity_sell_requests' name='items'/>
+        <compound name='prices'>
+            <stl-vector type-name='int32_t' name='leather'/>
+            <stl-vector type-name='int32_t' name='cloth_plant'/>
+            <stl-vector type-name='int32_t' name='cloth_silk'/>
+            <stl-vector type-name='int32_t' name='craft'/>
+            <stl-vector type-name='int32_t' name='pet'/>
+            <stl-vector type-name='int32_t' name='drink'/>
+            <stl-vector type-name='int32_t' name='cheese'/>
+            <stl-vector type-name='int32_t' name='mill'/>
+            <stl-vector type-name='int32_t' name='extract'/>
+            <stl-vector type-name='int32_t' name='meat_fish'/>
+            <stl-vector type-name='int32_t' name='plant'/>
+            <stl-vector type-name='int32_t' name='meat_recipe'/>
+            <stl-vector type-name='int32_t' name='other_recipe'/>
+        </compound>
+    </struct-type>
+
+    <struct-type type-name='entity_sell_requests'>
+        <stl-vector type-name='int8_t' name='leather'/>
+        <stl-vector type-name='int8_t' name='cloth_plant'/>
+        <stl-vector type-name='int8_t' name='cloth_silk'/>
+        <stl-vector type-name='int8_t' name='craft'/>
+        <stl-vector type-name='int8_t' name='pet'/>
+        <stl-vector type-name='int8_t' name='drink'/>
+        <stl-vector type-name='int8_t' name='cheese'/>
+        <stl-vector type-name='int8_t' name='mill'/>
+        <stl-vector type-name='int8_t' name='extract'/>
+        <stl-vector type-name='int8_t' name='meat_fish'/>
+        <stl-vector type-name='int8_t' name='plant'/>
+        <stl-vector type-name='int8_t' name='meat_recipe'/>
+        <stl-vector type-name='int8_t' name='other_recipe'/>
     </struct-type>
 
     <struct-type type-name='historical_entity' key-field='id'
@@ -295,7 +345,18 @@
                     <int32_t/>
                     <stl-vector type-name='int16_t'/>
                     <stl-vector type-name='int16_t'/>
-                    <stl-vector type-name='pointer'/>
+                    <stl-vector>
+                        <pointer>
+                            <int8_t/>
+                            <int8_t/>
+                            <int16_t/>
+                            <int32_t/>
+                            <int16_t/>
+                            <int16_t/>
+                            <int16_t/>
+                            <int16_t/>
+                        </pointer>
+                    </stl-vector>
                 </pointer>
             </stl-vector>
             <stl-vector>
