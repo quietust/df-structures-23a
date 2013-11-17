@@ -704,18 +704,18 @@
     </class-type>
 
     <class-type type-name='viewscreen_topicmeeting_takerequests_dwarfst' inherits-from='viewscreen'>
-        <pointer name='units'/>
+        <pointer name='popup' type-name='dipscript_popup'/>
+        <pointer name='meeting' type-name='meeting_diplomat_info'/>
         <int32_t/>
-        <int32_t/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <static-string size='200'/>
+        <stl-vector type-name='int32_t' name='item_type'/>
+        <stl-vector type-name='int8_t' name='priority'/>
+        <static-string size='200' name='title'/>
     </class-type>
 
     <class-type type-name='viewscreen_topicmeeting_takerequests_humanst' inherits-from='viewscreen'>
         <static-string size='200' name='title'/>
-        <pointer type-name='dipscript_popup'/>
-        <pointer type-name='meeting_diplomat_info'/>
+        <pointer name='popup' type-name='dipscript_popup'/>
+        <pointer name='meeting' type-name='meeting_diplomat_info'/>
         <int32_t name='cursor_left'/>
         <int32_t name='cursor_right'/>
     </class-type>
@@ -725,15 +725,15 @@
         <int32_t ref-target='historical_entity' name='civ_id'/>
         <int32_t name='cursor_left'/>
         <int32_t name='cursor_right'/>
-        <static-string size='200'/>
+        <static-string size='200' name='title'/>
         <pointer type-name='historical_entity' name='civ'/>
     </class-type>
 
     <class-type type-name='viewscreen_requestagreementst' inherits-from='viewscreen'>
         <pointer type-name='entity_buy_prices' name='requests'/>
-        <int32_t/>
-        <int32_t/>
-        <static-string size='200'/>
+        <int32_t ref-target='historical_entity' name='civ_id'/>
+        <int32_t name='cursor'/>
+        <static-string size='200' name='title'/>
         <pointer type-name='historical_entity'/>
     </class-type>
 

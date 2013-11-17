@@ -20,6 +20,7 @@
             <flag-bit name='unk3'/>
             <flag-bit name='unk4'/>
         </bitfield>
+        <int16_t/>
     </struct-type>
 
     <struct-type type-name='dipscript_popup'>
@@ -37,7 +38,7 @@
         <int16_t/>
         <int32_t name='diplomat_id' ref-target='historical_figure'/>
         <int32_t comment='-1'/>
-        <stl-vector type-name='int32_t'/>
+        <stl-vector type-name='int32_t' name='steps' comment='0 = discuss current, 1 = request peace, 2 = tree quota, 3 = review export, 4 = review import, 5 = make requests, 6 = pleasant place'/>
         <stl-vector type-name='int32_t'/>
         <pointer type-name='entity_sell_requests' name='sell_requests'/>
         <pointer type-name='entity_buy_requests' name='buy_requests'/>
@@ -47,9 +48,9 @@
         <stl-string/>
         <stl-string/>
         <int32_t/>
-        <stl-vector>
+        <stl-vector comment='meeting choices'>
             <pointer>
-                <int16_t/>
+                <int16_t name='type' comment='matches steps vector above'/>
                 <int16_t/>
                 <int16_t/>
                 <int32_t/>
@@ -57,44 +58,8 @@
                 <int32_t/>
                 <int8_t/>
                 <int16_t/>
-                <pointer>
-                    <pointer> same type as the list above
-                        <stl-vector type-name='int8_t'/>
-                        <stl-vector type-name='int8_t'/>
-                        <stl-vector type-name='int8_t'/>
-                        <stl-vector type-name='int8_t'/>
-                        <stl-vector type-name='int8_t'/>
-                        <stl-vector type-name='int8_t'/>
-                        <stl-vector type-name='int8_t'/>
-                        <stl-vector type-name='int8_t'/>
-                        <stl-vector type-name='int8_t'/>
-                        <stl-vector type-name='int8_t'/>
-                        <stl-vector type-name='int8_t'/>
-                        <stl-vector type-name='int8_t'/>
-                        <stl-vector type-name='int8_t'/>
-                    </pointer>
-                    <stl-vector type-name='int32_t'/>
-                    <stl-vector type-name='int32_t'/>
-                    <stl-vector type-name='int32_t'/>
-                    <stl-vector type-name='int32_t'/>
-                    <stl-vector type-name='int32_t'/>
-                    <stl-vector type-name='int32_t'/>
-                    <stl-vector type-name='int32_t'/>
-                    <stl-vector type-name='int32_t'/>
-                    <stl-vector type-name='int32_t'/>
-                    <stl-vector type-name='int32_t'/>
-                    <stl-vector type-name='int32_t'/>
-                    <stl-vector type-name='int32_t'/>
-                    <stl-vector type-name='int32_t'/>
-                </pointer>
-                <pointer>
-                    <pointer> same as the list above
-                        <stl-vector type-name='int16_t'/>
-                        <stl-vector type-name='int16_t'/>
-                        <stl-vector type-name='int8_t'/>
-                    </pointer>
-                    <stl-vector type-name='int32_t'/>
-                </pointer>
+                <pointer type-name='entity_sell_prices'/>
+                <pointer type-name='entity_buy_prices'/>
             </pointer>
         </stl-vector>
         <stl-vector type-name='int32_t'/>
@@ -107,6 +72,29 @@
         <stl-vector type-name='int32_t'/>
         <stl-vector type-name='int32_t'/>
         <stl-vector type-name='int32_t'/>
+    </struct-type>
+
+    <enum-type type-name='meeting_event_type' base-type='int16_t'>
+        <enum-item name="DiscussCurrent"/>
+        <enum-item name="RequestPeace"/>
+        <enum-item name="TreeQuota"/>
+        <enum-item name="ExportAgreement"/>
+        <enum-item name="ImportAgreement"/>
+        <enum-item name="MakeCaravanRequest" comment='Like ImportAgreement, but for dwarves'/>
+        <enum-item name="PleasantPlace" comment='seemingly also used for each individual request made from Dwarven caravan'/>
+    </enum-type>
+
+    <struct-type type-name='meeting_event'>
+        <enum base-type='int16_t' type-name='meeting_event_type'/>
+        <int16_t name='item_type' comment='weapon, anvil, or seeds'/>
+        <int16_t/>
+        <int32_t name='item_priority'/>
+        <int32_t/>
+        <int32_t name='year'/>
+        <int8_t name='season'/>
+        <int16_t name='season_tick'/>
+        <pointer type-name='entity_sell_prices'/>
+        <pointer type-name='entity_buy_prices'/>
     </struct-type>
 
     <struct-type type-name='activity_info'>
