@@ -86,7 +86,7 @@
 
     <struct-type type-name='entity_buy_prices'>
         <pointer type-name='entity_buy_requests' name='items'/>
-        <stl-vector type-name='int32_t' name='prices'/>
+        <stl-vector type-name='int32_t' name='price'/>
     </struct-type>
 
     <struct-type type-name='entity_buy_requests'>
@@ -99,39 +99,33 @@
         <stl-vector type-name='int8_t' name='priority'/>
     </struct-type>
 
+    <enum-type type-name='entity_sell_category'>
+        <enum-item name='Leather'/>
+        <enum-item name='ClothPlant'/>
+        <enum-item name='ClothSilk'/>
+        <enum-item name='Crafts'/>
+        <enum-item name='Pets'/>
+        <enum-item name='Drinks'/>
+        <enum-item name='Cheese'/>
+        <enum-item name='Powders'/>
+        <enum-item name='Extracts'/>
+        <enum-item name='MeatFish'/>
+        <enum-item name='Plants'/>
+        <enum-item name='MeatFishRecipes'/>
+        <enum-item name='OtherRecipes'/>
+    </enum-type>
+
     <struct-type type-name='entity_sell_prices'>
         <pointer type-name='entity_sell_requests' name='items'/>
-        <compound name='prices'>
-            <stl-vector type-name='int32_t' name='leather'/>
-            <stl-vector type-name='int32_t' name='cloth_plant'/>
-            <stl-vector type-name='int32_t' name='cloth_silk'/>
-            <stl-vector type-name='int32_t' name='craft'/>
-            <stl-vector type-name='int32_t' name='pet'/>
-            <stl-vector type-name='int32_t' name='drink'/>
-            <stl-vector type-name='int32_t' name='cheese'/>
-            <stl-vector type-name='int32_t' name='mill'/>
-            <stl-vector type-name='int32_t' name='extract'/>
-            <stl-vector type-name='int32_t' name='meat_fish'/>
-            <stl-vector type-name='int32_t' name='plant'/>
-            <stl-vector type-name='int32_t' name='meat_recipe'/>
-            <stl-vector type-name='int32_t' name='other_recipe'/>
-        </compound>
+        <static-array count='13' index-enum='entity_sell_category' name='price'>
+            <stl-vector type-name='int32_t'/>
+        </static-array>
     </struct-type>
 
     <struct-type type-name='entity_sell_requests'>
-        <stl-vector type-name='int8_t' name='leather'/>
-        <stl-vector type-name='int8_t' name='cloth_plant'/>
-        <stl-vector type-name='int8_t' name='cloth_silk'/>
-        <stl-vector type-name='int8_t' name='craft'/>
-        <stl-vector type-name='int8_t' name='pet'/>
-        <stl-vector type-name='int8_t' name='drink'/>
-        <stl-vector type-name='int8_t' name='cheese'/>
-        <stl-vector type-name='int8_t' name='mill'/>
-        <stl-vector type-name='int8_t' name='extract'/>
-        <stl-vector type-name='int8_t' name='meat_fish'/>
-        <stl-vector type-name='int8_t' name='plant'/>
-        <stl-vector type-name='int8_t' name='meat_recipe'/>
-        <stl-vector type-name='int8_t' name='other_recipe'/>
+        <static-array count='13' index-enum='entity_sell_category' name='priority'>
+            <stl-vector type-name='int8_t'/>
+        </static-array>
     </struct-type>
 
     <struct-type type-name='historical_entity' key-field='id'
