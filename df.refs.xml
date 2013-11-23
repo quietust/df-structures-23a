@@ -268,7 +268,6 @@
     <struct-type type-name='entity_site_link'>
         <enum base-type='int16_t' type-name='entity_site_link_type' name='type'/>
         <int32_t name='site' ref-target='world_site'/>
-        <int32_t comment='probably structure ID'/>
         <int16_t name='strength'/>
     </struct-type>
 </data-definition>
