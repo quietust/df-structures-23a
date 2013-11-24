@@ -332,7 +332,7 @@
         <enum-item name='POWDER_ORGANIC'>
             <item-attr name='item' value='POWDER_ORGANIC'/>
         </enum-item>
-        <enum-item name='ANY_GENERIC73'>
+        <enum-item name='ANY_COOKABLE'>
             <item-attr name='generic_item' value='FLASK'/>
             <item-attr name='generic_item' value='CAGE'/>
             <item-attr name='generic_item' value='BARREL'/>
