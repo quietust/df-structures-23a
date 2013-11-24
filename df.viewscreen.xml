@@ -305,6 +305,48 @@
         <int32_t name='inner_cursor'/>
     </class-type>
 
+    <struct-type type-name='world_dat_summary'>
+        <stl-string/>
+        <compound type-name='language_name' name='name'/>
+        <stl-string/>
+        <static-array count='15' type-name='int8_t' comment='same as the one at the top of world_data'/>
+        <int32_t name='save_slot_num'/>
+        <int32_t name='next_unit_id'/>
+        <int32_t name='next_item_id'/>
+        <int32_t name='next_entity_id'/>
+        <int32_t name='next_nemesis_id'/>
+        <int32_t name='next_artifact_id'/>
+        <int32_t name='next_building_id'/>
+        <int32_t name='next_hist_figure_id'/>
+        <int32_t name='next_hist_event_id'/>
+        <int32_t name='next_unit_chunk_id'/>
+        <int32_t name='next_art_image_chunk_id'/>
+        <int32_t name='next_task_id'/>
+    </struct-type>
+
+    <struct-type type-name='world_sav_summary'>
+        <stl-string/>
+        <int32_t name='save_slot_num'/>
+        <int32_t name='last_unit_id'/>
+        <int32_t name='last_item_id'/>
+        <int32_t name='last_entity_id'/>
+        <int32_t name='last_nemesis_id'/>
+        <int32_t name='last_artifact_id'/>
+        <int32_t name='last_job_id'/>
+        <int32_t name='last_schedule_id'/>
+        <int32_t name='last_projectile_id'/>
+        <int32_t name='last_building_id'/>
+        <int32_t name='last_hist_figure_id'/>
+        <int32_t name='last_hist_event_id'/>
+        <int32_t name='last_unit_chunk_id'/>
+        <int32_t name='last_art_image_chunk_id'/>
+        <int32_t name='last_task_id'/>
+        <int32_t name='game_mode'/>
+        <stl-string name='FortOrAdvName'/>
+        <stl-string name='WorldName'/>
+        <int32_t name='year'/>
+    </struct-type>
+
     <class-type type-name='viewscreen_titlest' inherits-from='viewscreen'>
         <static-string name='str_histories' size='200'/>
         <static-string name='quit' size='200'/>
@@ -313,14 +355,14 @@
             <enum-item name='StartRegion'/>
             <enum-item name='StartType'/>
         </enum>
-        <int16_t name="sel_menu_line"/>
-        <int16_t name="sel_submenu_line"/>
+        <int16_t name="cursor"/>
+        <int16_t name="world_cursor"/>
         <int8_t name="loading"/>
 
         <stl-vector type-name="int32_t" name="menu_line_id"/>
-        <stl-vector type-name="int32_t" name="submenu_line_id"/>
-        <stl-vector pointer-type="stl-string" name="start_savegames"/>
-        <stl-vector pointer-type="stl-string" name="continue_savegames"/>
+        <stl-vector type-name="game_type" name="gametypes_id"/>
+        <stl-vector pointer-type='stl-string' name='gametypes_str'/>
+        <stl-vector pointer-type="world_dat_summary" name="world_dat_files"/>
 
         <stl-string name="str_slaves"/>
         <stl-string name="str_chapter"/>
