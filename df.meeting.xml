@@ -8,24 +8,9 @@
         <code-helper name='describe'>$.code</code-helper>
     </struct-type>
 
-    <struct-type type-name='dipscript_popup_unit'>
-        <int32_t name='activity_id'/>
-        <pointer type-name='unit' name='guest'/>
-        <pointer type-name='unit' name='holder'/>
-        <pointer type-name='building' name='location'/>
-        <bitfield name='flags'>
-            <flag-bit name='unk0'/>
-            <flag-bit name='unk1'/>
-            <flag-bit name='unk2'/>
-            <flag-bit name='unk3'/>
-            <flag-bit name='unk4'/>
-        </bitfield>
-        <int16_t/>
-    </struct-type>
-
     <struct-type type-name='dipscript_popup'>
         <pointer name='meeting_holder' type-name='unit'/>
-        <pointer name='unk4' type-name='dipscript_popup_unit'/>
+        <pointer name='activity' type-name='activity_info'/>
         <bitfield name='flags'>
             <flag-bit name='unk0'/>
             <flag-bit name='unk1'/>

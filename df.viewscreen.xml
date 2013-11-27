@@ -736,7 +736,7 @@
 
     <class-type type-name='viewscreen_meetingst' inherits-from='viewscreen'>
         <pointer type-name='dipscript_popup' name='popup'/>
-        <pointer type-name='dipscript_popup_unit' name='popup_unit'/>
+        <pointer type-name='activity_info' name='activity'/>
         <pointer type-name='unit' name='holder'/>
     </class-type>
 
