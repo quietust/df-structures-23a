@@ -170,11 +170,17 @@
             <vmethod ret-type='bool' name='isRelatedToEntityID'>
                 <int32_t name='entity' ref-target='historical_entity'/>
             </vmethod>
-            <vmethod name='getSummary'>
-                <pointer type-name='stl-string' name='str'/> "In x, some event happened"
+            <vmethod name='getSummary'> "In x, some event happened"
+                <pointer type-name='stl-string'/>
+                <pointer type-name='specific_ref'/>
+                <int32_t ref-target='historical_entity'/>
+                <int32_t/><int32_t/>
             </vmethod>
-            <vmethod name='getDescription'>
-                <pointer type-name='stl-string' name='str'/> "the happening of some event"
+            <vmethod name='getDescription'> "the happening of some event"
+                <pointer type-name='stl-string'/>
+                <pointer type-name='specific_ref'/>
+                <int32_t ref-target='historical_entity'/>
+                <int32_t/><int32_t/>
             </vmethod>
 
             <vmethod name='populateArtImage'>
