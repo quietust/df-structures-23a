@@ -8,6 +8,7 @@
         <enum-attr name='can_assign_labor' type-name='bool' default-value='true'
                    comment='Can be assigned any labors, i.e. not child or baby'/>
         <enum-attr name='color' type-name='int8_t' default-value='-1'/>
+        <enum-attr name='moodable' type-name='bool' default-value='false'/>
 
         <enum-item name='NONE' value='-1'/>
 
@@ -16,26 +17,32 @@
         <enum-item name='MINER'>
             <item-attr name='caption' value='Miner'/>
             <item-attr name='color' value='7'/>
+            <item-attr name='moodable' value='true'/>
         </enum-item>
         <enum-item name='CARPENTER'>
             <item-attr name='caption' value='Carpenter'/>
             <item-attr name='color' value='14'/>
+            <item-attr name='moodable' value='true'/>
         </enum-item>
         <enum-item name='MASON'>
             <item-attr name='caption' value='Mason'/>
             <item-attr name='color' value='15'/>
+            <item-attr name='moodable' value='true'/>
         </enum-item>
         <enum-item name='TRAPPER'>
             <item-attr name='caption' value='Trapper'/>
             <item-attr name='color' value='2'/>
+            <item-attr name='moodable' value='true'/>
         </enum-item>
         <enum-item name='METALSMITH'>
             <item-attr name='caption' value='Metalsmith'/>
             <item-attr name='color' value='8'/>
+            <item-attr name='moodable' value='true'/>
         </enum-item>
         <enum-item name='JEWELER'>
             <item-attr name='caption' value='Jeweler'/>
             <item-attr name='color' value='10'/>
+            <item-attr name='moodable' value='true'/>
         </enum-item>
         <enum-item name='CRAFTSMAN'>
             <item-attr name='caption' value='Craftsman'/>
@@ -54,6 +61,7 @@
         <enum-item name='FISHERMAN'>
             <item-attr name='caption' value='Fisherman'/>
             <item-attr name='color' value='1'/>
+            <item-attr name='moodable' value='true'/>
         </enum-item>
 
         -- 10
@@ -61,10 +69,12 @@
         <enum-item name='FARMER'>
             <item-attr name='caption' value='Farmer'/>
             <item-attr name='color' value='6'/>
+            <item-attr name='moodable' value='true'/>
         </enum-item>
         <enum-item name='MECHANIC'>
             <item-attr name='caption' value='Mechanic'/>
             <item-attr name='color' value='12'/>
+            <item-attr name='moodable' value='true'/>
         </enum-item>
         <enum-item name='MANAGER'>
             <item-attr name='caption' value='Manager'/>
@@ -424,6 +434,7 @@
             <item-attr name='caption' value='Recruit'/>
             <item-attr name='military' value='true'/>
             <item-attr name='color' value='8'/>
+            <item-attr name='moodable' value='true'/>
         </enum-item>
         <enum-item name='TRAINED_HUNTER'>
             <item-attr name='caption' value='Hunting Animal'/>
@@ -447,11 +458,13 @@
         <enum-item name='STANDARD'>
             <item-attr name='caption' value='Peasant'/>
             <item-attr name='color' value='-1'/>
+            <item-attr name='moodable' value='true'/>
         </enum-item>
         <enum-item name='CHILD'>
             <item-attr name='caption' value='Child'/>
             <item-attr name='can_assign_labor' value='false'/>
             <item-attr name='color' value='4'/>
+            <item-attr name='moodable' value='true'/>
         </enum-item>
         <enum-item name='BABY'>
             <item-attr name='caption' value='Baby'/>
