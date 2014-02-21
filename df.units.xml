@@ -103,7 +103,7 @@
         <enum-item name='Baby'/>
     </enum-type>
 
-    <enum-type type-name='skill_rating' base-type='int32_t'>
+    <enum-type type-name='skill_rating' base-type='int16_t'>
         <enum-attr name='xp_threshold' type-name='uint32_t'/>
         <enum-attr name='caption'/>
 
@@ -556,7 +556,7 @@
 
         <code-helper name='describe'>$.id</code-helper>
 
-        <int16_t name="rating"/>
+        <enum base-type='int16_t' name="rating" type-name='skill_rating'/>
         <uint32_t name="experience"/>
     </struct-type>
 

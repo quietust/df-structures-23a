@@ -83,7 +83,7 @@
         <int32_t name='adamantine_mined'/>
         <int32_t/>
 
-        <compound type-name='entity_activity_statistics' name='activity_stats'/>
+        <compound type-name='entity_activity_statistics' name='tasks'/>
 
         <stl-vector type-name='pointer'/>
         <stl-vector name='activities'>
@@ -188,7 +188,7 @@
         <int16_t/>
         <int16_t name='max_dig_depth'/>
         <int16_t name='min_dig_depth'/>
-        <int16_t name='mood_timer'/>
+        <int16_t name='mood_cooldown'/>
         <compound name='main'>
             <enum base-type='int16_t' name='mode' type-name='ui_sidebar_mode'/>
             <int16_t name='unk1'/>
