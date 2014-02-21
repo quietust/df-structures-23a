@@ -378,7 +378,7 @@
             <item-attr name='color' value='3'/>
         </enum-item>
         <enum-item name='MASTER_SWORDSMAN'>
-            <item-attr name='caption' value='Swordsmaster'/>
+            <item-attr name='caption' value='Swordmaster'/>
             <item-attr name='military' value='true'/>
             <item-attr name='can_assign_labor' value='false'/>
             <item-attr name='color' value='11'/>
@@ -922,7 +922,7 @@
         </enum-item>
         <enum-item name='ENCRUSTGEM'>
             <item-attr name='caption' value='Gem Setting'/>
-            <item-attr name='caption_noun' value='Gem Setter'/>
+            <item-attr name='caption_noun' value='Jeweler'/>
             <item-attr name='profession' value='JEWELER'/>
             <item-attr name='labor' value='GEM'/>
         </enum-item>
@@ -1043,7 +1043,7 @@
         </enum-item>
         <enum-item name='SIEGECRAFT'>
             <item-attr name='caption' value='Siege Engineering'/>
-            <item-attr name='caption_noun' value='Siege Engineer'/>
+            <item-attr name='caption_noun' value='Engineer'/>
             <item-attr name='profession' value='CARPENTER'/>
             <item-attr name='labor' value='SIEGECRAFT'/>
         </enum-item>
