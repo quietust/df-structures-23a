@@ -213,14 +213,14 @@
         <virtual-methods>
             <vmethod name='setJobTimer'>
                 <enum base-type='int32_t' type-name='job_type'/>
-                <int16_t/>
+                <int16_t name='timer'/>
             </vmethod>
             <vmethod ret-type='bool' name='isOnFire'/>
             <vmethod name='updateFromWeather'/>
             <vmethod name='updateTemperature'/>
             <vmethod name='updateItems'/>
 
-            <vmethod name='updateTempFromTile'><uint16_t name='temp'/><bool/><bool/></vmethod>
+            <vmethod name='updateTempFromTile'><uint16_t name='temp'/><bool name='doAdjust'/></vmethod>
             <vmethod ret-type='bool' name='isColoredByMaterial'/>
             <vmethod ret-type='bool' name='isFarmPlot'/>
             <vmethod name='getWorkshopProfile'>
@@ -269,7 +269,7 @@
                 <bool name='exclude_in_room'/> <bool name='subtract_pending_jobs'/>
             </vmethod>
             <vmethod ret-type='bool' name='canStoreItem'>
-                <pointer type-name='item'/> <bool name='subtract_pending_jobs'/>
+                <pointer type-name='item'/> <bool name='subtract_pending_jobs'/> <bool/>
             </vmethod>
             <vmethod name='getName'> <pointer type-name='stl-string' name='name'/> </vmethod>
             <vmethod name='getNameColor'/>
@@ -319,12 +319,14 @@
 
             <vmethod name='deconstructItems'> <bool name='noscatter'/> <bool name='lost'/> </vmethod>
             <vmethod name='updatePathfinding'/>
-            <vmethod ret-type='bool' name='takesFireDamage'/>
+            <vmethod ret-type='bool' name='takesFireDamage'>
+                <int8_t name='fire_type'/>
+            </vmethod>
             <vmethod name='populateSettingsMenu'/> for weapon racks and armor stands
             <vmethod name='populateTaskList'/> for certain workshops
 
             <vmethod ret-type='bool' name='isForbidden'/>
-            <vmethod/>
+            <vmethod ret-type='bool'/>
             <vmethod ret-type='bool' name='isVisible'
                      comment='used by stuff like open doors/floodgates'/>
             <vmethod name='getDrawExtents'>
