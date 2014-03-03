@@ -215,8 +215,8 @@
                 to mine in an aquifer.
             </comment>
         </compound>
-        <int32_t/>
-        <int32_t/>
+        <int32_t name='idle_area_threshold'/>
+        <int32_t name='follow_distance'/>
 
         <compound name='path'>
             <compound name='dest' type-name='coord32'/>
@@ -234,7 +234,7 @@
         <int32_t name='civ_id' ref-target='historical_entity'/>
 
         <compound name='patrol_route' type-name='coord32_path'/>
-        <int32_t/>
+        <int32_t name='patrol_index'/>
 
         <stl-vector name='specific_refs' pointer-type='specific_ref'/>
         <stl-vector name='general_refs' pointer-type='general_ref'/>
