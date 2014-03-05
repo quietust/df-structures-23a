@@ -53,7 +53,7 @@
         <stl-vector name='caravans'>
             <pointer type-name='caravan_state'/>
         </stl-vector>
-        <int8_t/>
+        <int8_t name='firstCaravan' comment='display special screens on arrival/departure of first caravan'/>
         <compound type-name='coord32_path' name='dwarfArrivalTiles'/>
         <compound type-name='coord32_path' name='roadInfo'/>
         <int16_t name='progress_population'/>
@@ -63,9 +63,9 @@
         <bool name='king_hasty'/>
         <bool name='anvil_arrived'/>
         <bool name='economy_active'/>
-        <bool/>
+        <bool name='ignore_labor_shortage'/>
         <bool name='justice_active'/>
-        <int16_t/>
+        <int16_t name='manager_timer'/>
         <compound name='incoming_king'>
             <int32_t name='desired_architecture'/>
             <int32_t name='desired_roads'/>
@@ -78,25 +78,19 @@
         <static-array name='guild_happiness' type-name='int16_t' count='16' index-enum='guild_id'/>
         <static-array name='labor_slowdown_timer' type-name='int16_t' count='16' index-enum='guild_id'/>
         <static-array name='currency_value' type-name='int32_t' count='64' index-enum='material_type'/>
-        <int32_t name='trees_removed'/>
-        <int32_t/>
-        <int32_t name='adamantine_mined'/>
-        <int32_t/>
+        <int32_t name='trees_removed' comment='used by elves'/>
+        <int32_t name='adamantine_seasons' comment='increases quantity in adamantine goods mandates'/>
+        <int32_t name='adamantine_mined' comment='triggers Too Deep'/>
+        <int32_t name='fortress_age' comment='increments every 10 frames'/>
 
         <compound type-name='entity_activity_statistics' name='tasks'/>
 
-        <stl-vector type-name='pointer'/>
-        <stl-vector name='activities'>
-            <pointer type-name='activity_info'/>
-        </stl-vector>
-
-        <stl-vector name='dip_meeting_info'>
-            <pointer type-name='meeting_diplomat_info'/>
-        </stl-vector>
-
-        <stl-vector name='royal_guards'><int32_t ref-target='unit'/></stl-vector>
-        <stl-vector name='fortress_guards'><int32_t ref-target='unit'/></stl-vector>
-        <stl-vector name='aid_requesters'><int32_t ref-target='unit'/></stl-vector>
+        <stl-vector type-name='int32_t' ref-target='unit' comment='related to meetings'/>
+        <stl-vector name='activities' pointer-type='activity_info'/>
+        <stl-vector name='dip_meeting_info' pointer-type='meeting_diplomat_info'/>
+        <stl-vector name='royal_guards' type-name='int32_t' ref-target='unit'/>
+        <stl-vector name='fortress_guards' type-name='int32_t' ref-target='unit'/>
+        <stl-vector name='aid_requesters' type-name='int32_t' ref-target='unit'/>
         <int8_t name='game_over'/>
 
         <compound name='siege'>
@@ -145,7 +139,7 @@
                 <int16_t name="beating"/>
                 <int16_t name="hammer_strikes"/>
                 <int32_t name="prison_counter"/>
-                <int16_t name="unk_10" comment='10080'/>
+                <int16_t name="delay" comment='10080'/>
                 <pointer name="chain" type-name='building'/>
                 <stl-vector name="victims">
                     <pointer type-name="unit"/>
@@ -153,21 +147,11 @@
             </pointer>
         </stl-vector>
 
-        <stl-vector name='pet_info'>
-            <pointer type-name='pet_info'/>
-        </stl-vector>
-        <stl-vector name='parties'>
-            <pointer type-name='party_info'/>
-        </stl-vector>
-        <stl-vector name='room_rent'>
-            <pointer type-name='room_rent_info'/>
-        </stl-vector>
-
-        <stl-vector name='dipscripts'>
-            <pointer type-name='dipscript_info'/>
-        </stl-vector>
-
-        <stl-vector name='dipscript_popups' type-name='pointer'/>
+        <stl-vector name='pet_info' pointer-type='pet_info'/>
+        <stl-vector name='parties' pointer-type='party_info'/>
+        <stl-vector name='room_rent' pointer-type='room_rent_info'/>
+        <stl-vector name='dipscripts' pointer-type='dipscript_info'/>
+        <stl-vector name='dipscript_popups' pointer-type='dipscript_popup'/>
 
         <compound name='kitchen'>
             <stl-vector name='item_types'>
@@ -184,14 +168,14 @@
             </stl-vector>
             <stl-vector name='exc_types' type-name='int8_t'/>
         </compound>
-        <int32_t/>
-        <int16_t/>
+        <int32_t name='flags' comment='1 = first year of fortress, 2 = recalculate wagon/migrant entry points, 4 = clear all aid request timeouts'/>
+        <int16_t name='aid_requester_limit' comment='10 + num injured / 7, minimum 10 (when less than 30 injured), maximum 100'/>
         <int16_t name='max_dig_depth'/>
         <int16_t name='min_dig_depth'/>
         <int16_t name='mood_cooldown'/>
         <compound name='main'>
             <enum base-type='int16_t' name='mode' type-name='ui_sidebar_mode'/>
-            <int16_t name='unk1'/>
+            <int16_t name='unk1' comment='set to 0 when finding nearest building to query, never modified'/>
         </compound>
         <bool name='baron_needed'/>
         <bool name='count_needed'/>
@@ -204,8 +188,8 @@
         <stl-vector name='farm_crops' type-name='int16_t' ref-target='matgloss_plant'/>
         <stl-vector name='farm_seasons' type-name='int8_t'/>
 
-        <static-array type-name='int16_t' count='3'/>
-        <static-array type-name='int8_t' count='3'/>
+        <static-array name='feature_attack_counts' type-name='int16_t' count='3' comment='maxes at 10, increases feature attack group sizes'/>
+        <static-array name='feature_initial_flood' type-name='int8_t' count='3' comment='1 if you triggered a flood upon discovering the river or magma flow'/>
 
         <compound name='economy_prices'>
             <compound name='price_adjustment'>
