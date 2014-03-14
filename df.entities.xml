@@ -60,11 +60,11 @@
         <int8_t name='found_caveriver'/>
         <int8_t name='found_chasm'/>
         <int8_t name='found_magma'/>
-        <stl-vector name='discovered_creature_foods' type-name='bool' index-enum='creature_raw'/>
-        <stl-vector name='discovered_creatures' type-name='bool' index-enum='creature_raw'/>
-        <stl-vector name='discovered_plant_foods' type-name='bool' index-enum='matgloss_plant'/>
-        <stl-vector name='discovered_plants' type-name='bool' index-enum='matgloss_plant'/>
-        <stl-vector name='discovered_trees' type-name='bool' index-enum='matgloss_wood'/>
+        <stl-vector name='discovered_creature_foods' type-name='bool' index-refers-to='$global.world.raws.creatures[$]'/>
+        <stl-vector name='discovered_creatures' type-name='bool' index-refers-to='$global.world.raws.creatures[$]'/>
+        <stl-vector name='discovered_plant_foods' type-name='bool' index-refers-to='$global.world.raws.matgloss_plant[$]'/>
+        <stl-vector name='discovered_plants' type-name='bool' index-refers-to='$global.world.raws.matgloss_plant[$]'/>
+        <stl-vector name='discovered_trees' type-name='bool' index-refers-to='$global.world.raws.matgloss_wood[$]'/>
     </struct-type>
 
     <struct-type type-name='caravan_state'>
@@ -315,11 +315,11 @@
                 <pointer type-name='item'/>
             </stl-vector>
 
-            <stl-vector name='discovered_creature_foods' type-name='bool' index-enum='creature_raw'/>
-            <stl-vector name='discovered_creatures' type-name='bool' index-enum='creature_raw'/>
-            <stl-vector name='discovered_plant_foods' type-name='bool' index-enum='matgloss_plant'/>
-            <stl-vector name='discovered_plants' type-name='bool' index-enum='matgloss_plant'/>
-            <stl-vector name='discovered_trees' type-name='bool' index-enum='matgloss_wood'/>
+            <stl-vector name='discovered_creature_foods' type-name='bool' index-refers-to='$global.world.raws.creatures[$]'/>
+            <stl-vector name='discovered_creatures' type-name='bool' index-refers-to='$global.world.raws.creatures[$]'/>
+            <stl-vector name='discovered_plant_foods' type-name='bool' index-refers-to='$global.world.raws.matgloss_plant[$]'/>
+            <stl-vector name='discovered_plants' type-name='bool' index-refers-to='$global.world.raws.matgloss_plant[$]'/>
+            <stl-vector name='discovered_trees' type-name='bool' index-refers-to='$global.world.raws.matgloss_wood[$]'/>
 
             <stl-vector type-name='pointer'/>
 
