@@ -68,18 +68,18 @@
     </struct-type>
 
     <struct-type type-name='caravan_state'>
-        <int32_t/>
+        <int32_t name='total_capacity'/>
         <int8_t name='trade_state' comment='1 = approaching depot; 2 = at depot; 3 = leaving'/>
         <int8_t name='depot_notified' comment='has it warned you that you need a depot'/>
         <int16_t name='time_remaining'/>
         <int32_t name='entity' ref-target='historical_entity'/>
         <compound name='activity_stats' type-name='entity_activity_statistics'/>
         <int32_t name='flags'/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
-        <stl-vector type-name='int32_t'/>
+        <int32_t name='import_value'/>
+        <int32_t name='export_container_value'/>
+        <int32_t name='export_value'/>
+        <int32_t name='offer_value'/>
+        <stl-vector name='units' type-name='int32_t' ref-target='unit'/>
         <pointer type-name='entity_sell_prices' name='sell_prices'/>
         <pointer type-name='entity_buy_prices' name='buy_prices'/>
     </struct-type>
@@ -314,49 +314,35 @@
             <stl-vector>
                 <pointer type-name='item'/>
             </stl-vector>
-            <static-array count='5'>
-                <stl-vector type-name='int8_t'/>
-            </static-array>
+
+            <stl-vector name='discovered_creature_foods' type-name='bool' index-enum='creature_raw'/>
+            <stl-vector name='discovered_creatures' type-name='bool' index-enum='creature_raw'/>
+            <stl-vector name='discovered_plant_foods' type-name='bool' index-enum='matgloss_plant'/>
+            <stl-vector name='discovered_plants' type-name='bool' index-enum='matgloss_plant'/>
+            <stl-vector name='discovered_trees' type-name='bool' index-enum='matgloss_wood'/>
+
             <stl-vector type-name='pointer'/>
 
             <int16_t/>
             <int16_t/>
 
             <stl-vector type-name='int16_t' comment='general_ref_entity_art_image points here'/>
-            <stl-vector type-name='int32_t'/>
-            <stl-vector type-name='int16_t'/>
-            <stl-vector>
-                <pointer>
-                    <int32_t/>
-                    <stl-vector type-name='int16_t'/>
-                    <stl-vector type-name='int16_t'/>
-                    <stl-vector>
-                        <pointer>
-                            <int8_t/>
-                            <int8_t/>
-                            <int16_t/>
-                            <int32_t/>
-                            <int16_t/>
-                            <int16_t/>
-                            <int16_t/>
-                            <int16_t/>
-                        </pointer>
-                    </stl-vector>
-                </pointer>
-            </stl-vector>
+            <stl-vector type-name='int32_t' name='art_image_ids'/>
+            <stl-vector type-name='int16_t' name='art_image_subids'/>
+            <stl-vector name='uniforms' pointer-type='entity_uniform'/>
             <stl-vector name='meeting_events' pointer-type='meeting_event'/>
         </compound>
 
         <compound name='activity_stats' type-name='entity_activity_statistics'/>
 
-        <int8_t/>
+        <int8_t name='send_nobles' comment='migrant waves will not include new/replacement nobles unless set'/>
         <int16_t/>
         <int32_t/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t name='offerings' comment='uncertain'/>
-        <static-array count='10' type-name='int32_t'/>
-        <int32_t/>
+        <int32_t name='imports'/>
+        <int32_t name='exports'/>
+        <int32_t name='offerings_recent'/>
+        <static-array name='offerings_history' count='10' type-name='int32_t'/>
+        <int32_t name='hostile_level' comment='determines siege size'/>
         <int32_t/>
 
         <stl-vector type-name='pointer'/>
@@ -367,16 +353,129 @@
             <pointer type-name='nemesis_record'/>
         </stl-vector>
 
-        <compound>
+        <compound comment='derived resources'>
             <compound name='mill_cookable' type-name='material_vec_ref'/>
             <compound name='mill_dye' type-name='material_vec_ref'/>
-            <static-array count='32'>
-                <stl-vector type-name='int16_t'/>
-            </static-array>
+            <stl-vector name='armor_leather'>
+                <int16_t ref-target='itemdef_armorst'/>
+            </stl-vector>
+            <stl-vector name='armor_chain'>
+                <int16_t ref-target='itemdef_armorst'/>
+            </stl-vector>
+            <stl-vector name='armor_plate'>
+                <int16_t ref-target='itemdef_armorst'/>
+            </stl-vector>
+            <stl-vector name='armor_under'>
+                <int16_t ref-target='itemdef_armorst'/>
+            </stl-vector>
+            <stl-vector name='armor_over'>
+                <int16_t ref-target='itemdef_armorst'/>
+            </stl-vector>
+            <stl-vector name='armor_cover'>
+                <int16_t ref-target='itemdef_armorst'/>
+            </stl-vector>
+            <stl-vector name='pants_leather'>
+                <int16_t ref-target='itemdef_pantsst'/>
+            </stl-vector>
+            <stl-vector name='pants_chain'>
+                <int16_t ref-target='itemdef_pantsst'/>
+            </stl-vector>
+            <stl-vector name='pants_plate'>
+                <int16_t ref-target='itemdef_pantsst'/>
+            </stl-vector>
+            <stl-vector name='pants_under'>
+                <int16_t ref-target='itemdef_pantsst'/>
+            </stl-vector>
+            <stl-vector name='pants_over'>
+                <int16_t ref-target='itemdef_pantsst'/>
+            </stl-vector>
+            <stl-vector name='pants_cover'>
+                <int16_t ref-target='itemdef_pantsst'/>
+            </stl-vector>
+            <stl-vector name='helm_leather'>
+                <int16_t ref-target='itemdef_helmst'/>
+            </stl-vector>
+            <stl-vector name='helm_chain'>
+                <int16_t ref-target='itemdef_helmst'/>
+            </stl-vector>
+            <stl-vector name='helm_plate'>
+                <int16_t ref-target='itemdef_helmst'/>
+            </stl-vector>
+            <stl-vector name='helm_under'>
+                <int16_t ref-target='itemdef_helmst'/>
+            </stl-vector>
+            <stl-vector name='helm_over'>
+                <int16_t ref-target='itemdef_helmst'/>
+            </stl-vector>
+            <stl-vector name='helm_cover'>
+                <int16_t ref-target='itemdef_helmst'/>
+            </stl-vector>
+            <stl-vector name='shoes_leather'>
+                <int16_t ref-target='itemdef_shoesst'/>
+            </stl-vector>
+            <stl-vector name='shoes_chain'>
+                <int16_t ref-target='itemdef_shoesst'/>
+            </stl-vector>
+            <stl-vector name='shoes_plate'>
+                <int16_t ref-target='itemdef_shoesst'/>
+            </stl-vector>
+            <stl-vector name='shoes_under'>
+                <int16_t ref-target='itemdef_shoesst'/>
+            </stl-vector>
+            <stl-vector name='shoes_over'>
+                <int16_t ref-target='itemdef_shoesst'/>
+            </stl-vector>
+            <stl-vector name='shoes_cover'>
+                <int16_t ref-target='itemdef_shoesst'/>
+            </stl-vector>
+            <stl-vector name='gloves_leather'>
+                <int16_t ref-target='itemdef_glovesst'/>
+            </stl-vector>
+            <stl-vector name='gloves_chain'>
+                <int16_t ref-target='itemdef_glovesst'/>
+            </stl-vector>
+            <stl-vector name='gloves_plate'>
+                <int16_t ref-target='itemdef_glovesst'/>
+            </stl-vector>
+            <stl-vector name='gloves_under'>
+                <int16_t ref-target='itemdef_glovesst'/>
+            </stl-vector>
+            <stl-vector name='gloves_over'>
+                <int16_t ref-target='itemdef_glovesst'/>
+            </stl-vector>
+            <stl-vector name='gloves_cover'>
+                <int16_t ref-target='itemdef_glovesst'/>
+            </stl-vector>
         </compound>
         <int32_t/>
         <int32_t/>
     </struct-type>
+
+    <struct-type type-name='entity_uniform_item'>
+        <int8_t name='random_dye'/>
+        <int8_t name='armorlevel'/>
+        <int16_t name='item_color' ref-target='descriptor_color'/>
+        <int32_t name='art_image_id'/>
+        <int16_t name='art_image_subid'/>
+        <int16_t name='image_thread_color' ref-target='descriptor_color'/>
+        <int16_t name='image_material_class'/>
+        <int16_t name='maker_race'/>
+    </struct-type>
+
+    <struct-type type-name='entity_uniform' key-field='id'>
+        <int16_t name="id"/>
+
+        <stl-vector name='uniform_item_types'>
+            <enum base-type='int16_t' type-name='item_type'/>
+        </stl-vector>
+
+        <stl-vector name='uniform_item_subtypes'>
+            <int16_t refers-to='(item-subtype-target $$._parent._parent.uniform_item_types[$$._key] $)'/>
+        </stl-vector>
+
+        <stl-vector name='uniform_item_info' pointer-type='entity_uniform_item'/>
+    </struct-type>
+
 </data-definition>
 
 <!--
