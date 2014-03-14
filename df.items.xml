@@ -259,7 +259,7 @@
             <vmethod ret-type='bool' name='isAnimalProduct'/>
             <vmethod name='getStorageInfo'>
                 <pointer type-name='int32_t' name='item_type'/>
-                <pointer type-name='int32_t'/>
+                <pointer type-name='int32_t' name='material_category'/>
             </vmethod>
             <vmethod ret-type='bool' name='addWear'>
                 <int32_t name='delta'/> <bool name='lose_masterwork'/> <bool name='do_rot'/>

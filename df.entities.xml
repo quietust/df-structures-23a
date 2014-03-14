@@ -451,6 +451,31 @@
         <int32_t/>
     </struct-type>
 
+    <enum-type type-name='entity_material_category' base-type='int16_t'>
+        <enum-item name='Clothing'/>
+        <enum-item name='Leather'/>
+        <enum-item name='Cloth'/>
+        <enum-item name='LyeWood'/>
+        <enum-item name='CraftMetal'/>
+        <enum-item name='Stone'/>
+        <enum-item name='Improvement'/>
+        <enum-item name='Glass'/>
+        <enum-item name='Wood'/>
+        <enum-item name='Bag'/>
+        <enum-item name='Cage'/>
+        <enum-item name='Weapon'/>
+        <enum-item name='Ammo'/>
+        <enum-item name='Pick'/>
+        <enum-item name='Armor'/>
+        <enum-item name='Gem'/>
+        <enum-item name='Bone'/>
+        <enum-item name='Shell'/>
+        <enum-item name='Pearl'/>
+        <enum-item name='Ivory'/>
+        <enum-item name='Horn'/>
+        <enum-item name='Other'/>
+    </enum-type>
+
     <struct-type type-name='entity_uniform_item'>
         <int8_t name='random_dye'/>
         <int8_t name='armorlevel'/>
@@ -458,7 +483,7 @@
         <int32_t name='art_image_id'/>
         <int16_t name='art_image_subid'/>
         <int16_t name='image_thread_color' ref-target='descriptor_color'/>
-        <int16_t name='image_material_class'/>
+        <enum base-type='int16_t' name='image_material_class' type-name='entity_material_category'/>
         <int16_t name='maker_race'/>
     </struct-type>
 
