@@ -103,7 +103,10 @@
         <int32_t name="count_min" init-value='30000'/>
         <int32_t name="count_max" init-value='30000'/>
 
-        <int8_t name='flags'/>
+        <bitfield name='flags' base-type='uint8_t'>
+            <flag-bit name='discovered'/>
+            <flag-bit name='extinct' comment='set for chasm creatures once magmafied'/>
+        </bitfield>
     </struct-type>
 
     <struct-type type-name='region_population'>
