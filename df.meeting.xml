@@ -122,6 +122,42 @@
         <int16_t/>
         <int8_t name='processed'/>
     </struct-type>
+
+    <struct-type type-name='crime_info'>
+        <enum name='mode' base-type='int16_t'>
+            <enum-item name='ViolateProductionOrder'/>
+            <enum-item name='ViolateExportBan'/>
+            <enum-item name='ViolateJobOrder'/>
+            <enum-item name='ConspiracyToSlowLabor'/>
+            <enum-item name='Murder'/>
+            <enum-item name='DisorderlyConduct'/>
+            <enum-item name='BuildingDestruction'/>
+            <enum-item name='Vandalism'/>
+            <enum-item name='ViolateMiningOrder'/>
+        </enum>
+
+        <compound name='punishments'>
+            <int16_t name='hammerstrikes'/>
+            <int16_t name='prison'/>
+            <int32_t name='beating'/>
+        </compound>
+
+        <pointer name='criminal' type-name='unit'/>
+        <pointer name='victim' type-name='unit'/>
+        <int32_t name='punishment_assigned'/>
+    </struct-type>
+
+    <struct-type type-name='punishment_info'>
+        <pointer name="criminal" type-name='unit'/>
+        <pointer name="officer" type-name='unit'/>
+        <int16_t name="beating"/>
+        <int16_t name="hammer_strikes"/>
+        <int32_t name="prison_counter"/>
+        <int16_t name="delay" comment='10080'/>
+        <pointer name="jail" type-name='building'/>
+        <stl-vector name="victims" pointer-type='unit'/>
+    </struct-type>
+
 </data-definition>
 
 <!--

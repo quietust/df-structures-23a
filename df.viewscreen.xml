@@ -193,8 +193,8 @@
         <pointer type-name='unit'/>
         <pointer type-name='unit'/>
         <int8_t/>
-        <int32_t/>
-        <stl-vector type-name='pointer'/>
+        <int32_t name='cursor'/>
+        <stl-vector name='wrestle_items' pointer-type='unit_item_wrestle'/>
         <int32_t/>
         <stl-vector type-name='int8_t'/>
         <stl-vector type-name='pointer'/>
@@ -221,26 +221,26 @@
     </class-type>
 
     <class-type type-name='viewscreen_setupadventurest' inherits-from='viewscreen'>
-        <int8_t/>
-        <stl-string/>
-        <int32_t/>
-        <int32_t/>?
-        <int32_t/>?
-        <int16_t/>
+        <int8_t name='entering_name'/>
+        <stl-string name='name_buffer'/>
+        <int32_t name='civ_cursor'/>
+        <int32_t name='skill_cursor'/>
+        <int32_t name='skill_points'/>
+        <int16_t name='screen_id'/>
         <compound>
-            <compound type-name='language_name'/>
-            <int16_t/>
-            <int8_t/>
-            <static-array type-name='int32_t' count='34'/>
-            <int32_t/>
-            <int16_t/>
+            <compound name='name' type-name='language_name'/>
+            <int16_t name='race' ref-target='creature_raw'/>
+            <int8_t name='gender'/>
+            <static-array name='skills' type-name='int16_t' count='34' index-enum='job_skill'/>
+            <int32_t name='entity' ref-target='historical_entity'/>
+            <int16_t name='nemesis_idx' refers-to='$global.world.nemesis.all[$]'/>
         </compound>
         <int32_t/>?
         <int32_t/>?
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
+        <stl-vector name='races' type-name='int16_t' ref-target='creature_raw'/>
+        <stl-vector name='entities' type-name='int32_t' ref-target='historical_entity'/>
+        <stl-vector name='nemesis_idxs' type-name='int16_t' refers-to='$global.world.nemesis.all[$]'/>
+        <stl-vector name='avail_skills'><enum type-name='job_skill' base-type='int16_t'/></stl-vector>
     </class-type>
 
     <class-type type-name='viewscreen_dwarfmodest' inherits-from='viewscreen'>
@@ -258,12 +258,12 @@
         <int32_t/>
         <int32_t/>
         <stl-vector type-name='pointer'/>
-        <pointer/>
+        <pointer name='embark_screen' type-name='viewscreen_setupdwarfgamest'/>
         <stl-vector type-name='pointer'/>
         <static-string size='80'/>
         <static-string size='200'/>
         <static-string name='filter' size='80'/>
-        <int32_t/>
+        <int32_t name='cursor'/>
         <int32_t/>
     </class-type>
 
@@ -272,7 +272,7 @@
         <compound name='export_state'>
             <stl-vector type-name='int32_t'/>
             <stl-vector type-name='int16_t'/>
-            <stl-vector pointer-type='unit'/>
+            <stl-vector name='offload_units' pointer-type='unit'/>
             <pointer type-name='unit_chunk' name='cur_unit_chunk'/>
             <int32_t name='unit_chunk_id'/>
             <int32_t name='offload_count'/>
@@ -424,8 +424,8 @@
         <int16_t name='jails_present'/>
         <int16_t name='cursor'/>
         <stl-vector name='criminals' pointer-type='unit'/>
-        <stl-vector name='crimes' type-name='pointer'/>
-        <int32_t/>
+        <stl-vector name='crimes' type-name='crime_info'/>
+        <pointer name='punishment' type-name='punishment_info'/>
     </class-type>
 
     <class-type type-name='viewscreen_wagesst' inherits-from='viewscreen'>
@@ -470,11 +470,11 @@
         <pointer name='entity' type-name='historical_entity'/>
         <stl-vector type-name='pointer'/>
         <int32_t/>?
-        <stl-vector name='nemeses' pointer-type='nemesis_record'/>
-        <int32_t/>
-        <stl-vector name='agreements' type-name='pointer' comment='for lumber, anyways'/>
-        <stl-vector type-name='pointer'/>
-        <int32_t/>
+        <stl-vector name='members' pointer-type='nemesis_record'/>
+        <int32_t name='member_cursor'/>
+        <stl-vector name='agreements' pointer-type='meeting_event'/>
+        <stl-vector name='agreement_status' type-name='int8_t'/>
+        <int32_t name='agreement_cursor'/>
         <int16_t name='page'/>
     </class-type>
 
@@ -535,9 +535,7 @@
         <int16_t name='in_group_mode'/>
         <stl-vector name="category_total" type-name='int32_t' index-enum='item_type'/>
         <stl-vector name="category_busy" type-name='int32_t' index-enum='item_type'/>
-        <stl-vector name="items">
-            <pointer type-name="item"/>
-        </stl-vector>
+        <stl-vector name="items" pointer-type='item'/>
         <compound name='group'>
             <stl-vector name='item_type'>
                 <enum base-type='int16_t' type-name='item_type'/>
@@ -560,10 +558,8 @@
     <class-type type-name='viewscreen_itemst' inherits-from='viewscreen'>
         <pointer name="item" type-name="item"/>
 
-        <stl-vector name="entry_ref">
-            <pointer type-name="general_ref"/>
-        </stl-vector>
-        <stl-vector type-name='int16_t'/>
+        <stl-vector name="entry_ref" pointer-type='general_ref'/>
+        <stl-vector name='indent_levels' type-name='int16_t'/>
         <int32_t name="cursor_pos"/>
     </class-type>
 
@@ -579,7 +575,7 @@
         <int8_t name='quit_msg'/>
         <int8_t name='retire_confirm'/>
         <int8_t name='peasant_msg'/>
-        <int8_t name='quite_confirm'/>
+        <int8_t name='quit_confirm'/>
         <int8_t name='end_game' comment='triggered Too Deep ending, for some reason'/>
         <int32_t name='cursor'/>
     </class-type>
@@ -688,9 +684,9 @@
     </class-type>
 
     <class-type type-name='viewscreen_tradelistst' inherits-from='viewscreen'>
-        <int32_t/>
-        <int32_t/>
-        <stl-vector type-name='pointer'/>
+        <int32_t name='cursor'/>
+        <pointer name='depot' type-name='building'/>
+        <stl-vector name='caravans' pointer-type='caravan_state'/>
     </class-type>
 
     <class-type type-name='viewscreen_barterst' inherits-from='viewscreen'>
@@ -781,8 +777,8 @@
 
     <class-type type-name='viewscreen_textviewerst' inherits-from='viewscreen'>
         <stl-string name='title'/>
-        <stl-string/>
-        <stl-vector pointer-type='static-string' name='input_text'/>
+        <stl-string name='title_colors'/>
+        <stl-vector name='text_format' pointer-type='static-string'/>
         <stl-string name='type'/>
         <stl-string/>
         <pointer type-name='meeting_diplomat_info'/>
@@ -801,8 +797,11 @@
                 <int32_t/>
             </pointer>
         </stl-vector>
-        <stl-vector type-name='pointer'/>
-        <stl-string/>
+        <stl-vector name='hyperlinks' type-name='pointer'/>
+        <int8_t/>
+        <int32_t name='scroll_pos'/>
+        <int32_t name='cursor_line'/>
+        <int32_t/>
     </class-type>
 
     <class-type type-name='viewscreen_setupdwarfgamest' inherits-from='viewscreen'>
@@ -820,12 +819,12 @@
         <int16_t/>
         <int32_t/>
         <bool name='show_play_now'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='int32_t'/>
-        <stl-vector type-name='int32_t' name='animal_races'/>
-        <stl-vector type-name='int32_t' name='animal_counts'/>
-        <stl-vector pointer-type='unit' name='dwarves'/>
-        <stl-vector type-name='pointer' name='items'/>
+        <stl-vector name='avail_items' type-name='pointer'/>
+        <stl-vector name='animal_professions' type-name='int32_t'/>
+        <stl-vector name='animal_races' type-name='int32_t'/>
+        <stl-vector name='animal_counts' type-name='int32_t'/>
+        <stl-vector name='dwarves' pointer-type='unit'/>
+        <stl-vector name='items' type-name='pointer'/>
         <int32_t/>?
         <compound name='region_indoor' type-name='coord2d'/>
         <int16_t/>
