@@ -227,16 +227,7 @@
         <int32_t name='skill_cursor'/>
         <int32_t name='skill_points'/>
         <int16_t name='screen_id'/>
-        <compound>
-            <compound name='name' type-name='language_name'/>
-            <int16_t name='race' ref-target='creature_raw'/>
-            <int8_t name='gender'/>
-            <static-array name='skills' type-name='int16_t' count='34' index-enum='job_skill'/>
-            <int32_t name='entity' ref-target='historical_entity'/>
-            <int16_t name='nemesis_idx' refers-to='$global.world.nemesis.all[$]'/>
-        </compound>
-        <int32_t/>?
-        <int32_t/>?
+        <compound name='player' type-name='unit_profile'/>
         <stl-vector name='races' type-name='int16_t' ref-target='creature_raw'/>
         <stl-vector name='entities' type-name='int32_t' ref-target='historical_entity'/>
         <stl-vector name='nemesis_idxs' type-name='int16_t' refers-to='$global.world.nemesis.all[$]'/>
@@ -804,37 +795,58 @@
         <int32_t/>
     </class-type>
 
+    <struct-type type-name='unit_profile'>
+        <compound name='name' type-name='language_name'/>
+        <int16_t name='race' ref-target='creature_raw'/>
+        <int8_t name='sex'/>
+        <static-array name='skills' type-name='int16_t' count='68' index-enum='job_skill'/>
+        <int32_t name='entity' ref-target='historical_entity'/>
+        <int16_t name='nemesis_idx' refers-to='$global.world.nemesis.all[$]'/>
+        <enum name='military_profession' type-name='profession' base-type='int32_t'/>
+        <enum name='civilian_profession' type-name='profession' base-type='int32_t'/>
+    </struct-type>
+
+    <struct-type type-name='embark_item'>
+        <enum base-type='int16_t' name="item_type" type-name='item_type'/>
+        <int16_t name='item_subtype' refers-to='(item-subtype-target $$._parent.item_type $)'/>
+        <enum base-type='int16_t' name='material' type-name='material_type'/>
+        <int16_t name='matgloss' refers-to='(matgloss-target $$._parent.material $)'/>
+        <int8_t name='count'/>
+    </struct-type>
+
     <class-type type-name='viewscreen_setupdwarfgamest' inherits-from='viewscreen'>
         <static-string size='200' name='title'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='int16_t'/>
-        <stl-vector type-name='pointer'/>
+        <stl-vector name='unit_profiles' pointer-type='unit_profile'/>
+        <stl-vector name='embark_skills' type-name='job_skill'/>
+        <stl-vector name='reclaim_professions' type-name='profession'/>
         <int16_t name='mode'/>
         <int16_t name='dwarf_cursor'/>
-        <int16_t/>
+        <int16_t name='dwarf_page_idx'/>
         <int16_t name='item_cursor'/>
         <int16_t name='skill_cursor'/>
         <int16_t name='animal_cursor'/>
-        <int16_t name='cursor_column'/>
-        <int16_t/>
-        <int32_t/>
+        <int16_t name='dwarf_column'/>
+        <int16_t name='supply_column'/>
+        <int32_t name='display_row'/>
         <bool name='show_play_now'/>
-        <stl-vector name='avail_items' type-name='pointer'/>
-        <stl-vector name='animal_professions' type-name='int32_t'/>
-        <stl-vector name='animal_races' type-name='int32_t'/>
+        <stl-vector name='avail_items' pointer-type='embark_item'/>
+        <stl-vector name='animal_professions'><enum base-type='int32_t' type-name='profession'/></stl-vector>
+        <stl-vector name='animal_races' type-name='int32_t' ref-target='creature_raw'/>
         <stl-vector name='animal_counts' type-name='int32_t'/>
         <stl-vector name='dwarves' pointer-type='unit'/>
-        <stl-vector name='items' type-name='pointer'/>
-        <int32_t/>?
+        <stl-vector name='items' pointer-type='item'/>
+        <int32_t name='num_wagons'/>
         <compound name='region_indoor' type-name='coord2d'/>
-        <int16_t/>
+        <int16_t name='reclaim_site' ref-target='world_site'/>
         <compound name='region_outdoor' type-name='coord2d'/>
         <int16_t name='points_remaining'/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
+        <enum base-type='int32_t' name="add_item_type" type-name='item_type'/>
+        <int32_t name='add_item_subtype' refers-to='(item-subtype-target $$._parent.item_type $)'/>
+        <enum base-type='int32_t' name='add_material' type-name='material_type'/>
+        <int32_t name='add_matgloss' refers-to='(matgloss-target $$._parent.material $)'/>
+        <bitfield name='flags' base-type='uint32_t'>
+            <flag-bit name="add_item"/>
+        </bitfield>
     </class-type>
 </data-definition>
 

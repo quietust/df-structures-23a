@@ -149,8 +149,8 @@
         </stl-vector>
         <stl-vector type-name='int32_t'/>
 
-        <int32_t/>
-        <int32_t/>
+        <int32_t comment='unused_194 id, always -1'/>
+        <pointer comment='unused_194, always null'/>
         <df-flagarray name='flags'/>
 
         <stl-vector name="buildings">
@@ -210,7 +210,7 @@
             <pointer type-name='world_site'/>
         </stl-vector>
         <df-flagarray name='flags' index-enum='region_map_entry_flags'/>
-        <int16_t name="elevation" comment='~40 ocean -> ~100 plains -> ~200 mointains'/>
+        <int16_t name="elevation" comment='~40 ocean -> ~100 plains -> ~200 mountains'/>
         <int16_t name="rainfall"/>
         <int16_t name="vegetation"/>
         <int16_t name="temperature"/>
@@ -251,20 +251,26 @@
 
         <compound name='history' type-name='world_history'/>
 
-        <static-array count='9'>
-            <stl-vector type-name='int32_t'/>
-        </static-array>
+        <stl-vector type-name='int32_t' name='embark_indoor_x'/>
+        <stl-vector type-name='int32_t' name='embark_indoor_y'/>
+        <stl-vector type-name='int32_t' name='embark_outdoor_x'/>
+        <stl-vector type-name='int32_t' name='embark_outdoor_y'/>
+        <stl-vector type-name='int32_t' name='reclaim_site' ref-target='world_site'/>
+        <stl-vector type-name='int32_t' name='reclaim_indoor_x'/>
+        <stl-vector type-name='int32_t' name='reclaim_indoor_y'/>
+        <stl-vector type-name='int32_t' name='reclaim_outdoor_x'/>
+        <stl-vector type-name='int32_t' name='reclaim_outdoor_y'/>
         <int32_t/>
-        <int32_t/>
-        <int32_t/>
+        <int32_t name='flip_latitude'/>
+        <int32_t name='flip_longitude' comment='guess'/>
 
         <static-array count='3' type-name='int16_t'/>
         <static-array count='3' type-name='int16_t'/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
-        <stl-vector>
+        <int32_t name='next_unit_chunk_id'/>
+        <int32_t name='next_unit_chunk_index'/>
+        <int32_t name='next_art_image_chunk_id'/>
+        <int32_t name='next_art_image_chunk_index'/>
+        <stl-vector name='unused_194' comment='never populated with anything'>
             <pointer>
                 <static-array count='3'>
                     <stl-vector>
