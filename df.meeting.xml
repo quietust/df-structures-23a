@@ -12,8 +12,8 @@
         <pointer name='meeting_holder' type-name='unit'/>
         <pointer name='activity' type-name='activity_info'/>
         <bitfield name='flags'>
-            <flag-bit name='unk0'/>
-            <flag-bit name='unk1'/>
+            <flag-bit name='close_screen'/>
+            <flag-bit name='new_screen'/>
         </bitfield>
     </struct-type>
 
@@ -82,12 +82,18 @@
     <struct-type type-name='activity_info'>
         <int32_t name='id' comment='assigned during Save'/>
         <pointer name='person1' type-name='unit' comment='diplomat'/>
-        <pointer name='person2' type-name='unit' comment='count'/>
+        <pointer name='person2' type-name='unit' comment='noble'/>
         <pointer name='place' type-name='building'/>
-        <int16_t name='unk2' comment='1'/>
-        <int8_t name='unk3' comment='3'/>
-        <int16_t name='unk4' comment='0'/>
-        <int32_t name='unk5' comment='-1'/>
+        <bitfield base-type='uint16_t' name='flags'>
+            <flag-bit name='next_step'/>
+            <flag-bit name='unk1'/>
+            <flag-bit name='add_delay'/>
+            <flag-bit name='topic_discussed'/>
+            <flag-bit name='meeting_done'/>
+        </bitfield>
+        <int8_t name='state' comment='3'/>
+        <int16_t name='delay' comment='0'/>
+        <int32_t name='tree_quota' comment='-1'/>
     </struct-type>
 
     <struct-type type-name='pet_info'>
