@@ -22,38 +22,48 @@
         <int16_t/>
         <int16_t/>
         <int32_t name='diplomat_id' ref-target='historical_figure'/>
-        <int32_t comment='-1'/>
-        <stl-vector type-name='int32_t' name='steps' comment='0 = discuss current, 1 = request peace, 2 = tree quota, 3 = review export, 4 = review import, 5 = make requests, 6 = pleasant place'/>
-        <stl-vector type-name='int32_t'/>
+        <int32_t name='noble_id' ref-target='historical_figure'/>
+        <stl-vector type-name='meeting_topic' name='topic_list'/>
+        <stl-vector type-name='int32_t' name='topic_parms'/>
         <pointer type-name='entity_sell_requests' name='sell_requests'/>
         <pointer type-name='entity_buy_requests' name='buy_requests'/>
         <pointer name='dipscript' type-name='dipscript_info'/>
-        <int32_t/>
-        <stl-vector type-name='pointer'/> active_script_vars
+        <int32_t name='cur_step'/>
+        <stl-vector name='active_script_vars' type-name='pointer'/>
         <stl-string/>
         <stl-string/>
         <int32_t/>
         <stl-vector pointer-type='meeting_event' name='events'/>
-        <stl-vector type-name='int32_t'/>
-        <stl-vector type-name='int16_t'/>
-        <stl-vector type-name='int32_t'/>
-        <stl-vector type-name='int32_t'/>
-        <stl-vector type-name='int32_t'/>
-        <stl-vector type-name='int16_t'/>
-        <stl-vector type-name='int32_t'/>
-        <stl-vector type-name='int32_t'/>
-        <stl-vector type-name='int32_t'/>
-        <stl-vector type-name='int32_t'/>
+        <stl-vector name='agreement_entity' type-name='int32_t' ref-target='historical_entity'/>
+        <stl-vector name='agreement_topic' type-name='meeting_topic'/>
+        <stl-vector name='agreement_year' type-name='int32_t'/>
+        <stl-vector name='agreement_season' type-name='int32_t'/>
+        <stl-vector name='agreement_season_tick' type-name='int32_t'/>
+        <stl-vector name='agreement_outcome' type-name='int16_t'/>
+        <stl-vector name='sub_meetings' pointer-type='meeting_diplomat_info'/>
+        <stl-vector name='year' type-name='int32_t'/>
+        <stl-vector name='season' type-name='int32_t'/>
+        <stl-vector name='season_tick' type-name='int32_t'/>
     </struct-type>
 
-    <enum-type type-name='meeting_event_type' base-type='int16_t'>
+    <enum-type type-name='meeting_topic' base-type='int32_t'>
         <enum-item name="DiscussCurrent"/>
         <enum-item name="RequestPeace"/>
         <enum-item name="TreeQuota"/>
         <enum-item name="ExportAgreement"/>
         <enum-item name="ImportAgreement"/>
-        <enum-item name="MakeCaravanRequest" comment='Like ImportAgreement, but for dwarves'/>
-        <enum-item name="PleasantPlace" comment='seemingly also used for each individual request made from Dwarven caravan'/>
+        <enum-item name="MakeLiaisonRequest"/>
+        <enum-item name="PleasantPlace"/>
+    </enum-type>
+
+    <enum-type type-name='meeting_event_type' base-type='int16_t'>
+        <enum-item name="AcceptAgreement"/>
+        <enum-item name="RejectAgreement"/>
+        <enum-item name="AcceptPeace"/>
+        <enum-item name="RejectPeace"/>
+        <enum-item name="ExportAgreement"/>
+        <enum-item name="ImportAgreement"/>
+        <enum-item name="LiaisonRequest"/>
     </enum-type>
 
     <struct-type type-name='meeting_event'>
