@@ -147,7 +147,7 @@
     <struct-type type-name='meeting_diplomat_info'>
         <int32_t name='civ_id' ref-target='historical_entity'/>
         <int16_t/>
-        <int16_t/>
+        <int16_t name='is_first_contact'/>
         <int32_t name='diplomat_id' ref-target='historical_figure'/>
         <int32_t name='associate_id' ref-target='historical_figure'/>
         <stl-vector name="topic_list">
@@ -162,7 +162,7 @@
         <stl-string/>
         <stl-string/>
         <bitfield name='flags'>
-            <flag-bit name='unk1'/>
+            <flag-bit name='dynamic_load' comment='destroy dipscript_info in destructor'/>
             <flag-bit name='failure'/>
             <flag-bit name='success'/>
         </bitfield>
@@ -225,7 +225,7 @@
         <pointer name='place' type-name='building'/>
         <bitfield base-type='uint16_t' name='flags'>
             <flag-bit name='next_step'/>
-            <flag-bit name='unk1'/>
+            <flag-bit name='checked_building'/>
             <flag-bit name='add_delay'/>
             <flag-bit name='topic_discussed'/>
             <flag-bit name='meeting_done'/>
