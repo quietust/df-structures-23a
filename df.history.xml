@@ -274,33 +274,33 @@
         <int32_t name='source' ref-target='historical_entity'/>
         <int32_t name='destination' ref-target='historical_entity'/>
         <int32_t name='site' ref-target='world_site'/>
-        <int16_t name='agreement_type'/>
+        <enum base-type='int16_t' name='topic' type-name='meeting_topic'/>
         <int32_t name='result'/>
     </class-type>
 
     <class-type type-name='history_event_topicagreement_rejectedst' inherits-from='history_event'>
-        <int16_t name='agreement_type'/>
+        <enum base-type='int16_t' name='topic' type-name='meeting_topic'/>
         <int32_t name='source' ref-target='historical_entity'/>
         <int32_t name='destination' ref-target='historical_entity'/>
         <int32_t name='site' ref-target='world_site'/>
     </class-type>
 
     <class-type type-name='history_event_topicagreement_madest' inherits-from='history_event'>
-        <int16_t name='agreement_type'/>
+        <enum base-type='int16_t' name='topic' type-name='meeting_topic'/>
         <int32_t name='source' ref-target='historical_entity'/>
         <int32_t name='destination' ref-target='historical_entity'/>
         <int32_t name='site' ref-target='world_site'/>
     </class-type>
 
     <class-type type-name='history_event_war_peace_acceptedst' inherits-from='history_event'>
-        <int16_t/>
+        <enum base-type='int16_t' name='topic' type-name='meeting_topic'/>
         <int32_t name='source' ref-target='historical_entity'/>
         <int32_t name='destination' ref-target='historical_entity'/>
         <int32_t name='site' ref-target='world_site'/>
     </class-type>
 
     <class-type type-name='history_event_war_peace_rejectedst' inherits-from='history_event'>
-        <int16_t/>
+        <enum base-type='int16_t' name='topic' type-name='meeting_topic'/>
         <int32_t name='source' ref-target='historical_entity'/>
         <int32_t name='destination' ref-target='historical_entity'/>
         <int32_t name='site' ref-target='world_site'/>

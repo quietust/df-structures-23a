@@ -37,7 +37,9 @@
         <int32_t/>
         <stl-vector pointer-type='meeting_event' name='events'/>
         <stl-vector name='agreement_entity' type-name='int32_t' ref-target='historical_entity'/>
-        <stl-vector name='agreement_topic' type-name='meeting_topic'/>
+        <stl-vector name="agreement_topic">
+            <enum base-type='int16_t' type-name='meeting_topic'/>
+        </stl-vector>
         <stl-vector name='agreement_year' type-name='int32_t'/>
         <stl-vector name='agreement_season' type-name='int32_t'/>
         <stl-vector name='agreement_season_tick' type-name='int32_t'/>
@@ -48,7 +50,7 @@
         <stl-vector name='contact_season_tick' type-name='int32_t'/>
     </struct-type>
 
-    <enum-type type-name='meeting_topic' base-type='int32_t'>
+    <enum-type type-name='meeting_topic'>
         <enum-item name="DiscussCurrent"/>
         <enum-item name="RequestPeace"/>
         <enum-item name="TreeQuota"/>
