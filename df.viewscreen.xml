@@ -770,21 +770,18 @@
         <stl-string name='title'/>
         <stl-string name='title_colors'/>
         <stl-vector name='text_format' pointer-type='static-string'/>
-        <stl-string name='type'/>
-        <stl-string/>
-        <pointer type-name='meeting_diplomat_info'/>
-        <pointer type-name='dipscript_popup'/>
-        <int32_t/>
-        <int32_t/>
+        <stl-string name='outvar_type'/>
+        <stl-string name='outvar_name'/>
+        <compound name='meeting_context' type-name='meeting_context'/>
         <stl-string name='class_name'/>
         <stl-string name='dipscript_filename'/>
         <stl-vector name='formatted_text'>
             <pointer>
                 <pointer type-name='static-string' name='text'/>
                 <pointer type-name='static-string' name='format'/>
+                <int16_t name='flags'/>
                 <int32_t/>
-                <int32_t/>
-                <int32_t/>
+                <int32_t name='return_val'/>
                 <int32_t/>
             </pointer>
         </stl-vector>
