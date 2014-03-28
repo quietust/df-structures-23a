@@ -206,10 +206,7 @@
             <enum name='item_type' base-type='int16_t' type-name='item_type' comment='weapon, anvil, or seeds'/>
         </compound>
         <int16_t name='topic_parm'/>
-        <compound is-union='true'>
-            <int32_t name='quota_total'/>
-            <int32_t name='item_priority'/>
-        </compound>
+        <int32_t name='quota_total' comment='item_priority for liaison requests'/>
         <int32_t name='quota_remaining'/>
         <int32_t name='year'/>
         <int8_t name='season'/>
