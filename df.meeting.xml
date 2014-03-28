@@ -42,10 +42,10 @@
         <stl-vector name='agreement_season' type-name='int32_t'/>
         <stl-vector name='agreement_season_tick' type-name='int32_t'/>
         <stl-vector name='agreement_outcome' type-name='int16_t'/>
-        <stl-vector name='sub_meetings' pointer-type='meeting_diplomat_info'/>
-        <stl-vector name='year' type-name='int32_t'/>
-        <stl-vector name='season' type-name='int32_t'/>
-        <stl-vector name='season_tick' type-name='int32_t'/>
+        <stl-vector name='history_entity' type-name='int32_t' ref-target='historical_entity'/>
+        <stl-vector name='history_year' type-name='int32_t'/>
+        <stl-vector name='history_season' type-name='int32_t'/>
+        <stl-vector name='history_season_tick' type-name='int32_t'/>
     </struct-type>
 
     <enum-type type-name='meeting_topic' base-type='int32_t'>
