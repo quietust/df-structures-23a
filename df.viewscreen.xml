@@ -769,27 +769,30 @@
     <class-type type-name='viewscreen_textviewerst' inherits-from='viewscreen'>
         <stl-string name='title'/>
         <stl-string name='title_colors'/>
-        <stl-vector name='text_format' pointer-type='static-string'/>
+        <stl-vector name='src_text' pointer-type='static-string'/>
         <stl-string name='outvar_type'/>
         <stl-string name='outvar_name'/>
         <compound name='meeting_context' type-name='meeting_context'/>
-        <stl-string name='class_name'/>
-        <stl-string name='dipscript_filename'/>
+        <stl-string name='help_filename'/>
+        <stl-string name='page_filename'/>
         <stl-vector name='formatted_text'>
             <pointer>
                 <pointer type-name='static-string' name='text'/>
                 <pointer type-name='static-string' name='format'/>
-                <int16_t name='flags'/>
-                <int32_t/>
+                <bitfield base-type='uint16_t' name='flags'>
+                    <flag-bit name='hyperlink'/>
+                    <flag-bit name='no_newline'/>
+                </bitfield>
+                <int32_t name='pause_depth'/>
                 <int32_t name='return_val'/>
-                <int32_t/>
+                <int32_t name='indent'/>
             </pointer>
         </stl-vector>
-        <stl-vector name='hyperlinks' type-name='pointer'/>
-        <int8_t/>
+        <stl-vector name='hyperlinks' pointer-type='static-string'/>
+        <int8_t name='logged_error'/>
         <int32_t name='scroll_pos'/>
         <int32_t name='cursor_line'/>
-        <int32_t/>
+        <int32_t name='pause_depth'/>
     </class-type>
 
     <struct-type type-name='unit_profile'>
