@@ -24,27 +24,7 @@
             <stl-vector name='texpos' type-name='int32_t'/>
             <stl-vector name='datapos' type-name='int32_t'/>
         </compound>
-        <compound name='drawInfo'>
-            <static-array name='drawarray' count='25'><static-array type-name='int8_t' count='80'/></static-array>
-            <stl-vector type-name='pointer'/>
-            <int32_t/>
-            <int8_t/>
-            <int32_t/>
-            <int32_t/>
-            <int32_t/>
-            <int32_t/>
-            <int32_t/>
-            <int32_t/>
-            <int32_t/>
-            <int32_t/>
-            <int32_t/>
-            <int32_t/>
-            <int8_t/>
-            <int8_t/>
-            <int32_t/>
-            <int16_t/>
-            <int8_t/>
-        </compound>
+        <compound type-name='map_renderer' name='map_renderer'/>
 
         <int32_t name='screenx'/>
         <int32_t name='screeny'/>
