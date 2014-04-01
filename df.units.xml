@@ -490,7 +490,7 @@
         <enum-item name='Migrant'/>
         <enum-item name='RoomComplaint'/>
         <enum-item name='ResidentCreature' comment='upon reaching zero, it gets a name'/>
-        <enum-item/>
+        <enum-item name='RentBedroomCooldown'/>
         <enum-item name='ClaimTrinketCooldown'/>
         <enum-item name='ClaimClothingCooldown'/>
         <enum-item name='WantsDrink' comment='ALCOHOLIC'/>

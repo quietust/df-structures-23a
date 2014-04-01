@@ -728,8 +728,8 @@
     </class-type>
 
     <class-type type-name='viewscreen_topicmeetingst' inherits-from='viewscreen'>
-        <pointer type-name='dipscript_popup'/>
-        <pointer type-name='meeting_diplomat_info'/>
+        <pointer name='popup' type-name='dipscript_popup'/>
+        <pointer name='meeting' type-name='meeting_diplomat_info'/>
     </class-type>
 
     <class-type type-name='viewscreen_topicmeeting_takerequests_dwarfst' inherits-from='viewscreen'>

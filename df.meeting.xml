@@ -200,7 +200,7 @@
     </enum-type>
 
     <struct-type type-name='meeting_event'>
-        <enum base-type='int16_t' type-name='meeting_event_type'/>
+        <enum name='type' base-type='int16_t' type-name='meeting_event_type'/>
         <compound is-union='true'>
             <enum name='topic' base-type='int16_t' type-name='meeting_topic'/>
             <enum name='item_type' base-type='int16_t' type-name='item_type' comment='weapon, anvil, or seeds'/>
@@ -211,8 +211,8 @@
         <int32_t name='year'/>
         <int8_t name='season'/>
         <int16_t name='season_tick'/>
-        <pointer type-name='entity_sell_prices'/>
-        <pointer type-name='entity_buy_prices'/>
+        <pointer name='sell_prices' type-name='entity_sell_prices'/>
+        <pointer name='buy_prices' type-name='entity_buy_prices'/>
     </struct-type>
 
     <struct-type type-name='activity_info'>
