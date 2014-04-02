@@ -167,12 +167,8 @@
             <flag-bit name='ruin'/>
         </bitfield>
 
-        <stl-vector name='entity_links'>
-            <pointer type-name='entity_entity_link'/>
-        </stl-vector>
-        <stl-vector name='site_links'>
-            <pointer type-name='entity_site_link'/>
-        </stl-vector>
+        <stl-vector name='entity_links' pointer-type='entity_entity_link'/>
+        <stl-vector name='site_links' pointer-type='entity_site_link'/>
 
         <stl-vector name='histfig_ids'>
             <int32_t ref-target='historical_figure'/>
@@ -258,7 +254,7 @@
             </stl-vector>
             <compound name='other' type-name='material_vec_ref' comment='jade, amber, and coral'/>
             <compound name='crafts' type-name='material_vec_ref'/>
-            <compound type-name='material_vec_ref'/>
+            <compound name='glass' type-name='material_vec_ref' comment='always empty'/>
             <compound name='wood' type-name='material_vec_ref'/>
             <stl-vector name='pet'>
                 <int16_t ref-target='creature_raw'/>
@@ -330,9 +326,7 @@
                 <int16_t name='unk2'/>
             </static-array>
 
-            <stl-vector>
-                <pointer type-name='item'/>
-            </stl-vector>
+            <stl-vector name='owned_items' pointer-type='item'/>
 
             <stl-vector name='discovered_creature_foods' type-name='bool' index-refers-to='$global.world.raws.creatures[$]'/>
             <stl-vector name='discovered_creatures' type-name='bool' index-refers-to='$global.world.raws.creatures[$]'/>
@@ -340,10 +334,10 @@
             <stl-vector name='discovered_plants' type-name='bool' index-refers-to='$global.world.raws.matgloss_plant[$]'/>
             <stl-vector name='discovered_trees' type-name='bool' index-refers-to='$global.world.raws.matgloss_wood[$]'/>
 
-            <stl-vector type-name='pointer'/>
+            <stl-vector type-name='pointer' comment='refers to world_data.unk194'/>
 
-            <int16_t/>
-            <int16_t/>
+            <int16_t name='min_temperature'/>
+            <int16_t name='max_temperature'/>
 
             <stl-vector type-name='int16_t' name='art_image_types' comment='0 = civilization symbol'/>
             <stl-vector type-name='int32_t' name='art_image_ids'/>
@@ -364,13 +358,9 @@
         <int32_t name='hostile_level' comment='determines siege size'/>
         <int32_t/>
 
-        <stl-vector type-name='pointer'/>
-        <stl-vector name='hist_figures'>
-            <pointer type-name='historical_figure'/>
-        </stl-vector>
-        <stl-vector name='nemesis'>
-            <pointer type-name='nemesis_record'/>
-        </stl-vector>
+        <stl-vector type-name='pointer' comment='refers to world_data.unk194'/>
+        <stl-vector name='hist_figures' pointer-type='historical_figure'/>
+        <stl-vector name='nemesis' pointer-type='nemesis_record'/>
 
         <compound comment='derived resources'>
             <compound name='mill_cookable' type-name='material_vec_ref'/>
@@ -466,7 +456,7 @@
                 <int16_t ref-target='itemdef_glovesst'/>
             </stl-vector>
         </compound>
-        <int32_t/>
+        <int32_t comment='num_members'/>
         <int32_t/>
     </struct-type>
 

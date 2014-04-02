@@ -384,11 +384,11 @@
 
         <virtual-methods>
             <vmethod name='parseRaws'>
-                <pointer/>
-                <pointer/>
-                <pointer/>
+                <pointer type-name='static-string' name='raw'/>
+                <pointer type-name='stl-string' name='token_name'/>
+                <int32_t name='token_len'/>
             </vmethod>
-            <vmethod name='categorize' comment='add to world.raws.itemdefs.whatever'/>
+            <vmethod name='finalize' comment='add to world.raws.itemdefs.*, set subtype ID'/>
             <vmethod is-destructor='true'/>
         </virtual-methods>
     </class-type>

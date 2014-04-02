@@ -144,18 +144,13 @@
 
         <int32_t name="id"/>
 
-        <stl-vector name="nemesis">
-            <int32_t ref-target='nemesis_record'/>
-        </stl-vector>
-        <stl-vector type-name='int32_t'/>
+        <stl-vector name="nemesis" type-name='int32_t' ref-target='nemesis_record'/>
 
         <int32_t comment='unused_194 id, always -1'/>
         <pointer comment='unused_194, always null'/>
         <df-flagarray name='flags'/>
 
-        <stl-vector name="buildings">
-            <pointer type-name='abstract_building'/>
-        </stl-vector>
+        <stl-vector name="buildings" pointer-type='abstract_building'/>
 
         <int32_t name="next_building_id"/>
     </struct-type>
@@ -174,17 +169,15 @@
         <int32_t name="unk_90"/>
         <int32_t name="unk_94"/>
 
-        <stl-vector name='populations'>
-            <pointer type-name='region_population'/>
-        </stl-vector>
+        <stl-vector name='populations' pointer-type='region_population'/>
 
         <static-array name="tree_tiles" count="34" index-enum='biome_type'>
             <int16_t name="tree1" ref-target='matgloss_wood'/>
             <int16_t name="tree2" ref-target='matgloss_wood'/>
         </static-array>
 
-        <int8_t name="unk_130"/>
-        <int8_t name="unk_131"/>
+        <int8_t name="allow_skeleton"/>
+        <int8_t name="allow_zombie"/>
         <int8_t name="unk_132"/>
     </struct-type>
 
@@ -206,9 +199,7 @@
 
     <struct-type type-name='region_map_entry'>
         <pointer/>
-        <stl-vector name="sites">
-            <pointer type-name='world_site'/>
-        </stl-vector>
+        <stl-vector name="sites" pointer-type='world_site'/>
         <df-flagarray name='flags' index-enum='region_map_entry_flags'/>
         <int16_t name="elevation" comment='~40 ocean -> ~100 plains -> ~200 mountains'/>
         <int16_t name="rainfall"/>
@@ -220,7 +211,7 @@
         <int16_t name="unk_30" comment='3'/>
         <int16_t name="unk_32" comment='0'/>
         <int16_t name="unk_34" comment='0'/>
-        <int16_t name="unk_36" comment='0'/>
+        <int16_t name="misc" comment='flags 0x180 store fog level'/>
         <int16_t name="unk_38" comment='0'/>
         <int16_t name="unk_3a" comment='0-5000'/>
         <int16_t name="salinity"/>
@@ -239,11 +230,10 @@
         <int32_t/>
         <int16_t name='world_width'/>
         <int16_t name='world_height'/>
-        <stl-vector>
+        <stl-vector name='travel'>
             <pointer>
-                <int16_t/>
-                <int16_t/>
-                <stl-vector type-name='int32_t'/>
+                <compound name='pos' type-name='coord2d16'/>
+                <stl-vector name='nemesis' type-name='int32_t' ref-target='nemesis_record'/>
             </pointer>
         </stl-vector>
 
@@ -290,12 +280,8 @@
                 <int32_t/>
             </pointer>
         </stl-vector>
-        <stl-vector name="sites">
-            <pointer type-name='world_site'/>
-        </stl-vector>
-        <stl-vector name="regions">
-            <pointer type-name='world_region'/>
-        </stl-vector>
+        <stl-vector name="sites" pointer-type='world_site'/>
+        <stl-vector name="regions" pointer-type='world_region'/>
 
         <pointer name="region_map" is-array='true'>
             <pointer is-array='true' type-name='region_map_entry'/>

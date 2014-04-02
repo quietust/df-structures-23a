@@ -163,9 +163,9 @@
         <enum-item name='IS_NEMESIS'/>
         <enum-item name='UNIT_ITEM_WRESTLE'/>
         <enum-item name='IS_ARTIFACT'/>
-        <enum-item name='UNK39'/>
+        <enum-item name='NULL_REF'/>
 
-        <enum-item name='UNK40'/>
+        <enum-item name='DEFAULT'/>
         <enum-item name='UNIT_SLAUGHTEREE'/>
         <enum-item name='HIST_FIG'/>
         <enum-item name='SITE'/>
@@ -179,6 +179,7 @@
         <enum-item name='ART_IMAGE'/>
         <enum-item name='CREATURE_DEF'/>
         <enum-item name='PROJECTILE' comment='obsolete'/>
+        <enum-item name='GENERAL_REF'/>
     </enum-type>
 
     <struct-type type-name='specific_ref'>

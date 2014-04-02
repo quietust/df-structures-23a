@@ -426,7 +426,7 @@
             <vmethod name='addImprovementsFromItem'>
                 <pointer name='item' type-name='item'/>
             </vmethod>
-            <vmethod ret-type='int32_t' name='getThreadDyeValue'> <int32_t comment='unused'/> </vmethod>
+            <vmethod ret-type='int32_t' name='getThreadDyeValue'> <pointer type-name='caravan_state' name='caravan'/> </vmethod>
             <vmethod name='getColorAndShape'>
                 <pointer name='colors'><stl-vector type-name='int16_t'/></pointer>
                 <pointer name='shapes'><stl-vector type-name='int16_t'/></pointer>

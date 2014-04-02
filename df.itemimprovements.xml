@@ -26,7 +26,7 @@
         <int32_t name='maker' ref-target='historical_figure'/>
         <enum base-type='int16_t' name='quality' type-name='item_quality'/>
         <int16_t name='skill_rating' comment='at the moment of creation'/>
-        <int32_t/>
+        <int32_t name='age'/>
 
         <virtual-methods>
             <vmethod name='getImage'>
@@ -49,7 +49,7 @@
             <vmethod ret-type='bool' name='isDecoration'/> false for thread/cloth
             <vmethod is-destructor='true'/>
             <vmethod ret-type='int32_t' name='getDyeValue'>
-                <pointer/>
+                <pointer type-name='caravan_state' name='caravan'/>
             </vmethod>
         </virtual-methods>
     </class-type>
