@@ -225,8 +225,17 @@
 
         <compound name='flags1' type-name='unit_flags1'/>
         <compound name='flags2' type-name='unit_flags2'/>
-        <int8_t name='diplomat_state'/>
-        <enum base-type='int16_t' name='diplomat_target' type-name='profession'/>
+
+        <compound name='meeting'>
+            <enum name='state' base-type='int8_t'>
+                <enum-item name="SelectNoble" value="0"/>
+                <enum-item name="FollowNoble" value="1"/>
+                <enum-item name="DoMeeting" value="2"/>
+                <enum-item name="LeaveMap" value="3"/>
+            </enum>
+            <enum name='target_profession' type-name='profession' base-type='int16_t'/>
+        </compound>
+
         <int8_t name='sex'/>
         <int32_t name='id'/>
         <int16_t/>
