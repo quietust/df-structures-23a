@@ -232,7 +232,7 @@
         <int16_t name='world_height'/>
         <stl-vector name='travel'>
             <pointer>
-                <compound name='pos' type-name='coord2d16'/>
+                <compound name='pos' type-name='coord2d'/>
                 <stl-vector name='nemesis' type-name='int32_t' ref-target='nemesis_record'/>
             </pointer>
         </stl-vector>
