@@ -406,10 +406,8 @@
             <int16_t name='insanity_chance'/>
 
             <stl-vector name='complaints' pointer-type='unit_complaint'/>
-            <stl-vector name='guild_requests' pointer-type='unit_guild_request'/>
-
+            <stl-vector name='requests' pointer-type='unit_request'/>
             <stl-vector name='acquaintances' pointer-type='unit_acquaintance'/>
-
             <stl-vector name='coin_debts' pointer-type='unit_coin_debt'/>
 
             <int16_t name='adv_sleep_timer' comment='and some other things'/>
@@ -577,7 +575,7 @@
             <enum-item name='GuildUnemployed'/>
             <enum-item name='NeedWeapons'/>
         </enum>
-        <enum base-type='int16_t' type-name='guild_id' name="guild">
+        <enum base-type='int16_t' type-name='guild_id' name="guild"/>
         <int32_t name='age'/>
     </struct-type>
 
@@ -586,7 +584,7 @@
             <enum-item name='DoGuildJobs'/>
             <enum-item name='MakeWeapons'/>
         </enum>
-        <enum base-type='int16_t' type-name='guild_id' name="guild">
+        <enum base-type='int16_t' type-name='guild_id' name="guild"/>
         <int16_t name='count'/>
     </struct-type>
 
