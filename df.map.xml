@@ -327,8 +327,10 @@
     <struct-type type-name='drink_area'>
         <int32_t name='id' comment='assigned during Save'/>
         <compound type-name='coord' name='pos'/>
-        <int8_t/>
-        <int16_t/>
+        <int8_t name='type'/>
+        <bitfield name='flags' type-name='uint16_t'>
+            <flag-bit name='in_use'/>
+        </bitfield>
     </struct-type>
 </data-definition>
 

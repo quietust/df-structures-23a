@@ -16,7 +16,7 @@
                 <pointer type-name='vermin'/>
             </stl-vector>
 
-            <stl-vector name='unk_40'>
+            <stl-vector name='contaminated_rivers'>
                 <pointer type-name='coord'/>
             </stl-vector>
 
@@ -50,7 +50,7 @@
                     <int32_t name='timer'/>
                 </pointer>
             </stl-vector>
-            <stl-vector name='contaminated_tiles'>
+            <stl-vector name='contaminated_floors'>
                 <pointer type-name='coord'/>
             </stl-vector>
             <stl-vector name='web_clusters'>
