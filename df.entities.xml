@@ -84,8 +84,8 @@
             <flag-bit name='display_announce' comment='first dwarven caravan arrival and departure'/>
         </bitfield>
         <int32_t name='import_value'/>
-        <int32_t name='export_container_value'/>
-        <int32_t name='export_value'/>
+        <int32_t name='export_value_total'/>
+        <int32_t name='export_value_personal' comment='excluding Foreign items'/>
         <int32_t name='offer_value'/>
         <stl-vector name='units' type-name='int32_t' ref-target='unit'/>
         <pointer type-name='entity_sell_prices' name='sell_prices'/>
