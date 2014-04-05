@@ -129,8 +129,13 @@
             </stl-vector>
             <stl-vector name='exc_types' type-name='int8_t'/>
         </compound>
-        <int32_t name='flags' comment='1 = first year of fortress, 2 = recalculate wagon/migrant entry points, 4 = clear all aid request timeouts'/>
-        <int16_t name='aid_requester_limit' comment='10 + num injured / 7, minimum 10 (when less than 30 injured), maximum 100'/>
+
+        <bitfield base-type='uint32_t' name='flags'>
+            <flag-bit name='first_year'/>
+            <flag-bit name='recalc_entrypoints'/>
+            <flag-bit name='clear_aid_timeouts'/>
+        </bitfield>
+        <int16_t name='unit_action_divisor'/>
         <int16_t name='max_dig_depth'/>
         <int16_t name='min_dig_depth'/>
         <int16_t name='mood_cooldown'/>
