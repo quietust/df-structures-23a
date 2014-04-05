@@ -254,7 +254,7 @@
 
         <int8_t name='sex'/>
         <int32_t name='id'/>
-        <int16_t/>
+        <int16_t name='idle_location_type'/>
         <int32_t name='schedule_id' ref-target='schedule_info'/>
         <int32_t name='civ_id' ref-target='historical_entity'/>
 
@@ -325,10 +325,9 @@
             <int32_t name='satisfaction'/>
             <pointer type-name='unit' name='hunt_target'/>
             <pointer type-name='building' name='destroy_target'/>
-            <compound name='last_attack_dir' type-name='coord2d32'/>
-            <int32_t/>
+            <compound name='last_attack_dir' type-name='coord32' comment='Z never used'/>
             <int16_t name='siege_morale'/>
-            <int16_t/>
+            <int16_t name='morale_recovery_timer'/>
             <pointer comment='df_job' name='current_job' type-name='job'/>
             <stl-vector name='mood_item_type'>
                 <enum base-type='int32_t' type-name='item_type'/>
@@ -343,7 +342,7 @@
                 <int32_t refers-to='(matgloss-target $$._parent._parent.mood_material[$$._key] $)'/>
             </stl-vector>
             <enum base-type='int32_t' name="mood_skill" type-name='job_skill'/>
-            <int32_t/>
+            <int32_t comment='in advmode, lets non-player unit have job_counter update if nonzero'/>
             <int32_t name='mood_timeout' comment='insanity upon reaching zero'/>
         </compound>
 
@@ -363,10 +362,10 @@
         </compound>
 
         <compound name='counters'>
-            <int32_t/>
-            <int32_t name='shoot_timer'/>
+            <int32_t name='fame_level' comment='influences counterattacks and limits hired companions'/>
+            <int32_t name='think_counter'/>
             <int32_t name='job_counter'/>
-            <int32_t/>
+            <int32_t name='swap_counter'/>
             <enum base-type='int16_t' name='death_cause' type-name='death_type' comment='used when thrown as a projectile'/>
             <int16_t name='nausea'/>
             <int16_t name='winded'/>
