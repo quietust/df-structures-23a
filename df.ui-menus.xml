@@ -11,35 +11,27 @@
             </stl-vector>
             <stl-vector name='quantities' type-name='int32_t'/>
             <stl-vector name='item_vecs'>
-                <pointer><stl-vector><pointer type-name='item'/></stl-vector></pointer>
+                <pointer><stl-vector pointer-type='item'/></pointer>
             </stl-vector>
         </compound>
 
         <compound name='improved'>
-            <stl-vector name='items'>
-                <pointer type-name='item'/>
-            </stl-vector>
+            <stl-vector name='items' pointer-type='item'/>
             <stl-vector name='category' type-name='int16_t'/>
         </compound>
 
-        <compound name='all'>
-            <stl-vector name='items'>
-                <pointer type-name='item'/>
-            </stl-vector>
+        <compound name='unimproved'>
+            <stl-vector name='items' pointer-type='item'/>
             <stl-vector name='category' type-name='int16_t'/>
         </compound>
 
         <compound name='visible'>
-            <stl-vector name='items'>
-                <pointer type-name='item'/>
-            </stl-vector>
+            <stl-vector name='items' pointer-type='item'/>
             <stl-vector name='selected' type-name='int8_t'/>
             <stl-vector name='category' type-name='int16_t'/>
         </compound>
 
-        <stl-vector name='selected_items'>
-            <pointer type-name='item'/>
-        </stl-vector>
+        <stl-vector name='selected_items' pointer-type='item'/>
 
         <int16_t name='categories_required'/>
         <int16_t name='categories_total'/>
@@ -47,8 +39,6 @@
         <int16_t name='cur_category'/>
         <int16_t/>
         <int16_t name='min_items_needed'/>
-        <int32_t/>
-        <int32_t/>
     </struct-type>
 
     -- MISC. SIDEBAR MENUS
