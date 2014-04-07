@@ -252,7 +252,7 @@
         <stl-vector type-name='int32_t' name='reclaim_outdoor_y'/>
         <int32_t/>
         <int32_t name='flip_latitude'/>
-        <int32_t name='flip_longitude' comment='guess'/>
+        <int32_t name='flip_longitude'/>
 
         <static-array count='3' type-name='int16_t'/>
         <static-array count='3' type-name='int16_t'/>
