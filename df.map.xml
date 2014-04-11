@@ -196,12 +196,12 @@
                 <compound type-name='tile_occupancy'/>
             </static-array>
         </static-array>
-        <static-array count='16'>
-            <static-array count='16'>
-                <int8_t/>
-            </static-array>
+
+        <static-array name='fog_of_war' count='16' comment='for adventure mode'>
+            <static-array count='16' type-name='uint8_t'/>
         </static-array>
-        <static-array count='16' comment='temporary'>
+
+        <static-array name='path_cost' count='16'>
             <static-array count='16'>
                 <uint32_t/>
             </static-array>
@@ -212,7 +212,7 @@
                 <uint16_t/>
             </static-array>
         </static-array>
-        <static-array count='16'>
+        <static-array name='elevation' count='16'>
             <static-array count='16'>
                 <uint16_t/>
             </static-array>
