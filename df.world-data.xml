@@ -119,6 +119,15 @@
         </compound>
     </struct-type>
 
+    <enum-type type-name='site_flags'>
+        <enum-item name='Hidden'/>
+        <enum-item/>
+        <enum-item name='Destroyed'/>
+        <enum-item/>
+        <enum-item/>
+    </enum-type>
+
+
     <struct-type type-name='world_site' key-field='id'
                  instance-vector='$global.world.world_data.sites'>
         <compound name='name' type-name='language_name'/>
@@ -195,6 +204,7 @@
         <enum-item/>
         <enum-item name='discovered'/>
         <enum-item name='visible'/>
+        <enum-item/>
     </enum-type>
 
     <struct-type type-name='region_map_entry'>

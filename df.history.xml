@@ -8,6 +8,10 @@
         <compound name='image_back' type-name='art_image_ref'/>
     </struct-type>
 
+    <enum-type type-name='histfig_flags'>
+        <enum-item name='Discovered'/>
+    </enum-type>
+
     <struct-type type-name='historical_figure' instance-vector='$global.world.world_data.history.figures' key-field='id'>
         <enum base-type='int32_t' name='profession' type-name='profession'/>
 
@@ -28,7 +32,7 @@
               (fmt "(~A)" $it.creature_id))
         </code-helper>
 
-        <df-flagarray name='flags'/>
+        <df-flagarray name='flags' index-enum='histfig_flags'/>
 
         <int32_t name='unit_id' ref-target='unit'/>
         <int32_t name='id'/>
@@ -78,12 +82,16 @@
         <enum-item name='SITE_ABANDONED'/>
     </enum-type>
 
+    <enum-type type-name='history_event_flags'>
+        <enum-item name='Hidden'/>
+    </enum-type>
+
     <class-type type-name='history_event' original-name='history_eventst'
                 instance-vector='$global.world.world_data.history.events' key-field='id'>
         <int32_t name='year'/>
         <int8_t name='season'/>
         <int16_t name='season_ticks'/>
-        <df-flagarray name='flags'/>
+        <df-flagarray name='flags' index-enum='history_event_flags'/>
         <int32_t name='id'/>
 
         <virtual-methods>
@@ -317,11 +325,19 @@
         <int32_t name='destination' ref-target='historical_entity'/>
     </class-type>
 
+    <enum-type type-name='history_event_merchant_flags'>
+        <enum-item name='NeverSeenAgain'/>
+        <enum-item name='SufferedHardships'/>
+        <enum-item name='SeizedGoods'/>
+        <enum-item name='Offended'/>
+        <enum-item name='MissingGoods'/>
+    </enum-type>
+
     <class-type type-name='history_event_merchantst' inherits-from='history_event'>
         <int32_t name='source' ref-target='historical_entity'/>
         <int32_t name='destination' ref-target='historical_entity'/>
         <int32_t name='site' ref-target='world_site'/>
-        <df-flagarray name='flags'/>
+        <df-flagarray name='flags' index-enum='history_event_merchant_flags'/>
     </class-type>
 
     <class-type type-name='history_event_artifact_hiddenst' inherits-from='history_event'>
@@ -364,12 +380,16 @@
         <int32_t name='site' ref-target='world_site'/>
     </class-type>
 
+    <enum-type type-name='history_event_artifact_dropped_flags'>
+        <enum-item/>
+    </enum-type>
+
     <class-type type-name='history_event_artifact_droppedst' inherits-from='history_event'>
         <int32_t name='artifact' ref-target='artifact_record'/>
-        <int32_t/>
+        <int32_t name='unit' ref-target='unit'/>
         <int32_t name='histfig' ref-target='historical_figure'/>
         <int32_t name='site' ref-target='world_site'/>
-        <df-flagarray name='flags'/>
+        <df-flagarray name='flags' index-enum='history_event_artifact_dropped_flags'/>
     </class-type>
 
     <class-type type-name='history_event_demon_encasedst' inherits-from='history_event'>

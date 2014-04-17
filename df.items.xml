@@ -15,9 +15,9 @@
         <flag-bit name='rotten' comment='Rotten food'/>
         <flag-bit name='spider_web' comment='Thread in spider web'/>
         <flag-bit name='construction' comment='Material used in construction (???)'/>
-        <flag-bit name='encased' comment='Item encased in ice or obsidian'/>
+        <flag-bit name='encased' comment='Item encased in stone'/>
 
-        <flag-bit name='unk4' comment='unknown, unseen'/>
+        <flag-bit name='bound_artifact' comment='will not be dropped'/>
         <flag-bit name='murder' comment='Implies murder - used in fell moods'/>
         <flag-bit name='foreign' comment='Item is imported'/>
         <flag-bit name='trader' comment='Item ownwed by trader'/>
@@ -27,7 +27,7 @@
         <flag-bit name='artifact' comment='Artifact'/>
         <flag-bit name='forbid' comment='Forbidden item'/>
 
-        <flag-bit name='unk6' comment='unknown, unseen'/>
+        <flag-bit name='already_uncategorized' comment='will not uncategorize() before deleting'/>
         <flag-bit name='dump' comment='Designated for chasming'/>
         <flag-bit name='on_fire' comment='Indicates if item is on fire, Will Set Item On Fire if Set!'/>
     </bitfield-type>
@@ -128,7 +128,7 @@
             <vmethod ret-type='int8_t' name='getGloveHandedness'/>
             <vmethod name='setGloveHandedness'> <int8_t/> </vmethod>
             <vmethod name='pickRandomSubtype'> <int32_t name='entity_id'/> </vmethod>
-            <vmethod ret-type='int32_t'/>
+            <vmethod name='getWeaponSize' ret-type='int32_t'/>
 
             <vmethod ret-type='int16_t' name='getWear'/>
             <vmethod name='setWear'> <int16_t/> </vmethod>
@@ -199,7 +199,7 @@
             <vmethod ret-type='bool' name='moveToGround'>
                 <int32_t name='x'/> <int32_t name='y'/> <int32_t name='z'/>
             </vmethod>
-            <vmethod ret-type='bool'/>
+            <vmethod ret-type='bool' name='isFat' comment='for globs only'/>
             <vmethod ret-type='bool' name='isAnimal' comment='stored in Animal stockpiles'/>
             <vmethod name='assignQuality'>
                 <pointer name='maker' type-name='unit'/>
@@ -272,9 +272,13 @@
             <vmethod name='removeContaminantByIdx'>
                 <int32_t name='index'/> <int32_t name='amount'/>
             </vmethod>
+            <vmethod name='removeContaminantByType' comment='seemingly became item_actual.removeContaminant, which itself is never called'>
+                <int32_t name='type'/>
+                <enum base-type='int32_t' name='material' type-name='material_type'/>
+                <int32_t name='amount'/>
+            </vmethod>
 
-            <vmethod comment='does nothing at all'/>
-            <vmethod ret-type='int32_t' comment='0 for armor, 1 for pants, 2 for shoes, -1 for everything else'/>
+            <vmethod name='getClothingCategory' ret-type='int32_t' comment='0 for armor, 1 for pants, 2 for shoes, -1 for everything else'/>
             <vmethod name='write_file'> <pointer comment='file_compressorst'/> </vmethod>
             <vmethod name='read_file'>
                 <pointer comment='file_compressorst'/>
@@ -345,13 +349,13 @@
                 <int16_t name='matgloss'/>
             </vmethod>
             <vmethod ret-type='int32_t' name='getBlockChance'/>
-            <vmethod ret-type='int32_t' comment='10 for weapon, 0 for everything else'/>
+            <vmethod ret-type='int32_t' name='getParryChance' comment='10 for weapon, 0 for everything else'/>
             <vmethod ret-type='int16_t' name='getMakerRace'/>
 
             <vmethod name='setMakerRace'> <int16_t/> </vmethod>
             <vmethod ret-type='int8_t' name='getEffectiveArmorLevel'
                     comment="adds 1 if it has [METAL_ARMOR_LEVELS] and it's made of an inorganic mat"/>
-            <vmethod ret-type='bool'/>
+            <vmethod ret-type='bool' name='isConstructed'/>
             <vmethod ret-type='bool' name='canBeDyed'/>
             <vmethod ret-type='bool' name='isDyeableCloth'/>
 

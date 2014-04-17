@@ -268,11 +268,17 @@
             <compound type-name='language_name' name='name'/>
             <int8_t name='rations'/>
             <int8_t name='sleep_mode' comment='0=ground, 1=barracks, 2=room'/>
-            <int32_t name='flags'/> 2=carry water, 4=stay close to station, 8=attack wild animals, 16=standing down
+            <bitfield name='flags' base-type='uint32_t'>
+                <flag-bit name='pickup_food'/>
+                <flag-bit name='carry_water'/>
+                <flag-bit name='hold_ground'/>
+                <flag-bit name='attack_animals'/>
+                <flag-bit name='stand_down'/>
+            </bitfield>
             <int32_t name='patrol_timer'/>
             <int32_t name='patrol_cooldown'/>
             <compound name='station_pos' type-name='coord'/>
-            <int32_t/>
+            <int32_t name='pickup_food_cooldown'/>
         </compound>
 
         <compound name='animal'>

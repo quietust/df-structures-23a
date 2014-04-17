@@ -1,4 +1,12 @@
 <data-definition>
+    <enum-type type-name='nemesis_flags'>
+        <enum-item/>
+        <enum-item/>
+        <enum-item name='Adventurer'/>
+        <enum-item name='ImportantCivMember'/>
+        <enum-item/>
+    </enum-type>
+
     <struct-type type-name='nemesis_record' key-field='id' instance-vector='$global.world.nemesis.all'>
         <int32_t name='id' comment='sequential index in the array'/>
 
@@ -22,9 +30,13 @@
         <int16_t name='unk10' init-value='-1'/>
         <int32_t name='unk11'/>
         <int32_t name='unk12' init-value='-1'/>
-        <df-flagarray name='flags'/>
+        <df-flagarray name='flags' index-enum='nemesis_flags'/>
         <stl-vector type-name='pointer'/>
     </struct-type>
+
+    <enum-type type-name='artifact_flags'>
+        <enum-item name='Discovered'/>
+    </enum-type>
 
     <struct-type type-name='artifact_record' key-field='id'
                  instance-vector='$global.world.artifacts.all'>
@@ -38,7 +50,7 @@
 
         <int16_t name='action_timer' comment='how long before the artifact maker becomes nervous'/>
 
-        <df-flagarray name='flags'/>
+        <df-flagarray name='flags' index-enum='artifact_flags'/>
 
         <pointer name='item' type-name='item'/>
     </struct-type>
