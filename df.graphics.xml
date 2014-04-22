@@ -117,25 +117,129 @@
         </static-array>
         <int32_t name='window_x'/>
         <int32_t name='window_y'/>
-        <stl-vector/> textures?
+        <stl-vector> textures?
+            <pointer>
+                <pointer/>
+                <int32_t/>
+                <d-float name='x1'/>
+                <d-float name='y1'/>
+                <uint32_t/>
+                <s-float name='red'/>
+                <s-float name='green'/>
+                <s-float name='blue'/>
+                <s-float name='alpha'/>
+                <int32_t/>
+                <d-float name='x2'/>
+                <d-float name='y2'/>
+                <d-float name='z1'/>
+                <d-float name='z2'/>
+                <int8_t/>
+                <int32_t/>
+                <int32_t/>
+                <int32_t/>
+                <int32_t/>
+                <int32_t/>
+                <d-float/>
+                <d-float/>
+                <d-float/>
+            </pointer>
+        </stl-vector>
         <int32_t/>
-        <int32_t/>?
-        <static-array count='100'>
+        <int32_t/>
+        <static-array count='100' name='input_queue'>
             <int32_t name='vKey'/>
             <int8_t name='shift'/>
             <int8_t name='capslock'/>
         </static-array>
-        <int8_t/>
-        <stl-vector/>
-        <stl-vector/>
-        <stl-vector/>
-        <stl-vector/>
-        <stl-vector name='gridrect'/>
-        <int32_t name='next_gridrect_id'/>
-        <int32_t name='next_texture_id'/>
-        <int32_t name='next_texture_data_id'/>
-        <int32_t/>?
-        <int32_t/>?
+        <int8_t name='is_program_looping'/>
+        <stl-vector comment='not created anywhere'>
+            <pointer>
+                <pointer/>
+                <static-array count='256' name='textures' type-name='int32_t'/>
+                <int32_t/>
+                <int32_t/>
+                <int32_t/>
+                <int32_t/>
+                <int32_t/>
+                <int32_t/>?
+                <int32_t/>?
+                <int32_t/>
+                <int32_t/>
+                <int32_t/>
+                <pointer/>
+                <pointer/>
+                <pointer/>
+                <pointer/>
+                <pointer/>
+                <pointer/>
+            </pointer>
+        </stl-vector>
+        <stl-vector name='gridrect'>
+            <pointer>
+                <int32_t name='id'/>
+                <int32_t name='dimx'/>
+                <int32_t name='dimy'/>
+                <pointer type-name='int32_t' name='buffer_texpos'/>
+                <pointer type-name='int32_t' name='buffer_r'/>
+                <pointer type-name='int32_t' name='buffer_g'/>
+                <pointer type-name='int32_t' name='buffer_b'/>
+                <pointer type-name='int32_t' name='buffer_br'/>
+                <pointer type-name='int32_t' name='buffer_bg'/>
+                <pointer type-name='int32_t' name='buffer_bb'/>
+                <int32_t/>
+                <int32_t/>
+                <int32_t name='dispx'/>
+                <int32_t name='dispy'/>
+                <int8_t/>
+            </pointer>
+        </stl-vector>
+        <stl-vector comment='not created anywhere'>
+            <pointer>
+                <int32_t/>
+                <stl-string/>
+                <int32_t/>
+                <int32_t/>
+                <int32_t name='dimx_1'/>
+                <int32_t name='dimy_1'/>
+                <int32_t name='dimx_2'/>
+                <int32_t name='dimy_2'/>
+                <int32_t/>
+                <int32_t/>
+                <static-array type-name='int32_t' count='24'/>
+                <int8_t/>
+                <static-array type-name='int8_t' count='29'/>
+                <int32_t/>
+                <static-array type-name='int32_t' count='222'/>
+                <int32_t/>
+                <static-array type-name='int32_t' count='256'/>
+            </pointer>
+        </stl-vector>
+        <stl-vector name='texture'>
+            <pointer>
+                <pointer/>
+                <stl-string name='name'/>
+                <int32_t name='datapos'/>
+                <int8_t name='alpha_1'/>
+                <int8_t name='alpha_2'/>
+                <int16_t name='dimx'/>
+                <int16_t name='dimy'/>
+                <int32_t name='texture'/>
+                <int32_t name='old_texture'/>
+            </pointer>
+        </stl-vector>
+        <stl-vector name='texture_data'>
+            <pointer>
+                <pointer type-name='int8_t' name='rgb' is-array='true'/>
+                <int8_t name='alpha'/>
+                <int16_t name='dimx'/>
+                <int16_t name='dimy'/>
+            </pointer>
+        </stl-vector>
+        <int32_t/>
+        <int32_t/>
+        <int32_t/>
+        <int32_t/>
+        <int32_t/>
         <d-float name='locx'/>
         <d-float name='locy'/>
         <d-float name='locz'/>
