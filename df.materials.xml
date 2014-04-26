@@ -184,20 +184,20 @@
         </enum-item>
     </enum-type>
 
-    <enum-type type-name='matgloss_stone_flags'>
-        <enum-item name='LIGHT'/>
-        <enum-item name='DARK'/>
-        <enum-item name='LAVA'/>
-        <enum-item name='SHARP'/>
-        <enum-item name='RIVER'/>
-        <enum-item name='FLUX'/>
-    </enum-type>
+    <bitfield-type type-name='matgloss_stone_flags' base-type='uint32_t'>
+        <flag-bit name='LIGHT'/>
+        <flag-bit name='DARK'/>
+        <flag-bit name='LAVA'/>
+        <flag-bit name='SHARP'/>
+        <flag-bit name='RIVER'/>
+        <flag-bit name='FLUX'/>
+    </bitfield-type>
 
     <struct-type type-name='matgloss_stone' instance-vector='$global.world.raws.matgloss.stone'>
         <stl-string name='id'/>
         <code-helper name='describe'>$.id</code-helper>
 
-        <df-static-flagarray name='flags' index-enum='matgloss_stone_flags' count='4'/>
+        <compound name='flags' type-name='matgloss_stone_flags'/>
         <stl-string name='name'/>
         <uint8_t name='tile'/>
         <static-array type-name='int16_t' name='color' count='3'/>
@@ -211,19 +211,19 @@
         <uint16_t name='fixed_temp'/>
     </struct-type>
 
-    <enum-type type-name='matgloss_gem_flags'>
-        <enum-item name='ORNAMENTAL'/>
-        <enum-item name='SEMI'/>
-        <enum-item name='PRECIOUS'/>
-        <enum-item name='RARE'/>
-        <enum-item name='GLASS'/>
-    </enum-type>
+    <bitfield-type type-name='matgloss_gem_flags' base-type='uint32_t'>
+        <flag-bit name='ORNAMENTAL'/>
+        <flag-bit name='SEMI'/>
+        <flag-bit name='PRECIOUS'/>
+        <flag-bit name='RARE'/>
+        <flag-bit name='GLASS'/>
+    </bitfield-type>
 
     <struct-type type-name='matgloss_gem' instance-vector='$global.world.raws.matgloss.gem'>
         <stl-string name='id'/>
         <code-helper name='describe'>$.id</code-helper>
 
-        <df-static-flagarray name='flags' index-enum='matgloss_gem_flags' count='4'/>
+        <compound name='flags' type-name='matgloss_gem_flags'/>
         <static-array type-name='stl-string' name='name' count='2'/>
         <int16_t name='color'/>
         <int32_t name='value'/>
@@ -237,40 +237,40 @@
         <uint16_t name='fixed_temp'/>
     </struct-type>
 
-    <enum-type type-name='matgloss_plant_flags'>
-        <enum-item name='SWAMP'/>
-        <enum-item name='RIVER'/>
-        <enum-item name='CAVE'/>
-        <enum-item name='FOREST'/>
-        <enum-item name='SPRING'/>
-        <enum-item name='SUMMER'/>
-        <enum-item name='AUTUMN'/>
-        <enum-item name='WINTER'/>
+    <bitfield-type type-name='matgloss_plant_flags' base-type='uint32_t'>
+        <flag-bit name='SWAMP'/>
+        <flag-bit name='RIVER'/>
+        <flag-bit name='CAVE'/>
+        <flag-bit name='FOREST'/>
+        <flag-bit name='SPRING'/>
+        <flag-bit name='SUMMER'/>
+        <flag-bit name='AUTUMN'/>
+        <flag-bit name='WINTER'/>
 
-        <enum-item/>
-        <enum-item name='SEED'/>
-        <enum-item name='EDIBLE_RAW'/>
-        <enum-item name='EDIBLE_VERMIN'/>
-        <enum-item name='LEAVES'/>
-        <enum-item name='EXTRACT_VIAL'/>
-        <enum-item name='EXTRACT_BAG'/>
-        <enum-item name='EXTRACT_BARREL'/>
+        <flag-bit/>
+        <flag-bit name='SEED'/>
+        <flag-bit name='EDIBLE_RAW'/>
+        <flag-bit name='EDIBLE_VERMIN'/>
+        <flag-bit name='LEAVES'/>
+        <flag-bit name='EXTRACT_VIAL'/>
+        <flag-bit name='EXTRACT_BAG'/>
+        <flag-bit name='EXTRACT_BARREL'/>
 
-        <enum-item name='THREAD'/>
-        <enum-item name='MILL'/>
-        <enum-item name='EXTRACT_STILL_VIAL'/>
-        <enum-item name='DRINK'/>
-        <enum-item name='EXTRACT_COOKABLE'/>
-        <enum-item name='EDIBLE_WHENCOOKED'/>
-        <enum-item name='COOKABLE_WHEN_MILLED'/>
-        <enum-item name='MILL_DYE'/>
-    </enum-type>
+        <flag-bit name='THREAD'/>
+        <flag-bit name='MILL'/>
+        <flag-bit name='EXTRACT_STILL_VIAL'/>
+        <flag-bit name='DRINK'/>
+        <flag-bit name='EXTRACT_COOKABLE'/>
+        <flag-bit name='EDIBLE_WHENCOOKED'/>
+        <flag-bit name='COOKABLE_WHEN_MILLED'/>
+        <flag-bit name='MILL_DYE'/>
+    </bitfield-type>
 
     <struct-type type-name='matgloss_plant' instance-vector='$global.world.raws.matgloss.plant'>
         <stl-string name='id'/>
         <code-helper name='describe'>$.id</code-helper>
 
-        <df-static-flagarray name='flags' index-enum='matgloss_plant_flags' count='4'/>
+        <compound name='flags' type-name='matgloss_plant_flags'/>
         <stl-string name='name'/>
         <stl-string name='name_plural'/>
         <stl-string name='drink_name'/>
