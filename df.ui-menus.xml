@@ -28,7 +28,7 @@
         <compound name='visible'>
             <stl-vector name='items' pointer-type='item'/>
             <stl-vector name='selected' type-name='int8_t'/>
-            <stl-vector name='category' type-name='int16_t'/>
+            <stl-vector name='quantity' type-name='int16_t'/>
         </compound>
 
         <stl-vector name='selected_items' pointer-type='item'/>
