@@ -117,13 +117,13 @@
         </static-array>
         <int32_t name='window_x'/>
         <int32_t name='window_y'/>
-        <stl-vector> textures?
+        <stl-vector name='overlays' comment='used for mouse picture'>
             <pointer>
-                <pointer/>
+                <int32_t name='texpos'/>
                 <int32_t/>
                 <d-float name='x1'/>
                 <d-float name='y1'/>
-                <uint32_t/>
+                <uint32_t name='flags'/>
                 <s-float name='red'/>
                 <s-float name='green'/>
                 <s-float name='blue'/>
@@ -180,17 +180,17 @@
                 <int32_t name='dimx'/>
                 <int32_t name='dimy'/>
                 <pointer type-name='int32_t' name='buffer_texpos'/>
-                <pointer type-name='int32_t' name='buffer_r'/>
-                <pointer type-name='int32_t' name='buffer_g'/>
-                <pointer type-name='int32_t' name='buffer_b'/>
-                <pointer type-name='int32_t' name='buffer_br'/>
-                <pointer type-name='int32_t' name='buffer_bg'/>
-                <pointer type-name='int32_t' name='buffer_bb'/>
-                <int32_t/>
-                <int32_t/>
+                <pointer type-name='s-float' name='buffer_r' is-array='true'/>
+                <pointer type-name='s-float' name='buffer_g' is-array='true'/>
+                <pointer type-name='s-float' name='buffer_b' is-array='true'/>
+                <pointer type-name='s-float' name='buffer_br' is-array='true'/>
+                <pointer type-name='s-float' name='buffer_bg' is-array='true'/>
+                <pointer type-name='s-float' name='buffer_bb' is-array='true'/>
+                <s-float/>
+                <s-float/>
                 <int32_t name='dispx'/>
                 <int32_t name='dispy'/>
-                <int8_t/>
+                <int8_t name='black_space'/>
             </pointer>
         </stl-vector>
         <stl-vector comment='not created anywhere'>
@@ -223,8 +223,8 @@
                 <int8_t name='alpha_2'/>
                 <int16_t name='dimx'/>
                 <int16_t name='dimy'/>
-                <int32_t name='texture'/>
-                <int32_t name='old_texture'/>
+                <int32_t name='glTexture'/>
+                <int32_t name='old_glTexture'/>
             </pointer>
         </stl-vector>
         <stl-vector name='texture_data'>
@@ -236,7 +236,7 @@
             </pointer>
         </stl-vector>
         <int32_t/>
-        <int32_t/>
+        <int32_t name='next_gridrect_id'/>
         <int32_t/>
         <int32_t/>
         <int32_t/>
