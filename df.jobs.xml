@@ -154,6 +154,8 @@
         <int16_t name='material' comment='or matgloss, depends on context'/>
         <int16_t name="amount_left"/>
         <int16_t name="amount_total"/>
+
+        Note that item_category is NOT present here, so Encrust work orders do not work in this version
     </struct-type>
 
     <struct-type type-name='manager_order_template'>
@@ -161,7 +163,7 @@
         <stl-string name='ammo_class'/>
         <int16_t name="item_subtype"/>
         <int16_t name='material' comment='or matgloss, depends on context'/>
-        <int8_t/>
+        <bool name='visible'/>
         <compound name="item_category" type-name='item_category'/>
     </struct-type>
 
