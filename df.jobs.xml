@@ -20,13 +20,11 @@
                 If last, 'working' is used instead.
             </comment>
         </flag-bit>
-        <flag-bit/>
+        <flag-bit name='item_lost' comment='set when a Hauled item is removed; causes cancel'/>
         <flag-bit name='noise' count='2'/>
         <flag-bit name='by_manager'/>
-        <flag-bit/>
-        <flag-bit/>
-        <flag-bit/>
-        <flag-bit/>
+        <flag-bit name='store_item'/>
+        <flag-bit name='quality' count='3' comment='set by improvement code'/>
     </bitfield-type>
 
     <struct-type type-name='job' key-field='id'>
