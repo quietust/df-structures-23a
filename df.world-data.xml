@@ -226,8 +226,8 @@
             <flag-bit/>
             <flag-bit name='density' count='2'/>
             <flag-bit name='striped'/>
-            <flag-bit name='darkness'/>
-            <flag-bit name='fog'/>
+            <flag-bit name='darkness' count='2'/>
+            <flag-bit name='fog' count='2'/>
             <flag-bit count='4' comment='maybe moisture content'/>
         </bitfield>
         <bitfield name='wind' base-type='uint16_t' comment='blows toward direction in morning'>
