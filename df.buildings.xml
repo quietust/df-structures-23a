@@ -297,7 +297,6 @@
             <vmethod ret-type='bool' name='isJustice'/>
             <vmethod name='detachUnit'> <pointer type-name='unit'/> </vmethod>
 
-
             -- 50
 
             <vmethod name='write_file'> <pointer comment='file_compressorst'/> </vmethod>
@@ -326,7 +325,7 @@
             <vmethod name='populateTaskList'/> for certain workshops
 
             <vmethod ret-type='bool' name='isForbidden'/>
-            <vmethod ret-type='bool'/>
+            <vmethod ret-type='bool' name='isVisibleInLookList'/>
             <vmethod ret-type='bool' name='isVisible'
                      comment='used by stuff like open doors/floodgates'/>
             <vmethod name='getDrawExtents'>
@@ -366,19 +365,19 @@
 
         <virtual-methods>
             <vmethod ret-type='bool' name='isDestroyedByItemRemoval'/>
-            <vmethod ret-type='bool' comment='default false'/>
-            <vmethod ret-type='bool' comment='default false'/>
+            <vmethod ret-type='bool' name='willScatterContentsOnReclaim'/>
+            <vmethod ret-type='bool' name='willDeconstructOnAbandon'/>
         </virtual-methods>
     </class-type>
 
     <struct-type type-name='building_design'>
         <int32_t name='architect' ref-target='historical_figure'/>
         <int16_t name='design_skill'/>
-        <int32_t name='builder' ref-target='historical_figure'/>
+        <int32_t name='builder1' ref-target='historical_figure'/>
         <int16_t name='build_skill'/>
-        <int16_t/>
-        <int32_t/>
-        <int16_t/>
+        <int16_t name='build_timer1' comment='+1 per 10 frames while building'/>
+        <int32_t name='builder2' ref-target='historical_figure'/>
+        <int16_t name='build_timer2'/>
         <int16_t name='design_quality'/>
         <int16_t name='build_quality'/>
         <bitfield name='flags' base-type='uint32_t'>
@@ -386,8 +385,8 @@
             <flag-bit name='built'/>
             <flag-bit name='designed'/>
         </bitfield>
-        <int32_t/>
-        <int32_t/>
+        <int32_t name='hitpoints'/>
+        <int32_t name='max_hitpoints'/>
     </struct-type>
 
     <class-type type-name='building_chairst' inherits-from='building_actual'>
@@ -542,7 +541,12 @@
 
     <class-type type-name='building_wellst' inherits-from='building_actual'>
         <int16_t/>
-        <int8_t name='dir_flags'/> in use from north, south, east, and west
+        <bitfield name='dir_flags' base-type='uint8_t'>
+            <flag-bit name='north'/>
+            <flag-bit name='south'/>
+            <flag-bit name='east'/>
+            <flag-bit name='west'/>
+        </bitfield>
     </class-type>
 
     <class-type type-name='building_bridgest' inherits-from='building_actual'>
