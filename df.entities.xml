@@ -30,7 +30,7 @@
             <int32_t name='road'/>
             <int32_t name='held'/>
             <int32_t name='imported'/>
-            <int32_t/>
+            <int32_t name='unused'/>
             <int32_t name='exported'/>
         </compound>
         <static-array name='recent_jobs' count='202' index-enum='job_type'>
@@ -321,12 +321,12 @@
                 </pointer>
             </stl-vector>
 
-            <static-array name='unk13' count='3'>
-                <int16_t name='unk1' init-value='-1'/>
-                <int16_t name='unk2'/>
+            <static-array name='special_mats' count='3' comment='never used'>
+                <enum base-type='int16_t' name='material' type-name='material_type'/>
+                <int16_t name='matgloss' refers-to='(matgloss-target $$._parent.material $)'/>
             </static-array>
 
-            <stl-vector name='owned_items' pointer-type='item'/>
+            <stl-vector name='owned_items' pointer-type='item' comment='equipped by arriving monarch, but never actually populated'/>
 
             <stl-vector name='discovered_creature_foods' type-name='bool' index-refers-to='$global.world.raws.creatures[$]'/>
             <stl-vector name='discovered_creatures' type-name='bool' index-refers-to='$global.world.raws.creatures[$]'/>
@@ -349,14 +349,14 @@
         <compound name='activity_stats' type-name='entity_activity_statistics'/>
 
         <int8_t name='send_nobles' comment='migrant waves will not include new/replacement nobles unless set'/>
-        <int16_t/>
-        <int32_t/>
+        <int16_t name='last_communicate_season'/>
+        <int32_t name='last_communicate_year'/>
         <int32_t name='imports'/>
         <int32_t name='exports'/>
         <int32_t name='offerings_recent'/>
         <static-array name='offerings_history' count='10' type-name='int32_t'/>
-        <int32_t name='hostile_level' comment='determines siege size'/>
-        <int32_t/>
+        <int32_t name='hostile_level' comment='determines siege difficulty, has a chance to reset to 1 after each siege'/>
+        <int32_t name='siege_count' comment='determines siege size'/>
 
         <stl-vector type-name='pointer' comment='refers to world_data.unk194'/>
         <stl-vector name='hist_figures' pointer-type='historical_figure'/>
@@ -456,8 +456,8 @@
                 <int16_t ref-target='itemdef_glovesst'/>
             </stl-vector>
         </compound>
-        <int32_t comment='num_members'/>
-        <int32_t/>
+        <int32_t name='num_members'/>
+        <int32_t name='max_members' comment='1000 if created at the beginning of the Age of Myth or Legends, 500 otherwise'/>
     </struct-type>
 
     <enum-type type-name='entity_material_category' base-type='int16_t'>
