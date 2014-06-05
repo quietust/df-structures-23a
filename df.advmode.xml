@@ -96,24 +96,21 @@
 
         <int32_t name='id'/>
 
-        <int32_t name='quest_giver_id' ref-target='historical_figure'/>
-        <int32_t ref-target='world_site'/>
-        <int32_t/>
-        <int32_t name='adventurer_id' ref-target='historical_figure'/>
-        <int32_t/>
+        <int32_t name='giver_hf' ref-target='historical_figure'/>
+        <int32_t name='giver_site' ref-target='world_site'/>
+        <int32_t name='giver_entity' ref-target='historical_entity'/>
+        <int32_t name='recipient_hf' ref-target='historical_figure'/>
+        <int32_t comment='unused'/>
 
         <compound name='target_pos' type-name='coord2d32'/>
         <compound name='giver_pos' type-name='coord2d32'/>
-
-        <int32_t/>
-        <int32_t/>
     </class-type>
 
     <class-type type-name='task_kill_nemesisst' inherits-from='adv_task'>
-        <int32_t/>
+        <int32_t comment='unused'/>
         <int32_t name='target_site' ref-target='world_site'/>
-        <int32_t name='target_hfid' ref-target='historical_figure'/>
-        <int8_t/>
+        <int32_t name='target_hf' ref-target='historical_figure'/>
+        <int8_t name='completed'/>
     </class-type>
 </data-definition>
 
