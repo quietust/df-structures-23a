@@ -31,6 +31,29 @@
         <enum-item name='SleepConfirm'/>
     </enum-type>
 
+    <struct-type type-name='conversation'>
+        <stl-string name='conv_title'/>
+        <enum base-type='int32_t' name='state'>
+            <enum-item name='started'/>
+            <enum-item name='active'/>
+            <enum-item name='finished'/>
+            <enum-item name='quit'/>
+        </enum>
+        <stl-vector type-name='int16_t' name='talk_choices' />
+        <int32_t name='other' ref-target='unit'/>
+        <int32_t name='self' ref-target='unit'/>
+        <int32_t name='target' ref-target='unit'/>
+        <stl-vector name='speech'>
+            <pointer>
+                <stl-vector name='text' pointer-type='stl-string'/>
+                <int32_t name='speaker' ref-target='unit'/>
+                <int16_t name='fg'/>
+                <int16_t name='bg'/>
+                <int16_t name='bright'/>
+            </pointer>
+        </stl-vector>
+    </struct-type>
+
     <struct-type type-name='ui_advmode'>
         <enum base-type='int16_t' name='menu' type-name='ui_advmode_menu'/>
 
@@ -48,25 +71,7 @@
         <int8_t/>
 
         <stl-vector name='talk_targets' pointer-type='unit'/>
-        <stl-vector name='conversations'>
-            <pointer>
-                <stl-string name='conv_title'/>
-                <int32_t name='state'/> 0=started, 1=active, 2=finished
-                <stl-vector type-name='int16_t'/>
-                <int32_t name='other' ref-target='unit'/>
-                <int32_t name='self' ref-target='unit'/>
-                <int32_t name='target' ref-target='unit'/>
-                <stl-vector name='speech'>
-                    <pointer>
-                        <stl-vector name='text' pointer-type='stl-string'/>
-                        <int32_t name='speaker' ref-target='unit'/>
-                        <int16_t name='fg'/>
-                        <int16_t name='bg'/>
-                        <int16_t name='bright'/>
-                    </pointer>
-                </stl-vector>
-            </pointer>
-        </stl-vector>
+        <stl-vector name='conversations' pointer-type='conversation'/>
 
         <int32_t/>
 

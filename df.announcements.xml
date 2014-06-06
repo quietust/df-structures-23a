@@ -11,6 +11,7 @@
         <bitfield name='flags' base-type='uint16_t'>
             <flag-bit name='continuation'
                       comment='When split into multiple lines, set on all but the first'/>
+            <flag-bit name='unconscious' comment='used in Adventurer mode'/>
         </bitfield>
         <int32_t name='repeat_count' comment='100 => displays: x101'/>
     </struct-type>
