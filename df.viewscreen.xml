@@ -187,6 +187,23 @@
         <stl-vector name="regions" type-name='pointer'/>
     </class-type>
 
+    <enum-type type-name='wrestle_move_type' base-type='int16_t'>
+        <enum-item name='Lock'/>
+        <enum-item name='Choke'/>
+        <enum-item name='Takedown'/>
+        <enum-item name='Throw'/>
+        <enum-item name='Pinch'/>
+        <enum-item name='Gouge'/>
+        <enum-item/>
+        <enum-item/>
+        <enum-item/>
+        <enum-item/>
+        <enum-item name='Break'/>
+        <enum-item name='Release'/>
+        <enum-item name='Shake'/>
+        <enum-item name='Strangle'/>
+    </enum-type>
+
     <class-type type-name='viewscreen_dungeon_wrestlest' inherits-from='viewscreen'>
         <pointer name='unit1' type-name='unit'/>
         <pointer name='unit2' type-name='unit'/>
@@ -200,21 +217,21 @@
             <int32_t/>
             <int8_t/>
             <int8_t/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
-            <stl-vector type-name='pointer'/>
+            <stl-vector type-name='int32_t'/>
+            <stl-vector type-name='int32_t'/>
+            <stl-vector type-name='int32_t'/>
+            <stl-vector type-name='int32_t'/>
+            <stl-vector pointer-type='unit_item_wrestle'/>
+            <stl-vector pointer-type='unit_item_wrestle'/>
+            <stl-vector pointer-type='unit_inventory_item'/>
+            <stl-vector pointer-type='unit_inventory_item'/>
+            <stl-vector type-name='int16_t'/>
+            <stl-vector type-name='int16_t'/>
+            <stl-vector type-name='wrestle_move_type'/>
+            <stl-vector type-name='int16_t'/>
+            <stl-vector type-name='int16_t'/>
+            <stl-vector type-name='wrestle_move_type'/>
+            <stl-vector type-name='int16_t'/>
         </compound>
     </class-type>
 
