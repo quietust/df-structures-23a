@@ -195,7 +195,7 @@
         </compound>
 
         <compound name='unit'>
-            <stl-vector name='selected_unit'>
+            <stl-vector name='list'>
                 <int32_t refers-to='$global.world.units.other[0][$]'/>
             </stl-vector>
 
@@ -211,13 +211,13 @@
             <int8_t/>
         </compound>
 
-        <stl-string/>
-        <stl-vector>
-            <pointer type-name='stl-string'/>
-        </stl-vector>
+        <compound name='misc'>
+            <stl-string name='command_line'/>
+            <stl-vector pointer-type='stl_string' name='parms'/>
 
-        <int32_t/>
-        <int32_t/>
+            <int32_t name='world_gen_id'/>
+            <int32_t name="num_speech_tokens"/>
+        </compound>
     </struct-type>
 
     <struct-type type-name='ui_look_list'>
