@@ -213,25 +213,25 @@
         <int32_t/>
         <stl-vector type-name='int8_t'/>
         <stl-vector type-name='pointer'/>
-        <compound>
-            <int32_t/>
+        <compound name='options'>
+            <pointer name='target' type-name='unit'/>
             <int8_t/>
             <int8_t/>
-            <stl-vector type-name='int32_t'/>
-            <stl-vector type-name='int32_t'/>
-            <stl-vector type-name='int32_t'/>
-            <stl-vector type-name='int32_t'/>
-            <stl-vector pointer-type='unit_item_wrestle'/>
-            <stl-vector pointer-type='unit_item_wrestle'/>
-            <stl-vector pointer-type='unit_inventory_item'/>
-            <stl-vector pointer-type='unit_inventory_item'/>
-            <stl-vector type-name='int16_t'/>
-            <stl-vector type-name='int16_t'/>
-            <stl-vector type-name='wrestle_move_type'/>
-            <stl-vector type-name='int16_t'/>
-            <stl-vector type-name='int16_t'/>
-            <stl-vector type-name='wrestle_move_type'/>
-            <stl-vector type-name='int16_t'/>
+            <stl-vector name='your_inv' pointer-type='unit_inventory_item'/>
+            <stl-vector name='your_bp' type-name='int32_t'/>
+            <stl-vector name='enemy_inv' pointer-type='unit_inventory_item'/>
+            <stl-vector name='enemy_bp' type-name='int32_t'/>
+            <stl-vector name='your_wrestles' pointer-type='unit_item_wrestle'/>
+            <stl-vector name='enemy_wrestles' pointer-type='unit_item_wrestle'/>
+            <stl-vector name='your_stuckin_inv' pointer-type='unit_inventory_item'/>
+            <stl-vector name='enemy_stuckin_inv' pointer-type='unit_inventory_item'/>
+            <stl-vector name='cmd_your_bp_idx' type-name='int16_t' comment='index into your_bp'/>
+            <stl-vector name='cmd_your_inv_idx' type-name='int16_t' comment='index into your_inv'/>
+            <stl-vector name='cmd_enemy_bp_idx' type-name='int16_t' comment='index into enemy_bp'/>
+            <stl-vector name='cmd_enemy_inv_idx' type-name='int16_t' comment='index into enemy_inv'/>
+            <stl-vector name='aux_target_wrestle_idx' type-name='int16_t' comment='index into your_wrestles'/>
+            <stl-vector name='aux_move_type' type-name='wrestle_move_type'/>
+            <stl-vector name='aux_target_bp' type-name='int16_t' comment='child bp of selected wrestling move target'/>
         </compound>
     </class-type>
 

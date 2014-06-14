@@ -213,7 +213,7 @@
 
         <compound name='misc'>
             <stl-string name='command_line'/>
-            <stl-vector pointer-type='stl_string' name='parms'/>
+            <stl-vector pointer-type='stl-string' name='parms'/>
 
             <int32_t name='world_gen_id'/>
             <int32_t name="num_speech_tokens"/>

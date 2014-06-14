@@ -230,13 +230,35 @@
         <enum-item/>
     </enum-type>
 
+    <struct-type type-name='creature_attack'>
+        <int32_t name='min_damage'/>
+        <int32_t name='max_damage'/>
+        <enum base-type='int16_t' name='damage_type' type-name='damage_type'/>
+
+        <stl-string name='verb_3rd'/>
+        <stl-string name='verb_2nd'/>
+
+        <bitfield name='flags' base-type='uint16_t'>
+            <flag-bit name='with'/>
+            <flag-bit name='latch'/>
+            <flag-bit name='main'/>
+        </bitfield>
+
+        <stl-vector type-name='int32_t' name='specialattack_type' comment='0 = inject extract, 1 = suck blood'/>
+        <stl-vector type-name='int16_t' name='specialattack_material' comment='extract injected'/>
+        <stl-vector type-name='int32_t' name='specialattack_min' comment='amount of extract injected or blood sucked'/>
+        <stl-vector type-name='int32_t' name='specialattack_max'/>
+        <stl-vector type-name='int16_t' name='by_token'/>
+        <stl-vector type-name='int16_t' name='by_type'/>
+    </struct-type>
+
     <struct-type type-name='body_info'>
         <stl-vector name='body_parts'>
             <pointer type-name='body_part_raw'/>
         </stl-vector>
 
         <stl-vector name='attacks'>
-            <pointer/>
+            <pointer type-name='creature_attack'/>
         </stl-vector>
     </struct-type>
 
