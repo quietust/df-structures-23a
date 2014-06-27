@@ -1,218 +1,110 @@
 <data-definition>
+    <struct-type type-name='waterfall'>
+        <enum type-name='flow_type' base-type='int16_t' name='type'/>
+        <compound type-name='coord' name='pos'/>
+    </struct-type>
+
+    <struct-type type-name='cavein_region'>
+        <compound type-name='coord' name='pos'/>
+        <int16_t name='timer'/>
+    </struct-type>
+
+    <struct-type type-name='campfire'>
+        <compound type-name='coord32' name='pos'/>
+        <int32_t name='timer'/>
+    </struct-type>
+
+    <struct-type type-name='web_cluster'>
+        <stl-vector type-name='int16_t' name='x'/>
+        <stl-vector type-name='int16_t' name='y'/>
+        <int16_t name='z'/>
+        <int16_t name='race' ref-target='creature_raw'/>
+        <compound type-name='coord2d' name='pos_min'/>
+        <compound type-name='coord2d' name='pos_max'/>
+        <stl-vector name='ambushers' pointer-type='unit'/>
+    </struct-type>
+
+    <struct-type type-name='fire'>
+        <compound type-name='coord' name='pos'/>
+        <int16_t comment='1000'/>
+        <uint16_t name='temperature_1'/>
+        <uint16_t comment='10000'/>
+        <uint16_t name='temperature_2'/>
+        <uint16_t name='temperature_3'/>
+    </struct-type>
+
     <struct-type type-name='world'>
 <!--    <compound name='map_extras'>-->
-            <stl-vector name='gem_clusters'>
-                <pointer type-name='mineral_cluster'/>
-            </stl-vector>
-            <stl-vector name='stone_clusters'>
-                <pointer type-name='mineral_cluster'/>
-            </stl-vector>
-
-            <stl-vector name='engravings'>
-                <pointer type-name='engraving'/>
-            </stl-vector>
-
-            <stl-vector name='vermin'>
-                <pointer type-name='vermin'/>
-            </stl-vector>
-
-            <stl-vector name='contaminated_rivers'>
-                <pointer type-name='coord'/>
-            </stl-vector>
-
-            <stl-vector name='drink_areas'>
-                <pointer type-name='drink_area'/>
-            </stl-vector>
-            <stl-vector name='caveriver_tiles'>
-                <pointer type-name='coord'/>
-            </stl-vector>
-            <stl-vector name='chasm_tiles'>
-                <pointer type-name='coord'/>
-            </stl-vector>
-            <stl-vector name='magmaflow_tiles'>
-                <pointer type-name='coord'/>
-            </stl-vector>
-            <stl-vector name='waterfalls'>
-                <pointer>
-                    <enum type-name='flow_type' base-type='int16_t' name='type'/>
-                    <compound type-name='coord' name='pos'/>
-                </pointer>
-            </stl-vector>
-            <stl-vector name='cavein_regions'>
-                <pointer>
-                    <compound type-name='coord' name='pos'/>
-                    <int16_t name='timer'/>
-                </pointer>
-            </stl-vector>
-            <stl-vector name='campfires'>
-                <pointer>
-                    <compound type-name='coord32' name='pos'/>
-                    <int32_t name='timer'/>
-                </pointer>
-            </stl-vector>
-            <stl-vector name='contaminated_floors'>
-                <pointer type-name='coord'/>
-            </stl-vector>
-            <stl-vector name='web_clusters'>
-                <pointer>
-                    <stl-vector type-name='int16_t' name='x'/>
-                    <stl-vector type-name='int16_t' name='y'/>
-                    <int16_t name='z'/>
-                    <int16_t name='race' ref-target='creature_raw'/>
-                    <compound type-name='coord2d' name='pos_min'/>
-                    <compound type-name='coord2d' name='pos_max'/>
-                    <stl-vector name='ambushers'>
-                        <pointer type-name='unit'/>
-                    </stl-vector>
-                </pointer>
-            </stl-vector>
-            <stl-vector name='fires'>
-                <pointer>
-                    <compound type-name='coord' name='pos'/>
-                    <int16_t comment='1000'/>
-                    <uint16_t name='temperature_1'/>
-                    <uint16_t comment='10000'/>
-                    <uint16_t name='temperature_2'/>
-                    <uint16_t name='temperature_3'/>
-                </pointer>
-            </stl-vector>
+            <stl-vector name='gem_clusters' pointer-type='mineral_cluster'/>
+            <stl-vector name='stone_clusters' pointer-type='mineral_cluster'/>
+            <stl-vector name='engravings' pointer-type='engraving'/>
+            <stl-vector name='vermin' pointer-type='vermin'/>
+            <stl-vector name='contaminated_rivers' pointer-type='coord'/>
+            <stl-vector name='drink_areas' pointer-type='drink_area'/>
+            <stl-vector name='caveriver_tiles' pointer-type='coord'/>
+            <stl-vector name='chasm_tiles' pointer-type='coord'/>
+            <stl-vector name='magmaflow_tiles' pointer-type='coord'/>
+            <stl-vector name='waterfalls' pointer-type='waterfall'/>
+            <stl-vector name='cavein_regions' pointer-type='cavein_region'/>
+            <stl-vector name='campfires' pointer-type='campfire'/>
+            <stl-vector name='contaminated_floors' pointer-type='coord'/>
+            <stl-vector name='web_clusters' pointer-type='web_cluster'/>
+            <stl-vector name='fires' pointer-type='fire'/>
 <!--    </compound>-->
-        <stl-vector name='effects'>
-            <pointer type-name='effect_info'/>
-        </stl-vector>
-        <stl-vector name='coin_batches'>
-            <pointer type-name='coin_batch'/>
-        </stl-vector>
-        <stl-vector name='populations'>
-            <pointer type-name='local_population'/>
-        </stl-vector>
+        <stl-vector name='effects' pointer-type='effect_info'/>
+        <stl-vector name='coin_batches' pointer-type='coin_batch'/>
+        <stl-vector name='populations' pointer-type='local_population'/>
 
-        --
-
-        <stl-vector name='manager_orders'>
-            <pointer type-name='manager_order'/>
-        </stl-vector>
-
-        <stl-vector name='mandates'>
-            <pointer type-name='mandate'/>
-        </stl-vector>
-
-        --  Entities
+        <stl-vector name='manager_orders' pointer-type='manager_order'/>
+        <stl-vector name='mandates' pointer-type='mandate'/>
 
         <compound name='entities'>
-            <stl-vector name='all'>
-                <pointer type-name='historical_entity'/>
-            </stl-vector>
-
-            <stl-vector name='bad' has-bad-pointers='true'>
-                <pointer type-name='historical_entity'/>
-            </stl-vector>
+            <stl-vector name='all' pointer-type='historical_entity'/>
+            <stl-vector name='bad' pointer-type='historical_entity' has-bad-pointers='true'/>
         </compound>
-
-        -- Units
 
         <compound name='units'>
-            <stl-vector name='all'>
-                <pointer type-name='unit'/>
-            </stl-vector>
-
-            <stl-vector name='active'>
-                <comment>
-                    not sorted; [0] is adventurer; removed if kidnapped etc but not if dead
-                </comment>
-                <pointer type-name='unit'/>
-            </stl-vector>
-
+            <stl-vector name='all' pointer-type='unit'/>
+            <stl-vector name='active' pointer-type='unit' comment='not sorted; [0] is adventurer; removed if kidnapped etc but not if dead'/>
             <static-array name='other' count='3'>
-                <stl-vector>
-                    <pointer type-name='unit'/>
-                </stl-vector>
+                <stl-vector pointer-type='unit'/>
             </static-array>
-
-            <stl-vector name='bad' has-bad-pointers='true'>
-                <pointer type-name='unit'/>
-            </stl-vector>
+            <stl-vector name='bad' pointer-type='unit' has-bad-pointers='true'/>
         </compound>
 
-        -- Unknown
-
-        <stl-vector name='unit_chunks'>
-            <pointer type-name='unit_chunk'/>
-        </stl-vector>
-        <stl-vector name='art_image_chunks'>
-            <pointer type-name='art_image_chunk'/>
-        </stl-vector>
-
-        -- Nemesis
+        <stl-vector name='unit_chunks' pointer-type='unit_chunk'/>
+        <stl-vector name='art_image_chunks' pointer-type='art_image_chunk'/>
 
         <compound name='nemesis'>
-            <stl-vector name='all'>
-                <pointer type-name='nemesis_record'/>
-            </stl-vector>
-
-            <stl-vector name='bad' has-bad-pointers='true'>
-                <pointer type-name='nemesis_record'/>
-            </stl-vector>
+            <stl-vector name='all' pointer-type='nemesis_record'/>
+            <stl-vector name='bad' pointer-type='nemesis_record' has-bad-pointers='true'/>
         </compound>
 
-        -- Items
-
         <compound name='items'>
-            dtor 852f4b0
-
-            <stl-vector name='all'>
-                <pointer type-name='item'/>
-            </stl-vector>
-
+            <stl-vector name='all' pointer-type='item'/>
             <static-array name='other' count='82' index-enum='items_other_id'>
-                <stl-vector>
-                    <pointer type-name='item'/>
-                </stl-vector>
+                <stl-vector pointer-type='item'/>
             </static-array>
-
-            <stl-vector name='bad' has-bad-pointers='true'>
-                <pointer type-name='item'/>
-            </stl-vector>
-
+            <stl-vector name='bad' pointer-type='item' has-bad-pointers='true'/>
             <stl-vector name='bad_tag' type-name='int32_t'/>
         </compound>
 
-        -- Artifacts
-
         <compound name='artifacts'>
-            <stl-vector name='all'>
-                <pointer type-name='artifact_record'/>
-            </stl-vector>
-
-            <stl-vector name='bad' has-bad-pointers='true'>
-                <pointer type-name='artifact_record'/>
-            </stl-vector>
+            <stl-vector name='all' pointer-type='artifact_record'/>
+            <stl-vector name='bad' pointer-type='artifact_record' has-bad-pointers='true'/>
         </compound>
 
-        -- Jobs and projectiles
-
         <df-linked-list name='job_list' type-name='job_list_link'/>
-
         <df-linked-list name='proj_list' type-name='proj_list_link'/>
 
-        -- Buildings
-
         <compound name='buildings'>
-            dtor 85316f0
-
-            <stl-vector name='all'>
-                <pointer type-name='building'/>
-            </stl-vector>
+            <stl-vector name='all' pointer-type='building'/>
 
             <static-array name='other' count='63' index-enum='buildings_other_id'>
-                <stl-vector>
-                    <pointer type-name='building'/>
-                </stl-vector>
+                <stl-vector pointer-type='building'/>
             </static-array>
 
-            <stl-vector name='bad' has-bad-pointers='true'>
-                <pointer type-name='building'/>
-            </stl-vector>
+            <stl-vector name='bad' has-bad-pointers='true' pointer-type='building'/>
         </compound>
 
         <compound name='hauling'>
@@ -268,41 +160,21 @@
         </compound>
 
         <compound name='plants'>
-            <stl-vector name='all'>
-                <pointer type-name='plant'/>
-            </stl-vector>
-            <stl-vector name='shrub_forest'>
-                <pointer type-name='plant'/>
-            </stl-vector>
-            <stl-vector name='shrub_swamp'>
-                <pointer type-name='plant'/>
-            </stl-vector>
-            <stl-vector name='shrub_river'>
-                <pointer type-name='plant'/>
-            </stl-vector>
-            <stl-vector name='shrub_cave'>
-                <pointer type-name='plant'/>
-            </stl-vector>
-            <stl-vector name='unknown'>
-                <pointer type-name='plant'/>
-            </stl-vector>
-            <stl-vector name='tree_outside_dry'>
-                <pointer type-name='plant'/>
-            </stl-vector>
-            <stl-vector name='tree_outside_wet'>
-                <pointer type-name='plant'/>
-            </stl-vector>
-            <stl-vector name='tree_inside_dry'>
-                <pointer type-name='plant'/>
-            </stl-vector>
-            <stl-vector name='tree_inside_wet'>
-                <pointer type-name='plant'/>
-            </stl-vector>
+            <stl-vector name='all' pointer-type='plant'/>
+            <stl-vector name='shrub_forest' pointer-type='plant'/>
+            <stl-vector name='shrub_swamp' pointer-type='plant'/>
+            <stl-vector name='shrub_river' pointer-type='plant'/>
+            <stl-vector name='shrub_cave' pointer-type='plant'/>
+            <stl-vector name='unknown' pointer-type='plant'/>
+            <stl-vector name='tree_outside_dry' pointer-type='plant'/>
+            <stl-vector name='tree_outside_wet' pointer-type='plant'/>
+            <stl-vector name='tree_inside_dry' pointer-type='plant'/>
+            <stl-vector name='tree_inside_wet' pointer-type='plant'/>
         </compound>
 
         <df-linked-list name='quests' type-name='quest_list_link'/>
 
-        <compound name='enemy_status_cache' comment='?'>
+        <compound name='enemy_status_cache'>
             <static-array name='slot_used' type-name='bool' count='500'/>
             <static-array name='rel_map' count='500'>
                 <static-array type-name='int8_t' count='500'/>
@@ -311,8 +183,8 @@
         </compound>
 
         <compound name='schedules'>
-            <stl-vector name='all' pointer-type='schedule_info' />
-            <stl-vector name='bad' pointer-type='schedule_info' has-bad-pointers='true' />
+            <stl-vector name='all' pointer-type='schedule_info'/>
+            <stl-vector name='bad' pointer-type='schedule_info' has-bad-pointers='true'/>
         </compound>
 
         <pointer name='selected_building' type-name='building'/>
@@ -336,10 +208,7 @@
         <int8_t name='build_direction_4' comment='aqueduct only'/>
 
         <compound name='map'>
-            52cdc
-            <stl-vector name='map_blocks'>
-                <pointer type-name='map_block'/>
-            </stl-vector>
+            <stl-vector name='map_blocks' pointer-type='map_block'/>
             <pointer name='block_index' is-array='true'>
                 <pointer is-array='true'>
                     <pointer is-array='true'>
@@ -436,9 +305,7 @@
         </compound>
         <bool name="reindex_pathfinding" comment='forces map_block.passable to be recomputed'/>
         <int32_t name='frame_counter' comment='increases by 1 every time . is pressed'/>
-        <stl-vector name='orphaned_flows'>
-            <pointer type-name='flow_info'/>
-        </stl-vector>
+        <stl-vector name='orphaned_flows' pointer-type='flow_info'/>
     </struct-type>
 </data-definition>
 
