@@ -60,32 +60,32 @@
         <int16_t/>
         <int16_t/>
         <int16_t/>
-        <int8_t/>
+        <bool name='travel_clouds'/>
         <int8_t/>
         <int8_t/>
         <int32_t name='tick_counter' comment='goes up to XXX'/>
         <int32_t name='frame_counter' comment='goes up to 10000 (ticks?)'/>
         <int16_t/>
-        <int8_t/>
-        <int8_t/>
+        <int8_t name='sleeping'/>
+        <int8_t name='sleep_interrupted'/>
         <int8_t/>
 
         <stl-vector name='talk_targets' pointer-type='unit'/>
         <stl-vector name='conversations' pointer-type='conversation'/>
 
-        <int32_t/>
+        <int32_t name='talk_target_cursor'/>
 
         <stl-vector type-name='int32_t' name='searched_x'/>
         <stl-vector type-name='int32_t' name='searched_y'/>
         <stl-vector type-name='int32_t' name='searched_z'/>
         <stl-vector type-name='int32_t' name='searched_timeout'/>
 
-        <int8_t/>
+        <int8_t name='can_retire'/>
 
         <int32_t/>
         <int32_t/>
-        <int32_t/>
-        <int8_t/>
+        <int32_t name='skill_level'/>
+        <int8_t name='recalc_skill_level'/>
 
     </struct-type>
 
