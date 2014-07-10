@@ -39,7 +39,7 @@
             <vmethod name='removeContaminantByIdx'>
                 <int32_t name='index'/> <int32_t name='amount'/>
             </vmethod>
-            <vmethod name='removeContaminantByType' comment='seemingly became item_actual.removeContaminant, which itself is never called'>
+            <vmethod name='removeContaminantByType'>
                 <int32_t name='type'/>
                 <enum base-type='int32_t' name='material' type-name='material_type'/>
                 <int32_t name='amount'/>
