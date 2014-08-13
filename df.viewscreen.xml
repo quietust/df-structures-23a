@@ -35,7 +35,7 @@
             <vmethod ret-type='int32_t' name='getX2'/>
 
             <vmethod ret-type='int32_t' name='getY2'/>
-            <vmethod ret-type='int32_t' comment='list 1; button,base -1'/>
+            <vmethod ret-type='int32_t' name='isList'/>
             <vmethod ret-type='int32_t' name='getListCursor'/>
             <vmethod name='setListCursor'> <int32_t/> </vmethod>
             <vmethod name='feed'/>

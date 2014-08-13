@@ -117,7 +117,7 @@
             <vmethod ret-type='bool' name='wasArtifactHidden'>
                 <int32_t name='artifact' ref-target='artifact_record'/>
             </vmethod>
-            <vmethod name='getArtifactMakerUnitID'>
+            <vmethod name='getArtifactHolderUnitID'>
                 <int32_t name='artifact' ref-target='artifact_record'/>
                 <ret-type><int32_t ref-target='unit'/></ret-type>
             </vmethod>
@@ -180,15 +180,13 @@
             </vmethod>
             <vmethod name='getSummary'> "In x, some event happened"
                 <pointer type-name='stl-string'/>
-                <pointer type-name='specific_ref'/>
-                <int32_t ref-target='historical_entity'/>
-                <int32_t/><int32_t/>
+                <pointer type-name='specific_ref'/> <int32_t name='ref_id' comment='whatever ref points to'/> only used for histfig death
+                <bool/><bool/> both unused
             </vmethod>
             <vmethod name='getDescription'> "the happening of some event"
                 <pointer type-name='stl-string'/>
-                <pointer type-name='specific_ref'/>
-                <int32_t ref-target='historical_entity'/>
-                <int32_t/><int32_t/>
+                <pointer type-name='specific_ref'/> <int32_t name='ref_id' comment='whatever ref points to'/> never used
+                <bool/><bool/> both unused
             </vmethod>
 
             <vmethod name='populateArtImage'>

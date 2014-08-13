@@ -233,12 +233,12 @@
             <vmethod ret-type='int16_t' name='getSubtype'/>
             <vmethod name='setSubtype'> <int16_t name='subtype'/> </vmethod>
             <vmethod ret-type='bool' name='isActual'/>
-            <vmethod ret-type='int32_t' name='getNobleFurnitureType'/> 1/2/3/4 = weapon rack, armor stand, box, cabinet
+            <vmethod ret-type='int32_t' name='getStorageType'/> 1/2/3/4 = weapon rack, armor stand, box, cabinet
             <vmethod ret-type='bool' name='isCoffin2'/>
 
             <vmethod name='updateAction'/>
             <vmethod ret-type='bool' name='isStatueOrRestraint'/>
-            <vmethod name='setMaterialAmount'> <int32_t/> </vmethod>
+            <vmethod name='setMaterialAmount'> <int32_t name='amount'/> </vmethod>
             <vmethod name='setBuildStage'> <int16_t name='stage'/> </vmethod>
             <vmethod ret-type='int32_t' name='getBuildStage'/>
 
@@ -266,10 +266,10 @@
                 <int32_t name='rel_x'/> <int32_t name='rel_y'/>
             </vmethod>
             <vmethod ret-type='int32_t' name='getFreeCapacity'>
-                <bool name='exclude_in_room'/> <bool name='subtract_pending_jobs'/>
+                <bool name='exclude_in_room'/> <bool name='include_pending_jobs'/>
             </vmethod>
             <vmethod ret-type='bool' name='canStoreItem'>
-                <pointer type-name='item'/> <bool name='subtract_pending_jobs'/> <bool/>
+                <pointer type-name='item'/> <bool name='ignore_available_space'/> <bool name='include_pending_jobs'/>
             </vmethod>
             <vmethod name='getName'> <pointer type-name='stl-string' name='name'/> </vmethod>
             <vmethod name='getNameColor'/>
