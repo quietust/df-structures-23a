@@ -20,22 +20,13 @@
         <enum-item name='evilness'/>
         <enum-item name='drainage'/>
         <enum-item name='savagery'/>
-        <enum-item/>
-        <enum-item/>
-        <enum-item/>
+        <enum-item name='air_temp'/>
+        <enum-item name='air_x'/>
+        <enum-item name='air_y'/>
         <enum-item name='clouds'/>
         <enum-item name='wind'/>
-        <enum-item name='humidity' comment='guess'/>
+        <enum-item name='snowfall'/>
         <enum-item name='salinity'/>
-        <enum-item/>
-        <enum-item/>
-        <enum-item/>
-        <enum-item/>
-        <enum-item/>
-        <enum-item/>
-        <enum-item/>
-        <enum-item/>
-        <enum-item/>
     </enum-type>
 
     <enum-type type-name="world_population_type">
@@ -207,8 +198,36 @@
         <enum-item/>
     </enum-type>
 
+    <enum-type type-name='front_type' base-type='uint16_t'>
+        <enum-item name='front_none'/>
+        <enum-item name='front_warm'/>
+        <enum-item name='front_cold'/>
+        <enum-item name='front_occluded'/>
+    </enum-type>
+
+    <enum-type type-name='cumulus_type' base-type='uint16_t'>
+        <enum-item name='cumulus_none'/>
+        <enum-item name='cumulus_medium'/>
+        <enum-item name='cumulus_multi'/>
+        <enum-item name='cumulus_nimbus'/>
+    </enum-type>
+
+    <enum-type type-name='stratus_type' base-type='uint16_t'>
+        <enum-item name='stratus_none'/>
+        <enum-item name='stratus_alto'/>
+        <enum-item name='stratus_proper'/>
+        <enum-item name='stratus_nimbus'/>
+    </enum-type>
+
+    <enum-type type-name='fog_type' base-type='uint16_t'>
+        <enum-item name='fog_none'/>
+        <enum-item name='fog_mist'/>
+        <enum-item name='fog_normal'/>
+        <enum-item name='fog_thick'/>
+    </enum-type>
+
     <struct-type type-name='region_map_entry'>
-        <pointer/>
+        <int32_t name='temp_distance' comment='used during NPC conversations when describing distances to nearby areas'/>
         <stl-vector name="sites" pointer-type='world_site'/>
         <df-flagarray name='flags' index-enum='region_map_entry_flags'/>
         <int16_t name="elevation" comment='~40 ocean -> ~100 plains -> ~200 mountains'/>
@@ -218,17 +237,16 @@
         <int16_t name="evilness"/>
         <int16_t name="drainage"/>
         <int16_t name="savagery"/>
-        <int16_t name="unk_30" comment='3'/>
-        <int16_t name="unk_32" comment='0'/>
-        <int16_t name="unk_34" comment='0'/>
+        <int16_t name="air_temp"/>
+        <int16_t name="air_x" comment="Toady: a velocity component? I don't remember"/>
+        <int16_t name="air_y"/>
         <bitfield name='clouds' base-type='uint16_t'>
-            <flag-bit/>
-            <flag-bit/>
-            <flag-bit name='density' count='2'/>
-            <flag-bit name='striped'/>
-            <flag-bit name='darkness' count='2'/>
-            <flag-bit name='fog' count='2'/>
-            <flag-bit count='4' comment='maybe moisture content'/>
+            <flag-bit name='front' count='2' type-name='front_type'/>
+            <flag-bit name='cumulus' count='2' type-name='cumulus_type'/>
+            <flag-bit name='cirrus'/>
+            <flag-bit name='stratus' count='2' type-name='stratus_type'/>
+            <flag-bit name='fog' count='2' type-name='fog_type'/>
+            <flag-bit name='countdown' count='4'/>
         </bitfield>
         <bitfield name='wind' base-type='uint16_t' comment='blows toward direction in morning'>
             <flag-bit name='north_1'/>
@@ -240,7 +258,7 @@
             <flag-bit name='east_2'/>
             <flag-bit name='west_2'/>
         </bitfield>
-        <int16_t name="humidity" comment='0-5000, initialized to rainfall * 50, influences cloud darkness'/>
+        <int16_t name="snowfall" comment='initialized to rainfall * 50'/>
         <int16_t name="salinity"/>
         <compound name='unk_3e' type-name='coord'/>
         <compound name='unk_44' type-name='coord'/>
