@@ -178,7 +178,7 @@
 
         <int8_t name="allow_skeleton"/>
         <int8_t name="allow_zombie"/>
-        <int8_t name="unk_132"/>
+        <int8_t name="color_variant"/>
     </struct-type>
 
     <enum-type type-name='region_map_entry_flags'>
