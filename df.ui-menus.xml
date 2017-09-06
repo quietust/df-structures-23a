@@ -211,13 +211,13 @@
             <int8_t/>
         </compound>
 
-        <compound name='misc'>
-            <stl-string name='command_line'/>
-            <stl-vector pointer-type='stl-string' name='parms'/>
-
-            <int32_t name='world_gen_id'/>
-            <int32_t name="num_speech_tokens"/>
+        <compound name='command_line'>
+            <stl-string name='original'/>
+            <stl-vector pointer-type='stl-string' name='art_vect'/>
+            <int32_t name='gen_id'/>
         </compound>
+
+        <int32_t name="num_speech_tokens"/>
     </struct-type>
 
     <struct-type type-name='ui_look_list'>
