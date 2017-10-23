@@ -136,6 +136,22 @@
         </static-array>
     </struct-type>
 
+    <struct-type type-name='entity_recipe'>
+        <int16_t name='subtype' ref-target='itemdef_foodst'/>
+        <stl-vector name='item_type'>
+            <enum base-type='int16_t' type-name='item_type'/>
+        </stl-vector>
+        <stl-vector name='item_subtype'>
+            <int16_t refers-to='(item-subtype-target $$._parent._parent.item_type[$$._key] $)'/>
+        </stl-vector>
+        <stl-vector name='material' comment='for certain item types, these are creature/plant IDs'>
+            <enum base-type='int16_t' type-name='material_type'/>
+        </stl-vector>
+        <stl-vector name='matgloss'>
+            <int16_t refers-to='(matgloss-target $$._parent._parent.material[$$._key] $)'/>
+        </stl-vector>
+    </struct-type>
+
     <enum-type type-name='historical_entity_type'>
         <enum-item name='Civilization'/>
         <enum-item name='SiteGovernment'/>
@@ -170,156 +186,62 @@
         <stl-vector name='entity_links' pointer-type='entity_entity_link'/>
         <stl-vector name='site_links' pointer-type='entity_site_link'/>
 
-        <stl-vector name='histfig_ids'>
-            <int32_t ref-target='historical_figure'/>
-        </stl-vector>
-
-        <stl-vector name='nemesis_ids'>
-            <int32_t ref-target='nemesis_record'/>
-        </stl-vector>
+        <stl-vector name='histfig_ids' type-name='int32_t' ref-target='historical_figure'/>
+        <stl-vector name='nemesis_ids' type-name='int32_t' ref-target='nemesis_record'/>
 
         <compound name='resources'>
-            <stl-vector name='digger_type'>
-                <int16_t ref-target='itemdef_weaponst'/>
-            </stl-vector>
-            <stl-vector name='weapon_type'>
-                <int16_t ref-target='itemdef_weaponst'/>
-            </stl-vector>
-            <stl-vector name='armor_type'>
-                <int16_t ref-target='itemdef_armorst'/>
-            </stl-vector>
-            <stl-vector name='ammo_type'>
-                <int16_t ref-target='itemdef_ammost'/>
-            </stl-vector>
-            <stl-vector name='helm_type'>
-                <int16_t ref-target='itemdef_helmst'/>
-            </stl-vector>
-            <stl-vector name='gloves_type'>
-                <int16_t ref-target='itemdef_glovesst'/>
-            </stl-vector>
-            <stl-vector name='shoes_type'>
-                <int16_t ref-target='itemdef_shoesst'/>
-            </stl-vector>
-            <stl-vector name='pants_type'>
-                <int16_t ref-target='itemdef_pantsst'/>
-            </stl-vector>
-            <stl-vector name='shield_type'>
-                <int16_t ref-target='itemdef_shieldst'/>
-            </stl-vector>
-            <stl-vector name='trapcomp_type'>
-                <int16_t ref-target='itemdef_trapcompst'/>
-            </stl-vector>
-            <stl-vector name='toy_type'>
-                <int16_t ref-target='itemdef_toyst'/>
-            </stl-vector>
-            <stl-vector name='instrument_type'>
-                <int16_t ref-target='itemdef_instrumentst'/>
-            </stl-vector>
-            <stl-vector name='siegeammo_type'>
-                <int16_t ref-target='itemdef_siegeammost'/>
-            </stl-vector>
+            <stl-vector name='digger_type' type-name='int16_t' ref-target='itemdef_weaponst'/>
+            <stl-vector name='weapon_type' type-name='int16_t' ref-target='itemdef_weaponst'/>
+            <stl-vector name='armor_type' type-name='int16_t' ref-target='itemdef_armorst'/>
+            <stl-vector name='ammo_type' type-name='int16_t' ref-target='itemdef_ammost'/>
+            <stl-vector name='helm_type' type-name='int16_t' ref-target='itemdef_helmst'/>
+            <stl-vector name='gloves_type' type-name='int16_t' ref-target='itemdef_glovesst'/>
+            <stl-vector name='shoes_type' type-name='int16_t' ref-target='itemdef_shoesst'/>
+            <stl-vector name='pants_type' type-name='int16_t' ref-target='itemdef_pantsst'/>
+            <stl-vector name='shield_type' type-name='int16_t' ref-target='itemdef_shieldst'/>
+            <stl-vector name='trapcomp_type' type-name='int16_t' ref-target='itemdef_trapcompst'/>
+            <stl-vector name='toy_type' type-name='int16_t' ref-target='itemdef_toyst'/>
+            <stl-vector name='instrument_type' type-name='int16_t' ref-target='itemdef_instrumentst'/>
+            <stl-vector name='siegeammo_type' type-name='int16_t' ref-target='itemdef_siegeammost'/>
 
             <compound name='weapon' type-name='material_vec_ref'/>
             <compound name='armor' type-name='material_vec_ref'/>
 
-            <stl-vector name='leather'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
-            <stl-vector name='cloth'>
-                <int16_t ref-target='matgloss_plant'/>
-            </stl-vector>
-            <stl-vector name='silk'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
+            <stl-vector name='leather' type-name='int16_t' ref-target='creature_raw'/>
+            <stl-vector name='cloth' type-name='int16_t' ref-target='matgloss_plant'/>
+            <stl-vector name='silk' type-name='int16_t' ref-target='creature_raw'/>
             <stl-vector name='lye' type-name='int16_t' comment='If non-empty, allows bringing lye at embark - populated with a 0 for each wood type available'/>
             <stl-vector name='craft_metal'>
                 <enum base-type='int16_t' type-name='material_type'/>
             </stl-vector>
             <compound name='stone' type-name='material_vec_ref'/>
             <compound name='gem' type-name='material_vec_ref'/>
-            <stl-vector name='bone'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
-            <stl-vector name='shell'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
-            <stl-vector name='pearl'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
-            <stl-vector name='ivory'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
-            <stl-vector name='horn'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
+            <stl-vector name='bone' type-name='int16_t' ref-target='creature_raw'/>
+            <stl-vector name='shell' type-name='int16_t' ref-target='creature_raw'/>
+            <stl-vector name='pearl' type-name='int16_t' ref-target='creature_raw'/>
+            <stl-vector name='ivory' type-name='int16_t' ref-target='creature_raw'/>
+            <stl-vector name='horn' type-name='int16_t' ref-target='creature_raw'/>
             <compound name='other' type-name='material_vec_ref' comment='jade, amber, and coral'/>
             <compound name='crafts' type-name='material_vec_ref'/>
             <compound name='glass' type-name='material_vec_ref' comment='always empty'/>
             <compound name='wood' type-name='material_vec_ref'/>
-            <stl-vector name='pet'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
+            <stl-vector name='pet' type-name='int16_t' ref-target='creature_raw'/>
             <compound name='cage' type-name='material_vec_ref'/>
             <compound name='drink' type-name='material_vec_ref'/>
             <compound name='cheese' type-name='material_vec_ref'/>
             <compound name='mill' type-name='material_vec_ref'/>
             <compound name='extract' type-name='material_vec_ref'/>
-            <stl-vector name='meat_fish'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
-            <stl-vector name='plant'>
-                <int16_t ref-target='matgloss_plant'/>
-            </stl-vector>
-            <stl-vector name='wagon'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
-            <stl-vector name='pack_animal'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
-            <stl-vector name='wagon_puller'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
-            <stl-vector name='mount'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
-            <stl-vector name='minion'>
-                <int16_t ref-target='creature_raw'/>
-            </stl-vector>
 
-            <stl-vector name='meat_fish_recipes'>
-                <pointer>
-                    <int16_t name='subtype' ref-target='itemdef_foodst'/>
-                    <stl-vector name='item_type'>
-                        <enum base-type='int16_t' type-name='item_type'/>
-                    </stl-vector>
-                    <stl-vector name='item_subtype'>
-                        <int16_t refers-to='(item-subtype-target $$._parent._parent.item_type[$$._key] $)'/>
-                    </stl-vector>
-                    <stl-vector name='material' comment='for certain item types, these are creature/plant IDs'>
-                        <enum base-type='int16_t' type-name='material_type'/>
-                    </stl-vector>
-                    <stl-vector name='matgloss'>
-                        <int16_t refers-to='(matgloss-target $$._parent._parent.material[$$._key] $)'/>
-                    </stl-vector>
-                </pointer>
-            </stl-vector>
-            <stl-vector name='other_recipes'>
-                <pointer>
-                    <int16_t name='subtype' ref-target='itemdef_foodst'/>
-                    <stl-vector name='item_type'>
-                        <enum base-type='int16_t' type-name='item_type'/>
-                    </stl-vector>
-                    <stl-vector name='item_subtype'>
-                        <int16_t refers-to='(item-subtype-target $$._parent._parent.item_type[$$._key] $)'/>
-                    </stl-vector>
-                    <stl-vector name='material' comment='for certain item types, these are creature/plant IDs'>
-                        <enum base-type='int16_t' type-name='material_type'/>
-                    </stl-vector>
-                    <stl-vector name='matgloss'>
-                        <int16_t refers-to='(matgloss-target $$._parent._parent.material[$$._key] $)'/>
-                    </stl-vector>
-                </pointer>
-            </stl-vector>
+            <stl-vector name='meat_fish' type-name='int16_t' ref-target='creature_raw'/>
+            <stl-vector name='plant' type-name='int16_t' ref-target='matgloss_plant'/>
+            <stl-vector name='wagon' type-name='int16_t' ref-target='creature_raw'/>
+            <stl-vector name='pack_animal' type-name='int16_t' ref-target='creature_raw'/>
+            <stl-vector name='wagon_puller' type-name='int16_t' ref-target='creature_raw'/>
+            <stl-vector name='mount' type-name='int16_t' ref-target='creature_raw'/>
+            <stl-vector name='minion' type-name='int16_t' ref-target='creature_raw'/>
+
+            <stl-vector name='meat_fish_recipes' pointer-type='entity_recipe'/>
+            <stl-vector name='other_recipes' pointer-type='entity_recipe'/>
 
             <static-array name='special_mats' count='3' comment='never used'>
                 <enum base-type='int16_t' name='material' type-name='material_type'/>
@@ -365,96 +287,36 @@
         <compound comment='derived resources'>
             <compound name='mill_cookable' type-name='material_vec_ref'/>
             <compound name='mill_dye' type-name='material_vec_ref'/>
-            <stl-vector name='armor_leather'>
-                <int16_t ref-target='itemdef_armorst'/>
-            </stl-vector>
-            <stl-vector name='armor_chain'>
-                <int16_t ref-target='itemdef_armorst'/>
-            </stl-vector>
-            <stl-vector name='armor_plate'>
-                <int16_t ref-target='itemdef_armorst'/>
-            </stl-vector>
-            <stl-vector name='armor_under'>
-                <int16_t ref-target='itemdef_armorst'/>
-            </stl-vector>
-            <stl-vector name='armor_over'>
-                <int16_t ref-target='itemdef_armorst'/>
-            </stl-vector>
-            <stl-vector name='armor_cover'>
-                <int16_t ref-target='itemdef_armorst'/>
-            </stl-vector>
-            <stl-vector name='pants_leather'>
-                <int16_t ref-target='itemdef_pantsst'/>
-            </stl-vector>
-            <stl-vector name='pants_chain'>
-                <int16_t ref-target='itemdef_pantsst'/>
-            </stl-vector>
-            <stl-vector name='pants_plate'>
-                <int16_t ref-target='itemdef_pantsst'/>
-            </stl-vector>
-            <stl-vector name='pants_under'>
-                <int16_t ref-target='itemdef_pantsst'/>
-            </stl-vector>
-            <stl-vector name='pants_over'>
-                <int16_t ref-target='itemdef_pantsst'/>
-            </stl-vector>
-            <stl-vector name='pants_cover'>
-                <int16_t ref-target='itemdef_pantsst'/>
-            </stl-vector>
-            <stl-vector name='helm_leather'>
-                <int16_t ref-target='itemdef_helmst'/>
-            </stl-vector>
-            <stl-vector name='helm_chain'>
-                <int16_t ref-target='itemdef_helmst'/>
-            </stl-vector>
-            <stl-vector name='helm_plate'>
-                <int16_t ref-target='itemdef_helmst'/>
-            </stl-vector>
-            <stl-vector name='helm_under'>
-                <int16_t ref-target='itemdef_helmst'/>
-            </stl-vector>
-            <stl-vector name='helm_over'>
-                <int16_t ref-target='itemdef_helmst'/>
-            </stl-vector>
-            <stl-vector name='helm_cover'>
-                <int16_t ref-target='itemdef_helmst'/>
-            </stl-vector>
-            <stl-vector name='shoes_leather'>
-                <int16_t ref-target='itemdef_shoesst'/>
-            </stl-vector>
-            <stl-vector name='shoes_chain'>
-                <int16_t ref-target='itemdef_shoesst'/>
-            </stl-vector>
-            <stl-vector name='shoes_plate'>
-                <int16_t ref-target='itemdef_shoesst'/>
-            </stl-vector>
-            <stl-vector name='shoes_under'>
-                <int16_t ref-target='itemdef_shoesst'/>
-            </stl-vector>
-            <stl-vector name='shoes_over'>
-                <int16_t ref-target='itemdef_shoesst'/>
-            </stl-vector>
-            <stl-vector name='shoes_cover'>
-                <int16_t ref-target='itemdef_shoesst'/>
-            </stl-vector>
-            <stl-vector name='gloves_leather'>
-                <int16_t ref-target='itemdef_glovesst'/>
-            </stl-vector>
-            <stl-vector name='gloves_chain'>
-                <int16_t ref-target='itemdef_glovesst'/>
-            </stl-vector>
-            <stl-vector name='gloves_plate'>
-                <int16_t ref-target='itemdef_glovesst'/>
-            </stl-vector>
-            <stl-vector name='gloves_under'>
-                <int16_t ref-target='itemdef_glovesst'/>
-            </stl-vector>
-            <stl-vector name='gloves_over'>
-                <int16_t ref-target='itemdef_glovesst'/>
-            </stl-vector>
-            <stl-vector name='gloves_cover'>
-                <int16_t ref-target='itemdef_glovesst'/>
-            </stl-vector>
+            <stl-vector name='armor_leather' type-name='int16_t' ref-target='itemdef_armorst'/>
+            <stl-vector name='armor_chain' type-name='int16_t' ref-target='itemdef_armorst'/>
+            <stl-vector name='armor_plate' type-name='int16_t' ref-target='itemdef_armorst'/>
+            <stl-vector name='armor_under' type-name='int16_t' ref-target='itemdef_armorst'/>
+            <stl-vector name='armor_over' type-name='int16_t' ref-target='itemdef_armorst'/>
+            <stl-vector name='armor_cover' type-name='int16_t' ref-target='itemdef_armorst'/>
+            <stl-vector name='pants_leather' type-name='int16_t' ref-target='itemdef_pantsst'/>
+            <stl-vector name='pants_chain' type-name='int16_t' ref-target='itemdef_pantsst'/>
+            <stl-vector name='pants_plate' type-name='int16_t' ref-target='itemdef_pantsst'/>
+            <stl-vector name='pants_under' type-name='int16_t' ref-target='itemdef_pantsst'/>
+            <stl-vector name='pants_over' type-name='int16_t' ref-target='itemdef_pantsst'/>
+            <stl-vector name='pants_cover' type-name='int16_t' ref-target='itemdef_pantsst'/>
+            <stl-vector name='helm_leather' type-name='int16_t' ref-target='itemdef_helmst'/>
+            <stl-vector name='helm_chain' type-name='int16_t' ref-target='itemdef_helmst'/>
+            <stl-vector name='helm_plate' type-name='int16_t' ref-target='itemdef_helmst'/>
+            <stl-vector name='helm_under' type-name='int16_t' ref-target='itemdef_helmst'/>
+            <stl-vector name='helm_over' type-name='int16_t' ref-target='itemdef_helmst'/>
+            <stl-vector name='helm_cover' type-name='int16_t' ref-target='itemdef_helmst'/>
+            <stl-vector name='shoes_leather' type-name='int16_t' ref-target='itemdef_shoesst'/>
+            <stl-vector name='shoes_chain' type-name='int16_t' ref-target='itemdef_shoesst'/>
+            <stl-vector name='shoes_plate' type-name='int16_t' ref-target='itemdef_shoesst'/>
+            <stl-vector name='shoes_under' type-name='int16_t' ref-target='itemdef_shoesst'/>
+            <stl-vector name='shoes_over' type-name='int16_t' ref-target='itemdef_shoesst'/>
+            <stl-vector name='shoes_cover' type-name='int16_t' ref-target='itemdef_shoesst'/>
+            <stl-vector name='gloves_leather' type-name='int16_t' ref-target='itemdef_glovesst'/>
+            <stl-vector name='gloves_chain' type-name='int16_t' ref-target='itemdef_glovesst'/>
+            <stl-vector name='gloves_plate' type-name='int16_t' ref-target='itemdef_glovesst'/>
+            <stl-vector name='gloves_under' type-name='int16_t' ref-target='itemdef_glovesst'/>
+            <stl-vector name='gloves_over' type-name='int16_t' ref-target='itemdef_glovesst'/>
+            <stl-vector name='gloves_cover' type-name='int16_t' ref-target='itemdef_glovesst'/>
         </compound>
         <int32_t name='num_members'/>
         <int32_t name='max_members' comment='1000 if created at the beginning of the Age of Myth or Legends, 500 otherwise'/>
