@@ -137,7 +137,7 @@
     <enum-type type-name='language_name_category'>
         <enum-item name='Unit'/>
         <enum-item name='Artifact'/>
-        <enum-item name='ArtifactEvil'/>
+        <enum-item name='ArtifactEvil' comment='for Macabre/Fell moods'/>
         <enum-item name='Swamp'/>
         <enum-item name='Desert'/>
         <enum-item name='Forest'/>
@@ -149,7 +149,7 @@
         <enum-item name='Tundra'/>
         <enum-item name='Grassland'/>
         <enum-item name='Hills'/>
-        <enum-item name='Region'/>
+        <enum-item name='Region' comment='for generated Worlds'/>
         <enum-item name='Cave'/>
         <enum-item name='SwampEvil'/>
         <enum-item name='DesertEvil'/>
@@ -174,8 +174,8 @@
         <enum-item name='GrasslandGood'/>
         <enum-item name='HillsGood'/>
         <enum-item name='ArtImage'/>
-        <enum-item name='Evil'/>
-        <enum-item name='Unknown'/>
+        <enum-item name='Demon1' comment='Lesser demons pick between these randomly'/>
+        <enum-item name='Demon2'/>
     </enum-type>
 </data-definition>
 
