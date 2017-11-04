@@ -111,7 +111,7 @@
         <int8_t name='mouse_rbut'/>
         <int8_t name='mouse_lbut_lift'/>
         <int8_t name='mouse_rbut_lift'/>
-        <stl-vector name='file_info'/> of text_system_file_info
+        <stl-vector name='file_info' pointer-type='text_system_file_info'/>
         <static-array name='ccolor' count='16'>
             <static-array count='3' type-name='s-float'/>
         </static-array>
@@ -260,6 +260,33 @@
         <s-float name='fade_t'/>
         <int8_t name='buffer_draw'/>
     </struct-type>
+
+    <struct-type type-name='text_system_file_info'>
+        <int32_t name='index'/>
+        <stl-string name='filename'/>
+        <int8_t name='file_token'/>
+        <int32_t name='number'/>
+    </struct-type>
+
+    <struct-type type-name='text_info'>
+        <stl-vector name='elements' pointer-type='text_info_elementst'/>
+    </struct-type>
+
+    <class-type type-name='text_info_elementst'>
+        <virtual-methods>
+            <vmethod name='getString'><pointer name='val' type-name='stl-string'/></vmethod>
+            <vmethod name='getLong' ret-type='int32_t'/>
+            <vmethod is-destructor='true'/>
+        </virtual-methods>
+    </class-type>
+
+    <class-type type-name='text_info_element_longst' inherits-from='text_info_elementst'>
+        <int32_t name='val'/>
+    </class-type>
+
+    <class-type type-name='text_info_element_stringst' inherits-from='text_info_elementst'>
+        <stl-string name='val'/>
+    </class-type>
 </data-definition>
 
 <!--

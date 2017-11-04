@@ -92,15 +92,15 @@
         <int32_t name='projectile_id' ref-target='projectile'/>
     </class-type>
 
-    <class-type type-name='general_ref_unit' inherits-from='general_ref'>
+    <class-type type-name='general_ref_unit' inherits-from='general_ref' original-name='general_ref_unitst'>
         <int32_t name='unit_id' ref-target='unit'/>
     </class-type>
 
-    <class-type type-name='general_ref_building' inherits-from='general_ref'>
+    <class-type type-name='general_ref_building' inherits-from='general_ref' original-name='general_ref_buildingst'>
         <int32_t name='building_id' ref-target='building'/>
     </class-type>
 
-    <class-type type-name='general_ref_item' inherits-from='general_ref'>
+    <class-type type-name='general_ref_item' inherits-from='general_ref' original-name='general_ref_itemst'>
         <int32_t name='item_id' ref-target='item'/>
     </class-type>
 
