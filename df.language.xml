@@ -174,8 +174,8 @@
         <enum-item name='GrasslandGood'/>
         <enum-item name='HillsGood'/>
         <enum-item name='ArtImage'/>
-        <enum-item name='Demon1' comment='Lesser demons pick between these randomly'/>
-        <enum-item name='Demon2'/>
+        <enum-item name='DemonEvil' comment='Lesser demons pick between these two randomly'/>
+        <enum-item name='DemonGood'/>
     </enum-type>
 </data-definition>
 
