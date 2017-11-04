@@ -46,6 +46,12 @@
         <enum-item/>
     </enum-type>
 
+    <enum-type type-name='entity_name_type'>
+        <enum-item name='OTHER'/>
+        <enum-item name='CIV'/>
+        <enum-item name='SITE'/>
+    </enum-type>
+
     <struct-type type-name='entity_raw' instance-vector='$global.world.raws.entities'>
         <stl-string name='code'/>
 
@@ -151,13 +157,13 @@
         <df-flagarray name='flags' index-enum='entity_raw_flags'/>
         <stl-string name='translation'/>
 
-        <compound name='symbols' comment='index 0 = all, 1 = civ, 2 = site'>
-            <static-array name='word_table_1' type-name='language_word_table' count='3'/>
-            <static-array name='word_table_2' type-name='language_word_table' count='3'/>
-            <static-array name='select_symbol' count='3'>
+        <compound name='symbols'>
+            <static-array name='word_table_1' type-name='language_word_table' index-enum='entity_name_type' count='3'/>
+            <static-array name='word_table_2' type-name='language_word_table' index-enum='entity_name_type' count='3'/>
+            <static-array name='select_symbol' index-enum='entity_name_type' count='3'>
                 <stl-vector pointer-type='stl-string'/>
             </static-array>
-            <static-array name='cull_symbol' count='3'>
+            <static-array name='cull_symbol' index-enum='entity_name_type' count='3'>
                 <stl-vector pointer-type='stl-string'/>
             </static-array>
         </compound>
