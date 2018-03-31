@@ -213,7 +213,7 @@
 
         <compound name='command_line'>
             <stl-string name='original'/>
-            <stl-vector pointer-type='stl-string' name='art_vect'/>
+            <stl-vector pointer-type='stl-string' name='arg_vect'/>
             <int32_t name='gen_id'/>
         </compound>
 
