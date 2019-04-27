@@ -428,7 +428,7 @@
         <int16_t name='jails_present'/>
         <int16_t name='cursor'/>
         <stl-vector name='criminals' pointer-type='unit'/>
-        <stl-vector name='crimes' type-name='crime_info'/>
+        <stl-vector name='crimes' pointer-type='crime_info'/>
         <pointer name='punishment' type-name='punishment_info'/>
     </class-type>
 
@@ -620,7 +620,7 @@
         <int32_t name='maxmoviepos'/>
         <int32_t name='end_frame_pos'/>
         <int32_t name='selfile'/>
-        <stl-vector type-name='stl-string' name='filelist'/>
+        <stl-vector name='filelist' type-name='ptr-string'/>
     </class-type>
 
     <class-type type-name='viewscreen_loadgamest' inherits-from='viewscreen'>
