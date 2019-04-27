@@ -1,4 +1,17 @@
 <data-definition>
+    <struct-type type-name='file_compressorst'>
+        <int32_t name='handle' comment='Windows file HANDLE'/>
+
+        <pointer name='in_buffer' type-name='uint8_t' is-array='true'/>
+        <int32_t name='in_buffersize'/>
+        <int32_t name='in_buffer_amount_loaded'/>
+        <int32_t name='in_buffer_position'/>
+
+        <pointer name='out_buffer' type-name='uint8_t' is-array='true'/>
+        <int32_t name='out_buffersize'/>
+        <int32_t name='out_buffer_amount_written'/>
+    </struct-type>
+
     <enum-type type-name='interface_breakdown_types' base-type='int8_t'>
         <enum-item name='NONE'/>
         <enum-item name='QUIT'/>

@@ -279,9 +279,9 @@
             </vmethod>
 
             <vmethod name='getClothingCategory' ret-type='int32_t' comment='0 for armor, 1 for pants, 2 for shoes, -1 for everything else'/>
-            <vmethod name='write_file'> <pointer comment='file_compressorst'/> </vmethod>
+            <vmethod name='write_file'> <pointer name='filecomp' type-name='file_compressorst'/> </vmethod>
             <vmethod name='read_file'>
-                <pointer comment='file_compressorst'/>
+                <pointer name='filecomp' type-name='file_compressorst'/>
                 <int32_t name='loadversion'/>
             </vmethod>
             <vmethod ret-type='bool' name='isOnGround'/>
