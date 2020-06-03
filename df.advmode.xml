@@ -107,8 +107,21 @@
         <int32_t name='recipient_hf' ref-target='historical_figure'/>
         <int32_t comment='unused'/>
 
-        <compound name='target_pos' type-name='coord2d32'/>
-        <compound name='giver_pos' type-name='coord2d32'/>
+        <compound name='target_pos' type-name='coord2d'/>
+        <compound name='giver_pos' type-name='coord2d'/>
+        <virtual-methods>
+            <vmethod ret-type='int32_t' name='getType'/>
+            <vmethod ret-type='int32_t' name='getState' comment='0/1/2'/>
+            <vmethod name='getDescription'><pointer type-name='stl-string' name='str'/></vmethod>
+            <vmethod name='checkCompleted'><int32_t name='histfig_id'/></vmethod>
+            <vmethod name='updateLocation'/>
+            <vmethod name='read_file'>
+                <pointer name='filecomp' type-name='file_compressorst'/>
+                <int32_t name='loadversion'/>
+            </vmethod>
+            <vmethod name='write_file'> <pointer name='filecomp' type-name='file_compressorst'/> </vmethod>
+            <vmethod is-destructor='true'/>
+        </virtual-methods>
     </class-type>
 
     <class-type type-name='task_kill_nemesisst' inherits-from='adv_task'>

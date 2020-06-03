@@ -463,17 +463,17 @@
             <enum-item name='Hauled'/>
             <enum-item name='Weapon' comment='also shield'/>
             <enum-item name='Worn' comment='Body'/>
-            <enum-item name='Unk3' comment='Neck'/>
-            <enum-item name='Unk4' comment='Head'/>
-            <enum-item name='Unk5' comment='Finger'/>
+            <enum-item name='Old_Neck'/>
+            <enum-item name='Old_Head'/>
+            <enum-item name='Old_Finger'/>
             <enum-item name='Piercing' comment='Ear'/>
-            <enum-item name='Unk7' comment='Wrist'/>
-            <enum-item name='Unk8' comment='Feet'/>
-            <enum-item name='Unk9' comment='Hands'/>
-            <enum-item name='Unk10' comment='Legs'/>
-            <enum-item name='Unk11' comment='Body'/>
-            <enum-item name='Unk12' comment='Body'/>
-            <enum-item name='Unk13' comment='Back'/>
+            <enum-item name='Old_Wrist'/>
+            <enum-item name='Old_Feet'/>
+            <enum-item name='Old_Hands'/>
+            <enum-item name='Old_Legs'/>
+            <enum-item name='Old_Body'/>
+            <enum-item name='Old_Body2'/>
+            <enum-item name='Old_Back'/>
             <enum-item name='Flask' comment='Belt'/>
             <enum-item name='StuckIn'/>
             <enum-item name='InMouth' comment='Mouth'/>

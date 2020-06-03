@@ -179,7 +179,7 @@
             <flag-bit name='neighbor'/>
             <flag-bit name='mountainhome'/>
             <flag-bit name='unk2'/>
-            <flag-bit name='unk3'/>
+            <flag-bit name='questlog'/>
             <flag-bit name='ruin'/>
         </bitfield>
 
