@@ -572,9 +572,9 @@
     </class-type>
 
     <class-type type-name='building_channelst' inherits-from='building_actual'>
-        <pointer type-name='building' name='channel_parent'/>
+        <pointer type-name='building_channelst' name='channel_parent'/>
         <stl-vector name='channel_children'>
-            <pointer type-name='building'/>
+            <pointer type-name='building_channelst'/>
         </stl-vector>
         <stl-vector name='ponded_fish'>
             <int32_t ref-target='item'/>

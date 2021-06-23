@@ -92,6 +92,15 @@
         <stl-vector pointer-type="layer_object" name="layer_objects"/>
     </class-type>
 
+    <struct-type type-name='interfacekeyst'>
+        <stl-string name='description'/>
+        <stl-string name='token'/>
+        <uint8_t name='key'/>
+        <int32_t name='last_used_for_held'/>
+        <int8_t name='held'/>
+        <int8_t name='is_shift'/>
+    </struct-type>
+
     <struct-type type-name='interfacest'>
         <compound name='announcements'>
             <stl-vector name='reports' pointer-type='report'/>
@@ -99,8 +108,7 @@
         </compound>
         <uint8_t name='current_key'/>
         <int8_t name='current_shift'/>
-        <int8_t/>
-        <int8_t/>
+        <int8_t name='current_caps'/>
 
         <static-array count='256' name='keyNames'>
             <stl-string name='normal'/>
@@ -109,20 +117,13 @@
 
         <compound name='view' type-name='viewscreen'/>
 
-        <int32_t/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <stl-vector type-name='pointer'/>
-        <int32_t/>
-        <static-array count='661' name='keybinds' index-enum='interface_key'>
-            <stl-string name='description'/>
-            <stl-string name='token'/>
-            <uint8_t name='key'/>
-            <int32_t/>
-            <int8_t/>
-            <int8_t name='is_shift'/>
-        </static-array>
-        <static-array count='256' type-name='int8_t'/>
+        <int32_t name='time'/>
+        <stl-vector name='inputbuffer' type-name='uint8_t'/>
+        <stl-vector name='inputbuffer_shift' type-name='int8_t'/>
+        <stl-vector name='inputbuffer_caps' type-name='int8_t'/>
+        <uint32_t name='flag'/>
+        <static-array count='661' name='keybinds' type-name='interfacekeyst' index-enum='interface_key'/>
+        <static-array count='256' name='keyboardstate' type-name='uint8_t'/>
         <int8_t name='supermovie_on'/>
         <int32_t name='supermovie_pos'/>
         <int32_t name='supermovie_delayrate'/>
@@ -276,9 +277,9 @@
         <pointer type-name='int32_t' name='item_subtype'/>
         <pointer type-name='int32_t' name='material'/>
         <pointer type-name='int32_t' name='matgloss'/>
-        <stl-vector name='all_items' type-name='pointer'/>
+        <stl-vector name='all_items' pointer-type='embark_item'/>
         <pointer name='embark_screen' type-name='viewscreen_setupdwarfgamest'/>
-        <stl-vector name='matching_items' type-name='pointer'/>
+        <stl-vector name='matching_items' pointer-type='embark_item'/>
         <static-string name='title' size='80'/>
         <static-string size='200'/>
         <static-string name='filter' size='80'/>
@@ -325,10 +326,10 @@
     </class-type>
 
     <struct-type type-name='world_dat_summary'>
-        <stl-string/>
+        <stl-string name='filename'/>
         <compound type-name='language_name' name='name'/>
-        <stl-string/>
-        <static-array count='15' type-name='int8_t' comment='same as the one at the top of world_data'/>
+        <stl-string name='title'/>
+        <static-array count='15' type-name='int8_t' name='gamemode_flags'/>
         <int32_t name='save_slot_num'/>
         <int32_t name='next_unit_id'/>
         <int32_t name='next_item_id'/>
@@ -692,17 +693,14 @@
     <class-type type-name='viewscreen_barterst' inherits-from='viewscreen'>
         <pointer type-name='unit' name='shopkeeper'/>
         <pointer type-name='unit' name='adventurer'/>
-        <pointer type-name='building' name='building'/>
-        <stl-vector name="shopkeeper_items" pointer-type='item'/>
-        <stl-vector name="your_items" pointer-type='item'/>
-        <stl-vector name="shopkeeper_selected" type-name='bool'/>
-        <stl-vector name="your_selected" type-name='bool'/>
-        <stl-vector pointer-type='item'/>
-        <int32_t/>
-        <int32_t/>
-        <int8_t/>
+        <pointer type-name='building_civzonest' name='building'/>
+        <static-array count='2' name='items'><stl-vector pointer-type='item'/></static-array>
+        <static-array count='2' name='selected'><stl-vector type-name='bool'/></static-array>
+        <stl-vector name='sold_items' pointer-type='item'/>
+        <static-array count='2' type-name='int32_t' name='cursor'/>
+        <int8_t name='cursor_side'/>
         <int16_t name='trade_reply'/>
-        <int8_t/>
+        <int8_t name='do_trade'/>
         <int32_t name='max_ask'/>
         <int32_t name='max_offer'/>
         <int32_t name='cur_ask'/>

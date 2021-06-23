@@ -238,7 +238,9 @@
         <int32_t name='pet_unit_id' ref-target='unit'/>
         <compound name='name' type-name='language_name'/>
         <code-helper name='describe'>(describe-obj $.name)</code-helper>
-        <int32_t name='unk3'/>
+        <bitfield name='flags'>
+            <flag-bit name='has_owner'/>
+        </bitfield>
         <int32_t name='owner_id' ref-target='unit'/>
     </struct-type>
 
@@ -268,10 +270,16 @@
     </struct-type>
 
     <struct-type type-name='schedule_slot'>
-        <int16_t name='type' comment='0:Eat, 1:Sleep, 2-4:???'/>
+        <enum name='type' base-type='int16_t'>
+            <enum-item name='Eat'/>
+            <enum-item name='Sleep'/>
+            <enum-item name='IdleMeadHall'/>
+            <enum-item name='IdleShopkeeper'/>
+            <enum-item name='IdleOutside'/>
+        </enum>
         <int16_t name='start_time'/>
         <int16_t name='end_time'/>
-        <int16_t/>
+        <int16_t name='priority'/>
         <int8_t name='processed'/>
     </struct-type>
 

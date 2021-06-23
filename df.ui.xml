@@ -54,8 +54,8 @@
             <pointer type-name='caravan_state'/>
         </stl-vector>
         <int8_t name='firstCaravan' comment='display special screens on arrival/departure of first caravan'/>
-        <compound type-name='coord32_path' name='dwarfArrivalTiles'/>
-        <compound type-name='coord32_path' name='roadInfo'/>
+        <compound type-name='coord32_path' name='humanPath'/>
+        <compound type-name='coord32_path' name='dwarfPath'/>
         <int16_t name='progress_population'/>
         <int16_t name='progress_trade'/>
         <int16_t name='progress_production'/>

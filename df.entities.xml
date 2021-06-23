@@ -274,7 +274,7 @@
         <int16_t name='last_communicate_season'/>
         <int32_t name='last_communicate_year'/>
         <int32_t name='imports'/>
-        <int32_t name='exports'/>
+        <int32_t name='offerings'/>
         <int32_t name='offerings_recent'/>
         <static-array name='offerings_history' count='10' type-name='int32_t'/>
         <int32_t name='hostile_level' comment='determines siege difficulty, has a chance to reset to 1 after each siege'/>

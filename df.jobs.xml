@@ -39,9 +39,7 @@
         <compound name='pos' type-name='coord32'/>
 
         <int32_t name='completion_timer' comment='-1 per 10 frames'/>
-        <uint16_t name='unk4a'/>
-        <uint16_t name='unk4b'/>
-
+        <int32_t name='unk4' comment='used by Cast Spell job'/>
         <compound name='flags' type-name='job_flags'/>
         <enum base-type='int16_t' name='material' type-name='material_type'/>
         <int16_t name='matgloss' refers-to='(matgloss-target $$._parent.material $)'/>

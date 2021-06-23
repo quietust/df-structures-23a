@@ -241,8 +241,8 @@
         <bool name='showFakeElevationDividers'/>
         <static-array count='3' type-name='int32_t' name='feature_type'/>
         <static-array count='3' type-name='int32_t' name='feature_depth'/>
-        <int32_t/>
-        <int8_t/>
+        <int32_t name='next_path_cost'/>
+        <int8_t name='wipe_path_cost'/>
         <int32_t/>
         <int32_t/>
         <compound type-name='world_data' name='world_data'/>
@@ -265,8 +265,8 @@
             <int32_t/>
             <int32_t/>
             <int32_t/>
-            <int32_t/>
-            <int32_t/>
+            <int32_t name='camera_x'/>
+            <int32_t name='camera_y'/>
             <stl-vector type-name='pointer'/>
             <stl-vector type-name='pointer'/>
             <int32_t name='rivers_total'/>
@@ -285,11 +285,6 @@
         -- RAWs
 
         <compound name='raws' type-name='world_raws'/>
-        <int16_t name='lava_stone' ref-target='matgloss_stone'/>
-        <int16_t name='river_stone' ref-target='matgloss_stone'/>
-        <int16_t name='flux_stone' ref-target='matgloss_stone'/>
-        <int16_t name='sharp_stone' ref-target='matgloss_stone'/>
-        <int16_t name='glass_gem' ref-target='matgloss_gem'/>
 
         <compound name='fortress'>
             <stl-string/>
@@ -299,8 +294,8 @@
             <int8_t/>
             <int16_t/>
             <int32_t/>
-            <int16_t/>
-            <int16_t/>
+            <int16_t name='longitude'/>
+            <int16_t name='latitude'/>
             <compound name='pos' type-name='coord2d'/>
         </compound>
         <bool name="reindex_pathfinding" comment='forces map_block.passable to be recomputed'/>

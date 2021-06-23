@@ -55,36 +55,171 @@
         <int8_t name='display_frames'/>
     </struct-type>
 
-    <struct-type type-name='enabler'>
+    <struct-type type-name='enabler_Application'>
         <uint32_t name='hInstance'/>
-        <uint32_t name='className'/>
-        <compound name='windowInfo'>
-            <pointer/>
-            <uint32_t name='hWnd'/>
-            <uint32_t name='hDC'/>
-            <uint32_t name='HGLRC'/>
-            <pointer/>
-            <uint32_t name='lpWindowName'/>
-            <int32_t name='dim_x'/>
-            <int32_t name='dim_y'/>
-            <int32_t name='bpp'/>
-            <int32_t name='windowed'/>
-            <int32_t/>
-            <int32_t/>
+        <pointer type-name='static-string' name='className'/>
+    </struct-type>
+
+    <struct-type type-name='enabler_Keys'>
+        <static-array count='256' type-name='int32_t' name='keyDown'/>
+    </struct-type>
+
+    <struct-type type-name='enabler_GL_WindowInit'>
+        <pointer type-name='enabler_Application' name='application'/>
+        <pointer type-name='static-string' name='title'/>
+        <int32_t name='width'/>
+        <int32_t name='height'/>
+        <int32_t name='bitsperpixel'/>
+        <int32_t name='isFullScreen'/>
+    </struct-type>
+
+    <struct-type type-name='enabler_GL_Window'>
+        <pointer type-name='enabler_Keys' name='Keys'/>
+        <uint32_t name='hWnd'/>
+        <uint32_t name='hDC'/>
+        <uint32_t name='hRC'/>
+        <compound name='init' type-name='enabler_GL_WindowInit'/>
+        <uint32_t name='isVisible'/>
+        <uint32_t name='lastTickCount'/>
+    </struct-type>
+
+    This is actually the Windows MSG struct
+
+    <struct-type type-name='enabler_MSG'>
+        <uint32_t name='hwnd'/>
+        <uint32_t name='message'/>
+        <uint32_t name='wParam'/>
+        <uint32_t name='lParam'/>
+        <uint32_t name='time'/>
+        <compound name='pt'>
+            <int32_t name='x'/>
+            <int32_t name='y'/>
         </compound>
-        <static-array type-name='int32_t' count='256'/>
-        <int32_t/>
-        <compound name='MSG'>
-            <uint32_t name='hwnd'/>
-            <uint32_t name='message'/>
-            <uint32_t name='wParam'/>
-            <uint32_t name='lParam'/>
-            <uint32_t name='time'/>
-            <compound name='pt'>
-                <int32_t name='x'/>
-                <int32_t name='y'/>
-            </compound>
-        </compound>
+    </struct-type>
+
+    <bitfield-type type-name='enabler_tileflag' base-type='uint32_t'>
+        <flag-bit name='TILEFLAG_DEAD'/>
+        <flag-bit name='TILEFLAG_ROTATE'/>
+        <flag-bit name='TILEFLAG_FIXRECT'/>
+        <flag-bit name='TILEFLAG_HORFLIP'/>
+        <flag-bit name='TILEFLAG_VERFLIP'/>
+        <flag-bit name='TILEFLAG_LINE'/>
+        <flag-bit name='TILEFLAG_RECT'/>
+        <flag-bit name='TILEFLAG_BUFFER_DRAW'/>
+        <flag-bit name='TILEFLAG_MODEL_PERSPECTIVE'/>
+        <flag-bit name='TILEFLAG_MODEL_ORTHO'/>
+        <flag-bit name='TILEFLAG_MODEL_TRANSLATE'/>
+        <flag-bit name='TILEFLAG_LINE_3D'/>
+    </bitfield-type>
+
+    <struct-type type-name='tilest'>
+        <int32_t name='tex_pos'/>
+        <d-float name='x'/>
+        <d-float name='y'/>
+        <compound name='flag' type-name='enabler_tileflag'/>
+        <s-float name='color_r'/>
+        <s-float name='color_g'/>
+        <s-float name='color_b'/>
+        <s-float name='color_a'/>
+        <int32_t name='force_gennum'/>
+        <d-float name='force_dimx'/>
+        <d-float name='force_dimy'/>
+        <d-float name='hor_stretch'/>
+        <d-float name='ver_stretch'/>
+        <int8_t name='force_alpha'/>
+        <int32_t name='pixmin_x'/>
+        <int32_t name='pixmax_x'/>
+        <int32_t name='pixmin_y'/>
+        <int32_t name='pixmax_y'/>
+        <d-float name='rotate_cenx'/>
+        <d-float name='rotate_ceny'/>
+        <d-float name='rotate_angle'/>
+    </struct-type>
+
+    <struct-type type-name='enabler_inputst'>
+        <int32_t name='key'/>
+        <int8_t name='shift'/>
+        <int8_t name='caps'/>
+    </struct-type>
+
+    <struct-type type-name='cursesrectst'>
+        <int32_t name='id'/>
+        <static-array count='256' name='gennum' type-name='uint32_t'/>
+        <int32_t name='font_id'/>
+        <s-float name='letsizex'/>
+        <s-float name='letsizey'/>
+        <s-float name='powsizex'/>
+        <s-float name='powsizey'/>
+        <int32_t name='x'/>
+        <int32_t name='y'/>
+        <int32_t name='dimx'/>
+        <int32_t name='dimy'/>
+        <pointer type-name='uint8_t' name='buffer_char' is-array='true'/>
+        <pointer type-name='s-float' name='buffer_r' is-array='true'/>
+        <pointer type-name='s-float' name='buffer_g' is-array='true'/>
+        <pointer type-name='s-float' name='buffer_b' is-array='true'/>
+        <pointer type-name='s-float' name='buffer_br' is-array='true'/>
+        <pointer type-name='s-float' name='buffer_bg' is-array='true'/>
+        <pointer type-name='s-float' name='buffer_bb' is-array='true'/>
+    </struct-type>
+
+    <struct-type type-name='gridrectst'>
+        <int32_t name='id'/>
+        <int32_t name='dimx'/>
+        <int32_t name='dimy'/>
+        <pointer type-name='int32_t' name='buffer_texpos'/>
+        <pointer type-name='s-float' name='buffer_r' is-array='true'/>
+        <pointer type-name='s-float' name='buffer_g' is-array='true'/>
+        <pointer type-name='s-float' name='buffer_b' is-array='true'/>
+        <pointer type-name='s-float' name='buffer_br' is-array='true'/>
+        <pointer type-name='s-float' name='buffer_bg' is-array='true'/>
+        <pointer type-name='s-float' name='buffer_bb' is-array='true'/>
+        <s-float/>
+        <s-float/>
+        <int32_t name='dispx'/>
+        <int32_t name='dispy'/>
+        <int8_t name='black_space'/>
+    </struct-type>
+
+    <struct-type type-name='fontst'>
+        <int32_t name='id'/>
+        <stl-string name='fontfile'/>
+        <int32_t name='lx'/>
+        <int32_t name='ly'/>
+        <int32_t name='letsizex'/>
+        <int32_t name='letsizey'/>
+        <int32_t name='powsizex'/>
+        <int32_t name='powsizey'/>
+        <int8_t name='var_font'/>
+        <static-array count='256' name='letwidth' type-name='int32_t'/>
+        <static-array count='256' name='gennum' type-name='int32_t'/>
+    </struct-type>
+
+    <struct-type type-name='texturest'>
+        <int32_t name='id'/>
+        <stl-string name='texturefile'/>
+        <int32_t name='datapos'/>
+        <int8_t name='alpha_texture'/>
+        <int8_t name='auto_alias'/>
+        <int16_t name='width'/>
+        <int16_t name='height'/>
+        <uint32_t name='gennum'/>
+        <uint32_t name='old_gennum'/>
+    </struct-type>
+
+    <struct-type type-name='texture_datast'>
+        <pointer type-name='int8_t' name='data' is-array='true'/>
+        <int8_t name='alpha_texture'/>
+        <int16_t name='width'/>
+        <int16_t name='height'/>
+    </struct-type>
+
+    <struct-type type-name='enabler'>
+        <compound name='application' type-name='enabler_Application'/>
+        <compound name='windowInfo' type-name='enabler_GL_Window'/>
+        <compound name='keys' type-name='enabler_Keys'/>
+        <int32_t name='isMessagePumpActive'/>
+        <compound name='msg' type-name='enabler_MSG'/>
         <int32_t name='desired_windowed_width'/>
         <int32_t name='desired_windowed_height'/>
         <int32_t name='desired_fullscreen_width'/>
@@ -102,7 +237,7 @@
         <int64_t name='qprate'/>
         <int64_t name='qpc'/>
         <int64_t name='qpc2'/>
-        <int32_t/>
+        <int32_t name='timer'/>
         <int32_t name='oldmouse_x'/>
         <int32_t name='oldmouse_y'/>
         <int32_t name='mouse_x'/>
@@ -111,135 +246,27 @@
         <int8_t name='mouse_rbut'/>
         <int8_t name='mouse_lbut_lift'/>
         <int8_t name='mouse_rbut_lift'/>
-        <stl-vector name='file_info' pointer-type='text_system_file_info'/>
+        <compound name='text_system' type-name='text_systemst'/>
         <static-array name='ccolor' count='16'>
             <static-array count='3' type-name='s-float'/>
         </static-array>
-        <int32_t name='window_x'/>
-        <int32_t name='window_y'/>
-        <stl-vector name='overlays' comment='used for mouse picture'>
-            <pointer>
-                <int32_t name='texpos'/>
-                <int32_t/>
-                <d-float name='x1'/>
-                <d-float name='y1'/>
-                <uint32_t name='flags'/>
-                <s-float name='red'/>
-                <s-float name='green'/>
-                <s-float name='blue'/>
-                <s-float name='alpha'/>
-                <int32_t/>
-                <d-float name='x2'/>
-                <d-float name='y2'/>
-                <d-float name='z1'/>
-                <d-float name='z2'/>
-                <int8_t/>
-                <int32_t/>
-                <int32_t/>
-                <int32_t/>
-                <int32_t/>
-                <int32_t/>
-                <d-float/>
-                <d-float/>
-                <d-float/>
-            </pointer>
-        </stl-vector>
-        <int32_t/>
-        <int32_t/>
-        <static-array count='100' name='input_queue'>
-            <int32_t name='vKey'/>
-            <int8_t name='shift'/>
-            <int8_t name='capslock'/>
-        </static-array>
+        <int32_t name='window_width'/>
+        <int32_t name='window_height'/>
+        <stl-vector name='tile' pointer-type='tilest' comment='used for mouse picture'/>
+        <int32_t name='next_tile_slot'/>
+        <int32_t name='active_font_id'/>
+        <static-array count='100' name='input_queue' type-name='enabler_inputst'/>
         <int8_t name='is_program_looping'/>
-        <stl-vector comment='not created anywhere'>
-            <pointer>
-                <pointer/>
-                <static-array count='256' name='textures' type-name='int32_t'/>
-                <int32_t/>
-                <int32_t/>
-                <int32_t/>
-                <int32_t/>
-                <int32_t/>
-                <int32_t/>?
-                <int32_t/>?
-                <int32_t/>
-                <int32_t/>
-                <int32_t/>
-                <pointer/>
-                <pointer/>
-                <pointer/>
-                <pointer/>
-                <pointer/>
-                <pointer/>
-            </pointer>
-        </stl-vector>
-        <stl-vector name='gridrect'>
-            <pointer>
-                <int32_t name='id'/>
-                <int32_t name='dimx'/>
-                <int32_t name='dimy'/>
-                <pointer type-name='int32_t' name='buffer_texpos'/>
-                <pointer type-name='s-float' name='buffer_r' is-array='true'/>
-                <pointer type-name='s-float' name='buffer_g' is-array='true'/>
-                <pointer type-name='s-float' name='buffer_b' is-array='true'/>
-                <pointer type-name='s-float' name='buffer_br' is-array='true'/>
-                <pointer type-name='s-float' name='buffer_bg' is-array='true'/>
-                <pointer type-name='s-float' name='buffer_bb' is-array='true'/>
-                <s-float/>
-                <s-float/>
-                <int32_t name='dispx'/>
-                <int32_t name='dispy'/>
-                <int8_t name='black_space'/>
-            </pointer>
-        </stl-vector>
-        <stl-vector comment='not created anywhere'>
-            <pointer>
-                <int32_t/>
-                <stl-string/>
-                <int32_t/>
-                <int32_t/>
-                <int32_t name='dimx_1'/>
-                <int32_t name='dimy_1'/>
-                <int32_t name='dimx_2'/>
-                <int32_t name='dimy_2'/>
-                <int32_t/>
-                <int32_t/>
-                <static-array type-name='int32_t' count='24'/>
-                <int8_t/>
-                <static-array type-name='int8_t' count='29'/>
-                <int32_t/>
-                <static-array type-name='int32_t' count='222'/>
-                <int32_t/>
-                <static-array type-name='int32_t' count='256'/>
-            </pointer>
-        </stl-vector>
-        <stl-vector name='texture'>
-            <pointer>
-                <pointer/>
-                <stl-string name='name'/>
-                <int32_t name='datapos'/>
-                <int8_t name='alpha_1'/>
-                <int8_t name='alpha_2'/>
-                <int16_t name='dimx'/>
-                <int16_t name='dimy'/>
-                <int32_t name='glTexture'/>
-                <int32_t name='old_glTexture'/>
-            </pointer>
-        </stl-vector>
-        <stl-vector name='texture_data'>
-            <pointer>
-                <pointer type-name='int8_t' name='rgb' is-array='true'/>
-                <int8_t name='alpha'/>
-                <int16_t name='dimx'/>
-                <int16_t name='dimy'/>
-            </pointer>
-        </stl-vector>
-        <int32_t/>
+        <stl-vector name='cursesrect' pointer-type='cursesrectst' comment='never used'/>
+        <stl-vector name='gridrect' pointer-type='gridrectst'/>
+        <stl-vector name='font' pointer-type='fontst' comment='never used'/>
+        <stl-vector name='texture' pointer-type='texturest'/>
+        <stl-vector name='texture_data' pointer-type='texture_datast'/>
+        <int32_t name='next_cursesrect_id'/>
         <int32_t name='next_gridrect_id'/>
-        <int32_t/>
-        <int32_t/>
-        <int32_t/>
+        <int32_t name='next_font_id'/>
+        <int32_t name='next_texture_id'/>
+        <int32_t name='next_texture_data_id'/>
         <d-float name='locx'/>
         <d-float name='locy'/>
         <d-float name='locz'/>
@@ -259,6 +286,10 @@
         <s-float name='fade_a'/>
         <s-float name='fade_t'/>
         <int8_t name='buffer_draw'/>
+    </struct-type>
+
+    <struct-type type-name='text_systemst'>
+        <stl-vector name='file_info' pointer-type='text_system_file_info'/>
     </struct-type>
 
     <struct-type type-name='text_system_file_info'>

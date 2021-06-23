@@ -403,7 +403,7 @@
 
             <int32_t name='demand_timeout' init-value='1000'/>
             <int32_t name='mandate_timeout' init-value='1000'/>
-            <int8_t/>
+            <int8_t name='wagon_facing'/>
 
             <compound type-name='language_name' name='artifact_name'/>
             <int32_t name='strength'/>

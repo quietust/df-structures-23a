@@ -312,10 +312,16 @@
         </bitfield>
     </struct-type>
 
+    <enum-type type-name='effect_type' base-type='int32_t'>
+        <enum-item name='SpellParticles'/>
+        <enum-item name='SpellGlow'/>
+        <enum-item name='FallIntoChasm'/>
+    </enum-type>
+
     <struct-type type-name='effect_info'>
         <int32_t name='id' comment='assigned during Save'/>
-        <pointer type-name='job'/>
-        <int16_t name='type' comment='2 = falling into chasm'/>
+        <pointer type-name='job' name='job'/>
+        <enum type-name='effect_type' base-type='int32_t' name='type'/>
         <int16_t name='foreground'/>
         <int16_t name='background'/>
         <int8_t name='bright'/>

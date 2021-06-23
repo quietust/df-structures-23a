@@ -146,13 +146,33 @@
 
         <stl-vector name="nemesis" type-name='int32_t' ref-target='nemesis_record'/>
 
-        <int32_t comment='unused_194 id, always -1'/>
-        <pointer comment='unused_194, always null'/>
+        <int32_t name='unk194_id' ref-target='world_data_unk194'/>
+        <pointer name='unk194' type-name='world_data_unk194'/>
         <df-flagarray name='flags'/>
 
         <stl-vector name="buildings" pointer-type='abstract_building'/>
 
         <int32_t name="next_building_id"/>
+    </struct-type>
+
+    <struct-type type-name='world_data_unk194' key-field='id'
+                 instance-vector='$global.world.world_data.unk194'>
+        <static-array count='3'>
+            <stl-vector>
+                <pointer>
+                    <int16_t/>
+                    <int16_t/>
+                    <int16_t/>
+                    <int16_t/>
+                    <int8_t/>
+                    <int32_t/>
+                    <int32_t/>
+                </pointer>
+            </stl-vector>
+        </static-array>
+        <int32_t name='id'/>
+        <int32_t/>
+        <int32_t/>
     </struct-type>
 
     <struct-type type-name='world_region' key-field='id' instance-vector='$global.world.world_data.regions'>
@@ -266,21 +286,21 @@
         <int32_t name="region_id" ref-target='world_region'/>
     </struct-type>
 
+    <struct-type type-name='moving_party'>
+        <compound name='pos' type-name='coord2d'/>
+        <stl-vector name='nemesis' type-name='int32_t' ref-target='nemesis_record'/>
+    </struct-type>
+
     <struct-type type-name='world_data'>
         <compound type-name='language_name' name='name'/>
 
-        <static-array count='15' type-name='int8_t'/>
+        <static-array count='15' name='gamemode_flags' type-name='int8_t'/>
         <int32_t name='save_folder_number'/>
         <int32_t name='next_site_id'/>
         <int32_t/>
         <int16_t name='world_width'/>
         <int16_t name='world_height'/>
-        <stl-vector name='travel'>
-            <pointer>
-                <compound name='pos' type-name='coord2d'/>
-                <stl-vector name='nemesis' type-name='int32_t' ref-target='nemesis_record'/>
-            </pointer>
-        </stl-vector>
+        <stl-vector name='travel' pointer-type='moving_party'/>
 
         <df-flagarray name='flags'/>
 
@@ -295,7 +315,7 @@
         <stl-vector type-name='int32_t' name='reclaim_indoor_y'/>
         <stl-vector type-name='int32_t' name='reclaim_outdoor_x'/>
         <stl-vector type-name='int32_t' name='reclaim_outdoor_y'/>
-        <int32_t/>
+        <int32_t name='base_moon_phase'/>
         <int32_t name='flip_latitude'/>
         <int32_t name='flip_longitude'/>
 
@@ -305,26 +325,7 @@
         <int32_t name='next_unit_chunk_index'/>
         <int32_t name='next_art_image_chunk_id'/>
         <int32_t name='next_art_image_chunk_index'/>
-        <stl-vector name='unused_194' comment='never populated with anything'>
-            <pointer>
-                <static-array count='3'>
-                    <stl-vector>
-                        <pointer>
-                            <int16_t/>
-                            <int16_t/>
-                            <int16_t/>
-                            <int16_t/>
-                            <int8_t/>
-                            <int32_t/>
-                            <int32_t/>
-                        </pointer>
-                    </stl-vector>
-                </static-array>
-                <int32_t/>
-                <int32_t/>
-                <int32_t/>
-            </pointer>
-        </stl-vector>
+        <stl-vector name='unk194' pointer-type='world_data_unk194' comment='never populated with anything'/>
         <stl-vector name="sites" pointer-type='world_site'/>
         <stl-vector name="regions" pointer-type='world_region'/>
 

@@ -106,6 +106,12 @@
                 <pointer type-name='descriptor_shape'/>
             </stl-vector>
         </compound>
+
+        <int16_t name='lava_stone' ref-target='matgloss_stone'/>
+        <int16_t name='river_stone' ref-target='matgloss_stone'/>
+        <int16_t name='flux_stone' ref-target='matgloss_stone'/>
+        <int16_t name='sharp_stone' ref-target='matgloss_stone'/>
+        <int16_t name='glass_gem' ref-target='matgloss_gem'/>
     </struct-type>
 </data-definition>
 
