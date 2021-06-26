@@ -91,8 +91,8 @@
             <int16_t name="tree" ref-target='matgloss_wood'/>
         </compound>
 
-        <int32_t name="count_min" init-value='30000'/>
-        <int32_t name="count_max" init-value='30000'/>
+        <int32_t name="quantity" init-value='30000'/>
+        <int32_t name="quantity_reload" init-value='30000'/>
 
         <bitfield name='flags' base-type='uint8_t'>
             <flag-bit name='discovered'/>

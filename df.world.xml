@@ -291,12 +291,11 @@
             <compound type-name='language_name' name='name'/>
             <int32_t/>
             <int32_t name='site' ref-target='world_site'/>
-            <int8_t/>
-            <int16_t/>
-            <int32_t/>
-            <int16_t name='longitude'/>
-            <int16_t name='latitude'/>
-            <compound name='pos' type-name='coord2d'/>
+            <int8_t name='embark_season'/>
+            <int16_t name='embark_tick'/>
+            <int32_t name='embark_year'/>
+            <compound name='pos_indoor' type-name='coord2d'/>
+            <compound name='pos_outdoor' type-name='coord2d'/>
         </compound>
         <bool name="reindex_pathfinding" comment='forces map_block.passable to be recomputed'/>
         <int32_t name='frame_counter' comment='increases by 1 every time . is pressed'/>
