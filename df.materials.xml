@@ -184,6 +184,16 @@
         </enum-item>
     </enum-type>
 
+    <struct-type type-name='temperature_raw'>
+        <uint16_t name='spec_heat'/>
+        <uint16_t name='heatdam_point'/>
+        <uint16_t name='colddam_point'/>
+        <uint16_t name='ignite_point'/>
+        <uint16_t name='melting_point'/>
+        <uint16_t name='boiling_point'/>
+        <uint16_t name='fixed_temp'/>
+    </struct-type>
+
     <bitfield-type type-name='matgloss_stone_flags' base-type='uint32_t'>
         <flag-bit name='LIGHT'/>
         <flag-bit name='DARK'/>
@@ -202,13 +212,7 @@
         <uint8_t name='tile'/>
         <static-array type-name='int16_t' name='color' count='3'/>
 
-        <uint16_t name='spec_heat'/>
-        <uint16_t name='heatdam_point'/>
-        <uint16_t name='colddam_point'/>
-        <uint16_t name='ignite_point'/>
-        <uint16_t name='melting_point'/>
-        <uint16_t name='boiling_point'/>
-        <uint16_t name='fixed_temp'/>
+        <compound name='temperature' type-name='temperature_raw'/>
     </struct-type>
 
     <bitfield-type type-name='matgloss_gem_flags' base-type='uint32_t'>
@@ -228,13 +232,7 @@
         <int16_t name='color'/>
         <int32_t name='value'/>
 
-        <uint16_t name='spec_heat'/>
-        <uint16_t name='heatdam_point'/>
-        <uint16_t name='colddam_point'/>
-        <uint16_t name='ignite_point'/>
-        <uint16_t name='melting_point'/>
-        <uint16_t name='boiling_point'/>
-        <uint16_t name='fixed_temp'/>
+        <compound name='temperature' type-name='temperature_raw'/>
     </struct-type>
 
     <bitfield-type type-name='matgloss_plant_flags' base-type='uint32_t'>
@@ -266,6 +264,14 @@
         <flag-bit name='MILL_DYE'/>
     </bitfield-type>
 
+    <enum-type type-name='plant_temperature_type'>
+        <enum-item name='STRUCTURAL'/>
+        <enum-item name='CLOTH'/>
+        <enum-item name='EXTRACT'/>
+        <enum-item name='DRINK'/>
+        <enum-item name='CHEESE'/>
+    </enum-type>
+
     <struct-type type-name='matgloss_plant' instance-vector='$global.world.raws.matgloss.plant'>
         <stl-string name='id'/>
         <code-helper name='describe'>$.id</code-helper>
@@ -278,16 +284,7 @@
         <stl-string name='mill_name'/>
         <stl-string name='extract_name'/>
 
-        <static-array count='5' name='temperatures'> // plant, CLOTH, EXTRACT, DRINK, CHEESE
-            <uint16_t name='spec_heat'/>
-            <uint16_t name='heatdam_point'/>
-            <uint16_t name='colddam_point'/>
-            <uint16_t name='ignite_point'/>
-            <uint16_t name='melting_point'/>
-            <uint16_t name='boiling_point'/>
-            <uint16_t name='fixed_temp'/>
-        </static-array>
-
+        <static-array type-name='temperature_raw' count='5' name='temperatures' index-enum='plant_temperature_type' />
         <stl-string name='mill_dye'/>
         <int16_t name='mill_dye_color' ref-target='descriptor_color'/>
         <uint8_t name='tile'/>
@@ -366,13 +363,7 @@
             <pointer type-name='stl-string'/>
         </stl-vector>
 
-        <uint16_t name='spec_heat'/>
-        <uint16_t name='heatdam_point'/>
-        <uint16_t name='colddam_point'/>
-        <uint16_t name='ignite_point'/>
-        <uint16_t name='melting_point'/>
-        <uint16_t name='boiling_point'/>
-        <uint16_t name='fixed_temp'/>
+        <compound name='temperature' type-name='temperature_raw'/>
     </struct-type>
 
     <struct-type type-name='material_vec_ref'>

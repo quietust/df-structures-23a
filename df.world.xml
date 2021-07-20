@@ -26,11 +26,11 @@
 
     <struct-type type-name='fire'>
         <compound type-name='coord' name='pos'/>
-        <int16_t comment='1000'/>
-        <uint16_t name='temperature_1'/>
-        <uint16_t comment='10000'/>
-        <uint16_t name='temperature_2'/>
-        <uint16_t name='temperature_3'/>
+        <int16_t name='timer' init-value='1000'/>
+        <uint16_t name='inner_temp_cur' init-value='10508'/>
+        <uint16_t name='outer_temp_cur' init-value='10000'/>
+        <uint16_t name='inner_temp_max' init-value='10708'/>
+        <uint16_t name='outer_temp_max' init-value='10708'/>
     </struct-type>
 
     <struct-type type-name='world'>

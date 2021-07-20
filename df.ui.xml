@@ -32,27 +32,19 @@
             </stl-vector>
             <int32_t name='reach_room_timer'/>
             <int32_t name='tc_protect_timer'/>
-            <int32_t name='guard1_reach_tc_timer'/>
-            <int32_t name='guard2_reach_tc_timer'/>
+            <static-array type-name='int32_t' count='2' name='guard_reach_tc_timer'/>
             <int16_t name='collected'/>
             <int16_t name='quota'/>
-            <int32_t name='tc_x'/>
-            <int32_t name='tc_y'/>
-            <int32_t name='tc_z'/>
-            <int32_t name='guard1_x'/>
-            <int32_t name='guard2_x'/>
-            <int32_t name='guard1_y'/>
-            <int32_t name='guard2_y'/>
-            <int32_t name='guard1_z'/>
-            <int32_t name='guard2_z'/>
+            <compound type-name='coord32' name='collector_pos'/>
+            <static-array type-name='int32_t' count='2' name='guard_x'/>
+            <static-array type-name='int32_t' count='2' name='guard_y'/>
+            <static-array type-name='int32_t' count='2' name='guard_z'/>
             <pointer type-name='unit' name='collector'/>
             <pointer type-name='unit' name='guard1'/>
             <pointer type-name='unit' name='guard2'/>
             <int8_t name='guard_lack_complained'/>
         </compound>
-        <stl-vector name='caravans'>
-            <pointer type-name='caravan_state'/>
-        </stl-vector>
+        <stl-vector name='caravans' pointer-type='caravan_state'/>
         <int8_t name='firstCaravan' comment='display special screens on arrival/departure of first caravan'/>
         <compound type-name='coord32_path' name='humanPath'/>
         <compound type-name='coord32_path' name='dwarfPath'/>

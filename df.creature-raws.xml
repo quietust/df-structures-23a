@@ -248,8 +248,8 @@
         <stl-vector type-name='int16_t' name='specialattack_material' comment='extract injected'/>
         <stl-vector type-name='int32_t' name='specialattack_min' comment='amount of extract injected or blood sucked'/>
         <stl-vector type-name='int32_t' name='specialattack_max'/>
-        <stl-vector type-name='int16_t' name='by_token'/>
-        <stl-vector type-name='int16_t' name='by_type'/>
+        <stl-string name='by_token'/>
+        <stl-string name='by_type'/>
     </struct-type>
 
     <struct-type type-name='body_info'>
@@ -261,6 +261,29 @@
             <pointer type-name='creature_attack'/>
         </stl-vector>
     </struct-type>
+
+    <enum-type type-name='blood_type' base-type='int8_t'>
+        <enum-item name='GREEN'/>
+        <enum-item name='BLUE'/>
+        <enum-item name='PUS'/>
+        <enum-item name='MAGENTA'/>
+        <enum-item name='CYAN'/>
+        <enum-item name='ICHOR'/>
+        <enum-item name='GOO'/>
+        <enum-item name='VOMIT'/>
+        <enum-item name='SLIME'/>
+        <enum-item name='RED'/>
+    </enum-type>
+
+    <enum-type type-name='creature_temperature_type'>
+        <enum-item name='BODY'/>
+        <enum-item name='SILK'/>
+        <enum-item name='LEATHER'/>
+        <enum-item name='BONE'/>
+        <enum-item name='EXTRACT'/>
+        <enum-item name='CHEESE'/>
+        <enum-item name='DRINK'/>
+    </enum-type>
 
     <enum-type type-name='creature_graphics_role'>
         <enum-item name='DEFAULT'/>
@@ -301,18 +324,10 @@
 
         <uint8_t name='tile'/>
         <uint8_t name='alttile'/>
-        <int8_t name='bloodtype'/>
+        <enum name='bloodtype' type-name='blood_type'/>
         <uint8_t name='glowtile'/>
 
-        <static-array count='7'> // body, SILK, LEATHER, BONE, EXTRACT, CHEESE, DRINK
-            <uint16_t name='spec_heat'/>
-            <uint16_t name='heatdam_point'/>
-            <uint16_t name='colddam_point'/>
-            <uint16_t name='ignite_point'/>
-            <uint16_t name='melting_point'/>
-            <uint16_t name='boiling_point'/>
-            <uint16_t name='fixed_temp'/>
-        </static-array>
+        <static-array type-name='temperature_raw' name='temperatures' count='7' index-enum='creature_temperature_type'/>
         <uint16_t name='homeotherm'/>
 
         <uint16_t name='min_temp'/>
