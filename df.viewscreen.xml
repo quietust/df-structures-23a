@@ -480,8 +480,8 @@
 
     <class-type type-name='viewscreen_entityst' inherits-from='viewscreen'>
         <pointer name='entity' type-name='historical_entity'/>
-        <stl-vector type-name='pointer'/>
-        <int32_t/>?
+        <stl-vector name='unused_1'/>
+        <int32_t name='unused_2'/>
         <stl-vector name='members' pointer-type='nemesis_record'/>
         <int32_t name='member_cursor'/>
         <stl-vector name='agreements' pointer-type='meeting_event'/>
