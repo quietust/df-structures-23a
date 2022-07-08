@@ -85,7 +85,7 @@
         </static-array>
 
         <int32_t name='language' ref-target='language_translation'/>
-        <int16_t name='unknown'/>
+        <enum base-type='int16_t' name='type' type-name='language_name_type'/>
 
         <bool name='has_name'/>
 
@@ -176,6 +176,27 @@
         <enum-item name='ArtImage'/>
         <enum-item name='DemonEvil' comment='Lesser demons pick between these two randomly'/>
         <enum-item name='DemonGood'/>
+    </enum-type>
+
+    <enum-type type-name='language_name_type' base-type='int16_t'>
+        <enum-item name='NONE' value='-1'/>
+
+        0
+        <enum-item name='Unk0'/>
+        <enum-item name='Figure'/>
+        <enum-item name='Artifact'/>
+        <enum-item name='Civilization'/>
+        <enum-item name='Squad'/>
+        <enum-item name='Site'/>
+        <enum-item name='World'/>
+        <enum-item name='Region'/>
+        <enum-item name='Dungeon'/>
+        <enum-item name='VeryLegendaryFigure'/>
+
+        10
+        <enum-item name='LegendaryFigure'/>
+        <enum-item name='ArtImage'/>
+        <enum-item name='SiteGovernment'/>
     </enum-type>
 </data-definition>
 
