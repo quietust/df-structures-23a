@@ -145,6 +145,7 @@
         <int32_t name="id"/>
 
         <stl-vector name="nemesis" type-name='int32_t' ref-target='nemesis_record'/>
+        <stl-vector name="item_ids" type-name='int32_t' ref-target='item'/>
 
         <int32_t name='unk194_id' ref-target='world_data_unk194'/>
         <pointer name='unk194' type-name='world_data_unk194'/>
